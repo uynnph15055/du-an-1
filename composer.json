@@ -1,0 +1,21 @@
+{
+    "name": "uynguyen/php_2",
+    "authors": [
+        {
+            "name": "uynguyen1234",
+            "email": "uynnph15055@fpt.edu.vn"
+        }
+    ],
+    "require": {
+        "illuminate/events": "^8.68",
+        "jenssegers/blade": "*",
+        "phroute/phroute": "^2.1",
+        "illuminate/database": "^8.68"  
+    },
+    "autoload": {
+        "psr-4": {"App\\":"app/",
+            "Commons\\": "common/",
+            "Controllers\\": "controllers/"
+        }
+    }
+}
