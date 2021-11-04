@@ -12,6 +12,11 @@ class adminCourse extends baseController
         $dataCourse = modelCourse::all();
         $this->render("admin.adminCourse.listCourse", ['dataCourse' => $dataCourse]);
     }
+    function editPage()
+    {
+
+        $this->render("admin.adminCourse.editCourse", []);
+    }
 
     function addCourse()
     {

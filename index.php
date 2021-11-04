@@ -16,10 +16,11 @@ switch ($url) {
         $ctr = new adminCourse();
         echo $ctr->addCourse();
         break;
-    case 'my-name':
+    case 'sua-khoa-hoc':
         $ctr = new adminCourse();
-        echo $ctr->index();
+        echo $ctr->editPage();
         break;
+
     default:
         "Không tồn tại file nào";
         break;
