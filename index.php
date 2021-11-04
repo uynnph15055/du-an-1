@@ -4,41 +4,23 @@ session_start();
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 
 require_once "./vendor/autoload.php";
-require_once "./common/database-config.php";
 
-use App\Controllers\Backend\adminProduct;
+use App\Controllers\Backend\adminCourse;
 
 switch ($url) {
-    case 'admin-product':
-        $ctr = new adminProduct();
-        $ctr->index();
+    case '/':
+        $ctr = new adminCourse();
+        echo $ctr->index();
         break;
-    case 'add-product-page':
-        $ctr = new adminProduct();
-        $ctr->addProductPage();
+    case 'addCourse':
+        $ctr = new adminCourse();
+        echo $ctr->addCourse();
         break;
-    case 'save-add-product':
-        $ctr = new adminProduct();
-        $ctr->addProduct();
+    case 'my-name':
+        $ctr = new adminCourse();
+        echo $ctr->index();
         break;
-    case 'remove-product':
-        $ctr = new adminProduct();
-        $ctr->remove();
-        break;
-    case 'edit-product':
-        $ctr = new adminProduct();
-        $ctr->editPage();
-        break;
-    case 'save-edit-product':
-        $ctr = new adminProduct();
-        $ctr->edit();
-        break;
-
     default:
-<<<<<<< HEAD
-        "Không tồn tại file nào"; //Hellooooooossssssssssss
-=======
-        "Không tồn tại file nào"; 
->>>>>>> 83f3d23c9e41381157e89ebb88417909f97ac99d
+        "Không tồn tại file nào";
         break;
 }
