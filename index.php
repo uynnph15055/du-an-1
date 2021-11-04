@@ -34,11 +34,6 @@ switch ($url) {
         $ctr->edit();
         break;
 
-    default:
-<<<<<<< HEAD
-        "Không tồn tại file nào"; //Hellooooooossssssssssss
-=======
-        "Không tồn tại file nào"; 
->>>>>>> 83f3d23c9e41381157e89ebb88417909f97ac99d
+    default: echo 'khoong toofn tai';
         break;
 }

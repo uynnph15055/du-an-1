@@ -9,7 +9,7 @@ $capsule = new Capsule;
 $capsule->addConnection([
     'driver'    => 'mysql',
     'host'      => '127.0.0.1',
-    'database'  => 'data_test',
+    'database'  => 'project_one',
     'username'  => 'root',
     'password'  => '',
     'charset'   => 'utf8',
