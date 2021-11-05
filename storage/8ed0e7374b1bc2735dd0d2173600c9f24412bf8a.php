@@ -16,6 +16,7 @@
                     <label for="exampleInputPassword1" class="form-label">Slug</label>
                     <input type="text" class="form-control" id="convert_slug" name="course_slug" placeholder="Slug khóa học" id="exampleInputPassword1">
                 </div>
+                <div id="summernote"></div>
                 <button type="submit" class="btn btn-primary">Thêm</button>
             </form>
         </div>
