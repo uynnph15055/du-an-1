@@ -17,4 +17,14 @@ class modelSubject extends DB
         $statement = $connect->prepare($queryBuilder);
         $statement->execute($data);
     }
+    
+    // HÀm Update môn học 
+    public static function updateSubject($data)
+    {
+        $model = new static();
+        $connect = $model->getConnect();
+        $queryBuilder =  "UPDATE subject SET subject_name=:subject_name , subject_slug=:subject_slug , subject_description=:subject_description,date_post=:date_post, subject_img=:subject_img WHERE subject_id=:subject_id ";
+        $statement = $connect->prepare($queryBuilder);
+        $statement->execute($data);
+    }
 }

@@ -18,9 +18,17 @@ switch ($url) {
         break;
     case 'xoa-khoa-hoc':
         $ctr = new adminSubject();
-        echo $ctr->delete();
+     $ctr->delete();
         break;
-
+    case 'sua-khoa-hoc':
+        $ctr = new adminSubject();
+        echo $ctr->editSubject();
+        break;
+        case 'update-mon-hoc':
+            $ctr = new adminSubject();
+          $ctr->updateSubject();
+            break;
+    
     default:
         "Không tồn tại file nào";
         break;

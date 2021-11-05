@@ -1,6 +1,6 @@
-@extends('admin.layouts.baseAdmin')
-@section('title', 'Danh sách môn học')
-@section('main_content')
+
+<?php $__env->startSection('title', 'Danh sách môn học'); ?>
+<?php $__env->startSection('main_content'); ?>
 <style>
     .input-text {
         border: 1px solid #ccc;
@@ -14,26 +14,26 @@
     Nhập vào cần  : onkeyup="ChangeToSlug()" ,  id="slug" ;
     Tự động : id="convert_slug"
       -->
-    @if(isset($editSubject))
+    <?php if(isset($editSubject)): ?>
     <h3 class="text-center">Danh sách môn học</h3>
     <div class="row">
         <div class="col-4">
             <h4>Sửa môn học</h4>
-            @if(isset($dataEditSubject))
+            <?php if(isset($dataEditSubject)): ?>
          
             <form method="POST" enctype="multipart/form-data" action="update-mon-hoc">
-            @foreach($dataEditSubject as $key)
-                <input type="hidden" name="subject_id" value="{{$key['subject_id']}}">
+            <?php $__currentLoopData = $dataEditSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <input type="hidden" name="subject_id" value="<?php echo e($key['subject_id']); ?>">
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tên môn học</label>
-                    <input type="text" value="{{$key['subject_name']}}"  class="form-control" onkeyup="ChangeToSlug()" placeholder="Tên khóa học" name="subject_name" id="slug" aria-describedby="emailHelp">
+                    <input type="text" value="<?php echo e($key['subject_name']); ?>"  class="form-control" onkeyup="ChangeToSlug()" placeholder="Tên khóa học" name="subject_name" id="slug" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Slug</label>
-                    <input type="text" value="{{$key['subject_slug']}}" class="form-control" id="convert_slug" name="subject_slug" placeholder="Slug khóa học">
+                    <input type="text" value="<?php echo e($key['subject_slug']); ?>" class="form-control" id="convert_slug" name="subject_slug" placeholder="Slug khóa học">
                 </div>
-                <img width="60px" src="./public/img/{{$key['subject_img']}}" alt="">
+                <img width="60px" src="./public/img/<?php echo e($key['subject_img']); ?>" alt="">
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Ảnh</label>
                     <input type="file" name="subject_img" id="convert_slug">
@@ -41,14 +41,14 @@
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Giới thiệu</label>
                     <br>
-                    <textarea class="input-text" value="{{$key['subject_slug']}}" placeholder="Giới thiệu môn học" name="subject_description" rows="7" cols="41"></textarea>
+                    <textarea class="input-text" value="<?php echo e($key['subject_slug']); ?>" placeholder="Giới thiệu môn học" name="subject_description" rows="7" cols="41"></textarea>
                 </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 <button type="submit" class="btn btn-primary">Thêm</button>
           
             </form>
 
-            @endif
+            <?php endif; ?>
         </div>
         <div class="col-8" style="margin-top:70px">
             <table class="table table-bordered">
@@ -67,25 +67,25 @@
                     <?php
                     $index = 1;
                     ?>
-                    @foreach($dataSubject as $key)
+                    <?php $__currentLoopData = $dataSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td><?= $index++ ?></td>
-                        <td>{{$key['subject_name']}}</td>
+                        <td><?php echo e($key['subject_name']); ?></td>
                         <td>
-                            <img width="60px" src="./public/img/{{$key['subject_img']}}" alt="">
+                            <img width="60px" src="./public/img/<?php echo e($key['subject_img']); ?>" alt="">
                         </td>
-                        <td>{{$key['subject_status']}}</td>
-                        <td>{{$key['date_post']}}</td>
-                        <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id={{$key['subject_id']}}">Sửa</a></td>
-                        <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id={{$key['subject_id']}}">Xóa</a></td>
+                        <td><?php echo e($key['subject_status']); ?></td>
+                        <td><?php echo e($key['date_post']); ?></td>
+                        <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id=<?php echo e($key['subject_id']); ?>">Sửa</a></td>
+                        <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id=<?php echo e($key['subject_id']); ?>">Xóa</a></td>
                     </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-@else
+<?php else: ?>
 <h3 class="text-center">Danh sách môn học</h3>
 <div class="row">
     <div class="col-4">
@@ -128,25 +128,26 @@
                 <?php
                 $index = 1;
                 ?>
-                @foreach($dataSubject as $key)
+                <?php $__currentLoopData = $dataSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
                     <td><?= $index++ ?></td>
-                    <td>{{$key['subject_name']}}</td>
+                    <td><?php echo e($key['subject_name']); ?></td>
                     <td>
-                        <img width="60px" src="./public/img/{{$key['subject_img']}}" alt="">
+                        <img width="60px" src="./public/img/<?php echo e($key['subject_img']); ?>" alt="">
                     </td>
-                    <td>{{$key['subject_status']}}</td>
-                    <td>{{$key['date_post']}}</td>
-                    <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id={{$key['subject_id']}}">Sửa</a></td>
-                    <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id={{$key['subject_id']}}">Xóa</a></td>
+                    <td><?php echo e($key['subject_status']); ?></td>
+                    <td><?php echo e($key['date_post']); ?></td>
+                    <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id=<?php echo e($key['subject_id']); ?>">Sửa</a></td>
+                    <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id=<?php echo e($key['subject_id']); ?>">Xóa</a></td>
                 </tr>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
         </table>
     </div>
 </div>
 </div>
-@endif
+<?php endif; ?>
 
 <!-- dd($data['dataCateProduct']); -->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/admin/adminSubject/listSubject.blade.php ENDPATH**/ ?>
