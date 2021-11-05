@@ -45,6 +45,7 @@
                     <tr>
                         <th>STT</th>
                         <th>Tên môn</th>
+                        <th>Ảnh</th>
                         <th>Trạng thái</th>
                         <th>Ngày đăng</th>
                         <th>Sửa</th>
@@ -59,6 +60,9 @@
                     <tr>
                         <td><?= $index++ ?></td>
                         <td>{{$key['subject_name']}}</td>
+                        <td>
+                            <img width="60px" src="./public/img/{{$key['subject_img']}}" alt="">
+                        </td>
                         <td>{{$key['subject_status']}}</td>
                         <td>{{$key['date_post']}}</td>
                         <td><a class="btn btn-warning" href="">Sửa</a></td>

@@ -3,18 +3,18 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\baseController;
-use App\Models\modelCourse;
+use App\Models\modelSubject;
 
 class adminCourse extends baseController
 {
     function index()
     {
-        $dataCourse = modelCourse::all();
+        $dataCourse = modelSubject::all();
         $this->render("admin.adminCourse.listCourse", ['dataCourse' => $dataCourse]);
     }
     function editPage()
     {
-    $this->render("admin.adminCourse.editCourse", []);
+        $this->render("admin.adminCourse.editCourse", []);
     }
 
     function addCourse()
