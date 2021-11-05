@@ -6,6 +6,7 @@ use PDO;
 
 class DB
 {
+    // Hàm kết nốt
     function getConnect()
     {
         $conn = new PDO("mysql:host=127.0.0.1;dbname=project_one;charset=utf8", 'root', '');
@@ -27,7 +28,7 @@ class DB
     public static function where($col, $sign, $val)
     {
         $model = new static();
-        $queryBuilder = "SELECT * FROM $model->table WHERE $col $sign $val";
+        $model->queryBuilder = "SELECT * FROM $model->table WHERE $col $sign $val";
         return $model;
     }
 
@@ -35,7 +36,7 @@ class DB
     public static function delete($col, $sign, $val)
     {
         $model = new static();
-        $queryBuilder = "SELECT * FROM $model->table WHERE $col $sign $val";
+        $model->queryBuilder = "DELETE FROM $model->table WHERE $col $sign $val";
         return $model;
     }
 
@@ -49,7 +50,7 @@ class DB
     }
 
     // Hàm dung chung để gọi tất cả dữ liệu VD: hàm where
-    function execute()
+    function executeQuery()
     {
         $conn = $this->getConnect();
         $stmt = $conn->prepare($this->queryBuilder);
