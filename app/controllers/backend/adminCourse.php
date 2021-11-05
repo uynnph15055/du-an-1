@@ -14,8 +14,7 @@ class adminCourse extends baseController
     }
     function editPage()
     {
-
-        $this->render("admin.adminCourse.editCourse", []);
+    $this->render("admin.adminCourse.editCourse", []);
     }
 
     function addCourse()
