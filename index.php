@@ -2,7 +2,6 @@
 
 session_start();
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
-
 require_once "./vendor/autoload.php";
 
 use App\Controllers\Backend\adminCourse;

@@ -23,7 +23,10 @@ class adminCourse extends baseController
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            $this->dd($_POST);
+           
+        }
+        if(isset($_POST[''])){
+
         }
     }
 }
