@@ -13,11 +13,11 @@ class modelSubject extends DB
     {
         $model = new static();
         $connect = $model->getConnect();
-        $queryBuilder =  "INSERT INTO subject(subject_name , subject_slug , subject_description,date_post , subject_img) VALUES (:subject_name , :subject_slug , :subject_description , :date_post , :subject_img)";
+        $queryBuilder =  "INSERT INTO subject(subject_name , subject_slug , subject_description,date_post , subject_img , cate_id) VALUES (:subject_name , :subject_slug , :subject_description , :date_post , :subject_img , :cate_id)";
         $statement = $connect->prepare($queryBuilder);
         $statement->execute($data);
     }
-    
+
     // HÀm Update môn học 
     public static function updateSubject($data)
     {
@@ -26,5 +26,15 @@ class modelSubject extends DB
         $queryBuilder =  "UPDATE subject SET subject_name=:subject_name , subject_slug=:subject_slug , subject_description=:subject_description,date_post=:date_post, subject_img=:subject_img WHERE subject_id=:subject_id ";
         $statement = $connect->prepare($queryBuilder);
         $statement->execute($data);
+    }
+
+    public static function joinCate()
+    {
+        $model = new static();
+        $connect = $model->getConnect();
+        $queryBuilder =  "SELECT * FROM `subject` INNER JOIN `cateSubject` ON subject.cate_id = cateSubject.cate_id ORDER BY  subject.subject_id DESC ";
+        $statement = $connect->prepare($queryBuilder);
+        $statement->execute();
+        return $statement->fetchAll();
     }
 }
