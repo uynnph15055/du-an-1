@@ -92,44 +92,45 @@ class adminSubject extends baseController
             'editSubject' => 'editSubject',
         ]);
     }
-    
-    function updateSubject(){
-     // Kiếm tra request_method
-     if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        extract($_POST);
-  
-        if (!empty($subject_name) || !trim($subject_name) || !empty($subject_slug) || !empty($subject_description)  || !trim($subject_slug) || !trim($subject_description)) {
 
-            $file = $_FILES['subject_img'];
+    function updateSubject()
+    {
+        // Kiếm tra request_method
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            extract($_POST);
 
-            if ($file['size'] > 0) {
-                $file_name = $file['name'];
-                move_uploaded_file($file['tmp_name'], './public/img/' . $file_name);
+            if (!empty($subject_name) || !trim($subject_name) || !empty($subject_slug) || !empty($subject_description)  || !trim($subject_slug) || !trim($subject_description)) {
+
+                $file = $_FILES['subject_img'];
+
+                if ($file['size'] > 0) {
+                    $file_name = $file['name'];
+                    move_uploaded_file($file['tmp_name'], './public/img/' . $file_name);
+                } else {
+                    $_SESSION['error'] = "Bạn chưa chọn ảnh !!!";
+                    header('Location: ./');
+                    die();
+                }
+
+                $date_post = date('d-m-Y');
+                $data = [
+                    'subject_id' => $subject_id,
+                    'subject_name' => $subject_name,
+                    'subject_slug' => $subject_slug,
+                    'subject_description' => $subject_description,
+                    'date_post' => $date_post,
+                    'subject_img' => $file_name,
+                ];
+
+                // $this->dd($data);
+
+                modelSubject::updateSubject($data);
+                header('Location: http://localhost/project_one/');
             } else {
-                $_SESSION['error'] = "Bạn chưa chọn ảnh !!!";
+                $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
                 header('Location: ./');
                 die();
             }
-
-            $date_post = date('d-m-Y');
-            $data = [
-                'subject_id'=>$subject_id,
-                'subject_name' => $subject_name,
-                'subject_slug' => $subject_slug,
-                'subject_description' => $subject_description,
-                'date_post' => $date_post,
-                'subject_img' => $file_name,
-            ];
-
-            // $this->dd($data);
-
-            modelSubject::updateSubject($data);
-            header('Location: http://localhost/project_one/');
-        } else {
-            $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
-            header('Location: ./');
-            die();
         }
-    }
     }
 }
