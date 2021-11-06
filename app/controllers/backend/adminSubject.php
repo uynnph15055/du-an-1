@@ -36,6 +36,7 @@ class adminSubject extends baseController
     {
         $id = $_GET['type_id'];
         $this->dd($id);
+        // Okoook
     }
 
     // Thêm môn học
