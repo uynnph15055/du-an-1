@@ -50,6 +50,14 @@ switch ($url) {
         $ctr = new adminCateSubject();
         echo $ctr->delete();
         break;
+    case 'sua-danh-muc';
+        $ctr = new adminCateSubject();
+        echo $ctr->edit();
+        break;
+    case 'update-danh-muc';
+        $ctr = new adminCateSubject();
+        echo $ctr->update();
+        break;
 
     default:
         "Không tồn tại file nào";

@@ -56,4 +56,39 @@ class adminCateSubject extends baseController
             header('Location: ./danh-sach-loai-mon-hoc');
         }
     }
+
+    //edit
+    function edit()
+    {
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        $model = modelCateSubject::where("cate_id", "=", $id)->get();
+        $cateSubject = modelCateSubject::all();
+        $this->render("admin.cateSubject.listCateSubject", [
+            'modelCate' => $model,
+            'dataCate' => $cateSubject,
+            'editCate'=>'editCate'
+        ]);
+    }
+    function update(){
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            extract($_POST);
+
+            if (!empty($cate_name) || !trim($cate_name) || !empty($cate_slug) || !trim($cate_slug)) {
+                $date_create = date('Y-m-d');
+                // $this->dd($date_create);
+                $data = [
+                    'cate_id'=>$cate_id,
+                    'cate_name' => $cate_name,
+                    'cate_slug' => $cate_slug,
+                    'date_create' => $date_create,
+                ];
+                modelCateSubject::updateCate($data);
+                header('Location: ./danh-sach-loai-mon-hoc');
+            } else {
+                $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
+                header('Location: ./danh-sach-loai-mon-hoc');
+                die();
+            }
+        }  
+    }
 }

@@ -15,16 +15,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
     <link href="./public/css/adminCss/sb-admin-2.css" rel="stylesheet" type="text/css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    <link href="./public/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!--  -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <!-- Custom fonts for this template-->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
-    <!-- <link href="./public/css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css"> -->
-    <!-- Custom styles for this template-->
 
 </head>
 
@@ -373,7 +371,7 @@
     <!-- Logout Modal-->
 
 
-Bootstrap core JavaScript-->
+
    <script src="./vendor/jquery/jquery.min.js"></script>
     <script src="./public/js/adminJs/sb-admin-2.min.js"></script>
     <script src="./public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -394,6 +392,23 @@ Bootstrap core JavaScript-->
     <script src="./public/js/demo/chart-area-demo.js"></script>
     <script src="./public/js/demo/chart-pie-demo.js"></script>
 
+    <script src="./public/js/adminJs/slug.js"></script>
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Hello stand alone ui',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
 </body>
 
 </html><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/admin/layouts/baseAdmin.blade.php ENDPATH**/ ?>
