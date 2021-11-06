@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\baseController;
+use App\Models\modelCateSubject;
 use App\Models\modelSubject;
 
 class adminSubject extends baseController
@@ -10,14 +11,31 @@ class adminSubject extends baseController
     //  
     function index()
     {
-        $dataSubject = modelSubject::all();
-        $this->render("admin.adminSubject.listSubject", ['dataSubject' => $dataSubject]);
+        $dataSubject = modelSubject::joinCate();
+        $this->render("admin.adminSubject.listSubject", [
+            'dataSubject' => $dataSubject,
+        ]);
     }
 
     // Chuyển đến trang sửa
     function editPage()
     {
         $this->render("admin.adminCourse.editCourse", []);
+    }
+
+    // Chuyển đến trang thêm môn học
+    function addPage()
+    {
+        $cateSubject = modelCateSubject::all();
+        $this->render("admin.adminSubject.formSubject", [
+            'cateSubject' => $cateSubject,
+        ]);
+    }
+
+    function formPrice()
+    {
+        $id = $_GET['type_id'];
+        $this->dd($id);
     }
 
     // Thêm môn học
@@ -27,7 +45,7 @@ class adminSubject extends baseController
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($subject_name) || !trim($subject_name) || !empty($subject_slug) || !empty($subject_description)  || !trim($subject_slug) || !trim($subject_description)) {
+            if (!empty($subject_name) || !trim($subject_name) || !empty($subject_slug) || !empty($subject_description)  || !trim($subject_slug) || !trim($subject_description) || !empty($cate_id)) {
 
                 $file = $_FILES['subject_img'];
 
@@ -47,6 +65,7 @@ class adminSubject extends baseController
                     'subject_description' => $subject_description,
                     'date_post' => $date_post,
                     'subject_img' => $file_name,
+                    'cate_id' => $cate_id,
                 ];
 
                 // $this->dd($data);
@@ -70,7 +89,8 @@ class adminSubject extends baseController
             die();
         }
 
-        if (!empty($models)) {
+        $models = modelSubject::where("subject_id", "=", $id)->get();
+        if (empty($models)) {
             header('Location: ./mess=id không tồn tại');
             die();
         } else {
