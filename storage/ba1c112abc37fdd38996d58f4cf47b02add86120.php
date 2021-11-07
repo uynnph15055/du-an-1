@@ -14,6 +14,7 @@
         color: #777;
         border-radius: 6px;
         height: 35px;
+        padding-left: 10px;
     }
 
     .btn-price {
@@ -23,6 +24,7 @@
         border: none;
         border-radius: 6px;
         padding: 2px 20px;
+        margin-bottom: 20px;
     }
 
     .container-bg {
@@ -45,14 +47,27 @@
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Kiểu môn học</label>
                     <br>
-                    <select class="select" name="subject_name" id="type_id" aria-label="Default select example">
-                        <option selected>Loại môn học</option>
-                        <option value="0">Mất phí</option>
+                    <select class="select" name="subject_type" id="type_id" aria-label="Default select example">
+                        <option value="" selected>Loại môn học</option>
+                        <option value="0">Miễn phí</option>
                         <option value="1">Trả phí</option>
                     </select>
-                    <input type="submit" id="more_price" class="btn-price" value="Đi">
+                    <div class="accordion" id="accordionSection">
+                        <div class="accordion-item mb-3" style="margin-top:20px">
+                            <h2 class="accordion-header">
+                                <button type="button" style="display:none" class="accordion-button collapsed price__import" data-bs-toggle="collapse" data-bs-target="#collapseOne">Thêm giá cho môn học</button>
+                            </h2>
+                            <div class="accordion-collapse collapse" id="collapseOne" data-bs-parent="#accordionSection">
+                                <div class="accordion-body price__import">
+                                    <div class='input-group'>
+                                        <input type='text' placeholder='Giá sản phẩm' name='subject_price' aria-label='First name' class='form-control'>
+                                        <input type='text' placeholder='Giá giảm sản phẩm' name='subject_sale' aria-label='Last name' class='form-control'>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div id="form-price"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col">
@@ -60,7 +75,7 @@
                     <label for="exampleInputPassword1" class="form-label">Thuộc danh mục</label>
                     <br>
                     <select name="cate_id" class="select" aria-label="Default select example">
-                        <option selected>---Loai---</option>
+                        <option value="" selected>---Danh mục---</option>
                         <?php $__currentLoopData = $cateSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($key['cate_id']); ?>"><?php echo e($key['cate_name']); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -73,26 +88,26 @@
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Giới thiệu</label>
                     <br>
-                    <textarea class="input-text" placeholder="Giới thiệu môn học" name="subject_description" rows="4" cols="65"></textarea>
+                    <textarea class="input-text" placeholder="Giới thiệu môn học" name="subject_description" rows="5" cols="65"></textarea>
                 </div>
             </div>
         </div>
+        <button type="submit" class="btn btn-primary">Thêm</button>
     </form>
-    <button type="submit" class="btn btn-primary">Thêm</button>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
     $(document).ready(function() {
-        $('#more_price').click(function() {
-            var type_id = $('#type_id').val();
-            $.get("them-gia-mon", {
-                type_id: type_id,
-            }, function($data) {
-                $('#form-price').html($data);
-            });
+        $('#type_id').on('change', function() {
+            var type_id = $(this).val();
+            if (type_id == 1) {
+                $('.price__import').css("display", "block");
+            } else {
+                $('.price__import').css("display", "none");
+            }
         });
     });
 </script>
-<!-- dd($data['dataCateProduct']); -->
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/admin/adminSubject/formSubject.blade.php ENDPATH**/ ?>

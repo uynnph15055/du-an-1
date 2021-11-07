@@ -14,12 +14,24 @@ class adminCateSubject extends baseController
         $this->render("admin.cateSubject.listCateSubject", ['dataCate' => $cateSubject]);
     }
 
+    // Thêm danh mục
     function addCate()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
             if (!empty($cate_name) || !trim($cate_name) || !empty($cate_slug) || !trim($cate_slug)) {
+
+                $dataCate = modelCateSubject::all();
+
+                $key = array_search($cate_name, array_column($dataCate, 'cate_name'));
+                // $this->dd($key);
+                if ($key === 0) {
+                    $_SESSION['error'] = "Danh mục này đã tồn tại !!!";
+                    header('Location: ./danh-sach-loai-mon-hoc');
+                    die();
+                }
+
                 $date_create = date('Y-m-d');
                 // $this->dd($date_create);
                 $data = [
@@ -66,29 +78,30 @@ class adminCateSubject extends baseController
         $this->render("admin.cateSubject.listCateSubject", [
             'modelCate' => $model,
             'dataCate' => $cateSubject,
-            'editCate'=>'editCate'
+            'editCate' => 'editCate'
         ]);
     }
-    function update(){
+    function update()
+    {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($cate_name) || !trim($cate_name) || !empty($cate_slug) || !trim($cate_slug)) {
+            if (empty($cate_name) || empty($cate_slug)) {
                 $date_create = date('Y-m-d');
                 // $this->dd($date_create);
+                $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
+                header('Location: ./danh-sach-loai-mon-hoc');
+                die();
+            } else {
                 $data = [
-                    'cate_id'=>$cate_id,
+                    'cate_id' => $cate_id,
                     'cate_name' => $cate_name,
                     'cate_slug' => $cate_slug,
                     'date_create' => $date_create,
                 ];
                 modelCateSubject::updateCate($data);
                 header('Location: ./danh-sach-loai-mon-hoc');
-            } else {
-                $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
-                header('Location: ./danh-sach-loai-mon-hoc');
-                die();
             }
-        }  
+        }
     }
 }

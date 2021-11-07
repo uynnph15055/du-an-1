@@ -17,10 +17,6 @@ switch ($url) {
         $ctr = new adminSubject();
         echo $ctr->addPage();
         break;
-    case 'them-gia-mon':
-        $ctr = new adminSubject();
-        echo $ctr->formPrice();
-        break;
     case 'them-mon-hoc':
         $ctr = new adminSubject();
         echo $ctr->addSubject();

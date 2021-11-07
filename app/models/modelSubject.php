@@ -13,7 +13,7 @@ class modelSubject extends DB
     {
         $model = new static();
         $connect = $model->getConnect();
-        $queryBuilder =  "INSERT INTO subject(subject_name , subject_slug , subject_description,date_post , subject_img , cate_id) VALUES (:subject_name , :subject_slug , :subject_description , :date_post , :subject_img , :cate_id)";
+        $queryBuilder =  "INSERT INTO subject(subject_name , subject_slug , subject_description,date_post , subject_img , cate_id , type_id , subject_price , subject_sale) VALUES (:subject_name , :subject_slug , :subject_description , :date_post , :subject_img , :cate_id , :subject_type , :subject_price , :subject_sale)";
         $statement = $connect->prepare($queryBuilder);
         $statement->execute($data);
     }

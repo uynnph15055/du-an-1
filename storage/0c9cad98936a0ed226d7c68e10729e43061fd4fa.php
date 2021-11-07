@@ -11,10 +11,15 @@
 
     <title><?php echo $__env->yieldContent('title', 'PT16306 project_one'); ?></title>
 
-    <!-- Custom fonts for this template-->
+    <!-- Bootrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Bootrap 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
     <link href="./public/css/adminCss/sb-admin-2.css" rel="stylesheet" type="text/css">
+
     <link href="./public/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!--  -->
@@ -22,6 +27,13 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
+    <script>
+        <?php if (isset($_SESSION['error'])) { ?>
+            alert('<?= $_SESSION['error'] ?>');
+        <?php
+            unset($_SESSION['error']);
+        } ?>
+    </script>
 </head>
 
 <body id="page-top">
@@ -138,6 +150,7 @@
             <!-- Sidebar Message -->
 
         </ul>
+
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -357,34 +370,40 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="./vendor/jquery/jquery.min.js"></script>
-    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Logout Modal-->
 
+
+
+    <script src="./vendor/jquery/jquery.min.js"></script>
     <script src="./public/js/adminJs/sb-admin-2.min.js"></script>
+    <script src="./public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="./public/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="./public/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="./public/vendor/chart.js/Chart.min.js"></script>
+    <script src="//cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+        });
+    </script>
+    <!-- Page level custom scripts -->
+    <script src="./public/js/demo/chart-area-demo.js"></script>
+    <script src="./public/js/demo/chart-pie-demo.js"></script>
+
     <script src="./public/js/adminJs/slug.js"></script>
     <script>
         $('#summernote').summernote({

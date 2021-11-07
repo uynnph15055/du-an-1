@@ -8,6 +8,10 @@
         padding: 10px;
     }
 
+    th {
+        font-size: 15px;
+    }
+
     .select {
         width: 100%;
         border: 1px solid #ccc;
@@ -27,9 +31,11 @@
                 <th>STT</th>
                 <th>Tên môn</th>
                 <th>Ảnh</th>
-                <th>Ngành</th>
+                <th>Danh mục</th>
                 <th>Trang thái</th>
-                <th>Ngày</th>
+                <th>Giá</th>
+                <th>Khuyến mại</th>
+                <th>Ngày đăng</th>
                 <th>Sửa</th>
                 <th>Xóa</th>
             </tr>
@@ -46,12 +52,14 @@
                     <img width="50px" src="./public/img/<?php echo e($key['subject_img']); ?>" alt="">
                 </td>
                 <td><?php echo e($key['cate_name']); ?></td>
-                <td><?php if($key['subject_status'] == 0): ?>
-                    <span style="color:red">Chưa mở</span>
+                <td><?php if($key['type_id'] == 1): ?>
+                    <span style="color:red">Mất phí</span>
                     <?php else: ?>
-                    <span style="color:green">Đã mở</span>
+                    <span style="color:green">Miễn phí</span>
                     <?php endif; ?>
                 </td>
+                <td><?php echo e($key['subject_price']); ?></td>
+                <td><?php echo e($key['subject_sale']); ?></td>
                 <td><?php echo e($key['date_post']); ?></td>
                 <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id=<?php echo e($key['subject_id']); ?>">Sửa</a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id=<?php echo e($key['subject_id']); ?>">Xóa</a></td>

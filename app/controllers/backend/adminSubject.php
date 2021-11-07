@@ -32,22 +32,15 @@ class adminSubject extends baseController
         ]);
     }
 
-    function formPrice()
-    {
-        $id = $_GET['type_id'];
-        $this->dd($id);
-        // Okoook
-    }
-
     // Thêm môn học
     function addSubject()
     {
         // Kiếm tra request_method
+        // $this->dd($_POST);
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($subject_name) || !trim($subject_name) || !empty($subject_slug) || !empty($subject_description)  || !trim($subject_slug) || !trim($subject_description) || !empty($cate_id)) {
-
+            if (!empty($subject_name) || !empty($subject_slug) || !empty($subject_description)  || !empty($cate_id) || !empty($subject_id)) {
                 $file = $_FILES['subject_img'];
 
                 if ($file['size'] > 0) {
@@ -55,27 +48,31 @@ class adminSubject extends baseController
                     move_uploaded_file($file['tmp_name'], './public/img/' . $file_name);
                 } else {
                     $_SESSION['error'] = "Bạn chưa chọn ảnh !!!";
-                    header('Location: ./');
+                    header('Location: ./trang-them-mon-hoc');
                     die();
                 }
 
-                $date_post = date('d-m-Y');
+                $date_post = date('Y-m-d');
+
                 $data = [
                     'subject_name' => $subject_name,
                     'subject_slug' => $subject_slug,
                     'subject_description' => $subject_description,
                     'date_post' => $date_post,
                     'subject_img' => $file_name,
+                    'subject_type' => $subject_type,
+                    'subject_price' => $subject_price,
+                    'subject_sale' => $subject_sale,
                     'cate_id' => $cate_id,
                 ];
 
                 // $this->dd($data);
 
                 modelSubject::insertSubject($data);
-                header('Location: ./');
+                header('Location: ./danh-sach-mon');
             } else {
                 $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
-                header('Location: ./');
+                header('Location: ./trang-them-mon-hoc');
                 die();
             }
         }
@@ -85,18 +82,20 @@ class adminSubject extends baseController
     function delete()
     {
         $id = isset($_GET['id'])  ? $_GET['id'] : null;
+        echo $id;
+
         if (!$id) {
-            header('Location: ./mess=id hiện không tồn tại');
+            header('Location: ./danh-sach-mon?mess=id hiện không tồn tại');
             die();
         }
 
         $models = modelSubject::where("subject_id", "=", $id)->get();
         if (empty($models)) {
-            header('Location: ./mess=id không tồn tại');
+            header('Location: ./danh-sach-mon?mess=id không tồn tại');
             die();
         } else {
             modelSubject::delete("subject_id", "=", $id)->executeQuery();
-            header('Location: ./');
+            header('Location: ./danh-sach-mon');
         }
     }
 
@@ -107,7 +106,7 @@ class adminSubject extends baseController
         $dataSubject = modelSubject::all();
         $dataEditSubject = modelSubject::where("subject_id", "=", $id)->get();
         //  $this->dd($dataSubject);
-        $this->render("admin.adminSubject.listSubject", [
+        $this->render("admin.adminSubject.formSubject", [
             'dataSubject' => $dataSubject,
             'dataEditSubject' => $dataEditSubject,
             'editSubject' => 'editSubject',
@@ -133,7 +132,8 @@ class adminSubject extends baseController
                     die();
                 }
 
-                $date_post = date('d-m-Y');
+                $date_post = date('Y-m-d');
+
                 $data = [
                     'subject_id' => $subject_id,
                     'subject_name' => $subject_name,

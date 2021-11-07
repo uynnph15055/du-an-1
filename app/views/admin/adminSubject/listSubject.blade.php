@@ -8,6 +8,10 @@
         padding: 10px;
     }
 
+    th {
+        font-size: 15px;
+    }
+
     .select {
         width: 100%;
         border: 1px solid #ccc;
@@ -27,9 +31,11 @@
                 <th>STT</th>
                 <th>Tên môn</th>
                 <th>Ảnh</th>
-                <th>Ngành</th>
+                <th>Danh mục</th>
                 <th>Trang thái</th>
-                <th>Ngày</th>
+                <th>Giá</th>
+                <th>Khuyến mại</th>
+                <th>Ngày đăng</th>
                 <th>Sửa</th>
                 <th>Xóa</th>
             </tr>
@@ -46,12 +52,14 @@
                     <img width="50px" src="./public/img/{{$key['subject_img']}}" alt="">
                 </td>
                 <td>{{$key['cate_name']}}</td>
-                <td>@if($key['subject_status'] == 0)
-                    <span style="color:red">Chưa mở</span>
+                <td>@if($key['type_id'] == 1)
+                    <span style="color:red">Mất phí</span>
                     @else
-                    <span style="color:green">Đã mở</span>
+                    <span style="color:green">Miễn phí</span>
                     @endif
                 </td>
+                <td>{{$key['subject_price']}}</td>
+                <td>{{$key['subject_sale']}}</td>
                 <td>{{$key['date_post']}}</td>
                 <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id={{$key['subject_id']}}">Sửa</a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id={{$key['subject_id']}}">Xóa</a></td>
