@@ -17,7 +17,7 @@
 
     <!-- Bootrap 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="./public/css/adminCss/sb-admin-2.css" rel="stylesheet" type="text/css">
 
     <link href="./public/css/sb-admin-2.min.css" rel="stylesheet">
@@ -26,14 +26,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-
-    <script>
-        <?php if (isset($_SESSION['error'])) { ?>
-            alert('<?= $_SESSION['error'] ?>');
-        <?php
-            unset($_SESSION['error']);
-        } ?>
-    </script>
 </head>
 
 <body id="page-top">
@@ -59,7 +51,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Dashboard</span></a>
+                    <span>Trang chính</span></a>
             </li>
 
             <!-- Divider -->
@@ -72,14 +64,14 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Table Category</span>
+                    <span>Thông tin khóa học</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="./../../admin/adminCateProduct/">Category Products</a>
-                        <a class="collapse-item" href="cards.html">Category Pages</a>
+                        <a class="collapse-item" href="./danh-sach-loai-mon-hoc">Danh mục môn học</a>
+                        <a class="collapse-item" href="./danh-sach-mon">Danh sách các môn</a>
                     </div>
                 </div>
             </li>
@@ -405,22 +397,19 @@
     <script src="./public/js/demo/chart-pie-demo.js"></script>
 
     <script src="./public/js/adminJs/slug.js"></script>
-    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        $('#summernote').summernote({
-            placeholder: 'Hello stand alone ui',
-            tabsize: 2,
-            height: 120,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
+        $("#submit").click(function(e) {
+            <?php if (isset($_SESSION['error'])) { ?>
+                e.preventDefault();
+                Swal.fire({
+                    icon: 'warning',
+                    title: '<?= $_SESSION['error'] ?>',
+                    timer: 3000,
+                })
+            <?php  }
+            ?>
+        })
     </script>
 </body>
 
