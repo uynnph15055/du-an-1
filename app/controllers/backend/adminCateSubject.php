@@ -24,9 +24,10 @@ class adminCateSubject extends baseController
 
                 $dataCate = modelCateSubject::all();
 
-                $key = array_search($cate_name, array_column($dataCate, 'cate_name'));
+                // Kiểm tra xem danh mục vừa nhập có tồn tại trong hệ thống ko
+                $key = array_search($cate_slug, array_column($dataCate, 'cate_slug'));
                 // $this->dd($key);
-                if ($key === 0) {
+                if ($key === 0 || $key > 0) {
                     $_SESSION['error'] = "Danh mục này đã tồn tại !!!";
                     header('Location: ./danh-sach-loai-mon-hoc');
                     die();

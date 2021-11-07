@@ -23,7 +23,7 @@ class modelSubject extends DB
     {
         $model = new static();
         $connect = $model->getConnect();
-        $queryBuilder =  "UPDATE subject SET subject_name=:subject_name , subject_slug=:subject_slug , subject_description=:subject_description,date_post=:date_post, subject_img=:subject_img WHERE subject_id=:subject_id ";
+        $queryBuilder =  "UPDATE subject SET subject_name=:subject_name , subject_slug=:subject_slug , subject_description=:subject_description,date_post=:date_post, subject_img=:subject_img , cate_id=:cate_id , type_id =:subject_type , subject_price=:subject_price , subject_sale=:subject_sale WHERE subject_id=:subject_id ";
         $statement = $connect->prepare($queryBuilder);
         $statement->execute($data);
     }

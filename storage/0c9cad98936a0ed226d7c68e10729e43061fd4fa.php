@@ -17,7 +17,7 @@
 
     <!-- Bootrap 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="./public/css/adminCss/sb-admin-2.css" rel="stylesheet" type="text/css">
 
     <link href="./public/css/sb-admin-2.min.css" rel="stylesheet">
@@ -59,7 +59,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Dashboard</span></a>
+                    <span>Trang chính</span></a>
             </li>
 
             <!-- Divider -->
@@ -72,14 +72,14 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Table Category</span>
+                    <span>Thông tin khóa học</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="./../../admin/adminCateProduct/">Category Products</a>
-                        <a class="collapse-item" href="cards.html">Category Pages</a>
+                        <a class="collapse-item" href="./danh-sach-loai-mon-hoc">Danh mục môn học</a>
+                        <a class="collapse-item" href="./danh-sach-mon">Danh sách các môn</a>
                     </div>
                 </div>
             </li>
