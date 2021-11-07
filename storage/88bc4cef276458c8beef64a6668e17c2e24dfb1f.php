@@ -83,7 +83,7 @@
         if( cate_name == '' || cate_slug == '' ){
             e.preventDefault();
             Swal.fire({
-  icon: 'error',
+  icon: 'warning',
   title: 'Không được bỏ trống',
   timer: 3000,
 })
