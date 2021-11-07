@@ -10,8 +10,12 @@
     <meta name="author" content="">
 
     <title><?php echo $__env->yieldContent('title', 'PT16306 project_one'); ?></title>
-    <!-- <base href="http://localhost/project_one/"> -->
-    <!-- Custom fonts for this template-->
+
+    <!-- Bootrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Bootrap 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
     <link href="./public/css/adminCss/sb-admin-2.css" rel="stylesheet" type="text/css">
@@ -23,7 +27,13 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
-
+    <script>
+        <?php if (isset($_SESSION['error'])) { ?>
+            alert('<?= $_SESSION['error'] ?>');
+        <?php
+            unset($_SESSION['error']);
+        } ?>
+    </script>
 </head>
 
 <body id="page-top">
@@ -372,7 +382,7 @@
 
 
 
-   <script src="./vendor/jquery/jquery.min.js"></script>
+    <script src="./vendor/jquery/jquery.min.js"></script>
     <script src="./public/js/adminJs/sb-admin-2.min.js"></script>
     <script src="./public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -385,14 +395,17 @@
     <!-- Page level plugins -->
     <script src="./public/vendor/chart.js/Chart.min.js"></script>
     <script src="//cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
-  <script>$(document).ready( function () {
-    $('#dataTable').DataTable();
-} );</script>
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+        });
+    </script>
     <!-- Page level custom scripts -->
     <script src="./public/js/demo/chart-area-demo.js"></script>
     <script src="./public/js/demo/chart-pie-demo.js"></script>
 
     <script src="./public/js/adminJs/slug.js"></script>
+    
     <script>
         $('#summernote').summernote({
             placeholder: 'Hello stand alone ui',

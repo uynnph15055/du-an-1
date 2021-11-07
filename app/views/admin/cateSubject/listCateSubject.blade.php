@@ -16,9 +16,9 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Slug</label>
-                    <input type="text" class="form-control"  value="{{$value['cate_slug']}}" id="convert_slug" name="cate_slug" placeholder="Slug danh mục">
+                    <input type="text" class="form-control" value="{{$value['cate_slug']}}" id="convert_slug" name="cate_slug" placeholder="Slug danh mục">
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" id="submit" class="btn btn-primary">Update</button>
            @endforeach
             </form>
         </div>
@@ -28,14 +28,14 @@
             <h5>Thêm danh mục môn học</h5>
             <form method="POST" action="them-danh-muc">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Tên danh mục</label>
-                    <input type="text" class="form-control" onkeyup="ChangeToSlug()" placeholder="Tên khóa học" name="cate_name" id="slug" aria-describedby="emailHelp">
+                    <label for="exampleInputEmail1"  class="form-label">Tên danh mục</label>
+                    <input type="text" class="form-control" onkeyup="ChangeToSlug()" placeholder="Tên khóa học"  name="cate_name" id="slug" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Slug</label>
-                    <input type="text" class="form-control" id="convert_slug" name="cate_slug" placeholder="Slug danh mục">
+                    <input type="text" class="form-control" id="convert_slug" id="cate_slug" name="cate_slug" placeholder="Slug danh mục">
                 </div>
-                <button type="submit" class="btn btn-primary">Thêm</button>
+                <button type="submit" id="submit" class="btn btn-primary">Thêm</button>
             </form>
         </div>
     @endif
@@ -70,4 +70,25 @@
     
 
 </div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(function(){
+
+    })
+    $("#submit").click(function(e){
+      
+        var cate_name=$("#cate_name").val();
+        var cate_slug=$("#slug").val();
+        if( cate_name == '' || cate_slug == '' ){
+            e.preventDefault();
+            Swal.fire({
+  icon: 'warning',
+  title: 'Không được bỏ trống',
+  timer: 3000,
+})
+        }
+    })
+
+</script>
 @endsection

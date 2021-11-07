@@ -405,6 +405,7 @@
     <script src="./public/js/demo/chart-pie-demo.js"></script>
 
     <script src="./public/js/adminJs/slug.js"></script>
+    
     <script>
         $('#summernote').summernote({
             placeholder: 'Hello stand alone ui',
