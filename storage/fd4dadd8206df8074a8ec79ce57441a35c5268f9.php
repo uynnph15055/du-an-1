@@ -18,8 +18,10 @@
                     <label for="exampleInputPassword1" class="form-label">Slug</label>
                     <input type="text" class="form-control" value="<?php echo e($value['cate_slug']); ?>" id="convert_slug" name="cate_slug" placeholder="Slug danh mục">
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+
+                <button type="submit" id="submit" class="btn btn-primary">Update</button>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
             </form>
         </div>
         <?php else: ?>
@@ -35,7 +37,7 @@
                         <label for="exampleInputPassword1" class="form-label">Slug</label>
                         <input type="text" class="form-control" id="convert_slug" name="cate_slug" placeholder="Slug danh mục">
                     </div>
-                    <button type="submit" class="btn btn-primary">Thêm</button>
+                    <button type="submit" id="submit" class="btn btn-primary">Thêm</button>
                 </form>
             </div>
             <?php endif; ?>
@@ -67,8 +69,6 @@
                 </table>
             </div>
         </div>
-
-
     </div>
     <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/admin/cateSubject/listCateSubject.blade.php ENDPATH**/ ?>

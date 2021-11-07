@@ -20,8 +20,11 @@ class adminCateSubject extends baseController
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($cate_name) || !trim($cate_name) || !empty($cate_slug) || !trim($cate_slug)) {
-
+            if (empty($cate_name)  || empty($cate_slug)) {
+                $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
+                header('Location: ./danh-sach-loai-mon-hoc');
+                die();
+            } else {
                 $dataCate = modelCateSubject::all();
 
                 // Kiểm tra xem danh mục vừa nhập có tồn tại trong hệ thống ko
@@ -42,10 +45,6 @@ class adminCateSubject extends baseController
                 ];
                 modelCateSubject::insertCate($data);
                 header('Location: ./danh-sach-loai-mon-hoc');
-            } else {
-                $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
-                header('Location: ./danh-sach-loai-mon-hoc');
-                die();
             }
         }
     }

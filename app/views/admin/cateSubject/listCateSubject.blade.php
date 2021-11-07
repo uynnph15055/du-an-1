@@ -18,8 +18,10 @@
                     <label for="exampleInputPassword1" class="form-label">Slug</label>
                     <input type="text" class="form-control" value="{{$value['cate_slug']}}" id="convert_slug" name="cate_slug" placeholder="Slug danh mục">
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+
+                <button type="submit" id="submit" class="btn btn-primary">Update</button>
                 @endforeach
+
             </form>
         </div>
         @else
@@ -35,7 +37,7 @@
                         <label for="exampleInputPassword1" class="form-label">Slug</label>
                         <input type="text" class="form-control" id="convert_slug" name="cate_slug" placeholder="Slug danh mục">
                     </div>
-                    <button type="submit" class="btn btn-primary">Thêm</button>
+                    <button type="submit" id="submit" class="btn btn-primary">Thêm</button>
                 </form>
             </div>
             @endif
@@ -67,7 +69,5 @@
                 </table>
             </div>
         </div>
-
-
     </div>
     @endsection

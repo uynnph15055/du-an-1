@@ -43,7 +43,8 @@ class adminSubject extends baseController
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($subject_name) || !empty($subject_slug) || !empty($subject_description)  || !empty($cate_id) || !empty($subject_id)) {
+            if (empty($subject_name) || empty($subject_slug) || empty($subject_description)  || empty($cate_id) || empty($subject_id)) {
+
                 $file = $_FILES['subject_img'];
 
                 if ($file['size'] > 0) {
