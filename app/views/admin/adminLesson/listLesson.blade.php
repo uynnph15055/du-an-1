@@ -32,7 +32,7 @@
     @else
     <h4 class="text-center">Danh sách bài học</h4>
     <div class="header__list">
-        <a href="trang-them-mon-hoc" class="btn btn-primary">Thêm bài học </a>
+        <a href="them-bai-hoc" class="btn btn-primary">Thêm bài học </a>
         <!-- <h5 style="margin-bottom:-30px">Tổng số : {{$number}} môn</h5> -->
     </div>
     <br>

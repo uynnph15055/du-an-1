@@ -14,7 +14,7 @@
         color: #777;
         border-radius: 6px;
         height: 35px;
-        padding-left: 10px;
+        padding-left: 10x;
     }
 
     .btn-price {
@@ -32,8 +32,7 @@
     }
 </style>
 <div class="container">
-<<<<<<< HEAD
-=======
+
     @if(isset($rowSubject))
     <h4 class="text-center">Sửa môn học</h4>
     <form method="POST" enctype="multipart/form-data" action="update-mon-hoc">
@@ -106,7 +105,7 @@
         <button type=" submit" id="submit" class="btn btn-primary">Thêm</button>
     </form>
     @else
->>>>>>> 6133e49c451e7cb08f95108a5736d889c325ea8d
+
     <h4 class="text-center">Thêm môn học</h4>
     <form method="POST" enctype="multipart/form-data" action="them-mon-hoc">
         <div class="row">
