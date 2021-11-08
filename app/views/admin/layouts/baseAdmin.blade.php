@@ -399,15 +399,19 @@
     <script src="./public/js/adminJs/slug.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        $("#submit").click(function(e) {
+      $(function() {
             <?php if (isset($_SESSION['error'])) { ?>
-                e.preventDefault();
+           
                 Swal.fire({
                     icon: 'warning',
-                    title: '<?= $_SESSION['error'] ?>',
-                    timer: 3000,
+                    title: '<?= $_SESSION['error'] ; ?>',
+                    timer: 30000,
+                    
                 })
-            <?php  }
+            
+            <?php 
+         unset($_SESSION['error']);    
+        }
             ?>
         })
     </script>
