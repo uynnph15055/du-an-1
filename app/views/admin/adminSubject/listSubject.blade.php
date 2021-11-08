@@ -8,6 +8,12 @@
         padding: 10px;
     }
 
+    .header__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     th {
         font-size: 15px;
     }
@@ -22,8 +28,10 @@
 </style>
 <div class="container">
     <h4 class="text-center">Danh sách môn học</h4>
-    <a href="trang-them-mon-hoc" class="btn btn-primary">Thêm môn</a>
-    <br>
+    <div class="header__list">
+        <a href="trang-them-mon-hoc" class="btn btn-primary">Thêm môn </a>
+        <h5 style="margin-bottom:-30px">Tổng số : {{$number}} môn</h5>
+    </div>
     <br>
     <table class="table table-bordered">
         <thead>
@@ -35,14 +43,14 @@
                 <th>Trang thái</th>
                 <th>Giá</th>
                 <th>Khuyến mại</th>
-                <th>Ngày đăng</th>
+                <th>Bài học</th>
                 <th>Sửa</th>
                 <th>Xóa</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $index = 1;
+            $index = $stt;
             ?>
             @foreach($dataSubject as $key)
             <tr>
@@ -58,11 +66,21 @@
                     <span style="color:green">Miễn phí</span>
                     @endif
                 </td>
+<<<<<<< HEAD
                 <td style="color: red;">{{ number_format( $key['subject_price'])}} VNĐ</td>
                 <td  style="color: red;">{{ number_format( $key['subject_sale'])}} VNĐ</td>
                 <td>{{$key['date_post']}}</td>
                 <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id={{$key['subject_id']}}">Sửa</a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id={{$key['subject_id']}}">Xóa</a></td>
+=======
+                <td>{{$key['subject_price']}}</td>
+                <td>{{$key['subject_sale']}}</td>
+                <td>
+                    <a class="btn btn-info" href="chi-tiet-mon-hoc?mon={{$key['subject_slug']}}"><i class="fas fa-pager"></i></a>
+                </td>
+                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id={{$key['subject_id']}}"><i class="fas fa-edit"></i></a></td>
+                <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id={{$key['subject_id']}}"><i class="fas fa-trash"></i></a></td>
+>>>>>>> 6133e49c451e7cb08f95108a5736d889c325ea8d
             </tr>
             @endforeach
         </tbody>
@@ -74,7 +92,7 @@
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            @for($i = 0 ; $i < $page ; $i++) <li class="page-item"><a class="page-link" href="#">$i</a></li>
+            @for($i = 1 ; $i <=$page ; $i++) <li class="page-item"><a class="page-link" href="?trang={{$i}}">{{$i}}</a></li>
                 @endfor
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">

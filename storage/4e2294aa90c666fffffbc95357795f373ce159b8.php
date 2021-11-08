@@ -8,6 +8,12 @@
         padding: 10px;
     }
 
+    .header__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     th {
         font-size: 15px;
     }
@@ -22,8 +28,10 @@
 </style>
 <div class="container">
     <h4 class="text-center">Danh sách môn học</h4>
-    <a href="trang-them-mon-hoc" class="btn btn-primary">Thêm môn</a>
-    <br>
+    <div class="header__list">
+        <a href="trang-them-mon-hoc" class="btn btn-primary">Thêm môn </a>
+        <h5 style="margin-bottom:-30px">Tổng số : <?php echo e($number); ?> môn</h5>
+    </div>
     <br>
     <table class="table table-bordered">
         <thead>
@@ -35,14 +43,14 @@
                 <th>Trang thái</th>
                 <th>Giá</th>
                 <th>Khuyến mại</th>
-                <th>Ngày đăng</th>
+                <th>Bài học</th>
                 <th>Sửa</th>
                 <th>Xóa</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $index = 1;
+            $index = $stt;
             ?>
             <?php $__currentLoopData = $dataSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
@@ -60,9 +68,11 @@
                 </td>
                 <td><?php echo e($key['subject_price']); ?></td>
                 <td><?php echo e($key['subject_sale']); ?></td>
-                <td><?php echo e($key['date_post']); ?></td>
-                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id=<?php echo e($key['subject_id']); ?>">Sửa</a></td>
-                <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id=<?php echo e($key['subject_id']); ?>">Xóa</a></td>
+                <td>
+                    <a class="btn btn-info" href="chi-tiet-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><i class="fas fa-pager"></i></a>
+                </td>
+                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
+                <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-trash"></i></a></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
@@ -74,7 +84,7 @@
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <?php for($i = 0 ; $i < $page ; $i++): ?> <li class="page-item"><a class="page-link" href="#">$i</a></li>
+            <?php for($i = 1 ; $i <=$page ; $i++): ?> <li class="page-item"><a class="page-link" href="?trang=<?php echo e($i); ?>"><?php echo e($i); ?></a></li>
                 <?php endfor; ?>
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">

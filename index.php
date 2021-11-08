@@ -6,6 +6,7 @@ $url = isset($_GET['url']) ? $_GET['url'] : "/";
 require_once "./vendor/autoload.php";
 
 use App\Controllers\Backend\adminCateSubject;
+use App\Controllers\Backend\adminLesson;
 use App\Controllers\Backend\adminSubject;
 
 switch ($url) {
@@ -53,6 +54,11 @@ switch ($url) {
     case 'update-danh-muc';
         $ctr = new adminCateSubject();
         echo $ctr->update();
+        break;
+        // Danh sách môn học.
+    case 'chi-tiet-mon-hoc';
+        $ctr = new adminLesson();
+        echo $ctr->index();
         break;
 
     default:

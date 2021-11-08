@@ -71,7 +71,7 @@
                 <div id="collapseTwo" class="collapse" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="./danh-sach-loai-mon-hoc">Danh mục môn học</a>
-                        <a class="collapse-item" href="./danh-sach-mon">Danh sách các môn</a>
+                        <a class="collapse-item" href="./danh-sach-mon?trang=1 ">Danh sách các môn</a>
                     </div>
                 </div>
             </li>
@@ -399,6 +399,7 @@
     <script src="./public/js/adminJs/slug.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+<<<<<<< HEAD
       $(function() {
             <?php if (isset($_SESSION['error'])) { ?>
            
@@ -412,8 +413,23 @@
             <?php 
          unset($_SESSION['error']);    
         }
+=======
+        $(function() {
+            <?php if (isset($_SESSION['error'])) { ?>
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: '<?= $_SESSION['error']; ?>',
+                    timer: 30000,
+
+                })
+
+            <?php
+                unset($_SESSION['error']);
+            }
+>>>>>>> 6133e49c451e7cb08f95108a5736d889c325ea8d
             ?>
-        })
+        });
     </script>
 </body>
 

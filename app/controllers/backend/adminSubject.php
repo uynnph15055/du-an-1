@@ -11,11 +11,18 @@ class adminSubject extends baseController
     //  
     function index()
     {
-        $dataSubject = modelSubject::joinCate();
+        $page = isset($_GET['trang']) ? $_GET['trang'] : null;
+
+        $dataSubject = modelSubject::all();
         $number = count($dataSubject);
         $pages = ceil($number / 3);
+        $index = ($page - 1) * 3;
+        // $this->dd($pages);
+        $dataSubjectLimit = modelSubject::joinCate($index);
         $this->render("admin.adminSubject.listSubject", [
-            'dataSubject' => $dataSubject,
+            'stt' => $page,
+            'number' => $number,
+            'dataSubject' => $dataSubjectLimit,
             'page' => $pages,
         ]);
     }
@@ -43,8 +50,7 @@ class adminSubject extends baseController
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (empty($subject_name) || empty($subject_slug) || empty($subject_description)  || empty($cate_id) || empty($subject_id)) {
-
+            if (!empty($subject_name) || !empty($subject_slug) || !empty($subject_description)  || !empty($cate_id) || !empty($subject_id)) {
                 $file = $_FILES['subject_img'];
 
                 if ($file['size'] > 0) {
@@ -58,10 +64,6 @@ class adminSubject extends baseController
 
                 if ($subject_sale > $subject_price) {
                     $_SESSION['error'] = "Giá khuyến mãi phải nhỏ hơn giá gốc !!!";
-                    header('Location: ./trang-them-mon-hoc');
-                    die();
-                } elseif ($subject_sale === $subject_price) {
-                    $_SESSION['error'] = "Giá khuyến mãi đăng bằng giá gốc !!!";
                     header('Location: ./trang-them-mon-hoc');
                     die();
                 }
@@ -83,7 +85,7 @@ class adminSubject extends baseController
                 // $this->dd($data);
 
                 modelSubject::insertSubject($data);
-                header('Location: ./danh-sach-mon');
+                header('Location: ./danh-sach-mon?trang=1 ');
             } else {
                 $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
                 header('Location: ./trang-them-mon-hoc');
@@ -108,7 +110,7 @@ class adminSubject extends baseController
             die();
         } else {
             modelSubject::delete("subject_id", "=", $id)->executeQuery();
-            header('Location: ./danh-sach-mon');
+            header('Location: ./danh-sach-mon?trang=1 ');
         }
     }
 
@@ -183,7 +185,7 @@ class adminSubject extends baseController
                 // $this->dd($data);
 
                 modelSubject::updateSubject($data);
-                header('Location: ./danh-sach-mon');
+                header('Location: ./danh-sach-mon?trang=1 ');
             }
         }
     }
