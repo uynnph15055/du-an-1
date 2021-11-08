@@ -60,7 +60,10 @@ switch ($url) {
         $ctr = new adminLesson();
         echo $ctr->index();
         break;
-
+        case 'them-bai-hoc';
+        $ctr = new adminLesson();
+        echo $ctr->index();
+        break;
     default:
         "Không tồn tại file nào";
         break;
