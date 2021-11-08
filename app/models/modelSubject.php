@@ -28,11 +28,11 @@ class modelSubject extends DB
         $statement->execute($data);
     }
 
-    public static function joinCate()
+    public static function joinCate($index)
     {
         $model = new static();
         $connect = $model->getConnect();
-        $queryBuilder =  "SELECT * FROM `subject` INNER JOIN `cateSubject` ON subject.cate_id = cateSubject.cate_id ORDER BY  subject.subject_id DESC ";
+        $queryBuilder =  "SELECT * FROM `subject` INNER JOIN `cateSubject` ON subject.cate_id = cateSubject.cate_id ORDER BY  subject.subject_id DESC LIMIT $index , 3  ";
         $statement = $connect->prepare($queryBuilder);
         $statement->execute();
         return $statement->fetchAll();

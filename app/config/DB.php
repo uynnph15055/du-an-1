@@ -11,6 +11,7 @@ class DB
     {
         $conn = new PDO("mysql:host=127.0.0.1;dbname=data_project_one;charset=utf8", 'root', '');
         return $conn;
+        
     }
 
     // Hàm truy vẫn tất cả dữ liệu của bảng.
@@ -28,7 +29,7 @@ class DB
     public static function where($col, $sign, $val)
     {
         $model = new static();
-        $model->queryBuilder = "SELECT * FROM $model->table WHERE $col $sign $val";
+        $model->queryBuilder = "SELECT * FROM $model->table WHERE $col $sign '$val'";
         return $model;
     }
 

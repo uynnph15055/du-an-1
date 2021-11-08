@@ -65,8 +65,8 @@
                             <div class="accordion-collapse collapse" id="collapseOne" data-bs-parent="#accordionSection">
                                 <div class="accordion-body price__import">
                                     <div class='input-group'>
-                                        <input type='text' placeholder='Giá sản phẩm' name='subject_price' value="{{$rowSubject['subject_price']}}" aria-label='First name' class='form-control'>
-                                        <input type='text' placeholder='Giá giảm sản phẩm' name='subject_sale' value="{{$rowSubject['subject_sale']}}" aria-label='Last name' class='form-control'>
+                                        <input type='text' placeholder='Giá môn học' name='subject_price' value="{{$rowSubject['subject_price']}}" aria-label='First name' class='form-control'>
+                                        <input type='text' placeholder='Giá khuyến mại' name='subject_sale' value="{{$rowSubject['subject_sale']}}" aria-label='Last name' class='form-control'>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                 </div>
             </div>
         </div>
-        <button type=" submit" class="btn btn-primary">Thêm</button>
+        <button type=" submit" id="submit" class="btn btn-primary">Thêm</button>
     </form>
     @else
     <h4 class="text-center">Thêm môn học</h4>
@@ -132,8 +132,8 @@
                             <div class="accordion-collapse collapse" id="collapseOne" data-bs-parent="#accordionSection">
                                 <div class="accordion-body price__import">
                                     <div class='input-group'>
-                                        <input type='text' placeholder='Giá sản phẩm' name='subject_price' aria-label='First name' class='form-control'>
-                                        <input type='text' placeholder='Giá giảm sản phẩm' name='subject_sale' aria-label='Last name' class='form-control'>
+                                        <input type='text' placeholder='Giá môn học' name='subject_price' aria-label='First name' class='form-control'>
+                                        <input type='text' placeholder='Giá khuyến mại' name='subject_sale' aria-label='Last name' class='form-control'>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Thêm</button>
+        <button type="submit" id="submit" class="btn btn-primary">Thêm</button>
     </form>
     @endif
 </div>
