@@ -33,8 +33,8 @@
     @else
     <h4 class="text-center">Danh sách bài học</h4>
     <div class="header__list">
-    @foreach($dataLesson as $key)
-    @if(isset($key['subject_id'][0]))
+        @foreach($dataLesson as $key)
+        @if(isset($key['subject_id'][0]))
         <a href="them-bai-hoc?id={{$key['subject_id']}}" class="btn btn-primary">Thêm bài học </a>
         @break
         @endif
@@ -66,13 +66,13 @@
                     <img width="50px" src="./public/img/{{$key['lesson_img']}}" alt="">
                 </td>
                 <!-- <td>{{$key['cate_name']}}</td> -->
-                
-                <td> @if($key['lesson_status']==1)
-                   <span>Đã Mở</span>
-                @endif
+
+                <td> @if($key['lesson_status']==0)
+                    <span style="color:green">Đang mở</span>
+                    @endif
                 </td>
                 <td>{{$key['date_post']}}</td>
-                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id={{$key['lesson_id']}}&subject_id={{$key['subject_id']}}"><i class="fas fa-edit"></i></a></td>
+                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="trang-sua-bai-hoc?id={{$key['lesson_id']}}&subject_id={{$key['subject_id']}}"><i class="fas fa-edit"></i></a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-bai-hoc?id={{$key['lesson_id']}}&subject_id={{$key['subject_id']}}"><i class="fas fa-trash"></i></a></td>
             </tr>
             @endforeach

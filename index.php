@@ -74,7 +74,7 @@ switch ($url) {
         $ctr = new adminQuestion;
         echo $ctr->addQuestion();
         break;
-
+        // Danh sách bài học
     case 'them-bai-hoc';
         $ctr = new adminLesson();
         echo $ctr->insertLesson();
@@ -83,10 +83,20 @@ switch ($url) {
         $ctr = new adminLesson();
         echo $ctr->addLesson();
         break;
-        case 'xoa-bai-hoc';
+    case 'xoa-bai-hoc';
         $ctr = new adminLesson();
         echo $ctr->deleteLesson();
         break;
+    case 'trang-sua-bai-hoc';
+        $ctr = new adminLesson();
+        echo $ctr->editPage();
+        break;
+    case 'sua-bai-hoc';
+        $ctr = new adminLesson();
+        echo $ctr->editLesson();
+        break;
+
+        // -----------------
     default:
         "Không tồn tại file nào";
         break;

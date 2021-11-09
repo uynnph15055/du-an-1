@@ -8,46 +8,43 @@ use App\Models\modelSubject;
 
 class adminLesson extends baseController
 {
+
+    // Chuyến đến danh sách bài học theo môn học.
     function index()
     {
 
         $subject_slug = $_GET['mon'];
         $dataSubject =  modelSubject::where("subject_slug", "=", $subject_slug)->get();
         $subject_id = $dataSubject[0]['subject_id'];
-     
+
 
         $dataLesson = modelLesson::selectLesson($subject_id);
-    
+
         $this->render("admin.adminLesson.listLesson", [
-            'subject_id'=> $subject_id,
+            'subject_id' => $subject_id,
             'dataLesson' => $dataLesson,
-        
+
         ]);
     }
+
+    // Chuyển đến trang them bài học.
     function insertLesson()
     {
         $this->render("admin.adminLesson.formLesson", ['dataLesson' => 'hihi']);
     }
+
+    // Thêm dữ liệu bài học
     function addLesson()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($lesson_name) && !empty($lesson_status)  && !empty($lesson_introduce)  && !empty($lesson_link) && !empty($subject_id)) {
+            if (!empty($lesson_name) && !empty($lesson_introduce)  && !empty($lesson_link) && !empty($subject_id)) {
                 $file = $_FILES['lesson_img'];
 
                 if ($file['size'] > 0) {
                     $file_name = $file['name'];
                     move_uploaded_file($file['tmp_name'], './public/img/' . $file_name);
-                } else {
-                    $_SESSION['error'] = "Bạn chưa chọn ảnh !!!";
-                    header("Location: ./them-bai-hoc?id=$subject_id");
-                    die();
-                }
-                $file2 = $_FILES['lesson_img2'];
-                if ($file2['size'] > 0) {
-                    $file_name2 = $file2['name'];
-                    move_uploaded_file($file2['tmp_name'], './public/img/' . $file_name2);
                 } else {
                     $_SESSION['error'] = "Bạn chưa chọn ảnh !!!";
                     header("Location: ./them-bai-hoc?id=$subject_id");
@@ -65,10 +62,9 @@ class adminLesson extends baseController
                 $data = [
                     'lesson_name' => $lesson_name,
                     'lesson_slug' => $lesson_slug,
-                    'lesson_status' => $lesson_status,
                     'date_post' => $date_post,
                     'lesson_img' => $file_name,
-                    'lesson_img2' => $file_name2,
+                    'lesson_link' => $lesson_link,
                     'subject_id' => $subject_id,
                     'lesson_introduce' => $lesson_introduce,
                 ];
@@ -76,9 +72,9 @@ class adminLesson extends baseController
                 // $this->dd($data);
 
                 modelLesson::insertLesson($data);
-                $dataLesson = modelLesson::selectLesson( $subject_id);
+                $dataLesson = modelLesson::selectLesson($subject_id);
                 // $this->dd($dataLesson);
-           
+
                 $this->render("admin.adminLesson.listLesson", ['dataLesson' => $dataLesson]);
             } else {
                 $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
@@ -87,10 +83,12 @@ class adminLesson extends baseController
             }
         }
     }
+
+    // Xóa bài học
     function deleteLesson()
     {
         $id = isset($_GET['id'])  ? $_GET['id'] : null;
-        $subject_id=isset($_GET['subject_id'])  ? $_GET['subject_id'] : null;
+        $subject_id = isset($_GET['subject_id'])  ? $_GET['subject_id'] : null;
         if (!$id) {
             header('Location: ./chi-tiet-mon-hoc?mess=id hiện không tồn tại');
             die();
@@ -102,10 +100,68 @@ class adminLesson extends baseController
             die();
         } else {
             $dataLesson = modelLesson::selectLesson($subject_id);
-            $subject_slug=$dataLesson[0]['subject_slug'];;
+            $subject_slug = $dataLesson[0]['subject_slug'];;
             modelLesson::delete("lesson_id", "=", $id)->executeQuery();
-   
+
             header("Location:./chi-tiet-mon-hoc?mon=$subject_slug");
+        }
+    }
+
+    function editPage()
+    {
+        $lesson_id =  $_GET['id'];
+        $rowLesson = modelLesson::where('lesson_id', "=", $lesson_id)->get();
+        // $this->dd($rowLesson);
+        $this->render("admin.adminLesson.formLesson", ['row' => $rowLesson[0]]);
+    }
+
+    function editLesson()
+    {
+        // $this->dd($_POST);
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            extract($_POST);
+
+            if (!empty($lesson_name) && !empty($lesson_introduce)  && !empty($lesson_link) && !empty($subject_id)) {
+                $file = $_FILES['lesson_img'];
+
+                if ($file['size'] > 0) {
+                    $file_name = $file['name'];
+                    move_uploaded_file($file['tmp_name'], './public/img/' . $file_name);
+                } else {
+                    $file_name = $lesson_img;
+                }
+
+                if (strlen($lesson_introduce) > 250) {
+                    $_SESSION['error'] = "Mô tả của bạn quá dài !!!";
+                    header("Location: ./them-bai-hoc?id=$subject_id");
+                    die();
+                }
+
+                $date_post = date('Y-m-d');
+
+                $data = [
+                    'lesson_id' => $lesson_id,
+                    'lesson_name' => $lesson_name,
+                    'lesson_slug' => $lesson_slug,
+                    'date_post' => $date_post,
+                    'lesson_img' => $file_name,
+                    'lesson_link' => $lesson_link,
+                    'subject_id' => $subject_id,
+                    'lesson_introduce' => $lesson_introduce,
+                ];
+
+                // $this->dd($data);
+
+                modelLesson::updateLesson($data);
+                $dataLesson = modelLesson::selectLesson($subject_id);
+                // $this->dd($dataLesson);
+
+                $this->render("admin.adminLesson.listLesson", ['dataLesson' => $dataLesson]);
+            } else {
+                $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
+                header("Location: ./trang-sua-bai-hoc?id=$lesson_id?subject_id=$subject_id");
+                die();
+            }
         }
     }
 }

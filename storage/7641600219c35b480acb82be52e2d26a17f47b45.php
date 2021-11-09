@@ -1,6 +1,6 @@
-@extends('admin.layouts.baseAdmin')
-@section('title', 'Danh sách môn học')
-@section('main_content')
+
+<?php $__env->startSection('title', 'Danh sách môn học'); ?>
+<?php $__env->startSection('main_content'); ?>
 <style>
     .input-text {
         border: 1px solid #ccc;
@@ -32,26 +32,26 @@
     }
 </style>
 <div class="container">
-    @if(isset($row))
+    <?php if(isset($row)): ?>
     <h4 class="text-center">Sửa bài học</h4>
     <form method="POST" enctype="multipart/form-data" action="sua-bai-hoc">
 
         <div class="row">
             <div class="col">
 
-                <input type="text" hidden name="subject_id" value="{{$row['subject_id']}}">
+                <input type="text" hidden name="subject_id" value="<?php echo e($row['subject_id']); ?>">
 
-                <input type="text" hidden name="lesson_id" value="{{$row['lesson_id']}}">
+                <input type="text" hidden name="lesson_id" value="<?php echo e($row['lesson_id']); ?>">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tên bài học</label>
-                    <input type="text" value="{{$row['lesson_name']}}" class="form-control" onkeyup="ChangeToSlug()" placeholder="Tên bài học" name="lesson_name" id="slug" aria-describedby="emailHelp">
+                    <input type="text" value="<?php echo e($row['lesson_name']); ?>" class="form-control" onkeyup="ChangeToSlug()" placeholder="Tên bài học" name="lesson_name" id="slug" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Slug bài học</label>
-                    <input type="text" value="{{$row['lesson_slug']}}" class="form-control" placeholder="Tên bài học" name="lesson_slug" id="convert_slug" aria-describedby="emailHelp">
+                    <input type="text" value="<?php echo e($row['lesson_slug']); ?>" class="form-control" placeholder="Tên bài học" name="lesson_slug" id="convert_slug" aria-describedby="emailHelp">
                 </div>
 
-                <input type="text" name="lesson_img" hidden value="{{$row['lesson_img']}}">
+                <input type="text" name="lesson_img" hidden value="<?php echo e($row['lesson_img']); ?>">
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Ảnh Poster</label>
                     <br>
@@ -61,29 +61,29 @@
             <div class="col">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Link video</label>
-                    <input type="text" class="form-control" value="{{$row['lesson_link']}}" placeholder="link bài học" name="lesson_link" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" value="<?php echo e($row['lesson_link']); ?>" placeholder="link bài học" name="lesson_link" aria-describedby="emailHelp">
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Mô tả</label>
                     <br>
-                    <textarea class="input-text" placeholder="Mô tả bài học" name="lesson_introduce" rows="5" cols="65">{{$row['lesson_introduce']}}</textarea>
+                    <textarea class="input-text" placeholder="Mô tả bài học" name="lesson_introduce" rows="5" cols="65"><?php echo e($row['lesson_introduce']); ?></textarea>
                 </div>
             </div>
         </div>
 
         <button type="submit" id="submit" class="btn btn-primary">Sửa bài học</button>
     </form>
-    @else
+    <?php else: ?>
     <h4 class="text-center">Thêm bài học</h4>
     <form method="POST" enctype="multipart/form-data" action="trang-them-bai-hoc">
 
         <div class="row">
             <div class="col">
-                @if(isset($_GET['id']))
+                <?php if(isset($_GET['id'])): ?>
 
-                <input type="text" hidden name="subject_id" value="{{$_GET['id']}}">
-                @endif
+                <input type="text" hidden name="subject_id" value="<?php echo e($_GET['id']); ?>">
+                <?php endif; ?>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tên bài học</label>
                     <input type="text" class="form-control" onkeyup="ChangeToSlug()" placeholder="Tên bài học" name="lesson_name" id="slug" aria-describedby="emailHelp">
@@ -117,7 +117,8 @@
 
         <button type="submit" id="submit" class="btn btn-primary">Thêm</button>
     </form>
-    @endif
+    <?php endif; ?>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/admin/adminLesson/formLesson.blade.php ENDPATH**/ ?>

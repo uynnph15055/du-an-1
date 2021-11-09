@@ -92,7 +92,7 @@
                 <input type="text" value="<?php echo e($rowSubject['subject_img']); ?>" name="subject_img" hidden>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Ảnh</label>
-                    <input type="file" name="subject_img" id="convert_slug">
+                    <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" name="subject_img" id="convert_slug">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Giới thiệu</label>
@@ -155,7 +155,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Ảnh</label>
-                    <input type="file" name="subject_img" id="convert_slug">
+                    <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" name="subject_img" id="convert_slug">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Giới thiệu</label>
