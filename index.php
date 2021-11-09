@@ -7,6 +7,7 @@ require_once "./vendor/autoload.php";
 
 use App\Controllers\Backend\adminCateSubject;
 use App\Controllers\Backend\adminLesson;
+use App\Controllers\Backend\adminQuestion;
 use App\Controllers\Backend\adminSubject;
 
 switch ($url) {
@@ -59,6 +60,19 @@ switch ($url) {
     case 'chi-tiet-mon-hoc';
         $ctr = new adminLesson();
         echo $ctr->index();
+        break;
+        // Danh sách câu hỏi.
+    case 'danh-sach-cau-hoi';
+        $ctr = new adminQuestion;
+        echo $ctr->index();
+        break;
+    case 'trang-them-cau-hoi';
+        $ctr = new adminQuestion;
+        echo $ctr->addPage();
+        break;
+    case 'them-cau-hoi';
+        $ctr = new adminQuestion;
+        echo $ctr->addQuestion();
         break;
 
     default:
