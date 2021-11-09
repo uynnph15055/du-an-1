@@ -75,6 +75,18 @@ switch ($url) {
         echo $ctr->addQuestion();
         break;
 
+    case 'them-bai-hoc';
+        $ctr = new adminLesson();
+        echo $ctr->insertLesson();
+        break;
+    case 'trang-them-bai-hoc';
+        $ctr = new adminLesson();
+        echo $ctr->addLesson();
+        break;
+        case 'xoa-bai-hoc';
+        $ctr = new adminLesson();
+        echo $ctr->deleteLesson();
+        break;
     default:
         "Không tồn tại file nào";
         break;

@@ -22,9 +22,9 @@ class adminCateSubject extends baseController
 
             if (empty($cate_name)  || empty($cate_slug)) {
                 $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
-                header('Location: ./danh-sach-loai-mon-hoc');
+                header('location:http://localhost/project_one/danh-sach-loai-mon-hoc');
                 die();
-            } else {
+            } else  {
                 $dataCate = modelCateSubject::all();
 
                 // Kiểm tra xem danh mục vừa nhập có tồn tại trong hệ thống ko

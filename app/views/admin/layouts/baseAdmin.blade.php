@@ -399,6 +399,21 @@
     <script src="./public/js/adminJs/slug.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+<<<<<<< HEAD
+      $(function() {
+            <?php if (isset($_SESSION['error'])) { ?>
+           
+                Swal.fire({
+                    icon: 'warning',
+                    title: '<?= $_SESSION['error'] ; ?>',
+                    timer: 30000,
+                    
+                })
+            
+            <?php 
+         unset($_SESSION['error']);    
+        }
+=======
         $(function() {
             <?php if (isset($_SESSION['error'])) { ?>
 
@@ -412,6 +427,7 @@
             <?php
                 unset($_SESSION['error']);
             }
+>>>>>>> 6133e49c451e7cb08f95108a5736d889c325ea8d
             ?>
         });
     </script>
