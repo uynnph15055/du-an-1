@@ -14,7 +14,7 @@
         color: #777;
         border-radius: 6px;
         height: 35px;
-        padding-left: 10x;
+        padding-left: 10px;
     }
 
     .btn-price {
@@ -32,7 +32,6 @@
     }
 </style>
 <div class="container">
-
     @if(isset($rowSubject))
     <h4 class="text-center">Sửa môn học</h4>
     <form method="POST" enctype="multipart/form-data" action="update-mon-hoc">
@@ -105,7 +104,6 @@
         <button type=" submit" id="submit" class="btn btn-primary">Thêm</button>
     </form>
     @else
-
     <h4 class="text-center">Thêm môn học</h4>
     <form method="POST" enctype="multipart/form-data" action="them-mon-hoc">
         <div class="row">
@@ -168,10 +166,11 @@
         </div>
         <button type="submit" id="submit" class="btn btn-primary">Thêm</button>
     </form>
+    @endif
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script> 
+<script>
     $(document).ready(function() {
         $('#type_id').on('change', function() {
             var type_id = $(this).val();

@@ -1,6 +1,6 @@
-@extends('admin.layouts.baseAdmin')
-@section('title', 'Danh sách môn học')
-@section('main_content')
+
+<?php $__env->startSection('title', 'Danh sách môn học'); ?>
+<?php $__env->startSection('main_content'); ?>
 <style>
     .input-text {
         border: 1px solid #ccc;
@@ -38,10 +38,10 @@
 
         <div class="row">
             <div class="col">
-                @if(isset($_GET['id']))
+                <?php if(isset($_GET['id'])): ?>
 
-                <input type="hidden" name="subject_id" value="{{$_GET['id']}}">
-                @endif
+                <input type="hidden" name="subject_id" value="<?php echo e($_GET['id']); ?>">
+                <?php endif; ?>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tên bài học</label>
                     <input type="text" class="form-control" onkeyup="ChangeToSlug()" placeholder="Tên bài học" name="lesson_name" id="slug" aria-describedby="emailHelp">
@@ -106,4 +106,5 @@
     });
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/admin/adminLesson/formLesson.blade.php ENDPATH**/ ?>

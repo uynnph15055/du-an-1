@@ -60,9 +60,18 @@ switch ($url) {
         $ctr = new adminLesson();
         echo $ctr->index();
         break;
-        case 'them-bai-hoc';
+
+    case 'them-bai-hoc';
         $ctr = new adminLesson();
-        echo $ctr->index();
+        echo $ctr->insertLesson();
+        break;
+    case 'trang-them-bai-hoc';
+        $ctr = new adminLesson();
+        echo $ctr->addLesson();
+        break;
+        case 'xoa-bai-hoc';
+        $ctr = new adminLesson();
+        echo $ctr->deleteLesson();
         break;
     default:
         "Không tồn tại file nào";

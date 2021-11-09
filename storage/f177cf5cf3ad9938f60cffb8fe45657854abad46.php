@@ -66,11 +66,13 @@
                     <span style="color:green">Miễn phí</span>
                     <?php endif; ?>
                 </td>
-                <td style="color: red;"><?php echo e(number_format( $key['subject_price'])); ?> VNĐ</td>
-                <td  style="color: red;"><?php echo e(number_format( $key['subject_sale'])); ?> VNĐ</td>
-                <td><?php echo e($key['date_post']); ?></td>
-                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id=<?php echo e($key['subject_id']); ?>">Sửa</a></td>
-                <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id=<?php echo e($key['subject_id']); ?>">Xóa</a></td>
+                <td><?php echo e($key['subject_price']); ?></td>
+                <td><?php echo e($key['subject_sale']); ?></td>
+                <td>
+                    <a class="btn btn-info" href="chi-tiet-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><i class="fas fa-pager"></i></a>
+                </td>
+                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
+                <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-trash"></i></a></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
