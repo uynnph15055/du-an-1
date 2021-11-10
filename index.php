@@ -9,6 +9,7 @@ use App\Controllers\Backend\adminCateSubject;
 use App\Controllers\Backend\adminLesson;
 use App\Controllers\Backend\adminQuestion;
 use App\Controllers\Backend\adminSubject;
+use App\Controllers\Frontend\Banner;
 
 switch ($url) {
     case 'danh-sach-mon':
@@ -97,6 +98,16 @@ switch ($url) {
         break;
 
         // -----------------
+
+        // Banner layout.
+    case 'danh-sach-banner';
+        $ctr = new Banner();
+        echo $ctr->index();
+        break;
+    case 'them-banner';
+        $ctr = new Banner();
+        echo $ctr->addBanner();
+        break;
     default:
         "Không tồn tại file nào";
         break;

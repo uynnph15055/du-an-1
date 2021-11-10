@@ -33,8 +33,8 @@
     <?php else: ?>
     <h4 class="text-center">Danh sách bài học</h4>
     <div class="header__list">
-    <?php $__currentLoopData = $dataLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php if(isset($key['subject_id'][0])): ?>
+        <?php $__currentLoopData = $dataLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php if(isset($key['subject_id'][0])): ?>
         <a href="them-bai-hoc?id=<?php echo e($key['subject_id']); ?>" class="btn btn-primary">Thêm bài học </a>
         <?php break; ?>
         <?php endif; ?>
@@ -66,13 +66,13 @@
                     <img width="50px" src="./public/img/<?php echo e($key['lesson_img']); ?>" alt="">
                 </td>
                 <!-- <td><?php echo e($key['cate_name']); ?></td> -->
-                
-                <td> <?php if($key['lesson_status']==1): ?>
-                   <span>Đã Mở</span>
-                <?php endif; ?>
+
+                <td> <?php if($key['lesson_status']==0): ?>
+                    <span style="color:green">Đang mở</span>
+                    <?php endif; ?>
                 </td>
                 <td><?php echo e($key['date_post']); ?></td>
-                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
+                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="trang-sua-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-trash"></i></a></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

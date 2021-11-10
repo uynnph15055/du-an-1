@@ -32,7 +32,6 @@ class DB
         $model->queryBuilder = "SELECT * FROM $model->table WHERE $col $sign '$val'";
         return $model;
     }
-
     // Hàm dùng truy vẫn dùng chung cho các câu truy vẫn xóa có điều kiện where;
     public static function delete($col, $sign, $val)
     {
