@@ -107,7 +107,7 @@
                     <span>Hóa đơn</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="danh-sach-menu">
                     <i class="fas fa-bars"></i>
                     <span>Menu</span></a>
             </li>

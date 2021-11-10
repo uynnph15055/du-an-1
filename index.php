@@ -7,6 +7,7 @@ require_once "./vendor/autoload.php";
 
 use App\Controllers\Backend\adminCateSubject;
 use App\Controllers\Backend\adminLesson;
+use App\Controllers\Backend\adminMenu;
 use App\Controllers\Backend\adminQuestion;
 use App\Controllers\Backend\adminSubject;
 
@@ -94,6 +95,28 @@ switch ($url) {
     case 'sua-bai-hoc';
         $ctr = new adminLesson();
         echo $ctr->editLesson();
+        break;
+
+        // Danh sách menu.
+    case 'danh-sach-menu';
+        $ctr = new adminMenu();
+        echo $ctr->index();
+        break;
+    case 'them-menu';
+        $ctr = new adminMenu();
+        echo $ctr->addMenu();
+        break;
+    case 'xoa-menu';
+        $ctr = new adminMenu();
+        echo $ctr->deleteMenu();
+        break;
+    case 'trang-sua-menu';
+        $ctr = new adminMenu();
+        echo $ctr->editPage();
+        break;
+    case 'sua-menu';
+        $ctr = new adminMenu();
+        echo $ctr->edit();
         break;
 
         // -----------------
