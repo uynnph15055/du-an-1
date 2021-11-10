@@ -61,8 +61,8 @@
                             <td><?= $index++ ?></td>
                             <td><?php echo e($key['cate_name']); ?></td>
                             <td><?php echo e($key['date_create']); ?></td>
-                            <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-danh-muc?id=<?php echo e($key['cate_id']); ?>">Sửa</a></td>
-                            <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-danh-muc?id=<?php echo e($key['cate_id']); ?>">Xóa</a></td>
+                            <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-danh-muc?id=<?php echo e($key['cate_id']); ?>"><i class="fas fa-edit"></i></a></td>
+                            <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-danh-muc?id=<?php echo e($key['cate_id']); ?>"><i class="fas fa-trash"></i></a></td>
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
