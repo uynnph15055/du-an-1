@@ -7,6 +7,7 @@ require_once "./vendor/autoload.php";
 
 use App\Controllers\Backend\adminCateSubject;
 use App\Controllers\Backend\adminLesson;
+use App\Controllers\Backend\adminQuestion;
 use App\Controllers\Backend\adminSubject;
 
 switch ($url) {
@@ -60,7 +61,20 @@ switch ($url) {
         $ctr = new adminLesson();
         echo $ctr->index();
         break;
-
+        // Danh sách câu hỏi.
+    case 'danh-sach-cau-hoi';
+        $ctr = new adminQuestion;
+        echo $ctr->index();
+        break;
+    case 'trang-them-cau-hoi';
+        $ctr = new adminQuestion;
+        echo $ctr->addPage();
+        break;
+    case 'them-cau-hoi';
+        $ctr = new adminQuestion;
+        echo $ctr->addQuestion();
+        break;
+        // Danh sách bài học
     case 'them-bai-hoc';
         $ctr = new adminLesson();
         echo $ctr->insertLesson();
@@ -69,10 +83,20 @@ switch ($url) {
         $ctr = new adminLesson();
         echo $ctr->addLesson();
         break;
-        case 'xoa-bai-hoc';
+    case 'xoa-bai-hoc';
         $ctr = new adminLesson();
         echo $ctr->deleteLesson();
         break;
+    case 'trang-sua-bai-hoc';
+        $ctr = new adminLesson();
+        echo $ctr->editPage();
+        break;
+    case 'sua-bai-hoc';
+        $ctr = new adminLesson();
+        echo $ctr->editLesson();
+        break;
+
+        // -----------------
     default:
         "Không tồn tại file nào";
         break;

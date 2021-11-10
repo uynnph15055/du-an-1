@@ -1,6 +1,6 @@
-@extends('admin.layouts.baseAdmin')
-@section('title', 'Danh sách câu hỏi')
-@section('main_content')
+
+<?php $__env->startSection('title', 'Danh sách câu hỏi'); ?>
+<?php $__env->startSection('main_content'); ?>
 <div class="container">
     <h4 class="text-center">Danh sách câu hỏi</h4>
     <a class="btn btn-primary" href="trang-them-cau-hoi">Thêm câu hỏi</a>
@@ -22,13 +22,13 @@
             <?php
             $index = 1;
             ?>
-            @foreach($dataQuestion as $key)
+            <?php $__currentLoopData = $dataQuestion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
                 <td><?= $index++ ?></td>
-                <td>{{$key['heading']}}</td>
-                <td>{{$key['heading_img']}}</td>
-                <td>{{$key['answer']}}</td>
-                <td>{{$key['answer']}}</td>
+                <td><?php echo e($key['heading']); ?></td>
+                <td><?php echo e($key['heading_img']); ?></td>
+                <td><?php echo e($key['answer']); ?></td>
+                <td><?php echo e($key['answer']); ?></td>
                 <td>
                     <a class="btn btn-warning" href=""><i class="fas fa-edit"></i></a>
                 </td>
@@ -36,9 +36,10 @@
                     <a class="btn btn-danger" href=""><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/admin/question/listQuestion.blade.php ENDPATH**/ ?>
