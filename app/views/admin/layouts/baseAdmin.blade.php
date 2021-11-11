@@ -25,6 +25,7 @@
     <!--  -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    @yield('link css banner')
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <style>
         th {
@@ -120,7 +121,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="danh-sach-banner">
                     <i class="far fa-images"></i>
                     <span>Banner</span></a>
             </li>
@@ -399,13 +400,23 @@
                 Swal.fire({
                     icon: 'warning',
                     title: '<?= $_SESSION['error']; ?>',
-                    timer: 30000,
+                    timer: 3000,
 
                 })
 
             <?php
                 unset($_SESSION['error']);
-            }
+            }elseif(isset($_SESSION['success'])){ ?>
+                Swal.fire({
+                
+            icon: 'success',
+            title: 'Cập nhật thành Công',
+            showConfirmButton: false,
+            timer: 1500
+
+                })
+
+          <?php   unset($_SESSION['success']); }
             ?>
         });
     </script>

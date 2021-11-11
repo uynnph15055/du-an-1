@@ -25,6 +25,7 @@
     <!--  -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <?php echo $__env->yieldContent('link css banner'); ?>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 
@@ -65,8 +66,8 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Thông tin khóa học</span>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>Quản lý khóa học</span>
                 </a>
                 <div id="collapseTwo" class="collapse" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -79,12 +80,13 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Table Product</span>
+                    <i class="fas fa-address-card"></i>
+                    <span>Quản lý học viên</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href=">admin/adminProduct/">Table Product</a>
+                        <a class="collapse-item" href=">admin/adminProduct/">Thông tin học viên</a>
+                        <a class="collapse-item" href=">admin/adminProduct/">Đánh giá của học viên</a>
                     </div>
                 </div>
             </li>
@@ -98,37 +100,24 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                    <i class="fas fa-sticky-note"></i>
+                    <span>Hóa đơn</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-bars"></i>
+                    <span>Menu</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                <a class="nav-link" href="danh-sach-banner">
+                    <i class="far fa-images"></i>
+                    <span>Banner</span></a>
             </li>
 
             <!-- Divider -->
@@ -399,24 +388,32 @@
     <script src="./public/js/adminJs/slug.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-
         $(function() {
             <?php if (isset($_SESSION['error'])) { ?>
 
                 Swal.fire({
                     icon: 'warning',
                     title: '<?= $_SESSION['error']; ?>',
-                    timer: 30000,
+                    timer: 3000,
 
                 })
 
             <?php
                 unset($_SESSION['error']);
-            }
+            }elseif(isset($_SESSION['success'])){ ?>
+                Swal.fire({
+                
+            icon: 'success',
+            title: 'Cập nhật thành Công',
+            showConfirmButton: false,
+            timer: 1500
 
+                })
+
+          <?php   unset($_SESSION['success']); }
             ?>
         });
     </script>
 </body>
 
-</html>
+</html><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/admin/layouts/baseAdmin.blade.php ENDPATH**/ ?>

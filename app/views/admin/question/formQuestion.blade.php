@@ -28,7 +28,7 @@
 </div>
 <script>
     $('#summernote').summernote({
-        placeholder: 'Nhập đền bài ...',
+        placeholder: 'Nhập đề bài ...',
         tabsize: 2,
         height: 120,
         toolbar: [

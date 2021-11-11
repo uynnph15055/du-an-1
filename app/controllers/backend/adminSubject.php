@@ -20,7 +20,7 @@ class adminSubject extends baseController
         // $this->dd($pages);
         $dataSubjectLimit = modelSubject::joinCate($index);
         $this->render("admin.adminSubject.listSubject", [
-            'stt' => $page,
+            'stt' => $index+1,
             'number' => $number,
             'dataSubject' => $dataSubjectLimit,
             'page' => $pages,
@@ -50,7 +50,7 @@ class adminSubject extends baseController
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($subject_name) || !empty($subject_slug) || !empty($subject_description)  || !empty($cate_id) || !empty($subject_id)) {
+            if (!empty($subject_name) &&  !empty($subject_slug) && !empty($subject_description)  && !empty($cate_id)  && !empty($subject_id) && !empty($subject_type)) {
                 $file = $_FILES['subject_img'];
 
                 if ($file['size'] > 0) {

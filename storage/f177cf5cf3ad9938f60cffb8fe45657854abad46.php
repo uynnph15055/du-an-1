@@ -66,8 +66,8 @@
                     <span style="color:green">Miễn phí</span>
                     <?php endif; ?>
                 </td>
-                <td><?php echo e($key['subject_price']); ?></td>
-                <td><?php echo e($key['subject_sale']); ?></td>
+                <td><?php echo e(number_format($key['subject_price'])); ?> VNĐ</td>
+                <td><?php echo e(number_format($key['subject_sale'])); ?> VNĐ</td>
                 <td>
                     <a class="btn btn-info" href="chi-tiet-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><i class="fas fa-pager"></i></a>
                 </td>
