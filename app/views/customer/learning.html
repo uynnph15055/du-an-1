@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- reset -->
+    <link rel="stylesheet" href="./asset/css/reset.css">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- css -->
+    <link rel="stylesheet" href="./asset/css/style.css">
+</head>
+
+<body>
+    <main class="bgr-light">
+        <div class="learning-section">
+            <div class="container-fluid">
+                <div class="learning-fluid">
+                    <div class="learning-space">
+                        <div class="learning__video">
+                            <!-- <video src="https://www.youtube.com/watch?v=dSzf0nv6QmM"> -->
+                            <iframe width="100%" height="480" src="https://www.youtube.com/embed/dSzf0nv6QmM"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                            <!-- </video> -->
+                        </div>
+                        <div class="learning-tabs">
+                            <div class="btn-tab">
+                                <button class="tablinks" id="defaultOpen"
+                                    onclick="openTabAction(event, 'comment-lesson')">London</button>
+                                <button class="tablinks" onclick="openTabAction(event, 'note-lesson')">Paris</button>
+                            </div>
+                            <div id="comment-lesson" class="tab-content">
+                                <div class="count-comment">
+                                    <span>10 bình luận</span>
+                                </div>
+                                <div class="form-comment-input ">
+                                    <div class="comment-img">
+                                        <img src="./asset/images/abc.jpg" alt="" class="img-fluid">
+                                    </div>
+                                    <form action="">
+                                        <input type="text" placeholder="Bạn có thắc mắc gì trong bài học này?">
+                                        <button type="submit" class="btn btn-comment">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="comment-list">
+                                    <div class="comment-item">
+                                        <div class="comment-img comment-img--acc ">
+                                            <img src="./asset/images/abc.jpg" alt="" class="img-fluid">
+                                        </div>
+                                        <div class="comment-text">
+                                            <span class="comment-item__name">
+                                                Nguyễn Anh
+                                            </span>
+                                            <span class="comment-item__date">
+                                                1 - 1 - 2021
+                                            </span>
+                                            <p class="comment-item__content">
+                                                Ấn như nào để vừa viết code vừa hiện kết quả trên console ạ? macos ạ
+                                            </p>
+                                        </div>
+                                        <div class="action-ctrl">
+                                            <button class="item-ctrl-btn" ><a href=""><i class="fas fa-trash"></i></a></button>
+                                            <button class="item-ctrl-btn" ><a href=""><i class="fas fa-pen"></i></a></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <div id="note-lesson" class="tab-content"> 
+                                <div class="note-lesson-list">
+                                    <div class="note-lesson-item">
+                                        <span class="note__time">
+                                            3:15
+                                        </span>
+                                        <div class="note-text-container">
+                                            <span class="lesson-title">Bài 1: Làm quen js</span>
+                                            <p class="note-content">
+                                                Tips hay  Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay
+                                            </p>
+                                        </div>
+                                        <div class="action-ctrl note-item-ctrl">
+                                            <button class="item-ctrl-btn">
+                                                <a href=""><i class="fas fa-pencil-alt"></i></a>
+                                            </button>
+                                            <button class="item-ctrl-btn">
+                                                <a href=""><i class="fas fa-trash"></i></a>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="play-list">
+                        <h3 class="course__title">
+                            REACT JS
+                        </h3>
+
+                        <div class="lesson-list">
+                            <div class="lesson-item">
+                                <a href="" class="lesson-item-info">
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
+                                    <h4 class="lesson-item__title">
+                                        Bài 1: Xây dựng môi trường
+                                    </h4>
+                                    <span class="lesson__time">
+                                        10:10
+                                    </span>
+                                </a>
+                                <div class="lesson-item-test">
+                                    <a href="" class="test_index">
+                                        1
+                                    </a>
+                                    <a href="" class="test_index">
+                                        2
+                                    </a>
+                                    <a href="" class="test_index">
+                                        3
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="lesson-item">
+                                <a href="" class="lesson-item-info">
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
+                                    <h4 class="lesson-item__title">
+                                        Bài 1: Xây dựng môi trường
+                                    </h4>
+                                    <span class="lesson__time">
+                                        10:10
+                                    </span>
+                                </a>
+                                <div class="lesson-item-test">
+                                    <a href="" class="test_index">
+                                        1
+                                    </a>
+                                    <a href="" class="test_index">
+                                        2
+                                    </a>
+                                    <a href="" class="test_index">
+                                        3
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="lesson-item">
+                                <a href="" class="lesson-item-info">
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
+                                    <h4 class="lesson-item__title">
+                                        Bài 1: Xây dựng môi trường
+                                    </h4>
+                                    <span class="lesson__time">
+                                        10:10
+                                    </span>
+                                </a>
+                                <div class="lesson-item-test">
+                                    <a href="" class="test_index">
+                                        1
+                                    </a>
+                                    <a href="" class="test_index">
+                                        2
+                                    </a>
+                                    <a href="" class="test_index">
+                                        3
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="lesson-item">
+                                <a href="" class="lesson-item-info">
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
+                                    <h4 class="lesson-item__title">
+                                        Bài 1: Xây dựng môi trường
+                                    </h4>
+                                    <span class="lesson__time">
+                                        10:10
+                                    </span>
+                                </a>
+                                <div class="lesson-item-test">
+                                    <a href="" class="test_index">
+                                        1
+                                    </a>
+                                    <a href="" class="test_index">
+                                        2
+                                    </a>
+                                    <a href="" class="test_index">
+                                        3
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="lesson-item">
+                                <a href="" class="lesson-item-info">
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
+                                    <h4 class="lesson-item__title">
+                                        Bài 1: Xây dựng môi trường
+                                    </h4>
+                                    <span class="lesson__time">
+                                        10:10
+                                    </span>
+                                </a>
+                                <div class="lesson-item-test">
+                                    <a href="" class="test_index">
+                                        1
+                                    </a>
+                                    <a href="" class="test_index">
+                                        2
+                                    </a>
+                                    <a href="" class="test_index">
+                                        3
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="lesson-item">
+                                <a href="" class="lesson-item-info">
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
+                                    <h4 class="lesson-item__title">
+                                        Bài 1: Xây dựng môi trường
+                                    </h4>
+                                    <span class="lesson__time">
+                                        10:10
+                                    </span>
+                                </a>
+                                <div class="lesson-item-test">
+                                    <a href="" class="test_index">
+                                        1
+                                    </a>
+                                    <a href="" class="test_index">
+                                        2
+                                    </a>
+                                    <a href="" class="test_index">
+                                        3
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="lesson-item">
+                                <a href="" class="lesson-item-info">
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
+                                    <h4 class="lesson-item__title">
+                                        Bài 1: Xây dựng môi trường
+                                    </h4>
+                                    <span class="lesson__time">
+                                        10:10
+                                    </span>
+                                </a>
+                                <div class="lesson-item-test">
+                                    <a href="" class="test_index">
+                                        1
+                                    </a>
+                                    <a href="" class="test_index">
+                                        2
+                                    </a>
+                                    <a href="" class="test_index">
+                                        3
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="lesson-item">
+                                <a href="" class="lesson-item-info">
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
+                                    <h4 class="lesson-item__title">
+                                        Bài 1: Xây dựng môi trường
+                                    </h4>
+                                    <span class="lesson__time">
+                                        10:10
+                                    </span>
+                                </a>
+                                <div class="lesson-item-test">
+                                    <a href="" class="test_index">
+                                        1
+                                    </a>
+                                    <a href="" class="test_index">
+                                        2
+                                    </a>
+                                    <a href="" class="test_index">
+                                        3
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="lesson-item">
+                                <a href="" class="lesson-item-info">
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
+                                    <h4 class="lesson-item__title">
+                                        Bài 1: Xây dựng môi trường
+                                    </h4>
+                                    <span class="lesson__time">
+                                        10:10
+                                    </span>
+                                </a>
+                                <div class="lesson-item-test">
+                                    <a href="" class="test_index">
+                                        1
+                                    </a>
+                                    <a href="" class="test_index">
+                                        2
+                                    </a>
+                                    <a href="" class="test_index">
+                                        3
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="lesson-item">
+                                <a href="" class="lesson-item-info">
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
+                                    <h4 class="lesson-item__title">
+                                        Bài 1: Xây dựng môi trường
+                                    </h4>
+                                    <span class="lesson__time">
+                                        10:10
+                                    </span>
+                                </a>
+                                <div class="lesson-item-test">
+                                    <a href="" class="test_index">
+                                        1
+                                    </a>
+                                    <a href="" class="test_index">
+                                        2
+                                    </a>
+                                    <a href="" class="test_index">
+                                        3
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="lesson-item">
+                                <a href="" class="lesson-item-info">
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
+                                    <h4 class="lesson-item__title">
+                                        Bài 1: Xây dựng môi trường
+                                    </h4>
+                                    <span class="lesson__time">
+                                        10:10
+                                    </span>
+                                </a>
+                                <div class="lesson-item-test">
+                                    <a href="" class="test_index">
+                                        1
+                                    </a>
+                                    <a href="" class="test_index">
+                                        2
+                                    </a>
+                                    <a href="" class="test_index">
+                                        3
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/tablinks.js"></script>
+</body>
+
+</html>

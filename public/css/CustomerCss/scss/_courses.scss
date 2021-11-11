@@ -1,0 +1,222 @@
+.search-section {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  margin: 0 margin-custom();
+
+  .form-container {
+    display: flex;
+    position: relative;
+    .form-content {
+      margin: auto 0;
+
+      h2 {
+        color: var(--color-primary);
+        font-size: $large;
+        font-weight: bold;
+        margin: 30px 0;
+      }
+      form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--color-white-2);
+        border-radius: $radius;
+        transition: $trans-second;
+
+        .input-search,
+        .submit-search {
+          font-size: $normal;
+          border: none;
+          background: none;
+          padding: 10px;
+          outline: none;
+        }
+        .input-search {
+          width: 100%;
+        }
+
+        .submit-search {
+          font-size: $large;
+          cursor: pointer;
+        }
+      }
+      form:hover {
+        box-shadow: 0 3px 10px var(--gray);
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+.oval{
+  border-radius: 50%;
+  position: absolute;
+  z-index: 100;
+}
+.oval-1 {
+  width: 50px;
+  height: 50px;
+  background: var(--color-purple-30);
+}
+.oval-2 {
+  width: 30px;
+  height: 30px;
+  background: var(--color-purple-30);
+}
+.oval-3 {
+  width: 30px;
+  height: 30px;
+  background: var(--color-purple-30);
+}
+
+
+.courses-section {
+  margin: 0 margin-custom();
+  padding: 60px 0;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  grid-gap: 30px;
+
+  .category {
+    // position: -webkit-sticky;
+    // position: sticky;
+    // top: 0;
+    
+    .filter-list {
+      select {
+        /* Reset Select */
+        appearance: none;
+        outline: 0;
+        border: 0;
+        box-shadow: none;
+        /* Personalize */
+        flex: 1;
+        padding: 0 1em;
+        color: #fff;
+        background-color: #2c3e50;
+        cursor: pointer;
+      }
+      /* Remove IE arrow */
+      select::-ms-expand {
+        display: none;
+      }
+      /* Custom Select wrapper */
+      .select {
+        position: relative;
+        display: flex;
+        width: 20em;
+        height: 3em;
+        border-radius: 0.25em;
+        overflow: hidden;
+      }
+      /* Arrow */
+      .select::after {
+        content: "\25BC";
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1em;
+        background-color: var(--color-);
+        transition: 0.25s all ease;
+        pointer-events: none;
+        color: white;
+      }
+      /* Transition */
+      .select:hover::after {
+        color: #f39c12;
+      }
+    }
+
+    .courses-cate-list {
+      margin-top: 20px;
+
+      .course-cate__item {
+        box-shadow: 1px 1px 10px var(--gray);
+        background: var(--white);
+        border-radius: $radius;
+
+        a {
+          font-size: $normal;
+          font-weight: bold;
+          padding: 15px;
+          display: block;
+          width: 100%;
+        }
+
+        .icon__cate {
+          font-size: $normal;
+          padding-right: 10px;
+        }
+      }
+
+      .course-cate__item + .course-cate__item {
+        margin-top: 10px;
+      }
+      .course-cate__item:hover {
+        background: var(--grey);
+      }
+      .course-cate__item:active {
+        background: linear-gradient(
+          to right,
+          var(--color-primary),
+          var(--color-secondary)
+        );
+      }
+    }
+  }
+
+  .course-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+
+  }
+}
+
+.course-item {
+  $size-title: 18px;
+  background: var(--white);
+  text-align: center;
+  border-radius: $radius;
+  padding: 10px;
+  box-shadow: 0 0 5px var(--gray-more);
+  transition: $trans-second;
+
+  .course-poster {
+    border-radius: $radius;
+    overflow: hidden;
+  }
+  .course-text {
+    padding: 15px 0;
+
+    .course__title {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: $size-title;
+    }
+    .course__members {
+      font-size: $small;
+      display: block;
+      margin: 10px 0;
+    }
+    .course__price {
+      font-weight: bold;
+    }
+    .course__price--free {
+      color: var(--success);
+    }
+    .course__price--cost {
+      background: -webkit-linear-gradient(var(--color-primary), black);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .course__price--old {
+      $font-size: $small;
+      text-decoration: line-through;
+    }
+  }
+}
+.course-item:hover {
+  box-shadow: 0 5px 20px 1px var(--gray-more);
+  transform: translateY(-10px);
+}

@@ -1,0 +1,182 @@
+.learning-fluid{
+    margin: 0 $margin-popular;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 10px;
+
+
+    .learning-tabs {
+        .btn-tab {
+            border-bottom: 1px solid var(--gray);
+            text-align: center;
+
+            .tablinks{
+                font-size: 18px;
+                padding: 10px 0;
+                margin: 0 20px;
+                background: none;
+                border: none;
+                font-size: $normal;
+                cursor: pointer;
+            }
+            
+            .tablinks.active{
+                border-bottom: 3px solid var(--color-primary);
+
+            }
+        }
+        #comment-lesson{
+
+            .count-comment{
+                font-weight: bold;
+                padding: 10px 0;
+            }
+
+            .form-comment-input {
+                display: grid;
+                grid-template-columns: 50px 1fr;
+                grid-gap: 30px;
+                margin: 20px 0 30px;
+
+                form{
+                    display: grid;
+                    grid-template-columns: 1fr 30px;
+                    grid-gap: 30px;
+                    
+                    input, button{
+                        border: none;
+                        background: none;
+                        outline: none;
+                        
+                    }
+
+                    input{
+                        width: 100%;
+                        border-bottom: 1px solid var(--gray);
+                        font-size: $normal;
+                        
+                    }
+                    button{
+                        font-size: 22px;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .comment-list{
+                margin: 20px 0;
+
+                .comment-item{
+                    display: grid;
+                    grid-template-columns: 50px 1fr 50px;
+                    grid-gap: 30px;
+                 
+                    .comment-text{
+                        background: var(--grey);
+                        padding: 15px;
+                        border-radius: 20px;
+                    }
+                    .comment-item__name{
+                        font-weight: bold;
+                    }
+                    .comment-item__date{
+                        color: var(--gray);
+                        text-align: right;
+                    }
+                    .comment-item__content{
+                        padding: 10px 0;
+                        font-size: $small;
+                    }
+                 }
+
+            }
+        }
+        
+        #note-lesson{
+            
+            .note-lesson-list {
+                padding: 20px 0;
+
+                .note-lesson-item {
+                    display: grid;
+                    grid-template-columns: 50px 1fr 50px;
+                    grid-gap: 30px;
+
+                    .note__time{
+                        height: 20px;
+                        padding: 10px;
+                        background: var(--color-primary);
+                        border-radius: $radius-2;
+                        font-weight: bold;
+                        display: flex;
+                        align-items: center;
+                    }
+                    .note-text-container{
+                        background: var(--grey);
+                        padding: 15px;
+                        border-radius: 20px;
+
+                        .lesson-title{
+                            font-weight: bold;
+                            display: inline-block;
+                            padding-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .tab-content{
+            display: none;
+        }
+        .action-ctrl{
+            display: flex;
+            align-items: flex-start;
+
+            .item-ctrl-btn{
+                border: none;
+                background: none;
+                outline: none;
+
+                a{
+                    color: var(--gray-more);
+                }
+            }
+            .item-ctrl-btn:hover a{
+                color: var(--black);
+            }
+
+        }
+    }
+
+    .play-list{
+        padding: 20px 10px;
+        background: var(--white);
+        border-radius: $radius;
+        max-height: 600px;
+        overflow: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        .course__title{
+            font-weight: bold;
+        }
+
+        .lesson-item-test{
+            padding:0 40px;
+
+            .test_index{
+                display: inline-block;
+                min-width:35px;
+                padding: 10px 13px;
+                background: var(--gray-more);
+                border-radius: 50%;
+                margin: 0 10px 0 0;
+            }
+        }
+    }
+    .play-list::-webkit-scrollbar { 
+        width: 0 !important;
+        display: none; 
+      }
+}

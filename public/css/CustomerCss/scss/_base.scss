@@ -1,0 +1,193 @@
+* {
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+
+// ==================================== variables =================
+:root {
+  --white: white;
+  --black: black;
+  --color-white-2: #F8F9FC;
+  --color-primary: #0098d2;
+  --color-secondary: #00bcca;
+  --color-purple: #7d7fdc;
+  --color-purple-30: rgba(125, 127, 220, 0.3);
+  --color-purple-light: #e1bbe5;
+  --color-thirty-30: #46bfd0;
+  --gray: #ccc;
+  --gray-more: #c4c4c4;
+  --grey: #f2f2f2;
+  --success: #04d200;
+  --danger: #ff0000;
+  --hightlight: #00bcca;
+  --hightlight-color: white;
+  --color-dark: #03485D;
+
+}
+
+[data-theme="dark"] {
+  --white: black;
+  --black: white;
+}
+
+// ------------- font-size -----------
+$small: 14px;
+$normal: 15px;
+$large: 30px;
+$larger: 48px;
+
+// ------------- other -----------
+
+$margin-popular: 30px;
+
+$radius: 5px;
+$radius-2: 10px;
+
+$trans-second: 0.5s;
+
+$max-width: 1280px;
+
+::selection {
+  background:var(--hightlight); 
+  color: var(--hightlight-color);
+}
+::-moz-selection {
+  background:var(--hightlight); 
+  color: var(--hightlight-color);
+}
+::-webkit-selection {
+  background:var(--hightlight); 
+  color: var(--hightlight-color);
+}
+// ==================================== MIXIN =================
+@mixin container-fluid($max-width: $max-width) {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+@mixin text-gradient {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin button-key(
+  $bgr-1: var(--color-primary),
+  $bgr-2: var(--color-secondary),
+  $bor-1: var(--color-primary),
+  $bor-2: var(--color-secondary),
+  $color: white,
+  $fontSize: $normal
+) {
+  display: inline-block;
+  text-align: center;
+  color: $color;
+  font-size: $fontSize;
+  padding: 10px 25px;
+  width: auto;
+  cursor: pointer;
+  outline: none;
+
+  background: linear-gradient(90deg, $bgr-1 0%, $bgr-2 100%) padding-box,
+    linear-gradient(to right, $bor-1, $bor-2) border-box;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+}
+@function margin-custom($max-width: $max-width){
+  @return $max-width/12 + 30px;
+}
+@function one-col($max-width: $max-width){
+  @return $max-width/12;
+}
+
+// dùng chung
+$px-box-shadow: 10px;
+
+@function px-box-shadow($px-box-shadow: $px-box-shadow){
+  @return $px-box-shadow - $px-box-shadow/2;
+}
+// --------------------------------------------------------------------------------------------------------
+body {
+  margin: 0;
+  font-size: $normal;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+//   ------------------ CLASS -----------
+.container {
+  max-width: 100%;
+  background: white;
+}
+.container-fluid {
+  @include container-fluid;
+}
+.img-fluid {
+  max-width: 100%;
+}
+// header
+.navbar-container {
+  @include container-fluid;
+}
+
+// banner
+.banner {
+  @include container-fluid;
+}
+.bgr-light {
+  background: var(--color-white-2);
+}
+
+.btn-primary {
+  @include button-key;
+  background-position: right center;
+}
+.btn-secondary {
+  @include button-key(
+    white,
+    white,
+    var(--color-primary),
+    var(--color-secondary),
+    black,
+    $normal
+  );
+}
+.btn-action {
+  @include button-key(
+    var(--color-primary),
+    var(--color-purple),
+    var(--color-primary),
+    var(--color-purple),
+    white,
+    $normal
+  );
+  transition: $trans-second;
+  width: 200px;
+}
+.btn-action:hover {
+  box-shadow: 0px 4px 20px 5px rgba(0, 152, 210, 0.56);
+  transform: translateY(-5px);
+}
+
+// css phần hiển thị item khóa học
+.subject-item {
+  background-color: white;
+}
+.subject-item-secondary{
+  
+}
+.name__section{
+
+}
+
+.title-section{
+
+}
