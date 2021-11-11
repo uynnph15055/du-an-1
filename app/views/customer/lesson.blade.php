@@ -10,6 +10,7 @@
 </head>
 
 <body>
+   <h1> hello</h1>
     Danh sách bài học css
     <ul class="lesson_list">
         @foreach($dataLesson as $key)
