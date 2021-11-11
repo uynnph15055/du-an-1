@@ -1,11 +1,16 @@
 @extends('admin.layouts.baseAdmin')
 @section('title', 'Danh sách môn học')
 @section('main_content')
+
 <style>
     .input-text {
         border: 1px solid #ccc;
         border-radius: 10px;
         padding: 10px;
+    }
+
+    form {
+        margin-top: 30px;
     }
 
     .select {

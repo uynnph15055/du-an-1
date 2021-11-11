@@ -14,10 +14,6 @@
         align-items: center;
     }
 
-    th {
-        font-size: 15px;
-    }
-
     .select {
         width: 100%;
         border: 1px solid #ccc;
@@ -37,9 +33,9 @@
         <thead>
             <tr>
                 <th>STT</th>
-                <th>Tên môn</th>
+                <th width="214px">Tên môn</th>
                 <th>Ảnh</th>
-                <th>Danh mục</th>
+                <th>Chuyên ngành</th>
                 <th>Trang thái</th>
                 <th>Giá</th>
                 <th>Khuyến mại</th>

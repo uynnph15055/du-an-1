@@ -1,5 +1,5 @@
 @extends('admin.layouts.baseAdmin')
-@section('title', 'Danh sách môn học')
+@section('title', 'Danh sách bài học')
 @section('main_content')
 <style>
     .warning-bg {

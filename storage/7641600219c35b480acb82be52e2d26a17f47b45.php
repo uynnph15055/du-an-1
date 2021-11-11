@@ -8,6 +8,10 @@
         padding: 10px;
     }
 
+    form {
+        margin-top: 30px;
+    }
+
     .select {
         width: 100%;
         border: 1px solid #ccc;

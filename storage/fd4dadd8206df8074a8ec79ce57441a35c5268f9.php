@@ -41,8 +41,8 @@
                 </form>
             </div>
             <?php endif; ?>
-            <div class="col-8" style="margin-top: 30px;">
-                <table class="table table-bordered">
+            <div class="col-8">
+                <table class="table table-bordered" style="margin-top:30px">
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -56,7 +56,7 @@
                         <?php
                         $index = 1;
                         ?>
-                        <?php $__currentLoopData = $dataCate; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>;
+                        <?php $__currentLoopData = $dataCate; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                             <td><?= $index++ ?></td>
                             <td><?php echo e($key['cate_name']); ?></td>

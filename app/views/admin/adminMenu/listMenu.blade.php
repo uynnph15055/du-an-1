@@ -1,5 +1,5 @@
 @extends('admin.layouts.baseAdmin')
-@section('title', 'Danh sách môn học')
+@section('title', 'Danh sách menu')
 @section('main_content')
 <div class="container">
     <h4 class="text-center">Danh sách menu</h4>

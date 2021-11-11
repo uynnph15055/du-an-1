@@ -41,8 +41,8 @@
                 </form>
             </div>
             @endif
-            <div class="col-8" style="margin-top: 30px;">
-                <table class="table table-bordered">
+            <div class="col-8">
+                <table class="table table-bordered" style="margin-top:30px">
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -56,7 +56,7 @@
                         <?php
                         $index = 1;
                         ?>
-                        @foreach($dataCate as $key);
+                        @foreach($dataCate as $key)
                         <tr>
                             <td><?= $index++ ?></td>
                             <td>{{$key['cate_name']}}</td>

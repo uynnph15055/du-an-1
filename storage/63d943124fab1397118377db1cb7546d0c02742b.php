@@ -1,5 +1,5 @@
 
-<?php $__env->startSection('title', 'Danh sách môn học'); ?>
+<?php $__env->startSection('title', 'Danh sách menu'); ?>
 <?php $__env->startSection('main_content'); ?>
 <div class="container">
     <h4 class="text-center">Danh sách menu</h4>
