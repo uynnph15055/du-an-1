@@ -74,10 +74,11 @@ class adminLesson extends baseController
 
                 modelLesson::insertLesson($data);
                 $_SESSION['success'] = "Thêm thành công !!!";
-                $dataLesson = modelLesson::selectLesson($subject_id);
-                // $this->dd($dataLesson);
+                $subjectRow = modelSubject::where('subject_id', "=", $subject_id)->get();
 
-                $this->render("admin.adminLesson.listLesson", ['dataLesson' => $dataLesson]);
+                $subject_slug = $subjectRow[0]['subject_slug'];
+
+                header("Location:./chi-tiet-mon-hoc?mon=$subject_slug");
             } else {
                 $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
                 header("Location: ./them-bai-hoc?id=$subject_id");

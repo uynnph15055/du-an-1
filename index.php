@@ -11,6 +11,8 @@ use App\Controllers\Backend\adminMenu;
 use App\Controllers\Backend\adminQuestion;
 use App\Controllers\Backend\adminSubject;
 use App\Controllers\Backend\Banner;
+use App\Controllers\Frontend\Lesson;
+use App\Controllers\Frontend\Question;
 
 switch ($url) {
     case 'danh-sach-mon':
@@ -132,6 +134,16 @@ switch ($url) {
         echo $ctr->addBanner();
         break;
 
+        // Hiển thị câu hỏi.
+    case 'cau-hoi';
+        $ctr = new Question();
+        echo $ctr->index();
+        break;
+        // Hiển thi bài học.
+    case 'bai-hoc';
+        $ctr = new Lesson();
+        echo $ctr->index();
+        break;
 
     default:
         "Không tồn tại file nào";

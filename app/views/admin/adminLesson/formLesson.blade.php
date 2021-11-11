@@ -43,7 +43,7 @@
 
         <div class="row">
             <div class="col">
-
+                
                 <input type="text" hidden name="subject_id" value="{{$row['subject_id']}}">
 
                 <input type="text" hidden name="lesson_id" value="{{$row['lesson_id']}}">
