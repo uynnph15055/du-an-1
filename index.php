@@ -10,7 +10,7 @@ use App\Controllers\Backend\adminLesson;
 use App\Controllers\Backend\adminMenu;
 use App\Controllers\Backend\adminQuestion;
 use App\Controllers\Backend\adminSubject;
-use App\Controllers\Frontend\Banner;
+use App\Controllers\Backend\Banner;
 
 switch ($url) {
     case 'danh-sach-mon':
@@ -131,6 +131,8 @@ switch ($url) {
         $ctr = new Banner();
         echo $ctr->addBanner();
         break;
+
+
     default:
         "Không tồn tại file nào";
         break;

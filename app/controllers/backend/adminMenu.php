@@ -12,7 +12,11 @@ class adminMenu extends baseController
     function index()
     {
         $dataMenu = modelMenu::all();
-        $this->render("admin.adminMenu.listMenu", ['dataMenu' => $dataMenu]);
+        $number = count($dataMenu);
+        $this->render("admin.adminMenu.listMenu", [
+            'dataMenu' => $dataMenu,
+            'number' => $number
+        ]);
     }
 
     function addMenu()
@@ -52,7 +56,9 @@ class adminMenu extends baseController
             header('Location: ./danh-sach-menu?mess=id không tồn tại');
             die();
         } else {
+
             modelMenu::delete("menu_id", "=", $id)->executeQuery();
+            $_SESSION['success'] = "Xóa thành công !!!";
             header('Location: ./danh-sach-menu');
         }
     }

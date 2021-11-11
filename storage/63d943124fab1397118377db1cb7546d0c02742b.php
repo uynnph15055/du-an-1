@@ -37,6 +37,7 @@
         </div>
         <?php endif; ?>
         <div class="col-8">
+            <span style="float:right;font-style:italic">Tổng có : <?php echo e($number); ?> menu</span>
             <table class="table table-bordered" style="margin-top:30px">
                 <thead>
                     <tr>

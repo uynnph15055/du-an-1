@@ -7,6 +7,8 @@ use App\config\DB;
 class modelBanner extends DB
 {
     protected $table = "banner";
+
+    // Thêm banner vào db
     public static function insertBanner($data)
     {
         $model = new static;
@@ -15,6 +17,8 @@ class modelBanner extends DB
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }
+
+    // Gọi ra tất cả banner.
     public static function getAll()
     {
         $model = new static();

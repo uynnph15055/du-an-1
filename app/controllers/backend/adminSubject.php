@@ -20,7 +20,7 @@ class adminSubject extends baseController
         // $this->dd($pages);
         $dataSubjectLimit = modelSubject::joinCate($index);
         $this->render("admin.adminSubject.listSubject", [
-            'stt' => $index+1,
+            'stt' => $index + 1,
             'number' => $number,
             'dataSubject' => $dataSubjectLimit,
             'page' => $pages,

@@ -26,9 +26,8 @@
     <h4 class="text-center">Danh sách môn học</h4>
     <div class="header__list">
         <a href="trang-them-mon-hoc" class="btn btn-primary">Thêm môn </a>
-        <h5 style="margin-bottom:-30px">Tổng số : {{$number}} môn</h5>
     </div>
-    <br>
+    <span style="float:right;font-style:italic">Tổng có : {{$number}} môn</span>
     <table class="table table-bordered">
         <thead>
             <tr>

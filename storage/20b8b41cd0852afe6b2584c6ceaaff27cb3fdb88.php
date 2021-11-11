@@ -41,7 +41,7 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <!-- <h5 style="margin-bottom:-30px">Tổng số : <?php echo e($number); ?> môn</h5> -->
     </div>
-    <br>
+    <span style="float:right;font-style:italic">Tổng có : <?php echo e($number); ?> menu</span>
     <table class="table table-bordered">
         <thead>
             <tr style="text-align: center;">

@@ -4,7 +4,7 @@
 <div class="container">
     <h4 class="text-center">Danh sách danh mục</h4>
     @if(isset($editCate))
-    <div class="row">
+    <div class="row" style="margin-top:30px">
         <div class="col-4">
             <h5>Sửa danh mục môn học</h5>
             <form method="POST" action="update-danh-muc">
@@ -25,7 +25,7 @@
             </form>
         </div>
         @else
-        <div class="row">
+        <div class="row" style="margin-top:30px">
             <div class="col-4">
                 <h5>Thêm danh mục môn học</h5>
                 <form method="POST" action="them-danh-muc">
@@ -42,7 +42,8 @@
             </div>
             @endif
             <div class="col-8">
-                <table class="table table-bordered" style="margin-top:30px">
+                <span style="float:right;font-style:italic">Tổng có : {{$number}} ngành</span>
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>STT</th>

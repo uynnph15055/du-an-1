@@ -25,6 +25,7 @@
     <!--  -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <?php echo $__env->yieldContent('link css banner'); ?>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <style>
         th {
@@ -120,7 +121,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="danh-sach-banner">
                     <i class="far fa-images"></i>
                     <span>Banner</span></a>
             </li>
@@ -343,7 +344,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <h6>Copyright @admin  project one Course IFT</h6>
                     </div>
                 </div>
             </footer>
@@ -353,18 +354,6 @@
         <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
-
-    <!-- Logout Modal-->
 
 
 
@@ -399,12 +388,23 @@
                 Swal.fire({
                     icon: 'warning',
                     title: '<?= $_SESSION['error']; ?>',
-                    timer: 30000,
+                    timer: 3000,
 
                 })
 
             <?php
                 unset($_SESSION['error']);
+            } elseif (isset($_SESSION['success'])) { ?>
+                Swal.fire({
+
+                    icon: 'success',
+                    title: '<?= $_SESSION['success']; ?>',
+                    showConfirmButton: false,
+                    timer: 1500
+
+                })
+
+            <?php unset($_SESSION['success']);
             }
             ?>
         });

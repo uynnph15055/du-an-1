@@ -41,7 +41,7 @@
         @endforeach
         <!-- <h5 style="margin-bottom:-30px">Tổng số : {{$number}} môn</h5> -->
     </div>
-    <br>
+    <span style="float:right;font-style:italic">Tổng có : {{$number}} menu</span>
     <table class="table table-bordered">
         <thead>
             <tr style="text-align: center;">

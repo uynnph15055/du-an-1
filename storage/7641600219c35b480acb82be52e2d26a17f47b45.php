@@ -1,6 +1,7 @@
 
 <?php $__env->startSection('title', 'Danh sách môn học'); ?>
 <?php $__env->startSection('main_content'); ?>
+
 <style>
     .input-text {
         border: 1px solid #ccc;

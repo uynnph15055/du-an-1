@@ -19,11 +19,12 @@ class adminLesson extends baseController
 
 
         $dataLesson = modelLesson::selectLesson($subject_id);
+        $number = count($dataLesson);
 
         $this->render("admin.adminLesson.listLesson", [
             'subject_id' => $subject_id,
             'dataLesson' => $dataLesson,
-
+            'number' => $number,
         ]);
     }
 
@@ -72,6 +73,7 @@ class adminLesson extends baseController
                 // $this->dd($data);
 
                 modelLesson::insertLesson($data);
+                $_SESSION['success'] = "Thêm thành công !!!";
                 $dataLesson = modelLesson::selectLesson($subject_id);
                 // $this->dd($dataLesson);
 
@@ -102,7 +104,7 @@ class adminLesson extends baseController
             $dataLesson = modelLesson::selectLesson($subject_id);
             $subject_slug = $dataLesson[0]['subject_slug'];;
             modelLesson::delete("lesson_id", "=", $id)->executeQuery();
-
+            $_SESSION['success'] = "Xóa thành công !!!";
             header("Location:./chi-tiet-mon-hoc?mon=$subject_slug");
         }
     }
@@ -155,7 +157,7 @@ class adminLesson extends baseController
                 modelLesson::updateLesson($data);
                 $dataLesson = modelLesson::selectLesson($subject_id);
                 // $this->dd($dataLesson);
-
+                $_SESSION['success'] = "Cập Nhật thành công !!!";
                 $this->render("admin.adminLesson.listLesson", ['dataLesson' => $dataLesson]);
             } else {
                 $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
