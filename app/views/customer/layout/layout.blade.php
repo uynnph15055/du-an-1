@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>@yield('title', 'PT16306 project_one')</title>
     <!-- reset -->
-    <link rel="stylesheet" href="./asset/css/reset.css">
+    <link rel="stylesheet" href="./public/css/customerCss/reset.css">
     <!-- icon -->
-    <link rel="stylesheet" href="./asset/fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <!-- css -->
-    <link rel="stylesheet" href="./asset/css/style.css">
+    <link rel="stylesheet" href="./public/css/customerCss/style.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
                 <div class="navbar-fluid">
                     <div class="navbar-logo">
                         <a href="">
-                            <img src="./asset/images/logo-main.png" alt="" class="img-fluid img__logo">
+                            <img src="./public/img/images/logo-main.png" alt="" class="img-fluid img__logo">
                         </a>
                     </div>
                     <div class="navbar-content">
@@ -76,12 +76,12 @@
                 </div>
             </div>
         </header>
-        <main style="background:rgb(204, 100, 100); height: 1000px;">
-
+        <main>
+            @yield('main_content');
         </main>
     </div>
-    <script src="./js/toggle.js"></script>
-    <script src="./js/darkMode.js"></script>
+    <script src="./../../../public/js/customerJs/toggle.js"></script>
+    <script src="./../../../public/js/customerJs/darkMode.js"></script>
 </body>
 
 </html>

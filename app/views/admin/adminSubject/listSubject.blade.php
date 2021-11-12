@@ -52,7 +52,7 @@
                 <td><?= $index++ ?></td>
                 <td>{{$key['subject_name']}}</td>
                 <td>
-                    <img width="50px" src="./public/img/{{$key['subject_img']}}" alt="">
+                    <img width="70px" src="./public/img/{{$key['subject_img']}}" alt="">
                 </td>
                 <td>{{$key['cate_name']}}</td>
                 <td>@if($key['type_id'] == 1)

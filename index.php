@@ -11,6 +11,7 @@ use App\Controllers\Backend\adminMenu;
 use App\Controllers\Backend\adminQuestion;
 use App\Controllers\Backend\adminSubject;
 use App\Controllers\Backend\Banner;
+use App\Controllers\Frontend\Courses;
 use App\Controllers\Frontend\Lesson;
 use App\Controllers\Frontend\Question;
 
@@ -134,6 +135,9 @@ switch ($url) {
         echo $ctr->addBanner();
         break;
 
+
+        // -------- Giao diện khách hàng
+
         // Hiển thị câu hỏi.
     case 'cau-hoi';
         $ctr = new Question();
@@ -142,6 +146,10 @@ switch ($url) {
         // Hiển thi bài học.
     case 'bai-hoc';
         $ctr = new Lesson();
+        echo $ctr->index();
+        break;
+    case 'khoa-hoc';
+        $ctr = new Courses();
         echo $ctr->index();
         break;
 
