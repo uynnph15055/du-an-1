@@ -40,7 +40,7 @@
                         @foreach($cateSubject as $key)
                         <li class="course-cate__item">
                             <a href="">
-                                <i class="fas fa-caret-right"></i>
+                            <i class="fas fa-laptop-code"></i>
                                 <span>{{$key['cate_name']}}</span>
                             </a>
                         </li>
