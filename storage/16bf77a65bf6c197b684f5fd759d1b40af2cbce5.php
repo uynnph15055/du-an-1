@@ -1,6 +1,6 @@
-@extends('customer.layout.layout')
-@section('title', 'Khóa học')
-@section('main_content')
+
+<?php $__env->startSection('title', 'Khóa học'); ?>
+<?php $__env->startSection('main_content'); ?>
 <div class="container" style="padding-top:30px">
     <div class="container-fluid">
         <div class="search-section">
@@ -37,56 +37,41 @@
                     </div>
                     <!-- </div> -->
                     <ul class="courses-cate-list">
-                        @foreach($cateSubject as $key)
+                        <?php $__currentLoopData = $cateSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="course-cate__item">
-                            <a data-id="{{$key['cate_id']}}" class="cate_id" href="">
-                                <i class="fas fa-laptop-code"></i>
-                                <span>{{$key['cate_name']}}</span>
+                            <a href="">
+                                <i class="fas fa-caret-right"></i>
+                                <span><?php echo e($key['cate_name']); ?></span>
                             </a>
                         </li>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
                 </aside>
                 <div class="course-list">
-
-                    @if(isset($subject))
-                    @foreach($subject as $key)
+                    <?php $__currentLoopData = $subject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="course-item">
                         <div class="course-poster">
-                            <a href="bai-hoc?mon={{$key['subject_slug']}}"><img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img></a>
+                            <img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img>
                         </div>
                         <div class="course-text">
-                            <h3 class="course__title" style="font-size: 15px;">{{$key['subject_name']}}</h3>
+                            <h3 class="course__title" style="font-size: 15px;"><?php echo e($key['subject_name']); ?></h3>
                             <span class="course__members">
                                 <i class="fas fa-users"></i>
                                 123
                             </span>
-                            @if($key['type_id'] == 0)
+                            <?php if($key['type_id'] == 0): ?>
                             <span class="course__price course__price--free">Miễn phí</span>
-                            @else
+                            <?php else: ?>
                             <span class="course__price course__price--cost"><?php echo number_format($key['subject_price']) ?>đ</span>
                             <span class="course__price course__price--old"><?php echo number_format($key['subject_sale']) ?>đ</span>
-                            @endif
+                            <?php endif; ?>
                         </div>
                     </div>
-                    @endforeach
-                    @endif
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
             </div>
     </main>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script>
-    $(document).ready(function() {
-        $('.cate_id').click(function(e) {
-            e.preventDefault();
-            var cate_id = $(this).data('id');
-            $.get("khoa-hoc-theo-nganh", {
-                cate_id: cate_id
-            }, function($data) {
-                $('.course-list').html($data);
-            })
-        })
-    })
-</script>
-@endsection
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/customer/courses.blade.php ENDPATH**/ ?>

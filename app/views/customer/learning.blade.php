@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="learning-fluid">
                 <div class="learning-space">
-                    <div class="learning__video">
+                    <div class="learning__video" style="margin-bottom: 20px;">
                         @if(isset($lessonFist))
                         <iframe width="98%" height="520" src="{{$lessonFist['lesson_link']}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>

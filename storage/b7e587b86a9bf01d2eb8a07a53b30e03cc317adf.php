@@ -3,7 +3,10 @@
 <?php $__env->startSection('main_content'); ?>
 <div class="container">
     <h4 class="text-center">Danh sách câu hỏi</h4>
-    <a class="btn btn-primary" href="trang-them-cau-hoi">Thêm câu hỏi</a>
+    <a href="de-mo-bai-tap">demo</a>
+    <?php if($lesson_id): ?>
+    <a class="btn btn-primary" href="trang-them-cau-hoi?lesson_id=<?php echo e($lesson_id); ?>">Thêm câu hỏi</a>
+    <?php endif; ?>
     <br>
     <br>
     <table class="table table-bordered">
@@ -12,7 +15,7 @@
                 <th>STT</th>
                 <th>Đề bài</th>
                 <th>Ảnh</th>
-                <th>Thuộc bài</th>
+
                 <th>Đáp án</th>
                 <th>Sửa</th>
                 <th>Xóa</th>
@@ -22,21 +25,30 @@
             <?php
             $index = 1;
             ?>
-            <?php $__currentLoopData = $dataQuestion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <tr>
-                <td><?= $index++ ?></td>
-                <td><?php echo e($key['heading']); ?></td>
-                <td><?php echo e($key['heading_img']); ?></td>
-                <td><?php echo e($key['answer']); ?></td>
-                <td><?php echo e($key['answer']); ?></td>
-                <td>
-                    <a class="btn btn-warning" href=""><i class="fas fa-edit"></i></a>
-                </td>
-                <td>
-                    <a class="btn btn-danger" href=""><i class="fas fa-trash"></i></a>
-                </td>
-            </tr>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php foreach ($dataQuestion as $key) {
+                $a = explode("/", $key['answer']);
+
+
+            ?>
+                <tr>
+                    <td><?= $index++ ?></td>
+                    <td><?php echo e($key['question']); ?></td>
+                    <td><img style="height: 60px; width:50px" src="./public/img/<?php echo e($key['question_img']); ?>" alt=""></td>
+                    <td>
+                        <?php foreach ($a as $value) {
+                 
+                            ?>
+                            - <?= $value ?>
+                            <br> <?php } ?>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" href=""><i class="fas fa-edit"></i></a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href=""><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            <?php } ?>
         </tbody>
     </table>
 </div>

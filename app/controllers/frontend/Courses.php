@@ -9,25 +9,25 @@ use App\Models\modelSubject;
 
 class Courses extends baseController
 {
-    function __construct()
+    private $menu;
+    public function __construct()
     {
-        // $menu = modelMenu::all();
-        // $this->render("customer.layout.layout", [
-        //     'menu' => $menu,
-        // ]);
+        $this->menu = modelMenu::all();
     }
 
-    function index()
+    public function index()
     {
         $subject = modelSubject::all();
         $cateSubject = modelCateSubject::all();
+        // $this->dd($this->menu);
         $this->render("customer.courses", [
             'cateSubject' => $cateSubject,
-            'subject' => $subject
+            'subject' => $subject,
+            'menu' => $this->menu,
         ]);
     }
 
-    function listCourse()
+    public function listCourse()
     {
         $cate_id = $_GET['cate_id'];
 
@@ -37,10 +37,21 @@ class Courses extends baseController
         } else {
             $course = modelSubject::where('cate_id', "=", $cate_id)->get();
             foreach ($course as $key) {
+                $type = '';
+                $sale = '';
+                $class = '';
+                if ((int)$key['type_id'] == 0) {
+                    $type = "Miễn Phí";
+                    $class = 'course__price--free';
+                } else {
+                    $class = 'course__price--cost';
+                    $type = number_format($key['subject_price']);
+                    $sale = number_format($key['subject_sale']) . 'đ';
+                }
                 echo "
             <div class='course-item'>
                 <div class='course-poster'>
-                <a href='bai-hoc?mon=" . $key['subject_slug'] . "'><img src='./public/img/" . $key['subject_img'] . "' class=' img-fluid'></img></a>
+                    <img src='./public/img/" . $key['subject_img'] . "' class=' img-fluid'></img>
                 </div>
                 <div class='course-text'>
                     <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
@@ -48,12 +59,8 @@ class Courses extends baseController
                         <i class='fas fa-users'></i>
                         123
                     </span>
-                    <?php if(" . $key['type_id'] . " == 0){ ?>
-                    <span class='course__price course__price--free'>Miễn phí</span>
-                    <?php }else{ ?>
-                    <span class='course__price course__price--cost'><?php echo number_format(" . $key['subject_price'] . " ?>đ</span>
-                    <span class='course__price course__price--old'><?php echo number_format(" . $key['subject_sale'] . ") ?>đ</span>
-                    <?php } ?>
+                    <span class='course__price " . $class . "'>" . $type . "</span>
+                    <span class='course__price course__price--old'>" . $sale . "</span>
                 </div>
             </div>";
             }

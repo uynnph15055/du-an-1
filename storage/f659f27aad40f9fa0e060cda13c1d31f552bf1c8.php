@@ -27,6 +27,12 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <?php echo $__env->yieldContent('link css banner'); ?>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <style>
+        th {
+            font-size: 15px;
+            font-weight: 500;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -108,7 +114,7 @@
                     <span>Hóa đơn</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="danh-sach-menu">
                     <i class="fas fa-bars"></i>
                     <span>Menu</span></a>
             </li>
@@ -338,7 +344,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <h6>Copyright @admin  project one Course IFT</h6>
                     </div>
                 </div>
             </footer>
@@ -348,18 +354,6 @@
         <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
-
-    <!-- Logout Modal-->
 
 
 
@@ -400,17 +394,18 @@
 
             <?php
                 unset($_SESSION['error']);
-            }elseif(isset($_SESSION['success'])){ ?>
+            } elseif (isset($_SESSION['success'])) { ?>
                 Swal.fire({
-                
-            icon: 'success',
-            title: 'Cập nhật thành Công',
-            showConfirmButton: false,
-            timer: 1500
+
+                    icon: 'success',
+                    title: '<?= $_SESSION['success']; ?>',
+                    showConfirmButton: false,
+                    timer: 1500
 
                 })
 
-          <?php   unset($_SESSION['success']); }
+            <?php unset($_SESSION['success']);
+            }
             ?>
         });
     </script>

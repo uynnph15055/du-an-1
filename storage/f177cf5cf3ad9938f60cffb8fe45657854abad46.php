@@ -14,10 +14,6 @@
         align-items: center;
     }
 
-    th {
-        font-size: 15px;
-    }
-
     .select {
         width: 100%;
         border: 1px solid #ccc;
@@ -30,16 +26,15 @@
     <h4 class="text-center">Danh sách môn học</h4>
     <div class="header__list">
         <a href="trang-them-mon-hoc" class="btn btn-primary">Thêm môn </a>
-        <h5 style="margin-bottom:-30px">Tổng số : <?php echo e($number); ?> môn</h5>
     </div>
-    <br>
+    <span style="float:right;font-style:italic">Tổng có : <?php echo e($number); ?> môn</span>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>STT</th>
-                <th>Tên môn</th>
+                <th width="214px">Tên môn</th>
                 <th>Ảnh</th>
-                <th>Danh mục</th>
+                <th>Chuyên ngành</th>
                 <th>Trang thái</th>
                 <th>Giá</th>
                 <th>Khuyến mại</th>
@@ -57,7 +52,7 @@
                 <td><?= $index++ ?></td>
                 <td><?php echo e($key['subject_name']); ?></td>
                 <td>
-                    <img width="50px" src="./public/img/<?php echo e($key['subject_img']); ?>" alt="">
+                    <img width="70px" src="./public/img/<?php echo e($key['subject_img']); ?>" alt="">
                 </td>
                 <td><?php echo e($key['cate_name']); ?></td>
                 <td><?php if($key['type_id'] == 1): ?>

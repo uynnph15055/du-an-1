@@ -40,8 +40,7 @@
                         <?php $__currentLoopData = $cateSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="course-cate__item">
                             <a data-id="<?php echo e($key['cate_id']); ?>" class="cate_id" href="">
-                                <i class="fas fa-list-alt"></i>
-                                &nbsp;
+                                <i class="fas fa-laptop-code"></i>
                                 <span><?php echo e($key['cate_name']); ?></span>
                             </a>
                         </li>
@@ -79,7 +78,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
     $(document).ready(function() {
-
         $('.cate_id').click(function(e) {
             e.preventDefault();
             var cate_id = $(this).data('id');

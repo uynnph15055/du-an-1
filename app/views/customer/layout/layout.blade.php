@@ -27,10 +27,9 @@
                     <div class="navbar-content">
                         <nav class="nav__menu">
                             <ul class="nav__list">
-                                <li class="nav__item"><a href="" class="nav__item-link">Trang chủ</a></li>
-                                <li class="nav__item"><a href="" class="nav__item-link">Khóa học</a></li>
-                                <li class="nav__item"><a href="" class="nav__item-link">Giới thiệu</a></li>
-                                <li class="nav__item"><a href="" class="nav__item-link">Liên hệ</a></li>
+                                @foreach($menu as $key)
+                                <li class="nav__item"><a href="{{$key['menu_slug']}}" class="nav__item-link">{{$key['menu_name']}}</a></li>
+                                @endforeach
                             </ul>
                         </nav>
                         <div class="navbar-action">
@@ -82,7 +81,6 @@
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
     <script src="./public/js/customerJs/darkMode.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </body>
 
 </html>

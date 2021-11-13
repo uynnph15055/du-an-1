@@ -3,43 +3,85 @@
 <?php $__env->startSection('main_content'); ?>
 <div class="container">
     <h4 class="text-center">Danh sách câu hỏi</h4>
-    <a class="btn btn-primary" href="trang-them-cau-hoi">Thêm câu hỏi</a>
+    <?php if($lesson_id): ?>
+    <a class="btn btn-primary" href="trang-them-cau-hoi?lesson_id=<?php echo e($lesson_id); ?>">Thêm câu hỏi</a>
+    <?php endif; ?>
     <br>
     <br>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>STT</th>
-                <th>Đề bài</th>
-                <th>Ảnh</th>
-                <th>Thuộc bài</th>
+                <th width="80px">STT</th>
+                <th width="400px">Đề bài</th>
+                <th width="130px">Ảnh (Nếu có *)</th>
                 <th>Đáp án</th>
-                <th>Sửa</th>
-                <th>Xóa</th>
+                <th width="90px">Chạy thử</th>
+                <th width="80px">Sửa</th>
+                <th width="80px">Xóa</th>
             </tr>
         </thead>
         <tbody>
             <?php
             $index = 1;
             ?>
-            <?php $__currentLoopData = $dataQuestion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <tr>
-                <td><?= $index++ ?></td>
-                <td><?php echo e($key['heading']); ?></td>
-                <td><?php echo e($key['heading_img']); ?></td>
-                <td><?php echo e($key['answer']); ?></td>
-                <td><?php echo e($key['answer']); ?></td>
-                <td>
-                    <a class="btn btn-warning" href=""><i class="fas fa-edit"></i></a>
-                </td>
-                <td>
-                    <a class="btn btn-danger" href=""><i class="fas fa-trash"></i></a>
-                </td>
-            </tr>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php foreach ($dataQuestion as $key) {
+                $a = explode("/", $key['answer']);
+            ?>
+                <tr>
+                    <td><?= $index++ ?></td>
+                    <td>
+                        <?php echo $key['question'] ?>
+                    </td>
+                    <td style="text-align: center;">
+                        <?php if(isset($key['question_img'])): ?>
+                        <img width="70px" src="./public/img/<?php echo e($key['question_img']); ?>" alt="">
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php echo e($key['answer']); ?>
+
+                    </td>
+                    <td><a class="btn btn-success question_id" data-id="<?php echo e($key['question_id']); ?>" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href=""><i class="fas fa-vials"></i></a></td>
+                    <td>
+                        <a class="btn btn-warning" href=""><i class="fas fa-edit"></i></a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" onclick="return confirm('Bạn muốn xóa câu hỏi này ?')" href="xoa-cau-hoi?question_id=<?php echo e($key['question_id']); ?>&lesson_id=<?php echo e($key['lesson_id']); ?>"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            <?php } ?>
         </tbody>
     </table>
-</div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Test câu hỏi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="margin-top: 30px;">
 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.question_id').click(function(e) {
+            e.preventDefault();
+            var question_id = $(this).data('id');
+            $.get("test-cau-hoi", {
+                question_id: question_id
+            }, function($data) {
+                $('.modal-body').html($data);
+            });
+        })
+    })
+</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/admin/question/listQuestion.blade.php ENDPATH**/ ?>

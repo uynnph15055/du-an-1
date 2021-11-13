@@ -79,6 +79,19 @@ switch ($url) {
         $ctr = new adminQuestion;
         echo $ctr->addQuestion();
         break;
+    case 'xoa-cau-hoi';
+        $ctr = new adminQuestion;
+        echo $ctr->deleteQuestion();
+        break;
+    case 'test-cau-hoi';
+        $ctr = new adminQuestion;
+        echo $ctr->testQuestion();
+        break;
+    case 'test-run';
+        $ctr = new adminQuestion;
+        echo $ctr->test();
+        break;
+
         // Danh sách bài học
     case 'them-bai-hoc';
         $ctr = new adminLesson();
@@ -139,9 +152,9 @@ switch ($url) {
         // -------- Giao diện khách hàng
 
         // Hiển thị câu hỏi.
-    case 'cau-hoi';
-        $ctr = new Question();
-        echo $ctr->index();
+    case 'khoa-hoc/cau-hoi';
+        $ctr = new Lesson();
+        echo $ctr->question();
         break;
         // Hiển thi khóa học.
     case 'khoa-hoc';

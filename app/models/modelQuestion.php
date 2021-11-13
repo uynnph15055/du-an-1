@@ -11,9 +11,11 @@ class modelQuestion extends DB
     // Câu truy vấn đẩy dữ liệu lên db
     public static function insert($data)
     {
+        // var_dump($data);
+        // die();
         $model =  new static();
         $conn = $model->getConnect();
-        $queryBuilder = "INSERT INTO question(question, question_img, answer, lesson_id, question_list, type_question) VALUES (:question, :question_img, :answer, :lesson_id, :question_list, :type_question)";
+        $queryBuilder = "INSERT INTO question(question, question_img, answer, lesson_id, anwer_one, anwer_two, anwer_three, anwer_four) VALUES (:question, :question_img, :answer, :lesson_id, :answer_one, :answer_two, :answer_three, :answer_four)";
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }

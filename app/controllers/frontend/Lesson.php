@@ -5,9 +5,16 @@ namespace App\Controllers\Frontend;
 use App\Controllers\baseController;
 use App\Models\modelLesson;
 use App\Models\modelSubject;
+use App\Models\modelMenu;
 
 class Lesson extends baseController
 {
+    private $menu;
+    public function __construct()
+    {
+        $this->menu = modelMenu::all();
+    }
+
     function index()
     {
         $subject_slug = isset($_GET['mon']) ? $_GET['mon'] : null;
@@ -24,15 +31,28 @@ class Lesson extends baseController
             'dataLesson' => $dataLesson,
             'subjectName' => $subjectName,
             'lessonFist' => $lessonFist,
+            'menu' => $this->menu,
         ]);
     }
 
+
+    // Chuyển bài học tiếp theo.
     function nextLesson()
     {
         $lesson_id = $_GET['lesson_id'];
+
+        // Lưu lại id bài học
+        $_SESSION['lesson_id'] = $lesson_id;
+
         $lessonNext = modelLesson::where('lesson_id', "=", $lesson_id)->get();
         echo "<iframe width='98%' height='520' src='" . $lessonNext[0]['lesson_link'] . "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>
         </iframe>
         <h2 style='font-size: 18px;text-align:center'>" . $lessonNext[0]['lesson_name'] . "</h2>";
+    }
+
+    function question()
+    {
+        $lesson_id = isset($_SESSION['lesson_id']) ? $_SESSION['lesson_id'] : null;
+        echo $lesson_id;
     }
 }
