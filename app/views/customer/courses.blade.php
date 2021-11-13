@@ -39,8 +39,9 @@
                     <ul class="courses-cate-list">
                         @foreach($cateSubject as $key)
                         <li class="course-cate__item">
-                            <a href="">
-                                <i class="fas fa-caret-right"></i>
+                            <a data-id="{{$key['cate_id']}}" class="cate_id" href="">
+                                <i class="fas fa-list-alt"></i>
+                                &nbsp;
                                 <span>{{$key['cate_name']}}</span>
                             </a>
                         </li>
@@ -48,10 +49,12 @@
                     </ul>
                 </aside>
                 <div class="course-list">
+
+                    @if(isset($subject))
                     @foreach($subject as $key)
                     <div class="course-item">
                         <div class="course-poster">
-                            <img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img>
+                            <a href="bai-hoc?mon={{$key['subject_slug']}}"><img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img></a>
                         </div>
                         <div class="course-text">
                             <h3 class="course__title" style="font-size: 15px;">{{$key['subject_name']}}</h3>
@@ -68,9 +71,24 @@
                         </div>
                     </div>
                     @endforeach
+                    @endif
                 </div>
             </div>
     </main>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function() {
 
+        $('.cate_id').click(function(e) {
+            e.preventDefault();
+            var cate_id = $(this).data('id');
+            $.get("khoa-hoc-theo-nganh", {
+                cate_id: cate_id
+            }, function($data) {
+                $('.course-list').html($data);
+            })
+        })
+    })
+</script>
 @endsection

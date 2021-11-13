@@ -9,7 +9,7 @@
     <!-- reset -->
     <link rel="stylesheet" href="./public/css/customerCss/reset.css">
     <!-- icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
     <!-- css -->
     <link rel="stylesheet" href="./public/css/customerCss/style.css">
 </head>
@@ -80,8 +80,9 @@
             <?php echo $__env->yieldContent('main_content'); ?>;
         </main>
     </div>
-    <script src="./../../../public/js/customerJs/toggle.js"></script>
-    <script src="./../../../public/js/customerJs/darkMode.js"></script>
+    <script src="./public/js/customerJs/toggle.js"></script>
+    <script src="./public/js/customerJs/darkMode.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </body>
 
 </html><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/layout/layout.blade.php ENDPATH**/ ?>

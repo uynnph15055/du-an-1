@@ -39,8 +39,9 @@
                     <ul class="courses-cate-list">
                         <?php $__currentLoopData = $cateSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="course-cate__item">
-                            <a href="">
-                                <i class="fas fa-caret-right"></i>
+                            <a data-id="<?php echo e($key['cate_id']); ?>" class="cate_id" href="">
+                                <i class="fas fa-list-alt"></i>
+                                &nbsp;
                                 <span><?php echo e($key['cate_name']); ?></span>
                             </a>
                         </li>
@@ -48,10 +49,12 @@
                     </ul>
                 </aside>
                 <div class="course-list">
+
+                    <?php if(isset($subject)): ?>
                     <?php $__currentLoopData = $subject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="course-item">
                         <div class="course-poster">
-                            <img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img>
+                            <a href="bai-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
                         </div>
                         <div class="course-text">
                             <h3 class="course__title" style="font-size: 15px;"><?php echo e($key['subject_name']); ?></h3>
@@ -68,10 +71,25 @@
                         </div>
                     </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endif; ?>
                 </div>
             </div>
     </main>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function() {
 
+        $('.cate_id').click(function(e) {
+            e.preventDefault();
+            var cate_id = $(this).data('id');
+            $.get("khoa-hoc-theo-nganh", {
+                cate_id: cate_id
+            }, function($data) {
+                $('.course-list').html($data);
+            })
+        })
+    })
+</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/courses.blade.php ENDPATH**/ ?>

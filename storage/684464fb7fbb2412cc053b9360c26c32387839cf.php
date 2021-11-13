@@ -10,6 +10,7 @@
 </head>
 
 <body>
+   <h1> hello</h1>
     Danh sách bài học css
     <ul class="lesson_list">
         <?php $__currentLoopData = $dataLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

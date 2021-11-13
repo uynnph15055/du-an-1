@@ -143,14 +143,24 @@ switch ($url) {
         $ctr = new Question();
         echo $ctr->index();
         break;
-        // Hiển thi bài học.
+        // Hiển thi khóa học.
+    case 'khoa-hoc';
+        $ctr = new Courses();
+        echo $ctr->index();
+        break;
+    case 'khoa-hoc-theo-nganh';
+        $ctr = new Courses();
+        echo $ctr->listCourse();
+        break;
+
+        // Bài học
     case 'bai-hoc';
         $ctr = new Lesson();
         echo $ctr->index();
         break;
-    case 'khoa-hoc';
-        $ctr = new Courses();
-        echo $ctr->index();
+    case 'bai-hoc-tiep-theo';
+        $ctr = new Lesson();
+        echo $ctr->nextLesson();
         break;
 
     default:

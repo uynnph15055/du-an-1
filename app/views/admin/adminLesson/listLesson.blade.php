@@ -44,7 +44,7 @@
     <span style="float:right;font-style:italic">Tổng có : {{$number}} menu</span>
     <table class="table table-bordered">
         <thead>
-            <tr style="text-align: center;">
+            <tr>
                 <th>STT</th>
                 <th>Tên bài</th>
                 <th>Ảnh</th>
@@ -60,7 +60,7 @@
             $index = 1;
             ?>
             @foreach($dataLesson as $key)
-            <tr style="text-align: center;">
+            <tr>
                 <td><?= $index++ ?></td>
                 <td>{{$key['lesson_name']}}</td>
                 <td>
