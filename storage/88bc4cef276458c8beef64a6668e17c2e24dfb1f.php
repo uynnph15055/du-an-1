@@ -4,7 +4,7 @@
 <div class="container">
     <h4 class="text-center">Danh sách danh mục</h4>
     <?php if(isset($editCate)): ?>
-    <div class="row">
+    <div class="row" style="margin-top:30px">
         <div class="col-4">
             <h5>Sửa danh mục môn học</h5>
             <form method="POST" action="update-danh-muc">
@@ -25,7 +25,7 @@
             </form>
         </div>
         <?php else: ?>
-        <div class="row">
+        <div class="row" style="margin-top:30px">
             <div class="col-4">
                 <h5>Thêm danh mục môn học</h5>
                 <form method="POST" action="them-danh-muc">
@@ -41,7 +41,8 @@
                 </form>
             </div>
             <?php endif; ?>
-            <div class="col-8" style="margin-top: 30px;">
+            <div class="col-8">
+                <span style="float:right;font-style:italic">Tổng có : <?php echo e($number); ?> ngành</span>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -56,13 +57,13 @@
                         <?php
                         $index = 1;
                         ?>
-                        <?php $__currentLoopData = $dataCate; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>;
+                        <?php $__currentLoopData = $dataCate; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                             <td><?= $index++ ?></td>
                             <td><?php echo e($key['cate_name']); ?></td>
                             <td><?php echo e($key['date_create']); ?></td>
-                            <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-danh-muc?id=<?php echo e($key['cate_id']); ?>">Sửa</a></td>
-                            <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-danh-muc?id=<?php echo e($key['cate_id']); ?>">Xóa</a></td>
+                            <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-danh-muc?id=<?php echo e($key['cate_id']); ?>"><i class="fas fa-edit"></i></a></td>
+                            <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-danh-muc?id=<?php echo e($key['cate_id']); ?>"><i class="fas fa-trash"></i></a></td>
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>

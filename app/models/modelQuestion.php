@@ -13,8 +13,9 @@ class modelQuestion extends DB
     {
         $model =  new static();
         $conn = $model->getConnect();
-        $queryBuilder = "INSERT INTO question(question, question_img, answer, lesson_id, question_list, type_question) VALUES (:question, :question_img, :answer, :lesson_id, :question_list, :type_question)";
+        $queryBuilder = "INSERT INTO question(question, question_img, answer, lesson_id,answer_one,answer_two,answer_three,answer_four) VALUES (:question, :question_img, :answer, :lesson_id, :answer_one,:answer_two,:answer_three,:answer_four)";
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }
+    
 }

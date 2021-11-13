@@ -15,23 +15,70 @@
                 <textarea placeholder="Thêm câu hỏi vào đây" name="question" id="summernote"></textarea>
             </div>
             <div class="col">
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Đáp án của câu hỏi</label>
+                <div style="margin-top:47px">
+                    <label for="">Đáp án</label>
                     <br>
-                    <input type="text" placeholder="VD : 1 - 2 - 3" name="answer">
+                    <textarea placeholder="Câu A" id="answer_one" style="border-radius: 10px; padding:5px" name="answer_one" id="answer_one" cols="40" rows="1"></textarea>
                 </div>
-                <textarea placeholder="Thêm câu hỏi vào đây" name="question_list" cols="70" rows="10"></textarea>
-                <select name="type_question" class="form-select" style="margin-top:20px" aria-label="Default select example">
-                    <option value="" selected>--Loại câu hỏi---</option>
-                    <option value="0">radio</option>
-                    <option value="1">checkbox</option>
-                </select>
+                <br>
+                <div>
+                    <textarea placeholder="Câu B" id="answer_two" style="border-radius: 10px; padding:5px" name="answer_two" id="answer_two" cols="40" rows="1"></textarea>
+                </div>
+                <br>
+                <div>
+                    <textarea placeholder="Câu C" id="answer_three" style="border-radius: 10px; padding:5px" name="answer_three" id="answer_three" cols="40" rows="1"></textarea>
+                </div>
+                <br>
+                <div>
+                    <textarea placeholder="Câu D" id="answer_four" style="border-radius: 10px; padding:5px" name="answer_four" id="answer_four" cols="40" rows="1"></textarea>
+                </div>
+                <br>
+                <label for="">Đáp Án Đúng</label>
+                <div>
+                    <label for="">A.</label>
+                    <input type="checkbox" name="answer_A" onclick="a()" id="answer_A" value=""> &nbsp
+                    <label for="">B.</label>
+                    <input type="checkbox" name="answer_B" onclick="b()" id="answer_B" value=""> &nbsp
+                    <label for="">C.</label>
+                    <input type="checkbox" name="answer_C" onclick="c()" id="answer_C" value=""> &nbsp
+                    <label for="">D.</label>
+                    <input type="checkbox" name="answer_D" onclick="d()"id="answer_D" value="">
+                </div>
             </div>
         </div>
         <br>
         <button class="btn btn-primary">Thêm câu hỏi</button>
     </form>
 </div>
+<script>
+    function a() {
+
+        var answer_one = document.getElementById('answer_one').value;
+        document.getElementById('answer_A').value = answer_one
+
+    }
+
+    function b() {
+
+        var answer_two = document.getElementById('answer_two').value;
+        document.getElementById('answer_B').value = answer_two
+
+    }
+
+    function c() {
+
+        var answer_three = document.getElementById('answer_three').value;
+        document.getElementById('answer_C').value = answer_three
+
+    }
+
+    function d() {
+
+        var answer_four = document.getElementById('answer_four').value;
+        document.getElementById('answer_D').value = answer_four
+
+    }
+</script>
 <script>
     $('#summernote').summernote({
         placeholder: 'Nhập đề bài ...',

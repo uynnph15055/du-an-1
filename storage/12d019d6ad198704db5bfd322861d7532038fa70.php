@@ -1,5 +1,5 @@
 
-<?php $__env->startSection('title', 'Danh sách môn học'); ?>
+<?php $__env->startSection('title', 'Danh sách bài học'); ?>
 <?php $__env->startSection('main_content'); ?>
 <style>
     .warning-bg {
@@ -41,7 +41,7 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <!-- <h5 style="margin-bottom:-30px">Tổng số : <?php echo e($number); ?> môn</h5> -->
     </div>
-    <br>
+    <span style="float:right;font-style:italic">Tổng có : <?php echo e($number); ?> menu</span>
     <table class="table table-bordered">
         <thead>
             <tr style="text-align: center;">
@@ -50,8 +50,9 @@
                 <th>Ảnh</th>
                 <th>Trang thái</th>
                 <th>Ngày Đăng</th>
-                <th>Sửa</th>
-                <th>Xóa</th>
+                <th width="78px">Câu hỏi</th>
+                <th width="78px">Sửa</th>
+                <th width="78px">Xóa</th>
             </tr>
         </thead>
         <tbody>
@@ -72,7 +73,9 @@
                     <?php endif; ?>
                 </td>
                 <td><?php echo e($key['date_post']); ?></td>
-                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="trang-sua-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
+               
+                <td><a class="btn btn-dark" href="danh-sach-cau-hoi?lesson_id=<?php echo e($key['lesson_id']); ?>"><i class="fas fa-question-circle"></i></a></td>
+                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn sửa môn học này ?')" href="trang-sua-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-trash"></i></a></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
