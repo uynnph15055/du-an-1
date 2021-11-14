@@ -13,7 +13,7 @@ class modelMenu extends DB
     {
         $model = new static();
         $conn = $model->getConnect();
-        $queryBuilder = "INSERT INTO menu (menu_name , menu_slug) VALUES (:menu_name , :menu_slug)";
+        $queryBuilder = "INSERT INTO menu (menu_name , menu_slug , menu_index) VALUES (:menu_name , :menu_slug,:menu_index)";
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }
@@ -23,8 +23,28 @@ class modelMenu extends DB
     {
         $model = new static();
         $conn = $model->getConnect();
-        $queryBuilder = "UPDATE menu SET menu_name = :menu_name , menu_slug=:menu_slug WHERE menu_id = :menu_id";
+        $queryBuilder = "UPDATE menu SET menu_name = :menu_name , menu_slug=:menu_slug , menu_index=:menu_index WHERE menu_id = :menu_id";
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
+    }
+
+    // Xếp sắp menu
+    public static function sortMenu()
+    {
+        $model = new static();
+        $conn = $model->getConnect();
+        $queryBuilder = "SELECT * FROM menu ORDER BY menu.menu_index ASC ";
+        $stmt = $conn->prepare($queryBuilder);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public static function updateIndex($index)
+    {
+        $model = new static();
+        $conn = $model->getConnect();
+        $queryBuilder = "UPDATE menu SET menu_index = $index";
+        $stmt = $conn->prepare($queryBuilder);
+        $stmt->execute();
     }
 }

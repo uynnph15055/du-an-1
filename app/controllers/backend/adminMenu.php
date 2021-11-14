@@ -9,7 +9,7 @@ class adminMenu extends baseController
 {
 
     // Danh sách menu.
-    function index()
+    public function index()
     {
         $dataMenu = modelMenu::all();
         $number = count($dataMenu);
@@ -19,16 +19,24 @@ class adminMenu extends baseController
         ]);
     }
 
-    function addMenu()
+    public function addMenu()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($menu_name) && !empty($menu_slug)) {
+            $menu = modelMenu::all();
+            if (count($menu) == 4) {
+                $_SESSION['error'] = "Đã quá số lượng cho phép !!!";
+                header('Location: danh-sach-menu');
+                die();
+            }
+
+            if (!empty($menu_name) && !empty($menu_slug) && !empty($index)) {
 
                 $data = [
                     'menu_name' => $menu_name,
                     'menu_slug' => $menu_slug,
+                    'menu_index' => $index,
                 ];
 
                 modelMenu::insertMenu($data);
@@ -42,7 +50,7 @@ class adminMenu extends baseController
     }
 
     // Hàm xóa menu
-    function deleteMenu()
+    public function deleteMenu()
     {
         $id = isset($_GET['id'])  ? $_GET['id'] : null;
 
@@ -63,7 +71,7 @@ class adminMenu extends baseController
         }
     }
 
-    function editPage()
+    public function editPage()
     {
         $id = isset($_GET['id'])  ? $_GET['id'] : null;
 
@@ -83,17 +91,18 @@ class adminMenu extends baseController
         }
     }
 
-    function edit()
+    public function edit()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($menu_name) && !empty($menu_slug)) {
+            if (!empty($menu_name) && !empty($menu_slug) && !empty($index)) {
 
                 $data = [
                     'menu_id' => $menu_id,
                     'menu_name' => $menu_name,
                     'menu_slug' => $menu_slug,
+                    'menu_index' => $index,
                 ];
 
                 modelMenu::updateMenu($data);
@@ -102,6 +111,29 @@ class adminMenu extends baseController
                 $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
                 header('Location: danh-sach-menu');
                 die();
+            }
+        }
+    }
+
+    public function updateIndexs()
+    {
+        if ($_SERVER['REQUEST_METHOD'] ==  "POST") {
+            extract($_POST);
+
+            foreach ($menu_index as $key => $value) {
+                if ($value > 4 || $value < 0) {
+                    $_SESSION['error'] = "Chỉ mục của bạn quá hạn !!!";
+                    header('Location: danh-sach-menu');
+                    die();
+                } elseif ($value == '') {
+                    $_SESSION['error'] = "Chỉ mục đang bỏ trống !!!";
+                    header('Location: danh-sach-menu');
+                    die();
+                } else {
+                    modelMenu::updateIndex($value);
+                    $_SESSION['success'] = "Cập nhật thành công !!!";
+                    header('Location: danh-sach-menu');
+                }
             }
         }
     }

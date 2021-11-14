@@ -8,7 +8,7 @@ use App\Models\modelCateSubject;
 class adminCateSubject extends baseController
 {
 
-    function index()
+    public function index()
     {
         $cateSubject = modelCateSubject::all();
         $number = count($cateSubject);
@@ -19,7 +19,7 @@ class adminCateSubject extends baseController
     }
 
     // Thêm danh mục
-    function addCate()
+    public function addCate()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
@@ -54,7 +54,7 @@ class adminCateSubject extends baseController
     }
 
     // Hàm xóa
-    function delete()
+    public function delete()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : null;
 
@@ -74,7 +74,7 @@ class adminCateSubject extends baseController
     }
 
     //edit
-    function edit()
+    public  function edit()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : null;
         $model = modelCateSubject::where("cate_id", "=", $id)->get();
@@ -85,7 +85,7 @@ class adminCateSubject extends baseController
             'editCate' => 'editCate'
         ]);
     }
-    function update()
+    public function update()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);

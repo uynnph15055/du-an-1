@@ -12,7 +12,7 @@ class Courses extends baseController
     private $menu;
     public function __construct()
     {
-        $this->menu = modelMenu::all();
+        $this->menu = modelMenu::sortMenu();
     }
 
     public function index()
