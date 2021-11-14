@@ -126,6 +126,10 @@
 
         .btn-submit {
           text-align: center;
+
+          button{
+            min-width: 150px;
+          }
         }
       }
     }
