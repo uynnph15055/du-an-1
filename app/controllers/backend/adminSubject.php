@@ -9,7 +9,7 @@ use App\Models\modelSubject;
 class adminSubject extends baseController
 {
     //  
-    function index()
+    public function index()
     {
         $page = isset($_GET['trang']) ? $_GET['trang'] : null;
 
@@ -28,13 +28,13 @@ class adminSubject extends baseController
     }
 
     // Chuyển đến trang sửa
-    function editPage()
+    public function editPage()
     {
         $this->render("admin.adminCourse.editCourse", []);
     }
 
     // Chuyển đến trang thêm môn học
-    function addPage()
+    public function addPage()
     {
         $cateSubject = modelCateSubject::all();
         $this->render("admin.adminSubject.formSubject", [
@@ -43,7 +43,7 @@ class adminSubject extends baseController
     }
 
     // Thêm môn học
-    function addSubject()
+    public function addSubject()
     {
         // Kiếm tra request_method
         // $this->dd($_POST);
@@ -95,7 +95,7 @@ class adminSubject extends baseController
     }
 
     // Xóa môn học
-    function delete()
+    public function delete()
     {
         $id = isset($_GET['id'])  ? $_GET['id'] : null;
 
@@ -115,7 +115,7 @@ class adminSubject extends baseController
     }
 
     // Sửa Môn học
-    function editSubject()
+    public function editSubject()
     {
         $id = isset($_GET['id'])  ? $_GET['id'] : null;
 
@@ -140,7 +140,7 @@ class adminSubject extends baseController
         ]);
     }
 
-    function updateSubject()
+    public function updateSubject()
     {
         // Kiếm tra request_method
         if ($_SERVER['REQUEST_METHOD'] == "POST") {

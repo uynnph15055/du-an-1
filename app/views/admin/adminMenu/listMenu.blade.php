@@ -3,6 +3,7 @@
 @section('main_content')
 <div class="container">
     <h4 class="text-center">Danh sách menu</h4>
+    <p class="text-center" style="font-style: italic;">Lưu ý chỉ tối đa 4 menu</p>
     <div class="row">
         @if(isset($row))
         <h5>Sửa menu</h5>
@@ -17,12 +18,16 @@
                     <label for="exampleInputPassword1" class="form-label">Slug menu</label>
                     <input type="text" placeholder="Slug menu" id="convert_slug" value="{{$row['menu_slug']}}" name="menu_slug" class="form-control" id="exampleInputPassword1">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Thứ tự</label>
+                    <input type="number" min="1" max="5" placeholder="Thứ tự" value="{{$row['menu_index']}}" name="index" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary">Sửa menu</button>
             </form>
         </div>
         @else
-        <h5>Thêm menu</h5>
         <div class="col-4">
+            <h5 class="text-center">Thêm menu</h5>
             <form action="them-menu" method="POST">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tên menu</label>
@@ -32,37 +37,48 @@
                     <label for="exampleInputPassword1" class="form-label">Slug menu</label>
                     <input type="text" placeholder="Slug menu" id="convert_slug" name="menu_slug" class="form-control" id="exampleInputPassword1">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Thứ tự</label>
+                    <input type="number" placeholder="Thứ tự" min="1" max="5" name="index" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary">Thêm menu</button>
             </form>
         </div>
         @endif
         <div class="col-8">
-            <span style="float:right;font-style:italic">Tổng có : {{$number}} menu</span>
-            <table class="table table-bordered" style="margin-top:30px">
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Tên menu</th>
-                        <th>Slug menu</th>
-                        <th>Sửa</th>
-                        <th>Xóa</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $index = 1;
-                    ?>
-                    @foreach($dataMenu as $key)
-                    <tr>
-                        <td><?= $index++ ?></td>
-                        <td>{{$key['menu_name']}}</td>
-                        <td>{{$key['menu_slug']}}</td>
-                        <td><a class="btn btn-warning" href="trang-sua-menu?id={{$key['menu_id']}}"><i class="fas fa-edit"></i></a></td>
-                        <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa menu này ?')" href="xoa-menu?id={{$key['menu_id']}}"><i class="fas fa-trash"></i></a></td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <span style="float:right;font-style:italic">Tổng có : <?php echo count($dataMenu) ?> menu</span>
+            <form action="cap-nhat-menu" method="POST">
+                <table class="table table-bordered" style="margin-top:30px">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên menu</th>
+                            <th>Slug menu</th>
+                            <th width="80px">Thứ tự</th>
+                            <th width="80px">Sửa</th>
+                            <th width="80px">Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $index = 1;
+                        ?>
+                        @foreach($dataMenu as $key)
+                        <tr>
+                            <td><?= $index++ ?></td>
+                            <td>{{$key['menu_name']}}</td>
+                            <td>{{$key['menu_slug']}}</td>
+                            <td>
+                                <input name="menu_index[]" value="{{$key['menu_index']}}" style="width:60px" type="number">
+                            </td>
+                            <td><a class="btn btn-warning" href="trang-sua-menu?id={{$key['menu_id']}}"><i class="fas fa-edit"></i></a></td>
+                            <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa menu này ?')" href="xoa-menu?id={{$key['menu_id']}}"><i class="fas fa-trash"></i></a></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <button type="submit" class="btn btn-success">Cập nhật</button>
+            </form>
         </div>
     </div>
 </div>

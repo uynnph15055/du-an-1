@@ -135,6 +135,10 @@ switch ($url) {
         $ctr = new adminMenu();
         echo $ctr->edit();
         break;
+    case 'cap-nhat-menu';
+        $ctr = new adminMenu();
+        echo $ctr->updateIndexs();
+        break;
 
         // -----------------
 

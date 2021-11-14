@@ -144,7 +144,7 @@ class adminQuestion extends baseController
         </form>";
     }
 
-    function test()
+    public  function test()
     {
         // $this->dd($_POST);
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
