@@ -36,7 +36,6 @@
 </head>
 
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -93,6 +92,18 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href=">admin/adminProduct/">Thông tin học viên</a>
                         <a class="collapse-item" href=">admin/adminProduct/">Đánh giá của học viên</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Quản lý nhân viên</span>
+                </a>
+                <div id="collapseUtilitie" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href=">admin/adminProduct/">Thông tin nhân viên</a>
                     </div>
                 </div>
             </li>

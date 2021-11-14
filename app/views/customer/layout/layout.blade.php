@@ -88,8 +88,15 @@
 
                 Swal.fire({
                     icon: 'warning',
-                    title: '<?= $_SESSION['error']; ?>',
+                    title:'<p  style="font-size: 22px;"><?= $_SESSION['error']; ?></p>',
+                    // title: '<p  style="font-ze: 20px;"><?= $_SESSION['error']; ?></p>',
                     timer: 3000,
+                    width: 400,
+  padding: '4em',
+  confirmButtonText:
+    '<i style="padding: 3px;font-size: 20px">OK</i>',
+
+
 
                 })
 
@@ -99,10 +106,12 @@
                 Swal.fire({
 
                     icon: 'success',
-                    title: '<?= $_SESSION['success']; ?>',
+                    title: '<p  style="font-size: 22px;"><?= $_SESSION['success']; ?></p>',
                     showConfirmButton: false,
-                    timer: 1500
-
+                    timer: 1500,
+                    width: 450,
+  padding: '5em',
+  
                 })
 
             <?php unset($_SESSION['success']);

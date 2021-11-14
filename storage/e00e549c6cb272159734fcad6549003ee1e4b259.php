@@ -9,7 +9,7 @@
     <!-- reset -->
     <link rel="stylesheet" href="./public/css/customerCss/reset.css">
     <!-- icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
     <!-- css -->
     <link rel="stylesheet" href="./public/css/customerCss/style.css">
 </head>
@@ -27,10 +27,9 @@
                     <div class="navbar-content">
                         <nav class="nav__menu">
                             <ul class="nav__list">
-                                <li class="nav__item"><a href="" class="nav__item-link">Trang chủ</a></li>
-                                <li class="nav__item"><a href="" class="nav__item-link">Khóa học</a></li>
-                                <li class="nav__item"><a href="" class="nav__item-link">Giới thiệu</a></li>
-                                <li class="nav__item"><a href="" class="nav__item-link">Liên hệ</a></li>
+                                <?php $__currentLoopData = $menu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <li class="nav__item"><a href="<?php echo e($key['menu_slug']); ?>" class="nav__item-link"><?php echo e($key['menu_name']); ?></a></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                         </nav>
                         <div class="navbar-action">
@@ -80,8 +79,46 @@
             <?php echo $__env->yieldContent('main_content'); ?>;
         </main>
     </div>
-    <script src="./../../../public/js/customerJs/toggle.js"></script>
-    <script src="./../../../public/js/customerJs/darkMode.js"></script>
+    <script src="./public/js/customerJs/toggle.js"></script>
+    <script src="./public/js/customerJs/darkMode.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(function() {
+            <?php if (isset($_SESSION['error'])) { ?>
+
+                Swal.fire({
+                    icon: 'warning',
+                    title:'<p  style="font-size: 22px;"><?= $_SESSION['error']; ?></p>',
+                    // title: '<p  style="font-ze: 20px;"><?= $_SESSION['error']; ?></p>',
+                    timer: 3000,
+                    width: 400,
+  padding: '4em',
+  confirmButtonText:
+    '<i style="padding: 3px;font-size: 20px">OK</i>',
+
+
+
+                })
+
+            <?php
+                unset($_SESSION['error']);
+            } elseif (isset($_SESSION['success'])) { ?>
+                Swal.fire({
+
+                    icon: 'success',
+                    title: '<p  style="font-size: 22px;"><?= $_SESSION['success']; ?></p>',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    width: 450,
+  padding: '5em',
+  
+                })
+
+            <?php unset($_SESSION['success']);
+            }
+            ?>
+        });
+    </script>
 </body>
 
 </html><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/customer/layout/layout.blade.php ENDPATH**/ ?>

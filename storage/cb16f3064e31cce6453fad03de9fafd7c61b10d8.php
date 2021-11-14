@@ -34,20 +34,18 @@
         box-shadow: 0 10px 15px 0px var(--color-secondary);
     }
 </style>
-<div class="container" style="background-color: #ffff;">
+<div class="container" style="background-color: #ffff;margin-top:-70px">
     <div class="banner">
         <?php if($dataBanner): ?>
 
         <div class="row">
             <div class="banner-text col l-6 m-6 c-12">
                 <div class="banner-text-list">
-                    <h1 class="banner-text__item slogan">
-                        Học lập trình để đi làm!
-                    </h1>
-                    <p class="banner-text__item slogan-sub" id="show_text">
-                        <?php echo e($dataBanner[0]['banner_text']); ?>
-
-                    </p>
+                    <div class="banner-text__item slogan-sub" id="show_text">
+                        <?php
+                        echo $dataBanner[0]['banner_text'];
+                        ?>
+                    </div>
                     <button class="banner-text__item btn-primary">
                         Học ngay
                     </button>
@@ -57,40 +55,35 @@
                 <img width="600px" id="img_main" src="./public/img/<?php echo e($dataBanner[0]['banner_img']); ?>" alt="">
             </div>
         </div>
-        <?php endif; ?>
     </div>
     <h4 style="margin-bottom:30px" class="text-center">Chỉnh Sửa</h4>
     <div style=" position: relative;">
         <form method="POST" action="them-banner" enctype="multipart/form-data">
             <div class="row" style="max-width: 900px;margin:auto">
-                <div class="col">
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Chọn ảnh </label>
-                        <br>
-                        <input type="file" onchange="banner_imgg()" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="banner_img" name="banner_img">
-                    </div>
-
+                <input type="text" hidden name="banner_img" value="<?php echo e($dataBanner[0]['banner_img']); ?>">
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Chọn ảnh </label>
+                    <br>
+                    <input type="file" onchange="banner_imgg()" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="banner_img" name="banner_img">
                 </div>
                 <div class="col">
-<textarea style="border-radius: 15px;padding:10px"  placeholder="Thêm câu hỏi vào đây" name="banner_text" onkeyup="banner_textt()" id="banner_text" name="" id="" cols="60" rows="6"></textarea>
-                
+                    <textarea id="summernote" style="border-radius: 15px;padding:10px" name="banner_text" onkeyup="banner_textt()" id="banner_text" cols="60" rows="6"><?php echo e($dataBanner[0]['banner_text']); ?></textarea>
+
                 </div>
             </div>
             <br>
             <button style="transform: translateX(100px); margin-bottom: 40px;" class="btn btn-primary">Cập Nhật</button>
         </form>
     </div>
-
+    <?php endif; ?>
 </div>
 <script>
-
-function banner_textt() {
+    function banner_textt() {
         var input_text = document.getElementById('banner_text');
         var show_text = document.getElementById('show_text');
         var text = input_text.value;
         show_text.innerHTML = text
     }
-
 </script>
 <script>
     function banner_imgg() {
@@ -111,8 +104,7 @@ function banner_textt() {
 </script>
 
 <script>
-
-    $('#summernote_level').summernote({
+    $('#summernote').summernote({
         placeholder: 'Thông Tin ...',
         tabsize: 2,
         height: 120,
