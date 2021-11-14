@@ -1,7 +1,7 @@
 
 <?php $__env->startSection('title', 'Danh sách câu hỏi'); ?>
 <?php $__env->startSection('main_content'); ?>
-<div class="container">
+<div class="container" style="margin-left: 30px;">
     <h4 style="margin-bottom:30px" class="text-center">Thêm câu hỏi</h4>
     <form method="POST" action="them-cau-hoi" enctype="multipart/form-data">
         <div class="row">
@@ -13,36 +13,36 @@
                     <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" name="question_img">
                 </div>
                 <textarea placeholder="Thêm câu hỏi vào đây" name="question" id="summernote"></textarea>
-            </div>
-            <div class="col">
-                <div style="margin-top:47px">
-                    <label for="">Đáp án</label>
-                    <br>
-                    <textarea placeholder="Câu A" id="answer_one" style="border-radius: 10px; padding:5px" name="answer_one" id="answer_one" cols="40" rows="1"></textarea>
-                </div>
-                <br>
-                <div>
-                    <textarea placeholder="Câu B" id="answer_two" style="border-radius: 10px; padding:5px" name="answer_two" id="answer_two" cols="40" rows="1"></textarea>
-                </div>
-                <br>
-                <div>
-                    <textarea placeholder="Câu C" id="answer_three" style="border-radius: 10px; padding:5px" name="answer_three" id="answer_three" cols="40" rows="1"></textarea>
-                </div>
-                <br>
-                <div>
-                    <textarea placeholder="Câu D" id="answer_four" style="border-radius: 10px; padding:5px" name="answer_four" id="answer_four" cols="40" rows="1"></textarea>
-                </div>
                 <br>
                 <label for="">Đáp Án Đúng</label>
                 <div>
                     <label for="">A.</label>
-                    <input type="checkbox" name="answer_A" onclick="a()" id="answer_A" value=""> &nbsp
+                    <input type="checkbox" name="answer_A" id="answer_A" value="1"> &nbsp
                     <label for="">B.</label>
-                    <input type="checkbox" name="answer_B" onclick="b()" id="answer_B" value=""> &nbsp
+                    <input type="checkbox" name="answer_B" id="answer_B" value="2"> &nbsp
                     <label for="">C.</label>
-                    <input type="checkbox" name="answer_C" onclick="c()" id="answer_C" value=""> &nbsp
+                    <input type="checkbox" name="answer_C" id="answer_C" value="3"> &nbsp
                     <label for="">D.</label>
-                    <input type="checkbox" name="answer_D" onclick="d()"id="answer_D" value="">
+                    <input type="checkbox" name="answer_D" id="answer_D" value="4">
+                </div>
+            </div>
+            <div class="col" style="margin-left: 30px;">
+                <div style="margin-top:47px">
+                    <label for="">Đáp án</label>
+                    <br>
+                    <textarea placeholder="Câu A" style="border-radius: 10px; padding:5px" name="answer_one" id="answer_one" cols="50" rows="2"></textarea>
+                </div>
+                <br>
+                <div>
+                    <textarea placeholder="Câu B" style="border-radius: 10px; padding:5px" name="answer_two" id="answer_two" cols="50" rows="2"></textarea>
+                </div>
+                <br>
+                <div>
+                    <textarea placeholder="Câu C" style="border-radius: 10px; padding:5px" name="answer_three" id="answer_three" cols="50" rows="2"></textarea>
+                </div>
+                <br>
+                <div>
+                    <textarea placeholder="Câu D" style="border-radius: 10px; padding:5px" name="answer_four" id="answer_four" cols="50" rows="2"></textarea>
                 </div>
             </div>
         </div>

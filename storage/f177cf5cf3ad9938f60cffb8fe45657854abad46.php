@@ -32,7 +32,7 @@
         <thead>
             <tr>
                 <th>STT</th>
-                <th width="214px">Tên môn</th>
+                <th width="150px">Tên môn</th>
                 <th>Ảnh</th>
                 <th>Chuyên ngành</th>
                 <th>Trang thái</th>

@@ -44,7 +44,7 @@
     <span style="float:right;font-style:italic">Tổng có : <?php echo e($number); ?> menu</span>
     <table class="table table-bordered">
         <thead>
-            <tr style="text-align: center;">
+            <tr>
                 <th>STT</th>
                 <th>Tên bài</th>
                 <th>Ảnh</th>
@@ -60,7 +60,7 @@
             $index = 1;
             ?>
             <?php $__currentLoopData = $dataLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <tr style="text-align: center;">
+            <tr>
                 <td><?= $index++ ?></td>
                 <td><?php echo e($key['lesson_name']); ?></td>
                 <td>
