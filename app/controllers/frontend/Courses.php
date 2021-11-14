@@ -51,7 +51,7 @@ class Courses extends baseController
                 echo "
             <div class='course-item'>
                 <div class='course-poster'>
-                    <img src='./public/img/" . $key['subject_img'] . "' class=' img-fluid'></img>
+                    <a href='bai-hoc?mon=" . $key['subject_slug'] . "'><img src='./public/img/" . $key['subject_img'] . "' class=' img-fluid'></img></a>
                 </div>
                 <div class='course-text'>
                     <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
@@ -64,6 +64,46 @@ class Courses extends baseController
                 </div>
             </div>";
             }
+        }
+    }
+
+    // Tìm kiếm khóa học
+    public function search()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+            $keyWord = $_POST['name_course'];
+
+            if (empty($keyWord)) {
+                $_SESSION['error'] = "Bạn chưa điền gì cả !!!";
+                header('Location: khoa-hoc');
+                die();
+            }
+
+            $chuoi_con = 'Khóa học';
+            $pos = strpos($keyWord, $chuoi_con);
+
+            $keyWordNew = '';
+            if ($pos !== false) {
+                $keyWordNew =  trim(str_replace("Khóa học", "", $keyWord));
+            } else {
+                $keyWordNew = $keyWord;
+            }
+            // $this->dd($keyWordNew);
+            $param = '%' . $keyWordNew . '%';
+            $dataSubject = modelSubject::where("subject_name", "LIKE",  $param)->get();
+            if (!isset($dataSubject) || empty($dataSubject)) {
+                $_SESSION['error'] = "Không tìm thấy kết quả!!!";
+                header('Location: khoa-hoc');
+                die();
+            }
+            $cateSubject = modelCateSubject::all();
+            // $this->dd($this->menu);
+            $this->render("customer.courses", [
+                'cateSubject' => $cateSubject,
+                'subject' => $dataSubject,
+                'menu' => $this->menu,
+            ]);
         }
     }
 }

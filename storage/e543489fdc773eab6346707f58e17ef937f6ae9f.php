@@ -7,8 +7,8 @@
             <div class="form-container">
                 <div class="form-content">
                     <h2>HÔM NAY BẠN MUỐN HỌC GÌ?</h2>
-                    <form action="">
-                        <input class="input-search" type="text">
+                    <form action="tim-kiem-khoa-hoc" method="POST">
+                        <input class="input-search" name="name_course" type="text">
                         <button class="submit-search" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     <span class="oval oval-1"></span>
