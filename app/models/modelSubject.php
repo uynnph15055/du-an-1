@@ -28,6 +28,7 @@ class modelSubject extends DB
         $statement->execute($data);
     }
 
+    // Join đễn bảng danh mục
     public static function joinCate($index)
     {
         $model = new static();
@@ -37,4 +38,14 @@ class modelSubject extends DB
         $statement->execute();
         return $statement->fetchAll();
     }
+
+    // public static function search($keyword)
+    // {
+    //     $model = new static();
+    //     $connect = $model->getConnect();
+    //     $queryBuilder = "SELECT * FROM `subject` WHERE subject_name LIKE '%$keyword%'";
+    //     $statement = $connect->prepare($queryBuilder);
+    //     $statement->execute();
+    //     return $statement->fetchAll();
+    // }
 }

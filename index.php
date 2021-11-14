@@ -180,6 +180,12 @@ switch ($url) {
         echo $ctr->nextLesson();
         break;
 
+        // Tìm kiếm khóa học.
+    case 'tim-kiem-khoa-hoc';
+        $ctr = new Courses();
+        echo $ctr->search();
+        break;
+
     default:
         "Không tồn tại file nào";
         break;

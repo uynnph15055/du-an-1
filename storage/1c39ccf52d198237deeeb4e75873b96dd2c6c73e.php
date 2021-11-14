@@ -81,6 +81,35 @@
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
     <script src="./public/js/customerJs/darkMode.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(function() {
+            <?php if (isset($_SESSION['error'])) { ?>
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: '<?= $_SESSION['error']; ?>',
+                    timer: 3000,
+
+                })
+
+            <?php
+                unset($_SESSION['error']);
+            } elseif (isset($_SESSION['success'])) { ?>
+                Swal.fire({
+
+                    icon: 'success',
+                    title: '<?= $_SESSION['success']; ?>',
+                    showConfirmButton: false,
+                    timer: 1500
+
+                })
+
+            <?php unset($_SESSION['success']);
+            }
+            ?>
+        });
+    </script>
 </body>
 
 </html><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/layout/layout.blade.php ENDPATH**/ ?>
