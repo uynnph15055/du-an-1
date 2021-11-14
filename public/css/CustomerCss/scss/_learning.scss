@@ -93,7 +93,59 @@
         }
         
         #note-lesson{
-            
+            .form__note{
+                margin: 10px 0 10px 80px;
+                display: block;
+
+                .form__note__title{
+                    display: inline-block;
+                    margin: 10px 0;
+                    font-weight: bold;
+                }
+                input{
+                    background: var(--grey);
+                    border: none;
+                    padding: 10px;
+                    outline: none;
+                    margin-right: 10px;
+                }
+         
+                .input__time-note{
+                    display: block;
+                    border-radius: $radius-2;
+                    max-width: 100px;
+                    background: var(--color-primary);
+                    text-align: center;
+                    font-weight: bold;
+                }
+                .input__time-note::placeholder{
+                    color: rgb(56, 56, 56);
+                    font-weight: lighter;
+
+                }
+                .note-section-content{
+                    display: flex;
+                    margin: 10px 0;
+                    
+                    .input__content-note{
+                        display: block;
+                        width: 100%;
+                        border-radius: $radius-2;
+                    }
+                    .btn-note{
+                        border: none;
+                        padding: 10px;
+                        background: none;
+                        cursor: pointer;
+                        font-size: $normal;
+                        color: var(--gray);
+                        transition: $trans-second;
+                    }
+                    .btn-note:hover{
+                        color: var(--black);
+                    }
+                }
+            }
             .note-lesson-list {
                 padding: 20px 0;
 
@@ -149,34 +201,4 @@
         }
     }
 
-    .play-list{
-        padding: 20px 10px;
-        background: var(--white);
-        border-radius: $radius;
-        max-height: 600px;
-        overflow: auto;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-
-        .course__title{
-            font-weight: bold;
-        }
-
-        .lesson-item-test{
-            padding:0 40px;
-
-            .test_index{
-                display: inline-block;
-                min-width:35px;
-                padding: 10px 13px;
-                background: var(--gray-more);
-                border-radius: 50%;
-                margin: 0 10px 0 0;
-            }
-        }
-    }
-    .play-list::-webkit-scrollbar { 
-        width: 0 !important;
-        display: none; 
-      }
 }

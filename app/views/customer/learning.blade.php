@@ -59,6 +59,16 @@
                         </div>
 
                         <div id="note-lesson" class="tab-content">
+                            <form class="form__note" action="">
+                                <label class="form__note__title" for="">Tạo ghi chú mới</label>
+                                <div class="note-section-content">
+                                    <input class="input__time-note" type="text" placeholder="Thời gian">
+                                    <input class="input__content-note" type="text" placeholder="Nội dung ghi chú">
+                                    <button type="submit" class="btn btn-note">
+                                        <i class="fas fa-save"></i>
+                                    </button>
+                                </div>
+                            </form>
                             <div class="note-lesson-list">
                                 <div class="note-lesson-item">
                                     <span class="note__time">
