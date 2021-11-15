@@ -14,8 +14,32 @@ use App\Controllers\Backend\Banner;
 use App\Controllers\Frontend\Courses;
 use App\Controllers\Frontend\Lesson;
 use App\Controllers\Frontend\Question;
+use App\Controllers\Backend\Administrators;
 
 switch ($url) {
+
+        // Quản lý Admin
+
+    case 'danh-sach-admin':
+        $ctr = new Administrators();
+        echo $ctr->index();
+        break;
+    case 'them-admin':
+        $ctr = new Administrators();
+        echo $ctr->AddAdministrators();
+        break;
+    case 'xoa-admin':
+        $ctr = new Administrators();
+        echo $ctr->deleteAdministrators();
+        break;
+    case 'sua-admin':
+        $ctr = new Administrators();
+        echo $ctr->updateAdministrators();
+        break;
+
+        //.....end ......
+
+
     case 'danh-sach-mon':
         $ctr = new adminSubject();
         echo $ctr->index();
