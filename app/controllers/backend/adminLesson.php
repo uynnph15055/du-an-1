@@ -17,7 +17,6 @@ class adminLesson extends baseController
         $dataSubject =  modelSubject::where("subject_slug", "=", $subject_slug)->get();
         $subject_id = $dataSubject[0]['subject_id'];
 
-
         $dataLesson = modelLesson::selectLesson($subject_id);
         $number = count($dataLesson);
 

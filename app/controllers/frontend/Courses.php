@@ -51,7 +51,7 @@ class Courses extends baseController
                 echo "
             <div class='course-item'>
                 <div class='course-poster'>
-                    <a href='bai-hoc?mon=" . $key['subject_slug'] . "'><img src='./public/img/" . $key['subject_img'] . "' class=' img-fluid'></img></a>
+                    <a href='mo-ta-mon-hoc?mon=" . $key['subject_slug'] . "'><img src='./public/img/" . $key['subject_img'] . "' class=' img-fluid'></img></a>
                 </div>
                 <div class='course-text'>
                     <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>

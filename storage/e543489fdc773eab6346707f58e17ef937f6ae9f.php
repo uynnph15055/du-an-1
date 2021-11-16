@@ -53,7 +53,7 @@
                     <?php $__currentLoopData = $subject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="course-item">
                         <div class="course-poster">
-                            <a href="bai-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                            <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
                         </div>
                         <div class="course-text">
                             <h3 class="course__title" style="font-size: 15px;"><?php echo e($key['subject_name']); ?></h3>

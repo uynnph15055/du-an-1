@@ -7,15 +7,23 @@ require_once "./vendor/autoload.php";
 
 use App\Controllers\Backend\adminCateSubject;
 use App\Controllers\Backend\adminLesson;
+use App\Controllers\Backend\adminMain;
 use App\Controllers\Backend\adminMenu;
 use App\Controllers\Backend\adminQuestion;
 use App\Controllers\Backend\adminSubject;
 use App\Controllers\Backend\Banner;
 use App\Controllers\Frontend\Courses;
+use App\Controllers\Frontend\introCourse;
 use App\Controllers\Frontend\Lesson;
-use App\Controllers\Frontend\Question;
 
 switch ($url) {
+    case 'quan-tri':
+        $ctr = new adminMain();
+        echo $ctr->index();
+        break;
+
+        // 
+
     case 'danh-sach-mon':
         $ctr = new adminSubject();
         echo $ctr->index();
@@ -173,6 +181,10 @@ switch ($url) {
         // Bài học
     case 'bai-hoc';
         $ctr = new Lesson();
+        echo $ctr->index();
+        break;
+    case 'mo-ta-mon-hoc';
+        $ctr = new introCourse();
         echo $ctr->index();
         break;
     case 'bai-hoc-tiep-theo';

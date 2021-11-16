@@ -6,8 +6,8 @@
     <p class="text-center" style="font-style: italic;">Lưu ý chỉ tối đa 4 menu</p>
     <div class="row">
         @if(isset($row))
-        <h5>Sửa menu</h5>
         <div class="col-4">
+            <h5 class="text-center">Sửa menu</h5>
             <form action="sua-menu" method="POST">
                 <input type="text" hidden value="{{$row['menu_id']}}" name="menu_id">
                 <div class="mb-3">

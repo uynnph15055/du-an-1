@@ -13,7 +13,7 @@ class adminQuestion extends baseController
     public function index()
     {
         $lesson_id = isset($_GET['lesson_id']) ? $_GET['lesson_id'] : null;
-        $dataQuestion = modelQuestion::all();
+        $dataQuestion = modelQuestion::where("lesson_id", "=", $lesson_id)->get();
         $this->render("admin.question.listQuestion", [
             'dataQuestion' => $dataQuestion,
             'lesson_id' => $lesson_id,
@@ -156,9 +156,9 @@ class adminQuestion extends baseController
                 isset($answer_two) ? $answer[1] = $answer_two : [];
                 isset($answer_three) ? $answer[2] = $answer_three : [];
                 isset($answer_four) ? $answer[3] = $answer_four : [];
-                $this->dd(array_values($answer));
+
                 $answer_check =  implode("/", array_values($answer));
- $this->dd($answer_check);
+
                 $question = modelQuestion::where('question_id', "=", $question_id)->get();
                 $answer = $question[0]['answer'];
                 if ($answer_check != $answer) {

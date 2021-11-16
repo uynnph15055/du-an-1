@@ -1,7 +1,7 @@
 
 <?php $__env->startSection('title', 'Khóa học'); ?>
 <?php $__env->startSection('main_content'); ?>
-<main class="bgr-light" style="margin-top: 70px;">
+<main class="bgr-light" style="margin-top: 80px;">
     <div class="learning-section">
         <div class="container-fluid">
             <div class="learning-fluid">
@@ -10,7 +10,7 @@
                         <?php if(isset($lessonFist)): ?>
                         <iframe width="98%" height="520" src="<?php echo e($lessonFist['lesson_link']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
-                        <h2 style="font-size: 20px;text-align:center"><?php echo e($lessonFist['lesson_name']); ?></h2>
+                        <h2 style="font-size: 20px;text-align:center;margin-top:15px"><?php echo e($lessonFist['lesson_name']); ?></h2>
                         <?php endif; ?>
                         <!-- </video> -->
                     </div>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <aside class="play-list">
-                    <h3 class="course__title" style="font-size: 23px;">
+                    <h3 class="course__title" style="font-size: 23px;margin-top:20px">
                         Khóa học <?php echo e($subjectName); ?>
 
                     </h3>

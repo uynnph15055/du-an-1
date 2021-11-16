@@ -23,9 +23,15 @@ class Lesson extends baseController
         $subject = modelSubject::where("subject_slug", "=", $subject_slug)->get();
         $subject_id = $subject[0]['subject_id'];
         $subjectName = $subject[0]['subject_name'];
-        $dataLesson = modelLesson::where("subject_id", "=", $subject_id)->get();
+        $dataLesson = modelLesson::where('subject_id', "=", $subject_id)->get();
 
         $lessonFist = $dataLesson[0];
+
+        if (empty($lessonFist)) {
+            $_SESSION['error'] = "Hiện chưa có bài học nào !!!";
+            header("location: mo-ta-mon-hoc?mon=$subject_slug");
+            die();
+        }
         // $this->dd($dataLesson);
         $this->render("customer.learning", [
             'dataLesson' => $dataLesson,

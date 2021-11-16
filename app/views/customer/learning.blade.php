@@ -1,7 +1,7 @@
 @extends('customer.layout.layout')
 @section('title', 'Khóa học')
 @section('main_content')
-<main class="bgr-light" style="margin-top: 70px;">
+<main class="bgr-light" style="margin-top: 80px;">
     <div class="learning-section">
         <div class="container-fluid">
             <div class="learning-fluid">
@@ -10,7 +10,7 @@
                         @if(isset($lessonFist))
                         <iframe width="98%" height="520" src="{{$lessonFist['lesson_link']}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
-                        <h2 style="font-size: 20px;text-align:center">{{$lessonFist['lesson_name']}}</h2>
+                        <h2 style="font-size: 20px;text-align:center;margin-top:15px">{{$lessonFist['lesson_name']}}</h2>
                         @endif
                         <!-- </video> -->
                     </div>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <aside class="play-list">
-                    <h3 class="course__title" style="font-size: 23px;">
+                    <h3 class="course__title" style="font-size: 23px;margin-top:20px">
                         Khóa học {{$subjectName}}
                     </h3>
                     <?php
