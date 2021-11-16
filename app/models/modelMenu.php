@@ -33,7 +33,7 @@ class modelMenu extends DB
     {
         $model = new static();
         $conn = $model->getConnect();
-        $queryBuilder = "SELECT * FROM menu ORDER BY menu.menu_index ASC ";
+        $queryBuilder = "SELECT * FROM menu ORDER BY menu.menu_index ASC";
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute();
         return $stmt->fetchAll();

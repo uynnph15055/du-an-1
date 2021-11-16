@@ -19,7 +19,7 @@ class Courses extends baseController
     {
         $subject = modelSubject::all();
         $cateSubject = modelCateSubject::all();
-        // $this->dd($this->menu);
+
         $this->render("customer.courses", [
             'cateSubject' => $cateSubject,
             'subject' => $subject,

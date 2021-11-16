@@ -1,11 +1,16 @@
 
 <?php $__env->startSection('title', 'Danh sách môn học'); ?>
 <?php $__env->startSection('main_content'); ?>
+
 <style>
     .input-text {
         border: 1px solid #ccc;
         border-radius: 10px;
         padding: 10px;
+    }
+
+    form {
+        margin-top: 30px;
     }
 
     .select {
@@ -38,7 +43,7 @@
 
         <div class="row">
             <div class="col">
-
+                
                 <input type="text" hidden name="subject_id" value="<?php echo e($row['subject_id']); ?>">
 
                 <input type="text" hidden name="lesson_id" value="<?php echo e($row['lesson_id']); ?>">

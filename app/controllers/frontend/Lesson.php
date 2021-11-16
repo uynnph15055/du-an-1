@@ -12,7 +12,7 @@ class Lesson extends baseController
     private $menu;
     public function __construct()
     {
-        $this->menu = modelMenu::all();
+        $this->menu = modelMenu::sortMenu();
     }
 
     function index()

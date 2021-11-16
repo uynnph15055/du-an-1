@@ -119,25 +119,25 @@ class adminQuestion extends baseController
             <div class='form-check'>
                 <input class='form-check-input' value='1' name='answer_one' type='checkbox' id='flexCheckDefault'>
                 <label class='form-check-label' for='flexCheckDefault'>
-                 A. " . $row['answer_one'] . "
+                 A. " . $row['anwer_one'] . "
                 </label>
             </div>
             <div class='form-check'>
                 <input class='form-check-input' value='2' name='answer_two' type='checkbox' id='flexCheckChecked'>
                 <label class='form-check-label' for='flexCheckChecked'>
-                 B. " . $row['answer_two'] . "
+                 B. " . $row['anwer_two'] . "
                 </label>
             </div>
             <div class='form-check'>
                 <input class='form-check-input' value='3' name='answer_three' type='checkbox'  id='flexCheckChecked'>
                 <label class='form-check-label' for='flexCheckChecked'>
-                 C. " . $row['answer_three'] . "
+                 C. " . $row['anwer_three'] . "
                 </label>
             </div>
             <div class='form-check'>
                 <input class='form-check-input' value='4' name='answer_four' type='checkbox' id='flexCheckChecked'>
                 <label class='form-check-label' for='flexCheckChecked'>
-                D. " . $row['answer_four'] . "
+                D. " . $row['anwer_four'] . "
                 </label>
             </div>
             <button style='margin-top:20px;' class='btn btn-success' type='submit'>Test</button>
