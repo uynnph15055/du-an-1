@@ -20,6 +20,7 @@ html {
   --color-purple-30: rgba(125, 127, 220, 0.3);
   --color-purple-light: #e1bbe5;
   --color-thirty-30: #46bfd0;
+  --color-star: #FFE600;
   --gray: #ccc;
   --gray-more: #c4c4c4;
   --grey: #f2f2f2;
@@ -170,7 +171,7 @@ a {
     $normal
   );
   transition: $trans-second;
-  width: 200px;
+  width: 250px;
 }
 .btn-action:hover {
   box-shadow: 0px 4px 20px 5px rgba(0, 152, 210, 0.56);
@@ -190,4 +191,35 @@ a {
 
 .title-section{
 
+}
+
+.play-list{
+  padding: 20px 10px;
+  background: var(--white);
+  border-radius: $radius;
+  max-height: 600px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  .course__title{
+      font-weight: bold;
+  }
+
+  .lesson-item-test{
+      padding:0 40px;
+
+      .test_index{
+          display: inline-block;
+          min-width:35px;
+          padding: 10px 13px;
+          background: var(--gray-more);
+          border-radius: 50%;
+          margin: 0 10px 0 0;
+      }
+  }
+}
+.play-list::-webkit-scrollbar { 
+  width: 0 !important;
+  display: none; 
 }
