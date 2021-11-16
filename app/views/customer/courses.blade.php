@@ -28,10 +28,10 @@
                     <!-- <h4 class="filter__title">Bộ lọc</h4> -->
                     <div class="filter-list">
                         <form action="" class="select">
-                            <select name="" id="">
-                                <option value="">Tất cả</option>
-                                <option value="">Miễn phí</option>
-                                <option value="">Trả phí</option>
+                            <select name="" id="select_status">
+                                <option value="0">Tất cả</option>
+                                <option value="1">Miễn phí</option>
+                                <option value="2">Trả phí</option>
                             </select>
                         </form>
                     </div>
@@ -88,5 +88,17 @@
             })
         })
     })
+</script>
+<script>
+    $(document).ready(function() {
+        $('#select_status').on('change', function() {
+            var select_status = $(this).val();
+            $.get("khoa-hoc-select", {
+                select_status: select_status
+            }, function($data) {
+                $('.course-list').html($data);
+            })
+        });
+    });
 </script>
 @endsection

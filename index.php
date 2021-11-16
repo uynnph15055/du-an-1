@@ -198,6 +198,10 @@ switch ($url) {
         $ctr = new Courses();
         echo $ctr->listCourse();
         break;
+    case 'khoa-hoc-select';
+        $ctr = new Courses();
+        echo $ctr->followSelect();
+        break;
 
         // Bài học
     case 'bai-hoc';
