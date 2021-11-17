@@ -1,21 +1,35 @@
 @extends('customer.layout.layout')
 @section('title', 'Trang chủ')
 @section('main_content')
+<style>
+    .significant-item-detail {
+        line-height: 1.6;
+        margin-top: 5px;
+    }
+
+    .significant-item-detail-sub {
+        line-height: 1.4;
+        color: #333;
+    }
+</style>
 <div class="container">
     <div class="banner">
         <div class="row">
             <div class="banner-text col l-6 m-6 c-12">
                 <div class="banner-text-list">
-                    <?php
-                    echo $banner['banner_text'];
-                    ?>
+                    <h1 class="banner-text__item slogan">
+                        {{$banner['banner_title']}}
+                    </h1>
+                    <p class="banner-text__item slogan-sub">
+                        {{$banner['banner_text']}}
+                    </p>
                     <button class="banner-text__item btn-primary">
                         Học ngay
                     </button>
                 </div>
             </div>
             <div class="banner-img col l-6 m-6 c-12">
-                <img width="600px" src="./public/img/images/z2913185640491_c2f671e7f2f6491d7771792c1aa7fdf5.jpg" alt="">
+                <img width="600px" src="./public/img/{{$banner['banner_img']}}" alt="">
             </div>
         </div>
     </div>
@@ -31,7 +45,7 @@
                         <span>
                             Lộ trình rõ ràng
                         </span>
-                        <p>Lộ trình được nghiên cứu và sắp xếp bởi các thầy cô có nhiều kinh nghiệm</p>
+                        <p class="significant-item-detail">Lộ trình được nghiên cứu và sắp xếp bởi các thầy cô có nhiều kinh nghiệm</p>
                     </div>
                 </div>
                 <div class="significant-item">
@@ -42,7 +56,7 @@
                         <span>
                             Ghi chú dễ dàng
                         </span>
-                        <p>Ghi chú dễ dàng, nhanh chóng</p>
+                        <p class="significant-item-detail">Ghi chú dễ dàng, nhanh chóng , ngay tại nội dung bài học.</p>
                     </div>
                 </div>
                 <div class="significant-item">
@@ -53,90 +67,37 @@
                         <span>
                             Nội dung chất lượng
                         </span>
-                        <p>Nội dung với chất lượng được đảm bảo bởi những chuyên gia</p>
+                        <p class="significant-item-detail">Nội dung với chất lượng được đảm bảo bởi những chuyên gia</p>
                     </div>
                 </div>
             </div>
 
             <div class="course-new">
                 <h2>CÁC KHÓA HỌC MỚI NHẤT</h2>
-                <div class="swiper">
+                <div class="swiper" style="z-index: 1;">
                     <div class="swiper-wrapper">
+                        @foreach($dataSubject as $key)
                         <div class="swiper-slide">
                             <div class="course-item">
                                 <div class="course-poster">
-                                    <img src="./public/img/z2937831501208_80d421b1a4c4cf32f5abc9f42c0ee2ba.jpg" class=" img-fluid"></img>
+                                    <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}"><img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img></a>
                                 </div>
                                 <div class="course-text">
-                                    <h3 class="course__title">HTML</h3>
+                                    <h3 class="course__title">{{$key['subject_name']}}</h3>
                                     <span class="course__members">
                                         <i class="fas fa-users"></i>
                                         123
                                     </span>
+                                    @if($key['type_id'] == 0)
                                     <span class="course__price course__price--free">Miễn phí</span>
+                                    @else
+                                    <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
+                                    <span class="course__price course__price--old"><?php echo number_format($key['subject_price']) ?>đ</span>
+                                    @endif
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="course-item">
-                                <div class="course-poster">
-                                    <img src="./public/img/z2937831501208_80d421b1a4c4cf32f5abc9f42c0ee2ba.jpg" class=" img-fluid"></img>
-                                </div>
-                                <div class="course-text">
-                                    <h3 class="course__title">HTML</h3>
-                                    <span class="course__members">
-                                        <i class="fas fa-users"></i>
-                                        123
-                                    </span>
-                                    <span class="course__price course__price--free">Miễn phí</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="course-item">
-                                <div class="course-poster">
-                                    <img src="./public/img/z2937831501208_80d421b1a4c4cf32f5abc9f42c0ee2ba.jpg" class=" img-fluid"></img>
-                                </div>
-                                <div class="course-text">
-                                    <h3 class="course__title">HTML</h3>
-                                    <span class="course__members">
-                                        <i class="fas fa-users"></i>
-                                        123
-                                    </span>
-                                    <span class="course__price course__price--free">Miễn phí</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="course-item">
-                                <div class="course-poster">
-                                    <img src="./public/img/z2937831501208_80d421b1a4c4cf32f5abc9f42c0ee2ba.jpg" class=" img-fluid"></img>
-                                </div>
-                                <div class="course-text">
-                                    <h3 class="course__title">HTML</h3>
-                                    <span class="course__members">
-                                        <i class="fas fa-users"></i>
-                                        123
-                                    </span>
-                                    <span class="course__price course__price--free">Miễn phí</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="course-item">
-                                <div class="course-poster">
-                                    <img src="./public/img/z2937831501208_80d421b1a4c4cf32f5abc9f42c0ee2ba.jpg" class=" img-fluid"></img>
-                                </div>
-                                <div class="course-text">
-                                    <h3 class="course__title">HTML</h3>
-                                    <span class="course__members">
-                                        <i class="fas fa-users"></i>
-                                        123
-                                    </span>
-                                    <span class="course__price course__price--free">Miễn phí</span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="swiper-button swiper-button-next"></div>
                     <div class="swiper-button swiper-button-prev"></div>
@@ -198,8 +159,8 @@
                             <span class="your-gift__text">
                                 1. Sự thành thạo
                             </span>
-                            <span class="your-gift__text-sub">
-                                Các bài học đi đôi với thực hành, làm bài kiểm tra ngay trên trang web và bạn luôn
+                            <span class="your-gift__text-sub significant-item-detail-sub">
+                                Các bài học đi đôi với thực hành, làm bài kiểm tra ngay và bạn luôn
                                 có
                                 sản
                                 phẩm thực tế sau mỗi khóa học.
@@ -209,7 +170,7 @@
                             <span class="your-gift__text">
                                 2. Tính tự học
                             </span>
-                            <span class="your-gift__text-sub">
+                            <span class="your-gift__text-sub significant-item-detail-sub">
                                 Một con người chỉ thực sự trưởng thành trong sự nghiệp nếu họ biết cách
                                 tự
                                 thu
@@ -219,7 +180,7 @@
                             <span class="your-gift__text">
                                 3. Tiết kiệm thời gian
                             </span>
-                            <span class="your-gift__text-sub">
+                            <span class="your-gift__text-sub significant-item-detail-sub">
                                 Thay vì chật vật vài năm thì chỉ cần 4-6 tháng để có thể bắt đầu công việc đầu tiên
                                 với
                                 vị
@@ -229,7 +190,7 @@
                             <span class="your-gift__text">
                                 4. Làm điều quan trọng
                             </span>
-                            <span class="your-gift__text-sub">
+                            <span class="your-gift__text-sub significant-item-detail-sub">
                                 Chỉ học và làm những điều quan trọng để đạt được mục tiêu đi làm được trong thời
                                 gian
                                 ngắn nhất.</span>
@@ -355,6 +316,6 @@
 </div>
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<script src="./public/js/cus/swiper-slider.js"></script>
-<script src="./js/slideshow-rating.js"></script>
+<script src="./public/js/customerJs/swiper-slider.js"></script>
+<script src="/public/js/customerJs/slideshow-rating.js"></script>
 @endsection

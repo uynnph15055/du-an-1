@@ -17,7 +17,7 @@
 
 <body>
     <div class="container">
-        <header>
+        <header style="z-index: 10;">
             <div class="navbar-container">
                 <div class="navbar-fluid">
                     <div class="navbar-logo">
@@ -35,10 +35,10 @@
                         </nav>
                         <div class="navbar-action">
                             <div class="navbar-action-button">
-                                <a class="action-btn btn-secondary">
+                                <a href="dang-nhap-dang-ky" class="action-btn btn-secondary">
                                     Đăng nhập
                                 </a>
-                                <a href="" class="action-btn btn-primary">
+                                <a href="dang-nhap-dang-ky" class="action-btn btn-primary">
                                     Đăng ký
                                 </a>
                             </div>

@@ -63,6 +63,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
+    margin-top: 5px;
   }
 
   .btn__log-2 {
@@ -294,7 +295,13 @@
   .form-link:hover {
     text-decoration: underline;
   }
-
+  .alert-mess{
+    font-size: 12px;
+  }
+  .alert-mess--error{
+    // color: var(--danger);
+    color: red;
+  }
   //   ------------------------------------------------------------------------------------------
 
   .form-log-container {

@@ -42,7 +42,7 @@
             </div>
             @endif
             <div class="col-8">
-                <span style="float:right;font-style:italic">Tổng có : {{$number}} ngành</span>
+                <span style="float:right;font-style:italic">Tổng có : <?php echo count($dataCate) ?> ngành</span>
                 <table class="table table-bordered">
                     <thead>
                         <tr>

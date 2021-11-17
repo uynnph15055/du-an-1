@@ -1,9 +1,9 @@
-@extends('customer.layout.layout_login')
-@section('title', 'Đăng nhập')
-@section('main_content')
+
+<?php $__env->startSection('title', 'Đăng nhập'); ?>
+<?php $__env->startSection('main_content'); ?>
 <div class="form-log-container form-log-width" id="form-log-container">
     <div class="form-container-item sign-up-container">
-        <form class="log__form" action="dang-ky" method="POST">
+        <form class="log__form" action="#">
             <h3 class="form__title">Đăng ký</h3>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -12,14 +12,17 @@
             </div>
             <span>- hoặc sử dụng email để đăng ký</span>
 
-            <input type="text" name="student_name" placeholder="Tên" />
-            <span class="error-sign-up"></span>
-            <input type="email" name="student_email" id="email-sign-up" placeholder="Email" />
-            <span id="error-email" style="color:#E80007;font-size:12px"></span>
-            <input type="password" name="student_password" placeholder="Mật khẩu" />
-            <span class="error-sign-up"></span>
+            <input type="text" placeholder="Tên" />
+            <span class="alert-mess--warning">scscscsc</span>
+
+            <input type="email" id="email-sign-up" placeholder="Email" />
+            <span class="alert-mess" id="error-email"></span>
+
+            <input type="password" placeholder="Mật khẩu" />
+            <span class="alert-mess">scscscsc</span>
+
             <button class="btn__log btn-primary">Đăng ký</button>
-            <a class="form-link" href="./">Trang chủ</a>
+            <a class="form-link" href="#">Trang chủ</a>
         </form>
     </div>
     <div class="form-container-item sign-in-container">
@@ -33,14 +36,14 @@
             <span>- hoặc sử dụng tài khoản</span>
 
             <input type="email" placeholder="Email" />
-            <span class="alert-mess alert-mess--error"></span>
+            <span class="alert-mess alert-mess--error">scscscsc</span>
 
             <input type="password" placeholder="Mật khẩu" />
-            <span class="alert-mess alert-mess--error"></span>
+            <span class="alert-mess alert-mess--error">scscscsc</span>
 
             <button class="btn__log btn-primary">Đăng nhập</button>
             <a class="form-link" href="#">Quên mật khẩu?</a>
-            <a class="form-link" href="./">Trang chủ</a>
+            <a class="form-link" href="#">Trang chủ</a>
         </form>
     </div>
     <div class="overlay-container">
@@ -80,4 +83,5 @@
         });
     })
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('customer.layout.layout_login', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\project_one\app\views/customer/form_log.blade.php ENDPATH**/ ?>

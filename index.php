@@ -231,6 +231,10 @@ switch ($url) {
         $ctr = new formLog();
         echo $ctr->checkEmailSignUp();
         break;
+    case 'dang-ky';
+        $ctr = new formLog();
+        echo $ctr->register();
+        break;
 
 
         // Trang home

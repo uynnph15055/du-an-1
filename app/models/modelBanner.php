@@ -13,7 +13,7 @@ class modelBanner extends DB
     {
         $model = new static;
         $conn = $model->getConnect();
-        $queryBuilder = "INSERT INTO $model->table (banner_text,banner_img) VALUES (:banner_text,:banner_img)";
+        $queryBuilder = "INSERT INTO $model->table (banner_text,banner_img,banner_title) VALUES (:banner_text,:banner_img,:banner_title)";
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }
@@ -28,5 +28,4 @@ class modelBanner extends DB
         $stmt->execute();
         return $stmt->fetchAll();
     }
-  
 }

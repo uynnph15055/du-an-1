@@ -42,9 +42,12 @@
             <div class="banner-text col l-6 m-6 c-12">
                 <div class="banner-text-list">
                     <div class="banner-text__item slogan-sub" id="show_text">
-                        <?php
-                        echo $dataBanner[0]['banner_text'];
-                        ?>
+                        <h2 class="banner-text__item slogan">
+                            {{$dataBanner[0]['banner_title']}}
+                        </h2>
+                        <p class="banner-text__item slogan-sub">
+                            {{$dataBanner[0]['banner_text']}}
+                        </p>
                     </div>
                     <button class="banner-text__item btn-primary">
                         Học ngay
@@ -59,16 +62,23 @@
     <h4 style="margin-bottom:30px" class="text-center">Chỉnh Sửa</h4>
     <div style=" position: relative;">
         <form method="POST" action="them-banner" enctype="multipart/form-data">
-            <div class="row" style="max-width: 900px;margin:auto">
+            <div class="" style="max-width: 900px;margin:auto">
                 <input type="text" hidden name="banner_img" value="{{$dataBanner[0]['banner_img']}}">
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Chọn ảnh </label>
                     <br>
                     <input type="file" onchange="banner_imgg()" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="banner_img" name="banner_img">
                 </div>
-                <div class="col">
-                    <textarea id="summernote" style="border-radius: 15px;padding:10px" name="banner_text" onkeyup="banner_textt()" id="banner_text" cols="60" rows="6">{{$dataBanner[0]['banner_text']}}</textarea>
-
+                <div class="row" style="display:flex">
+                    <div class="col">
+                        <label for="exampleInputPassword1" class="form-label">Tiêu đề </label>
+                        <br>
+                        <textarea style="border-radius: 15px;padding:10px" placeholder="Tiêu đề banner" name="banner_title" cols="50" rows="6">{{$dataBanner[0]['banner_title']}}</textarea>
+                    </div>
+                    <div class="col">
+                        <label for="exampleInputPassword1" class="form-label">Nội dung</label>
+                        <textarea style="border-radius: 15px;padding:10px" placeholder="Nội dung banner" name="banner_text" onkeyup="banner_textt()" id="banner_text" cols="57" rows="6">{{$dataBanner[0]['banner_text']}}</textarea>
+                    </div>
                 </div>
             </div>
             <br>
@@ -101,22 +111,5 @@
             fileReader.readAsDataURL(filetoload);
         }
     }
-</script>
-
-<script>
-    $('#summernote').summernote({
-        placeholder: 'Thông Tin ...',
-        tabsize: 2,
-        height: 120,
-        toolbar: [
-            ['style', ['style']],
-            ['font', ['bold', 'underline', 'clear']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-            ['insert', ['link', 'picture', 'video']],
-            ['view', ['fullscreen', 'codeview', 'help']]
-        ]
-    });
 </script>
 @endsection

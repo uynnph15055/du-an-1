@@ -9,7 +9,8 @@ class Banner extends baseController
 {
     function index()
     {
-        $dataBanner = modelBanner::getAll();
+        $dataBanner = modelBanner::all();
+        // $this->dd($dataBanner);
         $this->render("admin.adminBanner.listBanner", ['dataBanner' => $dataBanner]);
     }
 
@@ -20,8 +21,8 @@ class Banner extends baseController
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            // $this->dd($banner_text);
-            if (!empty($banner_text)) {
+            // $this->dd($banner_title);
+            if (!empty($banner_text) || !empty($banner_title)) {
                 $file = $_FILES['banner_img'];
 
                 if ($file['size'] > 0) {
@@ -41,12 +42,14 @@ class Banner extends baseController
 
                     'banner_text' => $banner_text,
                     'banner_img' => $file_name,
+                    'banner_title' => $banner_title,
                 ];
 
 
                 // $this->dd($data);
                 $dataBanner =  modelBanner::all();
                 $banner_id = $dataBanner[0]['banner_id'];
+
                 modelBanner::delete('banner_id', "=", $banner_id)->executeQuery();
 
                 modelBanner::insertBanner($data);
