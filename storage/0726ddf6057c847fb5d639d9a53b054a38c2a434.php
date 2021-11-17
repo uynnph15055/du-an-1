@@ -1,6 +1,6 @@
-@extends('customer.layout.layout_login')
-@section('title', 'Đăng nhập')
-@section('main_content')
+
+<?php $__env->startSection('title', 'Đăng nhập'); ?>
+<?php $__env->startSection('main_content'); ?>
 <div class="form-log-container form-log-width" id="form-log-container">
     <div class="form-container-item sign-up-container">
         <form class="log__form" action="#">
@@ -83,4 +83,5 @@
         });
     })
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('customer.layout.layout_login', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\project_one\app\views/customer/form_log.blade.php ENDPATH**/ ?>
