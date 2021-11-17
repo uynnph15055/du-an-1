@@ -83,7 +83,7 @@
                         @foreach($cateSubject as $key)
                         <option <?php
                                 if ($rowSubject['cate_id'] ==  $key['cate_id']) {
-                                    echo 'seleted';
+                                    echo 'selected';
                                 }
                                 ?> value="{{$key['cate_id']}}">{{$key['cate_name']}}</option>
                         @endforeach
@@ -110,7 +110,7 @@
             <div class="col">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tên môn học</label>
-                    <input type="text" class="form-control" onkeyup="ChangeToSlug()" placeholder="Tên khóa học"  name="subject_name" id="slug" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" onkeyup="ChangeToSlug()" placeholder="Tên khóa học" name="subject_name" id="slug" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tên môn học</label>

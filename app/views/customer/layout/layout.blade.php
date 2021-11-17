@@ -34,15 +34,15 @@
                             </ul>
                         </nav>
                         <div class="navbar-action">
-                            <!-- <div class="navbar-action-button">
+                            <div class="navbar-action-button">
                                 <button class="action-btn btn-secondary">
                                     Đăng nhập
                                 </button>
                                 <button class="action-btn btn-primary">
                                     Đăng ký
                                 </button>
-                            </div> -->
-                            <div class="navbar-action-content">
+                            </div>
+                            <!-- <div class="navbar-action-content">
                                 <button class="action-item">
                                     <i class="fas fa-grin-stars"></i>
                                 </button>
@@ -70,7 +70,7 @@
                                         <a class="account-item" href="">Đăng xuất</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

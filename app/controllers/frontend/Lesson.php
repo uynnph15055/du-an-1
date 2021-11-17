@@ -24,6 +24,8 @@ class Lesson extends baseController
         $subject = modelSubject::where("subject_slug", "=", $subject_slug)->get();
         $subject_id = $subject[0]['subject_id'];
         $subjectName = $subject[0]['subject_name'];
+
+        // Data mon -> Hiền thị xuống file leaning 
         $dataLesson = modelLesson::where('subject_id', "=", $subject_id)->get();
         $lessonFist = $dataLesson[0];
     

@@ -105,4 +105,83 @@ class Courses extends baseController
             ]);
         }
     }
+
+    public function followSelect()
+    {
+        $select_id = $_GET['select_status'];
+        $dataSubject = [];
+        if ($select_id == 0) {
+            $dataSubject = modelSubject::all();
+            foreach ($dataSubject as $key) {
+                $type = '';
+                $sale = '';
+                $class = '';
+                if ((int)$key['type_id'] == 0) {
+                    $type = "Miễn Phí";
+                    $class = 'course__price--free';
+                } else {
+                    $class = 'course__price--cost';
+                    $type = number_format($key['subject_price']);
+                    $sale = number_format($key['subject_sale']) . 'đ';
+                }
+                echo "
+            <div class='course-item'>
+                <div class='course-poster'>
+                    <a href='mo-ta-mon-hoc?mon=" . $key['subject_slug'] . "'><img src='./public/img/" . $key['subject_img'] . "' class=' img-fluid'></img></a>
+                </div>
+                <div class='course-text'>
+                    <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
+                    <span class='course__members'>
+                        <i class='fas fa-users'></i>
+                        123
+                    </span>
+                    <span class='course__price " . $class . "'>" . $type . "</span>
+                    <span class='course__price course__price--old'>" . $sale . "</span>
+                </div>
+            </div>";
+            }
+        } elseif ($select_id == 1) {
+            $dataSubject = modelSubject::where("type_id", "=", 0)->get();
+            foreach ($dataSubject as $key) {
+                echo "
+            <div class='course-item'>
+                <div class='course-poster'>
+                    <a href='mo-ta-mon-hoc?mon=" . $key['subject_slug'] . "'><img src='./public/img/" . $key['subject_img'] . "' class=' img-fluid'></img></a>
+                </div>
+                <div class='course-text'>
+                    <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
+                    <span class='course__members'>
+                        <i class='fas fa-users'></i>
+                        123
+                    </span>
+                    <span class='course__price--free'>Miễn phí</span>
+                </div>
+            </div>";
+            }
+        } elseif ($select_id == 2) {
+            $dataSubject = modelSubject::where("type_id", "=", 1)->get();
+            foreach ($dataSubject as $key) {
+                $subject_price = number_format($key['subject_price']);
+                $subject_sale = number_format($key['subject_sale']);
+                echo "
+            <div class='course-item'>
+                <div class='course-poster'>
+                    <a href='mo-ta-mon-hoc?mon=" . $key['subject_slug'] . "'><img src='./public/img/" . $key['subject_img'] . "' class=' img-fluid'></img></a>
+                </div>
+                <div class='course-text'>
+                    <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
+                    <span class='course__members'>
+                        <i class='fas fa-users'></i>
+                        123
+                    </span>
+                    <span class='course__price course__price--cost'>" . $subject_price . "đ</span>
+                    <span class='course__price course__price--old'>" . $subject_sale . "đ</span>
+                </div>
+            </div>";
+            }
+        } else {
+            $_SESSION['error'] = "Lỗi";
+            die();
+        }
+    }
 }

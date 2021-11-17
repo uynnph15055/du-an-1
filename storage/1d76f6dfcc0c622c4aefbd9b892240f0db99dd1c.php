@@ -28,10 +28,10 @@
                     <!-- <h4 class="filter__title">Bộ lọc</h4> -->
                     <div class="filter-list">
                         <form action="" class="select">
-                            <select name="" id="">
-                                <option value="">Tất cả</option>
-                                <option value="">Miễn phí</option>
-                                <option value="">Trả phí</option>
+                            <select name="" id="select_status">
+                                <option value="0">Tất cả</option>
+                                <option value="1">Miễn phí</option>
+                                <option value="2">Trả phí</option>
                             </select>
                         </form>
                     </div>
@@ -53,7 +53,7 @@
                     <?php $__currentLoopData = $subject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="course-item">
                         <div class="course-poster">
-                            <a href="bai-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                            <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
                         </div>
                         <div class="course-text">
                             <h3 class="course__title" style="font-size: 15px;"><?php echo e($key['subject_name']); ?></h3>
@@ -64,8 +64,8 @@
                             <?php if($key['type_id'] == 0): ?>
                             <span class="course__price course__price--free">Miễn phí</span>
                             <?php else: ?>
-                            <span class="course__price course__price--cost"><?php echo number_format($key['subject_price']) ?>đ</span>
-                            <span class="course__price course__price--old"><?php echo number_format($key['subject_sale']) ?>đ</span>
+                            <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
+                            <span class="course__price course__price--old"><?php echo number_format($key['subject_price']) ?>đ</span>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -88,6 +88,18 @@
             })
         })
     })
+</script>
+<script>
+    $(document).ready(function() {
+        $('#select_status').on('change', function() {
+            var select_status = $(this).val();
+            $.get("khoa-hoc-select", {
+                select_status: select_status
+            }, function($data) {
+                $('.course-list').html($data);
+            })
+        });
+    });
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\project_one\app\views/customer/courses.blade.php ENDPATH**/ ?>

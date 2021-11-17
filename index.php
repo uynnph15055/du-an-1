@@ -16,7 +16,7 @@ use App\Controllers\Frontend\Courses;
 use App\Controllers\Frontend\introCourse;
 use App\Controllers\Frontend\Lesson;
 use App\Controllers\Backend\Administrators;
-
+use App\Controllers\Frontend\formLog;
 
 switch ($url) {
     case 'quan-tri':
@@ -202,6 +202,14 @@ switch ($url) {
         $ctr = new Courses();
         echo $ctr->listCourse();
         break;
+    case 'khoa-hoc-select';
+        $ctr = new Courses();
+        echo $ctr->followSelect();
+        break;
+    case 'tim-kiem-khoa-hoc';
+        $ctr = new Courses();
+        echo $ctr->search();
+        break;
 
         // Bài học
     case 'bai-hoc';
@@ -217,10 +225,14 @@ switch ($url) {
         echo $ctr->nextLesson();
         break;
 
-        // Tìm kiếm khóa học.
-    case 'tim-kiem-khoa-hoc';
-        $ctr = new Courses();
-        echo $ctr->search();
+        // Đăng nhập đăng ký
+    case 'dang-nhap-dang-ky';
+        $ctr = new formLog();
+        echo $ctr->index();
+        break;
+    case 'check-email-dang-ky';
+        $ctr = new formLog();
+        echo $ctr->checkEmailSignUp();
         break;
 
     default:
