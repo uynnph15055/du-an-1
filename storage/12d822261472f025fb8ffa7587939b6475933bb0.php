@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <aside class="play-list">
-                    <h3 class="course__title" style="font-size: 23px;margin-top:20px">
+                    <h3 class="course__title" style="font-size: 23px;margin-top:-10px">
                         Khóa học <?php echo e($subjectName); ?>
 
                     </h3>
@@ -106,8 +106,8 @@
                         <?php $__currentLoopData = $dataLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="lesson-item">
                             <a data-id="<?php echo e($key['lesson_id']); ?>" href="" class="lesson-item-info">
-                                <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
-                                <h4 class="lesson-item__title">
+                                <span class="lesson__index" style="margin-top: 10px;margin-left:5px"><i class="fas fa-play-circle"></i></span>
+                                <h4 class="lesson-item__title" style="line-height: 1.4;">
                                     Bài <?= $index++ ?>: <?php echo e($key['lesson_name']); ?>
 
                                 </h4>

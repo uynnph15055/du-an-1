@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <aside class="play-list">
-                    <h3 class="course__title" style="font-size: 23px;margin-top:20px">
+                    <h3 class="course__title" style="font-size: 23px;margin-top:-10px">
                         Khóa học {{$subjectName}}
                     </h3>
                     <?php
@@ -105,8 +105,8 @@
                         @foreach($dataLesson as $key)
                         <div class="lesson-item">
                             <a data-id="{{$key['lesson_id']}}" href="" class="lesson-item-info">
-                                <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
-                                <h4 class="lesson-item__title">
+                                <span class="lesson__index" style="margin-top: 10px;margin-left:5px"><i class="fas fa-play-circle"></i></span>
+                                <h4 class="lesson-item__title" style="line-height: 1.4;">
                                     Bài <?= $index++ ?>: {{$key['lesson_name']}}
                                 </h4>
                                 <span class="lesson__time">
