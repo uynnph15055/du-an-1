@@ -23,7 +23,7 @@
         </form>
     </div>
     <div class="form-container-item sign-in-container">
-        <form class="log__form" action="#">
+        <form class="log__form" method="POST" action="dang-nhap">
             <h3 class="form__title">Đăng nhập</h3>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -32,10 +32,10 @@
             </div>
             <span>- hoặc sử dụng tài khoản</span>
 
-            <input type="email" placeholder="Email" />
-            <span class="alert-mess alert-mess--error"></span>
+            <input id="email-sign-in" name="student_email" type="email" placeholder="Email" />
+            <span id="error-sign-in" style="color:#E80007;font-size:12px" class="alert-mess alert-mess--error"></span>
 
-            <input type="password" placeholder="Mật khẩu" />
+            <input type="password" name="student_password" placeholder="Mật khẩu" />
             <span class="alert-mess alert-mess--error"></span>
 
             <button class="btn__log btn-primary">Đăng nhập</button>
@@ -76,6 +76,16 @@
                 email_val: emailVal
             }, function($data) {
                 $('#error-email').html($data);
+            })
+        });
+
+        $('#email-sign-in').blur(function() {
+            var emailInVal = $(this).val();
+
+            $.post("check-email-dang-nhap", {
+                email_val_in: emailInVal
+            }, function($data) {
+                $('#error-sign-in').html($data);
             })
         });
     })

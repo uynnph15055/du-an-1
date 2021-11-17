@@ -235,7 +235,18 @@ switch ($url) {
         $ctr = new formLog();
         echo $ctr->register();
         break;
-
+    case 'dang-nhap';
+        $ctr = new formLog();
+        echo $ctr->login();
+        break;
+    case 'check-email-dang-nhap';
+        $ctr = new formLog();
+        echo $ctr->checkEmailSignIn();
+        break;
+    case 'dang-xuat';
+        $ctr = new formLog();
+        echo $ctr->logOut();
+        break;
 
         // Trang home
     case '/';

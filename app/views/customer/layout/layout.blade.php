@@ -34,15 +34,11 @@
                             </ul>
                         </nav>
                         <div class="navbar-action">
-                            <div class="navbar-action-button">
-                                <a href="dang-nhap-dang-ky" class="action-btn btn-secondary">
-                                    Đăng nhập
-                                </a>
-                                <a href="dang-nhap-dang-ky" class="action-btn btn-primary">
-                                    Đăng ký
-                                </a>
-                            </div>
-                            <!-- <div class="navbar-action-content">
+                            <?php if (isset($_SESSION['user_info'])) {
+                                $user_info = $_SESSION['user_info'];
+                            } ?>
+                            @if(isset($user_info))
+                            <div class="navbar-action-content">
                                 <button class="action-item">
                                     <i class="fas fa-grin-stars"></i>
                                 </button>
@@ -51,7 +47,7 @@
                                 </button>
                                 <div class="account-section action-item">
                                     <button onclick="toggleShowHide()" id="btn-acc">
-                                        <i class="fas fa-user-circle icon-account"></i>
+                                        <img style="width:32px" src="./public/img/<?= $user_info[0]['student_avatar'] ?>" alt="">
                                     </button>
                                     <div id="account-list" class="content-container-acc">
                                         <a class="account-item" href="">Thông tin tài khoản</a>
@@ -67,10 +63,20 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <a class="account-item" href="">Đăng xuất</a>
+                                        <a class="account-item" href="dang-xuat">Đăng xuất</a>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
+                            @else
+                            <div class="navbar-action-button">
+                                <a href="dang-nhap-dang-ky" class="action-btn btn-secondary">
+                                    Đăng nhập
+                                </a>
+                                <a href="dang-nhap-dang-ky" class="action-btn btn-primary">
+                                    Đăng ký
+                                </a>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -21,7 +21,7 @@
                         <?php echo e($banner['banner_title']); ?>
 
                     </h1>
-                    <p class="banner-text__item slogan-sub">
+                    <p class="banner-text__item slogan-sub" style="line-height: 1.4;margin-top: 10px">
                         <?php echo e($banner['banner_text']); ?>
 
                     </p>
