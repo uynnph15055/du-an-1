@@ -12,11 +12,11 @@
             </div>
             <span>- hoặc sử dụng email để đăng ký</span>
             <input type="text" placeholder="Tên" />
-            <span class="error-sign-up">scscscsc</span>
+            <span class="error-sign-up"></span>
             <input type="email" id="email-sign-up" placeholder="Email" />
-            <span id="error-email" style="color:#E80007"></span>
+            <span id="error-email" style="color:#E80007;font-size:12px"></span>
             <input type="password" placeholder="Mật khẩu" />
-            <span class="error-sign-up">scscscsc</span>
+            <span class="error-sign-up"></span>
             <button class="btn__log btn-primary">Đăng ký</button>
             <a class="form-link" href="#">Trang chủ</a>
         </form>

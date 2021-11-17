@@ -16,6 +16,7 @@ use App\Controllers\Frontend\Courses;
 use App\Controllers\Frontend\introCourse;
 use App\Controllers\Frontend\Lesson;
 use App\Controllers\Backend\Administrators;
+use App\Controllers\Frontend\Home;
 use App\Controllers\Frontend\formLog;
 
 switch ($url) {
@@ -229,6 +230,13 @@ switch ($url) {
     case 'check-email-dang-ky';
         $ctr = new formLog();
         echo $ctr->checkEmailSignUp();
+        break;
+
+
+        // Trang home
+    case '/';
+        $ctr = new Home();
+        echo $ctr->index();
         break;
 
     default:

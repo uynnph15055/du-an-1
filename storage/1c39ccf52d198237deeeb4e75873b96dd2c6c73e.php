@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
     <!-- css -->
     <link rel="stylesheet" href="./public/css/customerCss/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -34,12 +35,12 @@
                         </nav>
                         <div class="navbar-action">
                             <div class="navbar-action-button">
-                                <button class="action-btn btn-secondary">
+                                <a class="action-btn btn-secondary">
                                     Đăng nhập
-                                </button>
-                                <button class="action-btn btn-primary">
+                                </a>
+                                <a href="" class="action-btn btn-primary">
                                     Đăng ký
-                                </button>
+                                </a>
                             </div>
                             <!-- <div class="navbar-action-content">
                                 <button class="action-item">
