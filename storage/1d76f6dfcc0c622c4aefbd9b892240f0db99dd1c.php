@@ -64,8 +64,8 @@
                             <?php if($key['type_id'] == 0): ?>
                             <span class="course__price course__price--free">Miễn phí</span>
                             <?php else: ?>
-                            <span class="course__price course__price--cost"><?php echo number_format($key['subject_price']) ?>đ</span>
-                            <span class="course__price course__price--old"><?php echo number_format($key['subject_sale']) ?>đ</span>
+                            <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
+                            <span class="course__price course__price--old"><?php echo number_format($key['subject_price']) ?>đ</span>
                             <?php endif; ?>
                         </div>
                     </div>
