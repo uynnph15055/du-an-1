@@ -1,7 +1,36 @@
 
 <?php $__env->startSection('title', 'Danh sách câu hỏi'); ?>
 <?php $__env->startSection('main_content'); ?>
+<style>
+    .warning-bg {
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        margin-top: 150px;
+    }
+
+    .warning {
+        text-align: center;
+        align-items: center;
+    }
+
+    .warning i {
+        font-size: 100px;
+    }
+</style>
 <div class="container">
+    <?php if(empty($dataQuestion)): ?>
+    <div class="warning-bg">
+        <div class="warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            <br>
+            <br>
+            <h5>Hiện chưa có câu hỏi !!!</h5>
+            <a href="trang-them-cau-hoi?lesson_id=<?php echo e($lesson_id); ?>">Thêm câu hỏi</a>
+        </div>
+    </div>
+    <?php else: ?>
+    <!--  -->
     <h4 class="text-center">Danh sách câu hỏi</h4>
     <?php if($lesson_id): ?>
     <a class="btn btn-primary" href="trang-them-cau-hoi?lesson_id=<?php echo e($lesson_id); ?>">Thêm câu hỏi</a>
@@ -68,6 +97,7 @@
             </div>
         </div>
     </div>
+    <?php endif; ?>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>

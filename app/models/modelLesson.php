@@ -48,7 +48,7 @@ class modelLesson extends DB
     {
         $model = new static();
         $connect = $model->getConnect();
-        $queryBuilder =  "  SELECT * FROM lesson less  JOIN question ques ON less.lesson_id = ques.lesson_id WHERE less.subject_id=:id";
+        $queryBuilder =  " SELECT * FROM lesson JOIN question ON lesson.lesson_id= question.lesson_id WHERE lesson.subject_id=:id";
         $statement = $connect->prepare($queryBuilder);
         $statement->execute(['id' => $id]);
         return  $statement->fetchAll();

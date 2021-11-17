@@ -183,7 +183,11 @@ switch ($url) {
 
 
         // -------- Giao diện khách hàng
-
+        // TRang chủ
+        case 'trang-chu';
+        $ctr = new Lesson();
+        echo $ctr->question();
+        break;
         // Hiển thị câu hỏi.
     case 'khoa-hoc/cau-hoi';
         $ctr = new Lesson();

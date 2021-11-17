@@ -1,19 +1,19 @@
 
-@extends('customer.layout.layout')
-@section('title', 'Khóa học')
 
-@section('main_content')
+<?php $__env->startSection('title', 'Khóa học'); ?>
+
+<?php $__env->startSection('main_content'); ?>
 <main class="bgr-light" style="margin-top: 80px;">
     <div class="learning-section">
         <div class="container-fluid">
             <div class="learning-fluid">
                 <div class="learning-space">
                     <div class="learning__video" style="margin-bottom: 20px;">
-                        @if(isset($lessonFist))
-                        <iframe width="98%" height="520" src="{{$lessonFist['lesson_link']}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        <?php if(isset($lessonFist)): ?>
+                        <iframe width="98%" height="520" src="<?php echo e($lessonFist['lesson_link']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
-                        <h2 style="font-size: 20px;text-align:center;margin-top:15px">{{$lessonFist['lesson_name']}}</h2>
-                        @endif
+                        <h2 style="font-size: 20px;text-align:center;margin-top:15px"><?php echo e($lessonFist['lesson_name']); ?></h2>
+                        <?php endif; ?>
                         <!-- </video> -->
                     </div>
                     <div class="learning-tabs">
@@ -98,18 +98,20 @@
                 </div>
                 <aside class="play-list">
                     <h3 class="course__title" style="font-size: 23px;margin-top:20px">
-                        Khóa học {{$subjectName}}
+                        Khóa học <?php echo e($subjectName); ?>
+
                     </h3>
                     <?php
                     $index = 1;
                     ?>
                     <div class="lesson-list">
-                        @foreach($dataLesson as $key)
+                        <?php $__currentLoopData = $dataLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="lesson-item">
-                            <a data-id="{{$key['lesson_id']}}" href="" class="lesson-item-info">
+                            <a data-id="<?php echo e($key['lesson_id']); ?>" href="" class="lesson-item-info">
                                 <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
                                 <h4 class="lesson-item__title">
-                                    Bài <?= $index++ ?>: {{$key['lesson_name']}}
+                                    Bài <?= $index++ ?>: <?php echo e($key['lesson_name']); ?>
+
                                 </h4>
                                 <span class="lesson__time">
                                     10:10
@@ -122,14 +124,14 @@
                     $lesson_id=$key['lesson_id'];
                     $subject_id=$key['subject_id'];
                      header("location:bai-hoc?lesson_id=$lesson_id&subject_id=$subject_id") ?>
-                                <!-- @foreach($dataQuestion as $value)
+                                <!-- <?php $__currentLoopData = $dataQuestion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <a href="" class="test_index">
                                1
                                 </a> 
-                                @endforeach   -->
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>   -->
                             </div>
                         </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </aside>
             </div>
@@ -151,4 +153,5 @@
         })
     })
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/customer/learning.blade.php ENDPATH**/ ?>

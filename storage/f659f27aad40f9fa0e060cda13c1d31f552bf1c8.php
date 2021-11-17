@@ -55,7 +55,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="quan-tri">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Trang chính</span></a>
             </li>
@@ -103,7 +103,7 @@
                 </a>
                 <div id="collapseUtilitie" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href=">admin/adminProduct/">Thông tin nhân viên</a>
+                        <a class="collapse-item" href=">danh-sach-admin">Thông tin nhân viên</a>
                     </div>
                 </div>
             </li>
@@ -315,7 +315,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="./pubic/img/1609167075_lazi_419702.gif">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
