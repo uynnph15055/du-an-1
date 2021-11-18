@@ -32,6 +32,16 @@ class adminMenu extends baseController
             }
 
             if (!empty($menu_name) && !empty($menu_slug) && !empty($index)) {
+                if ($menu_name === "Trang chủ") {
+                    $menu_slug = "./";
+                }
+
+                $dataMenu = modelMenu::where("menu_slug", "=", $menu_slug)->get();
+                if (!empty($dataMenu)) {
+                    $_SESSION['error'] = "Menu này đã tồn tại !!!";
+                    header('Location: danh-sach-menu');
+                    die();
+                }
 
                 $data = [
                     'menu_name' => $menu_name,

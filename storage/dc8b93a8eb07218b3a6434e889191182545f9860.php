@@ -13,7 +13,7 @@
             <span>- hoặc sử dụng email để đăng ký</span>
 
             <input type="text" name="student_name" placeholder="Tên" />
-            <span class="error-sign-up"></span>
+            <span></span>
             <input type="email" name="student_email" id="email-sign-up" placeholder="Email" />
             <span id="error-email" style="color:#E80007;font-size:12px"></span>
             <input type="password" name="student_password" placeholder="Mật khẩu" />

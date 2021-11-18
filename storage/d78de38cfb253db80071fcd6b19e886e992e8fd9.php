@@ -17,16 +17,16 @@
         <div class="row">
             <div class="banner-text col l-6 m-6 c-12">
                 <div class="banner-text-list">
-                    <h1 class="banner-text__item slogan">
+                    <h1 class="banner-text__item slogan" style="color: #555">
                         <?php echo e($banner['banner_title']); ?>
 
                     </h1>
-                    <p class="banner-text__item slogan-sub" style="line-height: 1.4;margin-top: 10px">
+                    <p class="banner-text__item slogan-sub" style="line-height: 1.4;margin-top: 10px;color: #555">
                         <?php echo e($banner['banner_text']); ?>
 
                     </p>
-                    <button class="banner-text__item btn-primary">
-                        Học ngay
+                    <button href="khoa-hoc" class="banner-text__item btn-primary">
+                        <a style="color:#ffff;" href="khoa-hoc">Học ngay</a>
                     </button>
                 </div>
             </div>
@@ -199,7 +199,7 @@
                         </div>
                     </div>
                 </div>
-                <img src="./public/img/images/undraw_Connecting_Teams_re_hno7.png" alt="" class="img-fluid your-gift__img">
+                <img style="margin-top: 40px;margin-left: 40px;" src="./public/img/istockphoto-1171646208-612x612.jpg" alt="" class="img-fluid your-gift__img">
             </div>
         </div>
 
@@ -319,6 +319,6 @@
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="./public/js/customerJs/swiper-slider.js"></script>
-<script src="/public/js/customerJs/slideshow-rating.js"></script>
+<script src="./public/js/customerJs/slideshow-rating.js"></script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/home.blade.php ENDPATH**/ ?>

@@ -18,15 +18,18 @@ class formLog extends baseController
         $emailSignUp = $_POST['email_val'];
         if (empty($emailSignUp)) {
             echo "Không được bỏ trống !!!";
+            die();
         }
 
         $dataStudent = modelStudent::where("student_email", "=", $emailSignUp)->get();
         if (!empty($dataStudent)) {
             echo "Email đã tồn tại !!!";
+            die();
         }
 
         if (!filter_var($emailSignUp, FILTER_VALIDATE_EMAIL)) {
             echo "Email không đúng định dạng !!!";
+            die();
         }
     }
 

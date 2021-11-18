@@ -90,7 +90,7 @@
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href=">admin/adminProduct/">Thông tin học viên</a>
+                        <a class="collapse-item" href="danh-sach-hoc-vien">Thông tin học viên</a>
                         <a class="collapse-item" href=">admin/adminProduct/">Đánh giá của học viên</a>
                     </div>
                 </div>

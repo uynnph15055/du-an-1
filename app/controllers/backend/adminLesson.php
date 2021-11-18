@@ -39,8 +39,12 @@ class adminLesson extends baseController
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($lesson_name) && !empty($lesson_introduce)  && !empty($lesson_link) && !empty($subject_id)) {
+            if (!empty($lesson_name) && !empty($lesson_link) && !empty($subject_id)) {
                 $file = $_FILES['lesson_img'];
+
+                $lesson_link_new = explode('?', filter_var(trim($lesson_link, '?')));
+                $lesson_link_after = $lesson_link_new[1];
+
 
                 if ($file['size'] > 0) {
                     $file_name = $file['name'];
@@ -64,7 +68,7 @@ class adminLesson extends baseController
                     'lesson_slug' => $lesson_slug,
                     'date_post' => $date_post,
                     'lesson_img' => $file_name,
-                    'lesson_link' => $lesson_link,
+                    'lesson_link' => $lesson_link_after,
                     'subject_id' => $subject_id,
                     'lesson_introduce' => $lesson_introduce,
                 ];
@@ -123,8 +127,12 @@ class adminLesson extends baseController
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($lesson_name) && !empty($lesson_introduce)  && !empty($lesson_link) && !empty($subject_id)) {
+            if (!empty($lesson_name) && !empty($lesson_link) && !empty($subject_id)) {
                 $file = $_FILES['lesson_img'];
+
+                // Xử lý link video
+                $lesson_link_new = explode('?', filter_var(trim($lesson_link, '?')));
+                $lesson_link_after = trim(str_replace("v=", "", $lesson_link_new[1]));
 
                 if ($file['size'] > 0) {
                     $file_name = $file['name'];
@@ -147,7 +155,7 @@ class adminLesson extends baseController
                     'lesson_slug' => $lesson_slug,
                     'date_post' => $date_post,
                     'lesson_img' => $file_name,
-                    'lesson_link' => $lesson_link,
+                    'lesson_link' => $lesson_link_after,
                     'subject_id' => $subject_id,
                     'lesson_introduce' => $lesson_introduce,
                 ];

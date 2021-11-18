@@ -16,6 +16,7 @@ use App\Controllers\Frontend\Courses;
 use App\Controllers\Frontend\introCourse;
 use App\Controllers\Frontend\Lesson;
 use App\Controllers\Backend\Administrators;
+use App\Controllers\Backend\adminStudent;
 use App\Controllers\Frontend\Home;
 use App\Controllers\Frontend\formLog;
 
@@ -170,7 +171,11 @@ switch ($url) {
         echo $ctr->updateIndexs();
         break;
 
-        // -----------------
+        // ------Danh sách student-----------
+    case 'danh-sach-hoc-vien';
+        $ctr = new adminStudent();
+        echo $ctr->index();
+        break;
 
         // Banner layout.
     case 'danh-sach-banner';

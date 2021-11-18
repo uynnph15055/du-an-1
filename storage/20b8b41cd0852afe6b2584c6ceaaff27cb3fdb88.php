@@ -41,7 +41,7 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <!-- <h5 style="margin-bottom:-30px">Tổng số : <?php echo e($number); ?> môn</h5> -->
     </div>
-    <span style="float:right;font-style:italic">Tổng có : <?php echo e($number); ?> menu</span>
+    <span style="float:right;font-style:italic">Tổng có : <?php echo e($number); ?> bài</span>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -73,9 +73,9 @@
                     <?php endif; ?>
                 </td>
                 <td><?php echo e($key['date_post']); ?></td>
-               
+
                 <td><a class="btn btn-dark" href="danh-sach-cau-hoi?lesson_id=<?php echo e($key['lesson_id']); ?>"><i class="fas fa-question-circle"></i></a></td>
-                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn sửa môn học này ?')" href="trang-sua-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
+                <td><a class="btn btn-warning" href="trang-sua-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-trash"></i></a></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

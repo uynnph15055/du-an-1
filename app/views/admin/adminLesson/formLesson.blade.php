@@ -43,7 +43,7 @@
 
         <div class="row">
             <div class="col">
-                
+
                 <input type="text" hidden name="subject_id" value="{{$row['subject_id']}}">
 
                 <input type="text" hidden name="lesson_id" value="{{$row['lesson_id']}}">
@@ -66,7 +66,7 @@
             <div class="col">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Link video</label>
-                    <input type="text" class="form-control" value="{{$row['lesson_link']}}" placeholder="link bài học" name="lesson_link" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" value="https://www.youtube.com/watch?v={{$row['lesson_link']}}" placeholder="link bài học" name="lesson_link" aria-describedby="emailHelp">
                 </div>
 
                 <div class="mb-3">

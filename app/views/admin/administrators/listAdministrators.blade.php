@@ -96,13 +96,13 @@
 
                 <td>{{$key['name']}}</td>
                 <td>
-                    <img width="50px" src="./public/img/{{$key['img']}}" alt="">
+                    <img width="70px" src="./public/img/{{$key['img']}}" alt="">
                 </td>
                 <!-- <td>{{$key['cate_name']}}</td> -->
                 <td>{{$key['email']}}
                 </td>
                 <td>{{$key['phone']}}</td>
-                <td><a href="#" id="<?= $count ?>" onclick=" return window.confirm('Bạn có muốn sửa không ?');  " class="btn btn-warning"><i class="fas fa-edit"></i></a></td>
+                <td><a href="#" id="<?= $count ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a></td>
                 <div>
                     <div id="<?= $count . "hihi" ?>" style="display:none;background: rgba(0, 0, 0, 0.6);
                     
@@ -157,7 +157,7 @@ position: relative;">
                         </div>
                     </div>
                 </div>
-                <td><a class="btn btn-danger" onclick="window.confirm('bạn có muốn xóa không')" href="xoa-admin?id={{$key['id']}}"><i class="fas fa-trash"></i></a></td>
+                <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không')" href="xoa-admin?id={{$key['id']}}"><i class="fas fa-trash"></i></a></td>
 
             </tr>
 

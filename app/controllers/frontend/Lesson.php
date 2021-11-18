@@ -17,6 +17,11 @@ class Lesson extends baseController
 
     function index()
     {
+        if (!isset($_SESSION['user_info'])) {
+            header("location: dang-nhap-dang-ky");
+            die();
+        }
+
         $subject_slug = isset($_GET['mon']) ? $_GET['mon'] : null;
 
         //  Lấy ra tất cả các bài học.
@@ -53,7 +58,7 @@ class Lesson extends baseController
         $_SESSION['lesson_id'] = $lesson_id;
 
         $lessonNext = modelLesson::where('lesson_id', "=", $lesson_id)->get();
-        echo "<iframe width='98%' height='520' src='" . $lessonNext[0]['lesson_link'] . "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>
+        echo "<iframe width='98%' height='520' src='https://www.youtube.com/embed/" . $lessonNext[0]['lesson_link'] . "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>
         </iframe>
         <h2 style='font-size: 18px;text-align:center'>" . $lessonNext[0]['lesson_name'] . "</h2>";
     }

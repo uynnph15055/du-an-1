@@ -8,7 +8,7 @@
                 <div class="learning-space">
                     <div class="learning__video" style="margin-bottom: 20px;">
                         <?php if(isset($lessonFist)): ?>
-                        <iframe width="98%" height="520" src="<?php echo e($lessonFist['lesson_link']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        <iframe width="98%" height="520" src="https://www.youtube.com/embed/<?php echo e($lessonFist['lesson_link']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
                         <h2 style="font-size: 20px;text-align:center;margin-top:15px"><?php echo e($lessonFist['lesson_name']); ?></h2>
                         <?php endif; ?>
