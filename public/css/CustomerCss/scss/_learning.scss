@@ -102,7 +102,7 @@
                     margin: 10px 0;
                     font-weight: bold;
                 }
-                input{
+                input, textarea{
                     background: var(--grey);
                     border: none;
                     padding: 10px;
@@ -127,10 +127,15 @@
                     display: flex;
                     margin: 10px 0;
                     
+                    .input__time-note{
+                        height: 30px;
+
+                    }
                     .input__content-note{
                         display: block;
                         width: 100%;
                         border-radius: $radius-2;
+                        height: 100px;
                     }
                     .btn-note{
                         border: none;

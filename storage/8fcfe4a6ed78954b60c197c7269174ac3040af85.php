@@ -9,7 +9,6 @@
 
     .significant-item-detail-sub {
         line-height: 1.4;
-        color: #333;
     }
 </style>
 <div class="container">
@@ -17,16 +16,16 @@
         <div class="row">
             <div class="banner-text col l-6 m-6 c-12">
                 <div class="banner-text-list">
-                    <h1 class="banner-text__item slogan">
+                    <h1 class="banner-text__item slogan" style="color: #555">
                         <?php echo e($banner['banner_title']); ?>
 
                     </h1>
-                    <p class="banner-text__item slogan-sub" style="line-height: 1.4;margin-top: 10px">
+                    <p class="banner-text__item slogan-sub" style="line-height: 1.4;margin-top: 10px;color: #555">
                         <?php echo e($banner['banner_text']); ?>
 
                     </p>
-                    <button class="banner-text__item btn-primary">
-                        Học ngay
+                    <button href="khoa-hoc" class="banner-text__item btn-primary">
+                        <a style="color:#ffff;" href="khoa-hoc">Học ngay</a>
                     </button>
                 </div>
             </div>
@@ -109,7 +108,7 @@
             </div>
 
             <div class="value">
-                <img src="./public/img/images/undraw_Connecting_Teams_re_hno7.png" alt="" class="img-fluid value__img">
+                <img src="./public/img/banner-image.png" style="height:350px" alt="" class="img-fluid value__img">
                 <div class="value-text-section">
                     <h2 class="value-text__title">Giá trị cốt lõi</h2>
                     <div class="value-text-list">
@@ -201,7 +200,7 @@
                         </div>
                     </div>
                 </div>
-                <img src="./public/img/images/undraw_Connecting_Teams_re_hno7.png" alt="" class="img-fluid your-gift__img">
+                <img style="margin-top: 40px;margin-left: 40px;" src="./public/img/istockphoto-1171646208-612x612.jpg" alt="" class="img-fluid your-gift__img">
             </div>
         </div>
 

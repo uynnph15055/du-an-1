@@ -8,7 +8,7 @@
                 <div class="learning-space">
                     <div class="learning__video" style="margin-bottom: 20px;">
                         <?php if(isset($lessonFist)): ?>
-                        <iframe width="98%" height="520" src="<?php echo e($lessonFist['lesson_link']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        <iframe width="98%" height="520" src="https://www.youtube.com/embed/<?php echo e($lessonFist['lesson_link']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
                         <h2 style="font-size: 20px;text-align:center;margin-top:15px"><?php echo e($lessonFist['lesson_name']); ?></h2>
                         <?php endif; ?>
@@ -63,7 +63,7 @@
                                 <label class="form__note__title" for="">Tạo ghi chú mới</label>
                                 <div class="note-section-content">
                                     <input class="input__time-note" type="text" placeholder="Thời gian">
-                                    <input class="input__content-note" type="text" placeholder="Nội dung ghi chú">
+                                    <textarea class="input__content-note" type="text" placeholder="Nội dung ghi chú"> </textarea>
                                     <button type="submit" class="btn btn-note">
                                         <i class="fas fa-save"></i>
                                     </button>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <aside class="play-list">
-                    <h3 class="course__title" style="font-size: 23px;margin-top:20px">
+                    <h3 class="course__title" style="font-size: 23px;margin-top:-10px">
                         Khóa học <?php echo e($subjectName); ?>
 
                     </h3>
@@ -106,8 +106,8 @@
                         <?php $__currentLoopData = $dataLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="lesson-item">
                             <a data-id="<?php echo e($key['lesson_id']); ?>" href="" class="lesson-item-info">
-                                <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
-                                <h4 class="lesson-item__title">
+                                <span class="lesson__index" style="margin-top: 10px;margin-left:5px"><i class="fas fa-play-circle"></i></span>
+                                <h4 class="lesson-item__title" style="line-height: 1.4;">
                                     Bài <?= $index++ ?>: <?php echo e($key['lesson_name']); ?>
 
                                 </h4>

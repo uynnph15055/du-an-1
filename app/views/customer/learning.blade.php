@@ -63,7 +63,7 @@
                                 <label class="form__note__title" for="">Tạo ghi chú mới</label>
                                 <div class="note-section-content">
                                     <input class="input__time-note" type="text" placeholder="Thời gian">
-                                    <input class="input__content-note" type="text" placeholder="Nội dung ghi chú">
+                                    <textarea class="input__content-note" type="text" placeholder="Nội dung ghi chú"> </textarea>
                                     <button type="submit" class="btn btn-note">
                                         <i class="fas fa-save"></i>
                                     </button>
