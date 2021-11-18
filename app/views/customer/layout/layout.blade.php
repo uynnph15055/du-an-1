@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,12 +84,15 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(function() {
-            <?php if (isset($_SESSION['error'])) { ?>
+     
+            <?php if (isset($_SESSION['error'])) {
+
+            ?>
 
                 Swal.fire({
                     icon: 'warning',
                     title: '<p  style="font-size: 19px;"><?= $_SESSION['error']; ?></p>',
-                    // title: '<p  style="font-ze: 20px;"><?= $_SESSION['error']; ?></p>',
+
                     timer: 3000,
                     width: 400,
                     padding: '4em',

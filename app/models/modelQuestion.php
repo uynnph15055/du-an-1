@@ -15,16 +15,16 @@ class modelQuestion extends DB
         // die();
         $model =  new static();
         $conn = $model->getConnect();
-        $queryBuilder = "INSERT INTO question(question, question_img, answer, lesson_id, answer_one, answer_two, answer_three, answer_four) VALUES (:question, :question_img, :answer, :lesson_id, :answer_one, :answer_two, :answer_three, :answer_four)";
+        $queryBuilder = "INSERT INTO question(question, question_img, answer, lesson_id, anwer_one, anwer_two, anwer_three, anwer_four) VALUES (:question, :question_img, :answer, :lesson_id, :answer_one, :answer_two, :answer_three, :answer_four)";
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }
-    public static function where_id($id)
+    public  function where_id($id)
     {
         // var_dump($data);
         // die();
-        $model =  new static();
-        $conn = $model->getConnect();
+  
+        $conn =$this->getConnect();
         $queryBuilder = "SELECT * FROM `question` WHERE lesson_id=:id";
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute(['id'=>$id]);

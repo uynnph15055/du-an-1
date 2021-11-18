@@ -1,7 +1,5 @@
-
 @extends('customer.layout.layout')
 @section('title', 'Khóa học')
-
 @section('main_content')
 <main class="bgr-light" style="margin-top: 80px;">
     <div class="learning-section">
@@ -99,8 +97,13 @@
                 <aside class="play-list">
                     <h3 class="course__title" style="font-size: 23px;margin-top:-10px">
                         Khóa học {{$subjectName}}
+
+
                     </h3>
                     <?php
+
+                    use App\Models\modelQuestion;
+
                     $index = 1;
                     ?>
                     <div class="lesson-list">
@@ -115,18 +118,21 @@
                                     10:10
                                 </span>
                             </a>
-
                             <div class="lesson-item-test">
-                            
-                    <?php
-                    $lesson_id=$key['lesson_id'];
-                    $subject_id=$key['subject_id'];
-                     header("location:bai-hoc?lesson_id=$lesson_id&subject_id=$subject_id") ?>
-                                <!-- @foreach($dataQuestion as $value)
-                                <a href="" class="test_index">
-                               1
-                                </a> 
-                                @endforeach   -->
+                                <?php require_once('./app/models/modelQuestion.php');
+                                $model = new modelQuestion;
+                                $dataQuestion = $model->where_id($key['lesson_id']);
+                                $biendem = 1;
+                                ?>
+                                <?php foreach ($dataQuestion as $value) {
+                      
+                                    ?>
+                                    <a href="quzi?question_id=<?=$value['question_id']?>" class="test_index">
+                                        <?= $biendem++ ?>
+                                    </a>
+                                <?php   } ?>
+
+
                             </div>
                         </div>
                         @endforeach

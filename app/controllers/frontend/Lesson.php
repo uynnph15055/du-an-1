@@ -6,7 +6,6 @@ use App\Controllers\baseController;
 use App\Models\modelLesson;
 use App\Models\modelSubject;
 use App\Models\modelMenu;
-use App\Models\modelQuestion;
 
 class Lesson extends baseController
 {
@@ -28,19 +27,17 @@ class Lesson extends baseController
         // Data mon -> Hiền thị xuống file leaning 
         $dataLesson = modelLesson::where('subject_id', "=", $subject_id)->get();
         $lessonFist = $dataLesson[0];
-    
-        $dataQuestion=modelQuestion ::where('lesson_id', "=",$lesson_id)->get();
+
         if (empty($lessonFist)) {
             $_SESSION['error'] = "Hiện chưa có bài học nào !!!";
             header("location: mo-ta-mon-hoc?mon=$subject_slug");
             die();
         }
-        // $this->dd($dataLesson);
+
         $this->render("customer.learning", [
             'dataLesson' => $dataLesson,
             'subjectName' => $subjectName,
             'lessonFist' => $lessonFist,
-            'dataQuestion'=>$dataQuestion,
             'menu' => $this->menu,
         ]);
     }

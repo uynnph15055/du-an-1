@@ -1,7 +1,5 @@
 
-
 <?php $__env->startSection('title', 'Khóa học'); ?>
-
 <?php $__env->startSection('main_content'); ?>
 <main class="bgr-light" style="margin-top: 80px;">
     <div class="learning-section">
@@ -97,19 +95,24 @@
                     </div>
                 </div>
                 <aside class="play-list">
-                    <h3 class="course__title" style="font-size: 23px;margin-top:20px">
+                    <h3 class="course__title" style="font-size: 23px;margin-top:-10px">
                         Khóa học <?php echo e($subjectName); ?>
+
+
 
                     </h3>
                     <?php
+
+                    use App\Models\modelQuestion;
+
                     $index = 1;
                     ?>
                     <div class="lesson-list">
                         <?php $__currentLoopData = $dataLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="lesson-item">
                             <a data-id="<?php echo e($key['lesson_id']); ?>" href="" class="lesson-item-info">
-                                <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
-                                <h4 class="lesson-item__title">
+                                <span class="lesson__index" style="margin-top: 10px;margin-left:5px"><i class="fas fa-play-circle"></i></span>
+                                <h4 class="lesson-item__title" style="line-height: 1.4;">
                                     Bài <?= $index++ ?>: <?php echo e($key['lesson_name']); ?>
 
                                 </h4>
@@ -117,18 +120,21 @@
                                     10:10
                                 </span>
                             </a>
-
                             <div class="lesson-item-test">
-                            
-                    <?php
-                    $lesson_id=$key['lesson_id'];
-                    $subject_id=$key['subject_id'];
-                     header("location:bai-hoc?lesson_id=$lesson_id&subject_id=$subject_id") ?>
-                                <!-- <?php $__currentLoopData = $dataQuestion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <a href="" class="test_index">
-                               1
-                                </a> 
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>   -->
+                                <?php require_once('./app/models/modelQuestion.php');
+                                $model = new modelQuestion;
+                                $dataQuestion = $model->where_id($key['lesson_id']);
+                                $biendem = 1;
+                                ?>
+                                <?php foreach ($dataQuestion as $value) {
+                      
+                                    ?>
+                                    <a href="quzi?question_id=<?=$value['question_id']?>" class="test_index">
+                                        <?= $biendem++ ?>
+                                    </a>
+                                <?php   } ?>
+
+
                             </div>
                         </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

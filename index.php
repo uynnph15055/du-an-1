@@ -17,6 +17,8 @@ use App\Controllers\Frontend\introCourse;
 use App\Controllers\Frontend\Lesson;
 use App\Controllers\Backend\Administrators;
 use App\Controllers\Frontend\formLog;
+use App\Controllers\Frontend\Question;
+
 
 switch ($url) {
     case 'quan-tri':
@@ -184,7 +186,7 @@ switch ($url) {
 
         // -------- Giao diện khách hàng
         // TRang chủ
-        case 'trang-chu';
+    case 'trang-chu';
         $ctr = new Lesson();
         echo $ctr->question();
         break;
@@ -223,6 +225,16 @@ switch ($url) {
     case 'bai-hoc-tiep-theo';
         $ctr = new Lesson();
         echo $ctr->nextLesson();
+        break;
+
+        //Câu hỏi
+    case 'quzi';
+        $ctr = new Question();
+        echo $ctr->index();
+        break;
+        case 'quzi-answer';
+        $ctr = new Question();
+        echo $ctr->answerQuestion();
         break;
 
         // Đăng nhập đăng ký

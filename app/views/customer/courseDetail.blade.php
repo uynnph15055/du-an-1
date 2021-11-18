@@ -38,11 +38,13 @@
                 <div class="course-detail-text">
                     <div class="detail-name">
                         <h1 class="course__name">
+                            @if(isset($subject))
                             {{$subject['subject_name']}}
                         </h1>
                         <p class="course__description">
                             {{$subject['subject_description']}}
                         </p>
+                        @endif
                     </div>
                     <div class="detail-content">
                         @if(!empty($lesson))
