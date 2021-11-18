@@ -9,7 +9,6 @@
 
     .significant-item-detail-sub {
         line-height: 1.4;
-        color: #333;
     }
 </style>
 <div class="container">
@@ -85,17 +84,19 @@
                                     <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
                                 </div>
                                 <div class="course-text">
-                                    <h3 class="course__title"><?php echo e($key['subject_name']); ?></h3>
-                                    <span class="course__members">
-                                        <i class="fas fa-users"></i>
-                                        123
-                                    </span>
-                                    <?php if($key['type_id'] == 0): ?>
-                                    <span class="course__price course__price--free">Miễn phí</span>
-                                    <?php else: ?>
-                                    <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
-                                    <span class="course__price course__price--old"><?php echo number_format($key['subject_price']) ?>đ</span>
-                                    <?php endif; ?>
+                                    <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>">
+                                        <h3 class="course__title"><?php echo e($key['subject_name']); ?></h3>
+                                        <span class="course__members">
+                                            <i class="fas fa-users"></i>
+                                            123
+                                        </span>
+                                        <?php if($key['type_id'] == 0): ?>
+                                        <span class="course__price course__price--free">Miễn phí</span>
+                                        <?php else: ?>
+                                        <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
+                                        <span class="course__price course__price--old"><?php echo number_format($key['subject_price']) ?>đ</span>
+                                        <?php endif; ?>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +108,7 @@
             </div>
 
             <div class="value">
-                <img src="./public/img/images/undraw_Connecting_Teams_re_hno7.png" alt="" class="img-fluid value__img">
+                <img src="./public/img/banner-image.png" style="height:350px" alt="" class="img-fluid value__img">
                 <div class="value-text-section">
                     <h2 class="value-text__title">Giá trị cốt lõi</h2>
                     <div class="value-text-list">

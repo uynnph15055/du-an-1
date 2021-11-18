@@ -1,6 +1,11 @@
 @extends('customer.layout.layout_login')
 @section('title', 'Đăng nhập')
 @section('main_content')
+<style>
+    #error-email {
+        color: red;
+    }
+</style>
 <div class="form-log-container form-log-width" id="form-log-container">
     <div class="form-container-item sign-up-container">
         <form class="log__form" action="dang-ky" method="POST">
@@ -11,13 +16,18 @@
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>- hoặc sử dụng email để đăng ký</span>
+            <!--  -->
+            <input type="text" name="student_name" id="check-name-reg" onblur="checkName()" oninput="checkName()" placeholder="Tên" />
+            <!-- <span class="error-sign-up"></span> -->
+            <span class="alert-mess check-name-reg"></span>
 
-            <input type="text" name="student_name" placeholder="Tên" />
-            <span></span>
-            <input type="email" name="student_email" id="email-sign-up" placeholder="Email" />
-            <span id="error-email" style="color:#E80007;font-size:12px"></span>
-            <input type="password" name="student_password" placeholder="Mật khẩu" />
-            <span class="error-sign-up"></span>
+            <input type="email" name="student_email" id="email-sign-up" onblur="checkEmail()" oninput="checkEmail()" placeholder="Email" />
+            <span class="alert-mess check-email" id="error-email"></span>
+
+            <input type="password" name="student_password" id="check-pass-reg" onblur="checkPass()" oninput="checkPass()" placeholder="Mật khẩu" />
+            <!-- <span class="error-sign-up"></span> -->
+            <span class="alert-mess check-pass-reg mess-margin"></span>
+
             <button class="btn__log btn-primary">Đăng ký</button>
             <a class="form-link" href="./">Trang chủ</a>
         </form>
@@ -32,11 +42,12 @@
             </div>
             <span>- hoặc sử dụng tài khoản</span>
 
-            <input id="email-sign-in" name="student_email" type="email" placeholder="Email" />
-            <span id="error-sign-in" style="color:#E80007;font-size:12px" class="alert-mess alert-mess--error"></span>
+            <input id="email-sign-in" name="student_email" type="email" onblur="checkEmailLogin()" oninput="checkEmailLogin()" placeholder="Email" />
 
-            <input type="password" name="student_password" placeholder="Mật khẩu" />
-            <span class="alert-mess alert-mess--error"></span>
+            <span class="alert-mess check-email-logIn"></span>
+
+            <input type="password" id="check-pass-logIn" name="student_password" onblur="checkPassLogin()" oninput="checkPassLogin()" placeholder="Mật khẩu" />
+            <span class="alert-mess check-pass-logIn mess-margin"></span>
 
             <button class="btn__log btn-primary">Đăng nhập</button>
             <a class="form-link" href="#">Quên mật khẩu?</a>
@@ -78,16 +89,7 @@
                 $('#error-email').html($data);
             })
         });
-
-        $('#email-sign-in').blur(function() {
-            var emailInVal = $(this).val();
-
-            $.post("check-email-dang-nhap", {
-                email_val_in: emailInVal
-            }, function($data) {
-                $('#error-sign-in').html($data);
-            })
-        });
     })
 </script>
+<script src="./public/js/customerJs/validateFormLog.js"></script>
 @endsection

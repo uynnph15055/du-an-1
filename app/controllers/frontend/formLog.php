@@ -16,34 +16,16 @@ class formLog extends baseController
     public function checkEmailSignUp()
     {
         $emailSignUp = $_POST['email_val'];
-        if (empty($emailSignUp)) {
-            echo "Không được bỏ trống !!!";
-            die();
-        }
 
         $dataStudent = modelStudent::where("student_email", "=", $emailSignUp)->get();
         if (!empty($dataStudent)) {
-            echo "Email đã tồn tại !!!";
-            die();
-        }
-
-        if (!filter_var($emailSignUp, FILTER_VALIDATE_EMAIL)) {
-            echo "Email không đúng định dạng !!!";
+            echo "Email đã tồn tại !";
             die();
         }
     }
 
 
     // Check email Ajax Đăng nhập
-
-    public function checkEmailSignIn()
-    {
-        $email = $_POST['email_val_in'];
-        $dataStudent = modelStudent::where('student_email', "=", $email)->get();
-        if (empty($dataStudent)) {
-            echo "Email này không tồn tại !!!";
-        }
-    }
 
     public function register()
     {

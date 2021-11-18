@@ -26,6 +26,7 @@ html {
   --gray-more: #c4c4c4;
   --grey: #f2f2f2;
   --success: #04d200;
+  --warning: #ffa600;
   --danger: #ff0000;
   --hightlight: #00bcca;
   --hightlight-color: white;
@@ -1890,11 +1891,15 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 }
 .form-log-section input {
   background-color: #eee;
-  border: none;
+  border: 1px solid #eee;
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
   outline: none;
+  transition: 0.5s;
+}
+.form-log-section input:hover {
+  border-color: #0098d2;
 }
 .form-log-section .sign-in-container {
   left: 0;
@@ -2061,7 +2066,21 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   text-decoration: underline;
 }
 .form-log-section .alert-mess {
-  font-size: 14px;
+  font-size: 12px;
+  text-align: left;
+
+}
+.form-log-section .mess-margin {
+  margin-bottom: 5px;
+}
+.form-log-section .alert-mess--error {
+  color: var(--danger);
+}
+.form-log-section .alert-mess--warning {
+  color: var(--warning);
+}
+.form-log-section .alert-mess--success {
+  color: var(--success);
 }
 .form-log-section .form-log-container {
   background: #ffffff;

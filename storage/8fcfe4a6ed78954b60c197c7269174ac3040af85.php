@@ -1,6 +1,6 @@
-@extends('customer.layout.layout')
-@section('title', 'Trang chủ')
-@section('main_content')
+
+<?php $__env->startSection('title', 'Trang chủ'); ?>
+<?php $__env->startSection('main_content'); ?>
 <style>
     .significant-item-detail {
         line-height: 1.6;
@@ -9,6 +9,7 @@
 
     .significant-item-detail-sub {
         line-height: 1.4;
+        color: #333;
     }
 </style>
 <div class="container">
@@ -16,19 +17,21 @@
         <div class="row">
             <div class="banner-text col l-6 m-6 c-12">
                 <div class="banner-text-list">
-                    <h1 class="banner-text__item slogan" style="color: #555">
-                        {{$banner['banner_title']}}
+                    <h1 class="banner-text__item slogan">
+                        <?php echo e($banner['banner_title']); ?>
+
                     </h1>
-                    <p class="banner-text__item slogan-sub" style="line-height: 1.4;margin-top: 10px;color: #555">
-                        {{$banner['banner_text']}}
+                    <p class="banner-text__item slogan-sub" style="line-height: 1.4;margin-top: 10px">
+                        <?php echo e($banner['banner_text']); ?>
+
                     </p>
-                    <button href="khoa-hoc" class="banner-text__item btn-primary">
-                        <a style="color:#ffff;" href="khoa-hoc">Học ngay</a>
+                    <button class="banner-text__item btn-primary">
+                        Học ngay
                     </button>
                 </div>
             </div>
             <div class="banner-img col l-6 m-6 c-12">
-                <img width="600px" src="./public/img/{{$banner['banner_img']}}" alt="">
+                <img width="600px" src="./public/img/<?php echo e($banner['banner_img']); ?>" alt="">
             </div>
         </div>
     </div>
@@ -75,30 +78,30 @@
                 <h2>CÁC KHÓA HỌC MỚI NHẤT</h2>
                 <div class="swiper" style="z-index: 1;">
                     <div class="swiper-wrapper">
-                        @foreach($dataSubject as $key)
+                        <?php $__currentLoopData = $dataSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="swiper-slide">
                             <div class="course-item">
                                 <div class="course-poster">
-                                    <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}"><img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img></a>
+                                    <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
                                 </div>
                                 <div class="course-text">
-                                    <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}">
-                                        <h3 class="course__title">{{$key['subject_name']}}</h3>
+                                    <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>">
+                                        <h3 class="course__title"><?php echo e($key['subject_name']); ?></h3>
                                         <span class="course__members">
                                             <i class="fas fa-users"></i>
                                             123
                                         </span>
-                                        @if($key['type_id'] == 0)
+                                        <?php if($key['type_id'] == 0): ?>
                                         <span class="course__price course__price--free">Miễn phí</span>
-                                        @else
+                                        <?php else: ?>
                                         <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
                                         <span class="course__price course__price--old"><?php echo number_format($key['subject_price']) ?>đ</span>
-                                        @endif
+                                        <?php endif; ?>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                     <div class="swiper-button swiper-button-next"></div>
                     <div class="swiper-button swiper-button-prev"></div>
@@ -106,7 +109,7 @@
             </div>
 
             <div class="value">
-                <img src="./public/img/banner-image.png" style="height:350px" alt="" class="img-fluid value__img">
+                <img src="./public/img/images/undraw_Connecting_Teams_re_hno7.png" alt="" class="img-fluid value__img">
                 <div class="value-text-section">
                     <h2 class="value-text__title">Giá trị cốt lõi</h2>
                     <div class="value-text-list">
@@ -198,7 +201,7 @@
                         </div>
                     </div>
                 </div>
-                <img style="margin-top: 40px;margin-left: 40px;" src="./public/img/istockphoto-1171646208-612x612.jpg" alt="" class="img-fluid your-gift__img">
+                <img src="./public/img/images/undraw_Connecting_Teams_re_hno7.png" alt="" class="img-fluid your-gift__img">
             </div>
         </div>
 
@@ -319,4 +322,5 @@
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="./public/js/customerJs/swiper-slider.js"></script>
 <script src="./public/js/customerJs/slideshow-rating.js"></script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\project_one\app\views/customer/home.blade.php ENDPATH**/ ?>

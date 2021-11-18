@@ -63,9 +63,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
-    margin-top: 5px;
   }
-
   .btn__log-2 {
     border: 1px solid #0098d2;
   }
@@ -96,11 +94,15 @@
 
   input {
     background-color: #eee;
-    border: none;
+    border: 1px solid #eee;
     padding: 12px 15px;
     margin: 8px 0;
     width: 100%;
     outline: none;
+    transition: $trans-second;
+  }
+  input:hover{
+    border-color: #0098d2;
   }
 
   .sign-in-container {
@@ -128,7 +130,6 @@
   }
 
   @keyframes show {
-
     0%,
     49.99% {
       opacity: 0;
@@ -283,7 +284,6 @@
     height: 40px;
     width: 40px;
   }
-
   .form-link {
     color: #333;
     font-size: 14px;
@@ -291,24 +291,31 @@
     margin: 15px 0 0;
     display: inline-block;
   }
-
   .form-link:hover {
     text-decoration: underline;
   }
   .alert-mess{
     font-size: 12px;
+    text-align: left;
+  }
+  .mess-margin{
+    margin-bottom: 5px;
   }
   .alert-mess--error{
-    // color: var(--danger);
-    color: red;
+    color: var(--danger);
+  }
+  .alert-mess--warning{
+    color: var(--warning);
+  }
+  .alert-mess--success{
+    color: var(--success);
   }
   //   ------------------------------------------------------------------------------------------
 
-  .form-log-container {
+  .form-log-container{
     background: #ffffff;
-
+    
   }
-
   .form-log-header {
     background: linear-gradient(to right, #0098d2, #00bcca);
   }
@@ -331,11 +338,9 @@
   .icon i {
     font-size: 36px;
   }
-
-  .btn-forgot-section {
+  .btn-forgot-section{
     width: 100%;
   }
-
   .forgot__btn {
     display: inline-block;
     border-radius: 3px;
