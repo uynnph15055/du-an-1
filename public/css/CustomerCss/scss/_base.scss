@@ -5,6 +5,9 @@ html {
   font-size: 62.5%;
   line-height: 1.6rem;
   font-family: sans-serif;
+  // font-family: 'Crimson Pro', serif;
+// font-family: 'Lora', serif;
+font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
 
@@ -13,7 +16,8 @@ html {
 :root {
   --white: white;
   --black: black;
-  --color-white-2: #F8F9FC;
+  --color-white-1: #F8F9FC;
+  --color-white-2: #f1f3f8;
   --color-primary: #0098d2;
   --color-secondary: #00bcca;
   --color-purple: #7d7fdc;
