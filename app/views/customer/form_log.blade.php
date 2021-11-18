@@ -12,12 +12,18 @@
             </div>
             <span>- hoặc sử dụng email để đăng ký</span>
 
-            <input type="text" name="student_name" placeholder="Tên" />
-            <span class="error-sign-up"></span>
-            <input type="email" name="student_email" id="email-sign-up" placeholder="Email" />
-            <span id="error-email" style="color:#E80007;font-size:12px"></span>
-            <input type="password" name="student_password" placeholder="Mật khẩu" />
-            <span class="error-sign-up"></span>
+            <input type="text" name="student_name" id="check-name-reg" onblur="checkName()" oninput="checkName()" placeholder="Tên" />
+            <!-- <span class="error-sign-up"></span> -->
+            <span class="alert-mess check-name-reg"></span>
+
+            <input type="email" name="student_email" id="email-sign-up" onblur="checkEmail()" oninput="checkEmail()" placeholder="Email" />
+            <!-- <span class="alert-mess check-email" id="error-email"></span> -->
+            <span class="alert-mess check-email"></span>
+
+            <input type="password" name="student_password" id="check-pass-reg" onblur="checkPass()" oninput="checkPass()" placeholder="Mật khẩu" />
+            <!-- <span class="error-sign-up"></span> -->
+            <span class="alert-mess check-pass-reg mess-margin"></span>
+
             <button class="btn__log btn-primary">Đăng ký</button>
             <a class="form-link" href="./">Trang chủ</a>
         </form>
@@ -32,11 +38,12 @@
             </div>
             <span>- hoặc sử dụng tài khoản</span>
 
-            <input id="email-sign-in" name="student_email" type="email" placeholder="Email" />
-            <span id="error-sign-in" style="color:#E80007;font-size:12px" class="alert-mess alert-mess--error"></span>
+            <input id="email-sign-in" name="student_email"  type="email" onblur="checkEmailLogin()" oninput="checkEmailLogin()" placeholder="Email" />
+            <!-- <span id="error-sign-in" style="color:#E80007;font-size:12px" class="alert-mess alert-mess--error"></span> -->
+            <span class="alert-mess check-email-logIn"></span>
 
-            <input type="password" name="student_password" placeholder="Mật khẩu" />
-            <span class="alert-mess alert-mess--error"></span>
+            <input type="password" id="check-pass-logIn" name="student_password" onblur="checkPassLogin()" oninput="checkPassLogin()" placeholder="Mật khẩu" />
+            <span class="alert-mess check-pass-logIn mess-margin"></span>
 
             <button class="btn__log btn-primary">Đăng nhập</button>
             <a class="form-link" href="#">Quên mật khẩu?</a>
@@ -90,4 +97,5 @@
         });
     })
 </script>
+<script src="./public/js/customerJs/validateFormLog.js"></script>
 @endsection
