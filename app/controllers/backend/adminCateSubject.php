@@ -10,6 +10,9 @@ class adminCateSubject extends baseController
 
     public function index()
     {
+        if (!isset($_SESSION['admin_info'])) {
+            header('Location: dang-nhap-dang-ky');
+        };
         $cateSubject = modelCateSubject::all();
         $number = count($cateSubject);
         $this->render("admin.cateSubject.listCateSubject", [

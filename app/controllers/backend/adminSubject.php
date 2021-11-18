@@ -11,6 +11,9 @@ class adminSubject extends baseController
     //  
     public function index()
     {
+        if (!isset($_SESSION['admin_info'])) {
+            header('Location: dang-nhap-dang-ky');
+        };
         $page = isset($_GET['trang']) ? $_GET['trang'] : null;
 
         $dataSubject = modelSubject::all();

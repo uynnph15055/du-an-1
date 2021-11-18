@@ -9,6 +9,9 @@ class Banner extends baseController
 {
     function index()
     {
+        if (!isset($_SESSION['admin_info'])) {
+            header('Location: dang-nhap-dang-ky');
+        };
         $dataBanner = modelBanner::all();
         // $this->dd($dataBanner);
         $this->render("admin.adminBanner.listBanner", ['dataBanner' => $dataBanner]);

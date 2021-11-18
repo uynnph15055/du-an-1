@@ -12,6 +12,9 @@ class adminLesson extends baseController
     // Chuyến đến danh sách bài học theo môn học.
     function index()
     {
+        if (!isset($_SESSION['admin_info'])) {
+            header('Location: dang-nhap-dang-ky');
+        };
 
         $subject_slug = $_GET['mon'];
         $dataSubject =  modelSubject::where("subject_slug", "=", $subject_slug)->get();

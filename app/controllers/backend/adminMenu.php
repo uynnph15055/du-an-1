@@ -11,6 +11,9 @@ class adminMenu extends baseController
     // Danh sách menu.
     public function index()
     {
+        if (!isset($_SESSION['admin_info'])) {
+            header('Location: dang-nhap-dang-ky');
+        };
         $dataMenu = modelMenu::all();
         $number = count($dataMenu);
         $this->render("admin.adminMenu.listMenu", [

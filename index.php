@@ -17,6 +17,8 @@ use App\Controllers\Frontend\introCourse;
 use App\Controllers\Frontend\Lesson;
 use App\Controllers\Backend\Administrators;
 use App\Controllers\Backend\adminStudent;
+use App\Controllers\Frontend\Contact;
+use App\Controllers\Backend\inforAdmin;
 use App\Controllers\Frontend\Home;
 use App\Controllers\Frontend\formLog;
 
@@ -40,11 +42,6 @@ switch ($url) {
         $ctr = new Administrators();
         echo $ctr->deleteAdministrators();
         break;
-    case 'sua-admin':
-        $ctr = new Administrators();
-        echo $ctr->updateAdministrators();
-        break;
-
         //.....end ......
 
     case 'danh-sach-mon':
@@ -187,7 +184,19 @@ switch ($url) {
         echo $ctr->addBanner();
         break;
 
+        //  Thông tin admin
+    case 'thong-tin-nhan-vien';
+        $ctr = new inforAdmin;
+        echo $ctr->index();
+        break;
+    case 'dang-xuat-nhan-vien';
+        $ctr = new inforAdmin;
+        echo $ctr->logOut();
+        break;
 
+
+
+        // --------------
         // -------- Giao diện khách hàng
 
         // Hiển thị câu hỏi.
@@ -226,6 +235,11 @@ switch ($url) {
         $ctr = new Lesson();
         echo $ctr->nextLesson();
         break;
+    case 'binh-luan-bai-hoc';
+        $ctr = new Lesson();
+        echo $ctr->comment();
+        break;
+
 
         // Đăng nhập đăng ký
     case 'dang-nhap-dang-ky';
@@ -252,6 +266,12 @@ switch ($url) {
         // Trang home
     case '/';
         $ctr = new Home();
+        echo $ctr->index();
+        break;
+
+        // Trang liên hệ
+    case 'lien-he';
+        $ctr = new Contact();
         echo $ctr->index();
         break;
 

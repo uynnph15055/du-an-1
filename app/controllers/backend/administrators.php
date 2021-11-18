@@ -9,6 +9,9 @@ class Administrators extends baseController
 {
     public function index()
     {
+        if (!isset($_SESSION['admin_info'])) {
+            header('Location: dang-nhap-dang-ky');
+        };
         $dataAdministrators = modelAdministrators::all();
         $this->render("admin.administrators.listAdministrators", ['dataAdministrators' => $dataAdministrators]);
     }
@@ -55,13 +58,14 @@ class Administrators extends baseController
                 }
 
 
+                $password_new = password_hash($password, PASSWORD_DEFAULT);
 
                 $data = [
                     'name' => $name,
                     'email' => $email,
                     'img' => $file_name,
                     'phone' => $phone,
-                    'password' => $password,
+                    'password' => $password_new,
                 ];
 
                 // $this->dd($data);
@@ -130,15 +134,14 @@ class Administrators extends baseController
                     die();
                 }
 
-
+                $password_new = password_hash($password, PASSWORD_DEFAULT);
 
                 $data = [
                     'id' => $id,
                     'name' => $name,
-
                     'img' => $file_name,
                     'phone' => $phone,
-                    'password' => $password,
+                    'password' => $password_new,
                 ];
 
                 // $this->dd($data);

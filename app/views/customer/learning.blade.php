@@ -25,29 +25,30 @@
                             </div>
                             <div class="form-comment-input ">
                                 <div class="comment-img">
-                                    <img src="./public/img/1609167075_lazi_419702.gif" alt="" class="img-fluid">
+                                    <img src="./public/img/{{$userInfo['student_avatar']}}" alt="" class="img-fluid">
                                 </div>
-                                <form action="">
-                                    <input type="text" placeholder="Bạn có thắc mắc gì trong bài học này?">
+                                <form method="POST" action="binh-luan-bai-hoc?student_id={{$userInfo['student_id']}}">
+                                    <input type="text" name="comment_content" placeholder="Bạn có thắc mắc gì trong bài học này?">
                                     <button type="submit" class="btn btn-comment">
                                         <i class="fas fa-paper-plane"></i>
                                     </button>
                                 </form>
                             </div>
                             <div class="comment-list">
+                                @foreach($dataComment as $key)
                                 <div class="comment-item">
                                     <div class="comment-img comment-img--acc ">
-                                        <img src="./public/img/1609167075_lazi_419702.gif" alt="" class="img-fluid">
+                                        <img src="./public/img/{{$key['student_avatar']}}" alt="" class="img-fluid">
                                     </div>
                                     <div class="comment-text">
                                         <span class="comment-item__name">
-                                            Nguyễn Anh
+                                            {{$key['student_name']}}
                                         </span>
-                                        <span class="comment-item__date">
-                                            1 - 1 - 2021
+                                        <span class="comment-item__date" style="margin-left: 30px;">
+                                            {{$key['date_cmtt']}}
                                         </span>
                                         <p class="comment-item__content">
-                                            Ấn như nào để vừa viết code vừa hiện kết quả trên console ạ? macos ạ
+                                            {{$key['comment_content']}}
                                         </p>
                                     </div>
                                     <div class="action-ctrl">
@@ -55,6 +56,7 @@
                                         <button class="item-ctrl-btn"><a href=""><i class="fas fa-pen"></i></a></button>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         </div>
 

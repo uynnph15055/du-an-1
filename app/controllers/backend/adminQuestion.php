@@ -12,6 +12,9 @@ class adminQuestion extends baseController
     // Hàm hiển thị danh sách câu hỏi.
     public function index()
     {
+        if (!isset($_SESSION['admin_info'])) {
+            header('Location: dang-nhap-dang-ky');
+        };
         $lesson_id = isset($_GET['lesson_id']) ? $_GET['lesson_id'] : null;
         $dataQuestion = modelQuestion::where("lesson_id", "=", $lesson_id)->get();
         $this->render("admin.question.listQuestion", [
