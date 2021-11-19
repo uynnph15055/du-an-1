@@ -14,7 +14,7 @@
 </head>
 
 <body class="bgr-img form-log-section">
-    @yield('main_content');
+    @yield('main_content')
 </body>
 
 </html>

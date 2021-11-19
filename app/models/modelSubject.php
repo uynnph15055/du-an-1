@@ -39,13 +39,13 @@ class modelSubject extends DB
         return $statement->fetchAll();
     }
 
-    // public static function search($keyword)
-    // {
-    //     $model = new static();
-    //     $connect = $model->getConnect();
-    //     $queryBuilder = "SELECT * FROM `subject` WHERE subject_name LIKE '%$keyword%'";
-    //     $statement = $connect->prepare($queryBuilder);
-    //     $statement->execute();
-    //     return $statement->fetchAll();
-    // }
+    public static function addNew()
+    {
+        $model = new static();
+        $connect = $model->getConnect();
+        $queryBuilder = "SELECT * FROM `subject` GROUP BY subject.subject_id DESC";
+        $statement = $connect->prepare($queryBuilder);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
 }

@@ -14,7 +14,7 @@
 </head>
 
 <body class="bgr-img form-log-section">
-    <?php echo $__env->yieldContent('main_content'); ?>;
+    <?php echo $__env->yieldContent('main_content'); ?>
 </body>
 
 </html><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/layout/layout_login.blade.php ENDPATH**/ ?>

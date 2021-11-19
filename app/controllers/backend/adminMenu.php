@@ -11,6 +11,9 @@ class adminMenu extends baseController
     // Danh sách menu.
     public function index()
     {
+        if (!isset($_SESSION['admin_info'])) {
+            header('Location: dang-nhap-dang-ky');
+        };
         $dataMenu = modelMenu::all();
         $number = count($dataMenu);
         $this->render("admin.adminMenu.listMenu", [
@@ -32,6 +35,16 @@ class adminMenu extends baseController
             }
 
             if (!empty($menu_name) && !empty($menu_slug) && !empty($index)) {
+                if ($menu_name === "Trang chủ") {
+                    $menu_slug = "./";
+                }
+
+                $dataMenu = modelMenu::where("menu_slug", "=", $menu_slug)->get();
+                if (!empty($dataMenu)) {
+                    $_SESSION['error'] = "Menu này đã tồn tại !!!";
+                    header('Location: danh-sach-menu');
+                    die();
+                }
 
                 $data = [
                     'menu_name' => $menu_name,

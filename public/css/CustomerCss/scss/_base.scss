@@ -1,10 +1,14 @@
 * {
   box-sizing: inherit;
 }
+
 html {
   font-size: 62.5%;
   line-height: 1.6rem;
   font-family: sans-serif;
+  // font-family: 'Crimson Pro', serif;
+  // font-family: 'Lora', serif;
+  // font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
 
@@ -13,7 +17,8 @@ html {
 :root {
   --white: white;
   --black: black;
-  --color-white-2: #F8F9FC;
+  --color-white-1: #F8F9FC;
+  --color-white-2: #f1f3f8;
   --color-primary: #0098d2;
   --color-secondary: #00bcca;
   --color-purple: #7d7fdc;
@@ -56,17 +61,20 @@ $trans-second: 0.5s;
 $max-width: 1280px;
 
 ::selection {
-  background:var(--hightlight); 
+  background: var(--hightlight);
   color: var(--hightlight-color);
 }
+
 ::-moz-selection {
-  background:var(--hightlight); 
+  background: var(--hightlight);
   color: var(--hightlight-color);
 }
+
 ::-webkit-selection {
-  background:var(--hightlight); 
+  background: var(--hightlight);
   color: var(--hightlight-color);
 }
+
 // ==================================== MIXIN =================
 @mixin container-fluid($max-width: $max-width) {
   max-width: $max-width;
@@ -78,14 +86,12 @@ $max-width: 1280px;
   -webkit-text-fill-color: transparent;
 }
 
-@mixin button-key(
-  $bgr-1: var(--color-primary),
+@mixin button-key($bgr-1: var(--color-primary),
   $bgr-2: var(--color-secondary),
   $bor-1: var(--color-primary),
   $bor-2: var(--color-secondary),
   $color: white,
-  $fontSize: $normal
-) {
+  $fontSize: $normal) {
   display: inline-block;
   text-align: center;
   color: $color;
@@ -101,24 +107,28 @@ $max-width: 1280px;
   border: 2px solid transparent;
   border-radius: 5px;
 }
-@function margin-custom($max-width: $max-width){
-  @return $max-width/12 + 30px;
+
+@function margin-custom($max-width: $max-width) {
+  @return $max-width/12+30px;
 }
-@function one-col($max-width: $max-width){
+
+@function one-col($max-width: $max-width) {
   @return $max-width/12;
 }
 
 // dùng chung
 $px-box-shadow: 10px;
 
-@function px-box-shadow($px-box-shadow: $px-box-shadow){
+@function px-box-shadow($px-box-shadow: $px-box-shadow) {
   @return $px-box-shadow - $px-box-shadow/2;
 }
+
 // --------------------------------------------------------------------------------------------------------
 body {
   margin: 0;
   font-size: $normal;
 }
+
 a {
   text-decoration: none;
   color: black;
@@ -129,12 +139,15 @@ a {
   max-width: 100%;
   background: white;
 }
+
 .container-fluid {
   @include container-fluid;
 }
+
 .img-fluid {
   max-width: 100%;
 }
+
 // header
 .navbar-container {
   @include container-fluid;
@@ -144,6 +157,7 @@ a {
 .banner {
   @include container-fluid;
 }
+
 .bgr-light {
   background: var(--color-white-2);
 }
@@ -152,28 +166,27 @@ a {
   @include button-key;
   background-position: right center;
 }
+
 .btn-secondary {
-  @include button-key(
-    white,
+  @include button-key(white,
     white,
     var(--color-primary),
     var(--color-secondary),
     black,
-    $normal
-  );
+    $normal);
 }
+
 .btn-action {
-  @include button-key(
-    var(--color-primary),
+  @include button-key(var(--color-primary),
     var(--color-purple),
     var(--color-primary),
     var(--color-purple),
     white,
-    $normal
-  );
+    $normal);
   transition: $trans-second;
   width: 250px;
 }
+
 .btn-action:hover {
   box-shadow: 0px 4px 20px 5px rgba(0, 152, 210, 0.56);
   transform: translateY(-5px);
@@ -183,18 +196,14 @@ a {
 .subject-item {
   background-color: white;
 }
-.subject-item-secondary{
-  
-}
-.name__section{
 
-}
+.subject-item-secondary {}
 
-.title-section{
+.name__section {}
 
-}
+.title-section {}
 
-.play-list{
+.play-list {
   padding: 20px 10px;
   background: var(--white);
   border-radius: $radius;
@@ -203,24 +212,25 @@ a {
   scrollbar-width: none;
   -ms-overflow-style: none;
 
-  .course__title{
-      font-weight: bold;
+  .course__title {
+    font-weight: bold;
   }
 
-  .lesson-item-test{
-      padding:0 40px;
+  .lesson-item-test {
+    padding: 0 40px;
 
-      .test_index{
-          display: inline-block;
-          min-width:35px;
-          padding: 10px 13px;
-          background: var(--gray-more);
-          border-radius: 50%;
-          margin: 0 10px 0 0;
-      }
+    .test_index {
+      display: inline-block;
+      min-width: 35px;
+      padding: 10px 13px;
+      background: var(--gray-more);
+      border-radius: 50%;
+      margin: 0 10px 0 0;
+    }
   }
 }
-.play-list::-webkit-scrollbar { 
+
+.play-list::-webkit-scrollbar {
   width: 0 !important;
-  display: none; 
+  display: none;
 }

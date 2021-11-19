@@ -10,6 +10,9 @@ class adminCateSubject extends baseController
 
     public function index()
     {
+        if (!isset($_SESSION['admin_info'])) {
+            header('Location: dang-nhap-dang-ky');
+        };
         $cateSubject = modelCateSubject::all();
         $number = count($cateSubject);
         $this->render("admin.cateSubject.listCateSubject", [
@@ -91,12 +94,13 @@ class adminCateSubject extends baseController
             extract($_POST);
 
             if (empty($cate_name) || empty($cate_slug)) {
-                $date_create = date('Y-m-d');
+
                 // $this->dd($date_create);
                 $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
                 header('Location: ./danh-sach-loai-mon-hoc');
                 die();
             } else {
+                $date_create = date('Y-m-d');
                 $data = [
                     'cate_id' => $cate_id,
                     'cate_name' => $cate_name,

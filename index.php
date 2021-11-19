@@ -16,6 +16,10 @@ use App\Controllers\Frontend\Courses;
 use App\Controllers\Frontend\introCourse;
 use App\Controllers\Frontend\Lesson;
 use App\Controllers\Backend\Administrators;
+use App\Controllers\Backend\adminStudent;
+use App\Controllers\Frontend\Contact;
+use App\Controllers\Backend\inforAdmin;
+use App\Controllers\Frontend\Home;
 use App\Controllers\Frontend\formLog;
 use App\Controllers\Frontend\Question;
 
@@ -40,11 +44,6 @@ switch ($url) {
         $ctr = new Administrators();
         echo $ctr->deleteAdministrators();
         break;
-    case 'sua-admin':
-        $ctr = new Administrators();
-        echo $ctr->updateAdministrators();
-        break;
-
         //.....end ......
 
     case 'danh-sach-mon':
@@ -171,7 +170,11 @@ switch ($url) {
         echo $ctr->updateIndexs();
         break;
 
-        // -----------------
+        // ------Danh sách student-----------
+    case 'danh-sach-hoc-vien';
+        $ctr = new adminStudent();
+        echo $ctr->index();
+        break;
 
         // Banner layout.
     case 'danh-sach-banner';
@@ -183,7 +186,19 @@ switch ($url) {
         echo $ctr->addBanner();
         break;
 
+        //  Thông tin admin
+    case 'thong-tin-nhan-vien';
+        $ctr = new inforAdmin;
+        echo $ctr->index();
+        break;
+    case 'dang-xuat-nhan-vien';
+        $ctr = new inforAdmin;
+        echo $ctr->logOut();
+        break;
 
+
+
+        // --------------
         // -------- Giao diện khách hàng
         // TRang chủ
     case 'trang-chu';
@@ -226,6 +241,11 @@ switch ($url) {
         $ctr = new Lesson();
         echo $ctr->nextLesson();
         break;
+    case 'binh-luan-bai-hoc';
+        $ctr = new Lesson();
+        echo $ctr->comment();
+        break;
+
 
         //Câu hỏi
     case 'quzi';
@@ -245,6 +265,30 @@ switch ($url) {
     case 'check-email-dang-ky';
         $ctr = new formLog();
         echo $ctr->checkEmailSignUp();
+        break;
+    case 'dang-ky';
+        $ctr = new formLog();
+        echo $ctr->register();
+        break;
+    case 'dang-nhap';
+        $ctr = new formLog();
+        echo $ctr->login();
+        break;
+    case 'dang-xuat';
+        $ctr = new formLog();
+        echo $ctr->logOut();
+        break;
+
+        // Trang home
+    case '/';
+        $ctr = new Home();
+        echo $ctr->index();
+        break;
+
+        // Trang liên hệ
+    case 'lien-he';
+        $ctr = new Contact();
+        echo $ctr->index();
         break;
 
     default:

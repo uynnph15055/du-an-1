@@ -41,7 +41,7 @@
         @endforeach
         <!-- <h5 style="margin-bottom:-30px">Tổng số : {{$number}} môn</h5> -->
     </div>
-    <span style="float:right;font-style:italic">Tổng có : {{$number}} menu</span>
+    <span style="float:right;font-style:italic">Tổng có : {{$number}} bài</span>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -73,9 +73,9 @@
                     @endif
                 </td>
                 <td>{{$key['date_post']}}</td>
-               
+
                 <td><a class="btn btn-dark" href="danh-sach-cau-hoi?lesson_id={{$key['lesson_id']}}"><i class="fas fa-question-circle"></i></a></td>
-                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn sửa môn học này ?')" href="trang-sua-bai-hoc?id={{$key['lesson_id']}}&subject_id={{$key['subject_id']}}"><i class="fas fa-edit"></i></a></td>
+                <td><a class="btn btn-warning" href="trang-sua-bai-hoc?id={{$key['lesson_id']}}&subject_id={{$key['subject_id']}}"><i class="fas fa-edit"></i></a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-bai-hoc?id={{$key['lesson_id']}}&subject_id={{$key['subject_id']}}"><i class="fas fa-trash"></i></a></td>
             </tr>
             @endforeach

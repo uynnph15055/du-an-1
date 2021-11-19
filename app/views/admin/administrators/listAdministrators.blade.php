@@ -79,7 +79,6 @@
                 <th>Ảnh</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th width="78px">Sửa</th>
                 <th width="78px">Xóa</th>
             </tr>
         </thead>
@@ -96,71 +95,15 @@
 
                 <td>{{$key['name']}}</td>
                 <td>
-                    <img width="50px" src="./public/img/{{$key['img']}}" alt="">
+                    <img width="70px" src="./public/img/{{$key['img']}}" alt="">
                 </td>
                 <!-- <td>{{$key['cate_name']}}</td> -->
                 <td>{{$key['email']}}
                 </td>
                 <td>{{$key['phone']}}</td>
-                <td><a href="#" id="<?= $count ?>" onclick=" return window.confirm('Bạn có muốn sửa không ?');  " class="btn btn-warning"><i class="fas fa-edit"></i></a></td>
-                <div>
-                    <div id="<?= $count . "hihi" ?>" style="display:none;background: rgba(0, 0, 0, 0.6);
-                    
-  width: 100%;
-  height: 100% ;
-  position: absolute;
-  top: 0;
-right:0;
-  justify-content: center;
-  align-items: center;">
-
-                        <div class="popup-content" style="width: 550px;
-background: #fff;
-padding: 20px;
-border: 5px;
-position: relative;">
-                            <div style="text-align: center;" class="modal-header">
-                                <h5 style="text-align: center;" class="modal-title" id="exampleModalLabel">Sửa Admin</h5>
-                                <button type="button" id="<?= $count . "close" ?>" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <form action="sua-admin" method="POST" enctype="multipart/form-data">
-                                <div class="modal-body">
-                                    <div class="mb-3">
-                                        <input type="hidden" name="id" value="{{$key['id']}}">
-                                        <label class="form-label">Họ Tên</label>
-                                        <input type="text" name="name" value="{{$key['name']}}" class="form-control" id="exampleInputl1" aria-describedby="emailHelp">
-
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputPassword1" class="form-label">Ảnh</label>
-                                        <br>
-                                        <input type="file" onchange="banner_imgg()" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" id="banner_img" name="img">
-                                        <img width="50px" id="img_main" src="./public/img/{{$key['img']}}" alt="">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Phone</label>
-                                        <input type="number" value="{{$key['phone']}}" name="phone" class="form-control" aria-describedby="emailHelp">
-
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input type="password" value="{{$key['password']}}" name="password" class="form-control" id="exampleInputPassword1">
-                                    </div>
-
-                                </div>
-                                <div class="modal-footer">
-
-                                    <button type="submit" class="btn btn-primary">Đăng Kí</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <td><a class="btn btn-danger" onclick="window.confirm('bạn có muốn xóa không')" href="xoa-admin?id={{$key['id']}}"><i class="fas fa-trash"></i></a></td>
+                <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không')" href="xoa-admin?id={{$key['id']}}"><i class="fas fa-trash"></i></a></td>
 
             </tr>
-
             @endforeach
         </tbody>
     </table>

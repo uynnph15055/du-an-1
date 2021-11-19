@@ -1,6 +1,17 @@
 @extends('admin.layouts.baseAdmin')
 @section('title', 'Trang chính')
 @section('main_content')
+<style>
+    .count {
+        color: #000;
+        margin-top: 10px;
+    }
+
+    .icon-count {
+        color: #ccc;
+        font-size: 30px;
+    }
+</style>
 <div class="container">
     <h3> Trang chính :</h3>
     <br>
@@ -8,9 +19,10 @@
         <div class="col-xl-3 col-md-6">
             <div class="card bg-success text-white mb-4">
                 <div class="card-body">Học viên</div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small  stretched-link" href="">View học viên</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                <div class="card-footer d-flex align-items-center justify-content-between" style="align-items: center;">
+                    <a class="small  stretched-link" href="danh-sach-hoc-vien">View học viên</a>
+                    <h3 class="count">{{$student}}</h3>
+                    <i class="fas fa-address-card icon-count"></i>
                 </div>
             </div>
         </div>
@@ -19,7 +31,8 @@
                 <div class="card-body">Hóa đơn</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small  stretched-link" href="">View hóa đơn</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    <h3 class="count">8</h3>
+                    <i class="fas fa-receipt icon-count"></i>
                 </div>
             </div>
         </div>
@@ -27,8 +40,9 @@
             <div class="card bg-info text-white mb-4">
                 <div class="card-body">Nhân viên</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small  stretched-link" href="">View nhân viên</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    <a class="small  stretched-link" href="danh-sach-admin">View nhân viên</a>
+                    <h3 class="count">{{$admin}}</h3>
+                    <i class="fas fa-users-cog icon-count"></i>
                 </div>
             </div>
         </div>
@@ -37,7 +51,8 @@
                 <div class="card-body">Đang chờ xử lý</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small stretched-link" href="">View kích hoạt</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    <h3 class="count">8</h3>
+                    <i class="fas fa-brush icon-count"></i>
                 </div>
             </div>
         </div>

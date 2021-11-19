@@ -43,7 +43,17 @@ class modelLesson extends DB
         $statement->execute(['id' => $id]);
         return  $statement->fetchAll();
     }
-
+    public static function LessonJoinQuestion($id)
+    {
+        $model = new static();
+        $connect = $model->getConnect();
+        $queryBuilder =  "   SELECT * FROM lesson JOIN subject ON lesson.subject_id=subject.subject_id WHERE lesson_id=:id";
+        $statement = $connect->prepare($queryBuilder);
+        $statement->execute(['id' => $id]);
+        return  $statement->fetchAll();
+    }
+    
+   
     public static function joinQuestion($id)
     {
         $model = new static();

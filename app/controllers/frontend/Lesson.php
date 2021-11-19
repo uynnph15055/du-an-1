@@ -3,6 +3,7 @@
 namespace App\Controllers\Frontend;
 
 use App\Controllers\baseController;
+use App\Models\modelComment;
 use App\Models\modelLesson;
 use App\Models\modelSubject;
 use App\Models\modelMenu;
@@ -17,6 +18,13 @@ class Lesson extends baseController
 
     function index()
     {
+        if (!isset($_SESSION['user_info'])) {
+            header("location: dang-nhap-dang-ky");
+            die();
+        } else {
+            $dataInfo = $_SESSION['user_info'];
+        }
+
         $subject_slug = isset($_GET['mon']) ? $_GET['mon'] : null;
 
         //  Lấy ra tất cả các bài học.
@@ -34,11 +42,19 @@ class Lesson extends baseController
             die();
         }
 
+
+        // Lấy id của lesson 
+        $lesson_id = $dataLesson[0]['lesson_id'];
+        $dataComment = modelComment::getAll($lesson_id);
+        // $this->dd($dataComment);
+
         $this->render("customer.learning", [
             'dataLesson' => $dataLesson,
             'subjectName' => $subjectName,
             'lessonFist' => $lessonFist,
+            'userInfo' => $dataInfo[0],
             'menu' => $this->menu,
+            'dataComment' => $dataComment,
         ]);
     }
 
@@ -52,7 +68,7 @@ class Lesson extends baseController
         $_SESSION['lesson_id'] = $lesson_id;
 
         $lessonNext = modelLesson::where('lesson_id', "=", $lesson_id)->get();
-        echo "<iframe width='98%' height='520' src='" . $lessonNext[0]['lesson_link'] . "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>
+        echo "<iframe width='98%' height='520' src='https://www.youtube.com/embed/" . $lessonNext[0]['lesson_link'] . "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>
         </iframe>
         <h2 style='font-size: 18px;text-align:center'>" . $lessonNext[0]['lesson_name'] . "</h2>";
     }
@@ -61,5 +77,22 @@ class Lesson extends baseController
     {
         $lesson_id = isset($_SESSION['lesson_id']) ? $_SESSION['lesson_id'] : null;
         echo $lesson_id;
+    }
+
+    public function comment()
+    {
+        $student_id = isset($_GET['student_id']) ? $_GET['student_id'] : null;
+        $lesson_id = $_SESSION['lesson_id'];
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            extract($_POST);
+
+            if (!empty($comment_content) || trim($comment_content)) {
+                echo $comment_content;
+            } else {
+                $_SESSION['error'] = "Bạn đang bỏ trống comment !!!";
+                header('location: ' . $_SERVER['HTTP_REFERER']);
+                die();
+            }
+        }
     }
 }
