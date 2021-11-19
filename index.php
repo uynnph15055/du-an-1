@@ -35,7 +35,10 @@ switch ($url) {
         $ctr = new Administrators();
         echo $ctr->index();
         break;
-
+    case 'sua-admin':
+        $ctr = new Administrators();
+        echo $ctr->updateAdministrators();
+        break;
     case 'them-admin':
         $ctr = new Administrators();
         echo $ctr->AddAdministrators();

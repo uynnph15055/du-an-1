@@ -100,6 +100,7 @@ class formLog extends baseController
                 $dataStudent = modelStudent::where('student_email', "=", $student_email)->get();
                 if (!empty($dataStudent)) {
                     if (password_verify($student_password, $dataStudent[0]['student_password'])) {
+                        // Tài khoản học viên
                         $_SESSION['user_info'] = $dataStudent;
                         header('Location: ./');
                     } else {
@@ -114,6 +115,7 @@ class formLog extends baseController
                 $dataAdmin = modelAdministrators::where("email", "=", $student_email)->get();
                 if (!empty($dataAdmin)) {
                     if (password_verify($student_password, $dataAdmin[0]['password'])) {
+                        // Tài khoản người quản trị
                         $_SESSION['admin_info'] = $dataAdmin;
                         header('Location: ./quan-tri');
                     } else {

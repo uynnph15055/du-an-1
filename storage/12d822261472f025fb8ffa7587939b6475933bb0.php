@@ -1,7 +1,7 @@
 
 <?php $__env->startSection('title', 'Khóa học'); ?>
 <?php $__env->startSection('main_content'); ?>
-<main class="bgr-light" style="margin-top: 40px;">
+<main class="bgr-light" style="margin-top: 80px;">
     <div class="learning-section">
         <div class="container-fluid">
             <div class="learning-fluid">
@@ -83,13 +83,14 @@
                             </form>
                             <?php else: ?>
                             <div class="note-lesson-list">
+                                <?php $__currentLoopData = $dataNote; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="note-lesson-item">
                                     <span class="">
                                     </span>
                                     <div class="note-text-container">
                                         <span class="lesson-title">Nội dung ghi chú</span>
                                         <p class="note-content">
-                                            <?php echo e($dataNote['content_note']); ?>
+                                            <?php echo e($key['content_note']); ?>
 
                                         </p>
                                     </div>
@@ -98,10 +99,11 @@
                                             <a href=""><i class="fas fa-pencil-alt"></i></a>
                                         </button>
                                         <button class="item-ctrl-btn">
-                                            <a href="xoa-ghi-chu?note_id=<?php echo e($dataNote['note_id']); ?>"><i class="fas fa-trash"></i></a>
+                                            <a href="xoa-ghi-chu?note_id=<?php echo e($key['note_id']); ?>"><i class="fas fa-trash"></i></a>
                                         </button>
                                     </div>
                                 </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                             <?php endif; ?>
                         </div>

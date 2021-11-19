@@ -17,9 +17,10 @@
                                         </div>
                                     </div>
                                     <div class="text-center">
+                                        <br>
+                                        <h4 class="text-center">Nhân Viên</h4>
                                         <h5 class="user-name" style="color:brown"><?php echo e($admin['name']); ?></h5>
-                                        <p><?php echo e($admin['email']); ?></p>
-                                        <h5><?php echo e($admin['phone']); ?></h5>
+                                        <p>SĐT : <?php echo e($admin['phone']); ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -28,56 +29,61 @@
                     <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                         <div class="card h-100">
                             <div class="card-body">
-                                <form action="">
+                                <form action="sua-admin" method="POST" enctype="multipart/form-data">
                                     <div class="row gutters">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <h6 class="mb-2 text-primary">Personal Details</h6>
+                                            <h6 class="mb-2 text-primary">Cập nhật thông tin</h6>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                             <div class="form-group">
-                                                <label for="fullName">Full Name</label>
-                                                <input type="text" class="form-control" id="fullName" value="<?php echo e($admin['name']); ?>" placeholder="Enter full name">
+                                                <label for="fullName">Tên</label>
+                                                <input type="text" class="form-control" name="name" value="<?php echo e($admin['name']); ?>" placeholder="Enter full name">
+                                                <input type="text" hidden name="id" value="<?php echo e($admin['id']); ?>">
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                             <div class="form-group">
                                                 <label for="eMail">Email</label>
-                                                <input type="email" value="<?php echo e($admin['email']); ?>" class="form-control" id="eMail" placeholder="Enter email ID">
+                                                <input type="email" value="<?php echo e($admin['email']); ?>" class="form-control" name="email" placeholder="Enter email ID">
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                             <div class="form-group">
-                                                <label for="phone">Phone</label>
-                                                <input type="text" value="<?php echo e($admin['phone']); ?>" class="form-control" id="phone" placeholder="Enter phone number">
+                                                <label for="phone">Số điện thoại</label>
+                                                <input type="text" value="<?php echo e($admin['phone']); ?>" class="form-control" name="phone" placeholder="Enter phone number">
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
                                             <div class="form-group">
-                                                <label for="website">Image</label>
-                                                <input type="file" class="form-control" id="website">
+                                                <label for="website">Ảnh</label>
+                                                <input type="file" name="img" class="form-control" id="website">
+                                                <input type="text" hidden value="<?php echo e($admin['img']); ?>" name="img">
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
                                             <div class="form-group">
-                                                <label for="website">Gender</label>
-                                                <select class="form-control" name="" id="">
-                                                    <option name="gioi_tinh" value="1">Nam</option>
-                                                    <option name="gioi_tinh" value="2">Nữ</option>
-                                                    <option name="gioi_tinh" value="3">Khác</option>
+                                                <label for="website">Giới tính</label>
+                                                <select class="form-control" name="gender" id="">
+                                                    <option <?php if ($admin['gender'] == 0) {
+                                                                echo 'selected';
+                                                            } ?> value="0">Nam</option>
+                                                    <option <?php if ($admin['gender'] == 1) {
+                                                                echo 'selected';
+                                                            } ?> value="1">Nữ</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="form-group">
-                                                <label for="Street">Address</label>
-                                                <input type="name" class="form-control" id="Street" placeholder="Enter Street">
+                                                <label for="Street">Địa chỉ</label>
+                                                <input type="text" value="<?php echo e($admin['address']); ?>" class="form-control" name="address" id="Street" placeholder="Enter Street">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row gutters">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="text-right">
-                                                <button type="submit" id="submit" name="submit" class="btn btn-success">Cập nhật thông tin</button>
+                                                <button type="submit" class="btn btn-success">Cập nhật</button>
                                             </div>
                                         </div>
                                     </div>

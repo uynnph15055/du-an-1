@@ -50,6 +50,7 @@ class Lesson extends baseController
 
 
         if (empty($dataLesson)) {
+            header('location: ' . $_SERVER['HTTP_REFERER']);
             die();
         }
 
@@ -60,6 +61,7 @@ class Lesson extends baseController
         $dataComment = modelComment::getAll($lesson_id);
         $dataNote = modelNote::getAll($lesson_id);
         // die();
+        // $this->dd($dataNote);
 
         $this->render("customer.learning", [
             'dataLesson' => $dataLesson,
@@ -69,7 +71,7 @@ class Lesson extends baseController
             'userInfo' => $dataInfo[0],
             'menu' => $this->menu,
             'dataComment' => $dataComment,
-            'dataNote' => $dataNote[0],
+            'dataNote' => $dataNote,
         ]);
     }
 

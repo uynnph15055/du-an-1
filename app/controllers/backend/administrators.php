@@ -20,7 +20,7 @@ class Administrators extends baseController
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($name) || !empty($email)  || !empty($password)  || !empty($phone)) {
+            if (!empty($name) || !empty($email)  || !empty($gender) || !empty($address) || !empty($password)  || !empty($phone)) {
                 $file = $_FILES['img'];
 
                 if ($file['size'] > 0) {
@@ -66,6 +66,8 @@ class Administrators extends baseController
                     'img' => $file_name,
                     'phone' => $phone,
                     'password' => $password_new,
+                    'gender' => $gender,
+                    'address' => $address,
                 ];
 
                 // $this->dd($data);
@@ -102,26 +104,21 @@ class Administrators extends baseController
     }
     public function updateAdministrators()
     {
+        // $this->dd($_POST);s
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
-            if (!empty($name) || !empty($email) || !empty($password)  || !empty($phone)) {
+            if (!empty($name) || !empty($email) || !empty($phone)) {
                 $file = $_FILES['img'];
 
+                $file_name = '';
                 if ($file['size'] > 0) {
                     $file_name = $file['name'];
                     move_uploaded_file($file['tmp_name'], './public/img/' . $file_name);
                 } else {
-                    $_SESSION['error'] = "Bạn chưa chọn ảnh !!!";
-                    header('Location: ./danh-sach-admin');
-                    die();
+                    $file_name = $img;
                 }
 
-                if (strlen($password) < 6) {
-                    $_SESSION['error'] = "Mật Khẩu phải từ 6 số !!!";
-                    header('Location: ./danh-sach-admin');
-                    die();
-                }
                 if (!is_numeric($phone)) {
                     $_SESSION['error'] = "phone không phải là số !!!";
                     header('Location: ./danh-sach-admin');
@@ -134,24 +131,24 @@ class Administrators extends baseController
                     die();
                 }
 
-                $password_new = password_hash($password, PASSWORD_DEFAULT);
 
                 $data = [
                     'id' => $id,
                     'name' => $name,
                     'img' => $file_name,
                     'phone' => $phone,
-                    'password' => $password_new,
+                    'gender' => $gender,
+                    'address' => $address,
                 ];
 
-                // $this->dd($data);
-
                 modelAdministrators::updateAdministrators($data);
+                $dataAdmin = modelAdministrators::where("id", "=", $id)->get();
+                $_SESSION['admin_info'] = $dataAdmin;
                 $_SESSION['success'] = "Sửa Thành Công !!!";
-                header('Location: ./danh-sach-admin');
+                header('location: ' . $_SERVER['HTTP_REFERER']);
             } else {
                 $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !!!";
-                header('Location: ./danh-sach-admin');
+                header('location: ' . $_SERVER['HTTP_REFERER']);
                 die();
             }
         }

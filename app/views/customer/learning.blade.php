@@ -1,7 +1,7 @@
 @extends('customer.layout.layout')
 @section('title', 'Khóa học')
 @section('main_content')
-<main class="bgr-light" style="margin-top: 40px;">
+<main class="bgr-light" style="margin-top: 80px;">
     <div class="learning-section">
         <div class="container-fluid">
             <div class="learning-fluid">
@@ -80,13 +80,14 @@
                             </form>
                             @else
                             <div class="note-lesson-list">
+                                @foreach($dataNote as $key)
                                 <div class="note-lesson-item">
                                     <span class="">
                                     </span>
                                     <div class="note-text-container">
                                         <span class="lesson-title">Nội dung ghi chú</span>
                                         <p class="note-content">
-                                            {{$dataNote['content_note']}}
+                                            {{$key['content_note']}}
                                         </p>
                                     </div>
                                     <div class="action-ctrl note-item-ctrl">
@@ -94,10 +95,11 @@
                                             <a href=""><i class="fas fa-pencil-alt"></i></a>
                                         </button>
                                         <button class="item-ctrl-btn">
-                                            <a href="xoa-ghi-chu?note_id={{$dataNote['note_id']}}"><i class="fas fa-trash"></i></a>
+                                            <a href="xoa-ghi-chu?note_id={{$key['note_id']}}"><i class="fas fa-trash"></i></a>
                                         </button>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                             @endif
                         </div>
