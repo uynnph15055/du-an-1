@@ -47,8 +47,8 @@
                                     <i class="fas fa-bell"></i>
                                 </button>
                                 <div class="account-section action-item">
-                                    <button onclick="toggleShowHide()" id="btn-acc">
-                                        <img style="width:32px" src="./public/img/<?= $user_info[0]['student_avatar'] ?>" alt="">
+                                    <button style="padding: 0; border-radius: 50%; cursor: pointer; overflow: hidden; width: 30px; height: 30px" onclick="toggleShowHide()" id="btn-acc">
+                                        <img style="object-fit: cover; width: 30px; height: 30px" src="./public/img/<?= $user_info[0]['student_avatar'] ?>" alt="">
                                     </button>
                                     <div id="account-list" class="content-container-acc">
                                         <a class="account-item" href="">Thông tin tài khoản</a>
