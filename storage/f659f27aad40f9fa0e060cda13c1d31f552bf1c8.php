@@ -55,7 +55,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="quan-tri">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Trang chính</span></a>
             </li>
@@ -90,7 +90,7 @@
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href=">admin/adminProduct/">Thông tin học viên</a>
+                        <a class="collapse-item" href="danh-sach-hoc-vien">Thông tin học viên</a>
                         <a class="collapse-item" href=">admin/adminProduct/">Đánh giá của học viên</a>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                 </a>
                 <div id="collapseUtilitie" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href=">admin/adminProduct/">Thông tin nhân viên</a>
+                        <a class="collapse-item" href="danh-sach-admin">Thông tin nhân viên</a>
                     </div>
                 </div>
             </li>
@@ -312,33 +312,30 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
+                        <?php if (isset($_SESSION['admin_info'])) {
+                            $adminInfo = $_SESSION['admin_info'];
+                            // var_dump($adminInfo[0]['img']);
+                        } ?>
+                        <?php if(isset($adminInfo)): ?>
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $adminInfo[0]['name'] ?></span>
+                                <img class="img-profile rounded-circle" src="./public/img/<?= $adminInfo[0]['img'] ?>">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="thong-tin-nhan-vien">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    Thông tin
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="dang-xuat-nhan-vien">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Đăng xuất
                                 </a>
                             </div>
                         </li>
-
+                        <?php endif; ?>
                     </ul>
 
                 </nav>

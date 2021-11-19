@@ -19,4 +19,16 @@ class modelQuestion extends DB
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }
+    public  function where_id($id)
+    {
+        // var_dump($data);
+        // die();
+  
+        $conn =$this->getConnect();
+        $queryBuilder = "SELECT * FROM `question` WHERE lesson_id=:id";
+        $stmt = $conn->prepare($queryBuilder);
+        $stmt->execute(['id'=>$id]);
+        return $stmt->fetchAll();
+
+    }
 }

@@ -21,6 +21,8 @@ class modelComment extends DB
 
     public static function insertAll($data)
     {
+        var_dump($data);
+        // die();
         $model = new static();
         $conn = $model->getConnect();
         $queryBuilder = "INSERT INTO comment (lesson_id, student_id, comment_content, date_cmtt) VALUES (:lesson_id , :student_id , :comment_content , :date_cmtt)";

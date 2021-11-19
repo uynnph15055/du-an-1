@@ -30,9 +30,9 @@
 
             <button class="btn__log btn-primary">Đăng ký</button>
             <a class="form-link" href="./">Trang chủ</a>
-            <?php if(isset($_SESSION['error-form-register'])): ?>
-            <span style="color: #E80007;padding-top:20px"><?php echo e($_SESSION['error-form-register']); ?></span>
-            <?php unset($_SESSION['error-form-register']); ?>
+            <?php if(isset($_SESSION['error-form'])): ?>
+            <span style="color: #E80007;padding-top:20px"><?php echo e($_SESSION['error-form']); ?></span>
+            <?php unset($_SESSION['error-form']); ?>
             <?php endif; ?>
         </form>
     </div>
@@ -101,4 +101,4 @@
 </script>
 <script src="./public/js/customerJs/validateFormLog.js"></script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('customer.layout.layout_login', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/form_log.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('customer.layout.layout_login', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/customer/form_log.blade.php ENDPATH**/ ?>

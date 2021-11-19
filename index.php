@@ -21,6 +21,8 @@ use App\Controllers\Frontend\Contact;
 use App\Controllers\Backend\inforAdmin;
 use App\Controllers\Frontend\Home;
 use App\Controllers\Frontend\formLog;
+use App\Controllers\Frontend\Question;
+
 
 switch ($url) {
     case 'quan-tri':
@@ -198,7 +200,11 @@ switch ($url) {
 
         // --------------
         // -------- Giao diện khách hàng
-
+        // TRang chủ
+        // case 'trang-chu';
+        //     $ctr = new Lesson();
+        //     echo $ctr->question();
+        //     break;
         // Hiển thị câu hỏi.
         // case 'khoa-hoc/cau-hoi';
         //     $ctr = new Lesson();
@@ -235,6 +241,10 @@ switch ($url) {
         $ctr = new Lesson();
         echo $ctr->note();
         break;
+    case 'xoa-ghi-chu';
+        $ctr = new Lesson();
+        echo $ctr->deleteNote();
+        break;
     case 'binh-luan-bai-hoc';
         $ctr = new Lesson();
         echo $ctr->comment();
@@ -244,6 +254,16 @@ switch ($url) {
         echo $ctr->deleteComment();
         break;
 
+
+        //Câu hỏi
+    case 'quzi';
+        $ctr = new Question();
+        echo $ctr->index();
+        break;
+    case 'quzi-answer';
+        $ctr = new Question();
+        echo $ctr->answerQuestion();
+        break;
 
         // Đăng nhập đăng ký
     case 'dang-nhap-dang-ky';

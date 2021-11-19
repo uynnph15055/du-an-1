@@ -1,6 +1,6 @@
-@extends('customer.layout.layout')
-@section('title', 'Khóa học')
-@section('main_content')
+
+<?php $__env->startSection('title', 'Khóa học'); ?>
+<?php $__env->startSection('main_content'); ?>
 <style>
     .lesson_error {
         text-align: center;
@@ -38,16 +38,18 @@
                 <div class="course-detail-text">
                     <div class="detail-name">
                         <h1 class="course__name">
-                            @if(isset($subject))
-                            {{$subject['subject_name']}}
+                            <?php if(isset($subject)): ?>
+                            <?php echo e($subject['subject_name']); ?>
+
                         </h1>
                         <p class="course__description">
-                            {{$subject['subject_description']}}
+                            <?php echo e($subject['subject_description']); ?>
+
                         </p>
-                        @endif
+                        <?php endif; ?>
                     </div>
                     <div class="detail-content">
-                        @if(!empty($lesson))
+                        <?php if(!empty($lesson)): ?>
                         <h3 class="content__title">
                             Nội dung khóa học
                         </h3>
@@ -55,40 +57,42 @@
                         $index = 1;
                         ?>
                         <div class="lesson-list">
-                            @foreach($lesson as $key)
+                            <?php $__currentLoopData = $lesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="lesson-item-info">
                                 <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
                                 <h4 class="lesson-item__title">
-                                    Bài <?= $index++ ?> : {{$key['lesson_name']}}
+                                    Bài <?= $index++ ?> : <?php echo e($key['lesson_name']); ?>
+
                                 </h4>
                                 <span class="lesson__time">
                                     10:10
                                 </span>
                             </div>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
-                        @else
+                        <?php else: ?>
                         <div class="lesson_error">
                             <i class="fas fa-sticky-note icon"></i>
                             <h2 class="lesson_error-title">Hiện chưa có bài học nào <i class="fas fa-exclamation"></i></h2>
                         </div>
-                        @endif
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="course-detail-video">
-                    <img src="./public/img/{{$subject['subject_img']}}" alt="" class="img-fluid course__img">
-                    <a href="bai-hoc?mon={{$subject['subject_slug']}}" class="btn-primary">
+                    <img src="./public/img/<?php echo e($subject['subject_img']); ?>" alt="" class="img-fluid course__img">
+                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" class="btn-primary">
                         Học ngay
                     </a>
-                    @if(!empty($lesson))
+                    <?php if(!empty($lesson)): ?>
                     <span class="sub-des">Hiện có <?php echo count($lesson) ?> bài</span>
-                    @else
+                    <?php else: ?>
                     <h6 style="margin: 10px 0px;">Chưa có bài nào</h6>
-                    @endif
+                    <?php endif; ?>
                     <span class="sub-des" style="font-style: italic;">Học mọi lúc, mọi nơi</span>
                 </div>
             </div>
         </div>
     </main>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/customer/courseDetail.blade.php ENDPATH**/ ?>

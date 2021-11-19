@@ -7,6 +7,7 @@ use App\Models\modelComment;
 use App\Models\modelLesson;
 use App\Models\modelSubject;
 use App\Models\modelMenu;
+use App\Models\modelNote;
 
 class Lesson extends baseController
 {
@@ -27,7 +28,7 @@ class Lesson extends baseController
 
         $subject_slug = isset($_GET['mon']) ? $_GET['mon'] : null;
         $lesson_slug = isset($_GET['bai']) ? $_GET['bai'] : null;
-
+        // $this->dd($lesson_slug);
         //  Lấy ra tất cả các bài học.
         $subject = modelSubject::where("subject_slug", "=", $subject_slug)->get();
         $subject_id = $subject[0]['subject_id'];
@@ -35,26 +36,31 @@ class Lesson extends baseController
 
         // Data mon -> Hiền thị xuống file leaning 
         $dataLesson = modelLesson::where('subject_id', "=", $subject_id)->get();
-
+        // $this->dd
         $lessonFist = [];
-        if ($lesson_slug === null) {
+        if ($lesson_slug == null) {
             $lessonFist = $dataLesson[0];
         } else {
             $lessonDta = modelLesson::where("lesson_slug", "=", $lesson_slug)->get();
             $lessonFist = $lessonDta[0];
             // Lưu id cho xuống phần bình luận.
             $_SESSION['lesson_id'] = $lessonFist['lesson_id'];
+            // $this->dd($_SESSION['lesson_id']);
         }
 
-        // $this->dd($lessonFist);
+
         if (empty($dataLesson)) {
             die();
         }
 
+
         // Lấy id của lesson 
         $lesson_id = $lessonFist['lesson_id'];
+        // $this->dd($lesson_id);
         $dataComment = modelComment::getAll($lesson_id);
-        // $this->dd($dataLesson);
+        $dataNote = modelNote::getAll($lesson_id);
+        // die();
+
         $this->render("customer.learning", [
             'dataLesson' => $dataLesson,
             'subjectName' => $subjectName,
@@ -63,6 +69,7 @@ class Lesson extends baseController
             'userInfo' => $dataInfo[0],
             'menu' => $this->menu,
             'dataComment' => $dataComment,
+            'dataNote' => $dataNote[0],
         ]);
     }
 
@@ -114,6 +121,43 @@ class Lesson extends baseController
         };
     }
 
+    // Ghi chú bài học.
+    public function note()
+    {
+        $student_id = isset($_GET['student_id']) ? $_GET['student_id'] : null;
+        if (isset($_SESSION['lesson_id'])) {
+            $lesson_id = $_SESSION['lesson_id'];
+            unset($_SESSION['lesson_id']);
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            extract($_POST);
+
+            if (!empty($content_note) || trim($content_note)) {
+                $data = [
+                    'student_id' => $student_id,
+                    'lesson_id' => $lesson_id,
+                    'content_note' => $content_note,
+                ];
+
+                modelNote::insert($data);
+                header('location: ' . $_SERVER['HTTP_REFERER']);
+            } else {
+                $_SESSION['error'] = "Bạn đang bỏ trống comment !!!";
+                header('location: ' . $_SERVER['HTTP_REFERER']);
+                die();
+            }
+        }
+    }
+
+    public function deleteNote()
+    {
+        $note_id = isset($_GET['note_id']) ? $_GET['note_id'] : null;
+        modelNote::delete("note_id", "=", $note_id)->executeQuery();
+        header('location: ' . $_SERVER['HTTP_REFERER']);
+    }
+
+
 
     // Comment bài học.
     public function comment()
@@ -140,7 +184,7 @@ class Lesson extends baseController
 
                 // $this->dd($data);
                 modelComment::insertAll($data);
-                unset($lesson_id);
+                // unset($lesson_id);
                 header('location: ' . $_SERVER['HTTP_REFERER']);
             } else {
                 $_SESSION['error'] = "Bạn đang bỏ trống comment !!!";
@@ -148,9 +192,5 @@ class Lesson extends baseController
                 die();
             }
         }
-    }
-
-    public function note()
-    {
     }
 }

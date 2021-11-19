@@ -42,27 +42,27 @@ class formLog extends baseController
 
                 // Check dữ liệu đầu vào.
                 if (!filter_var($student_email, FILTER_VALIDATE_EMAIL)) {
-                    $_SESSION['error-form'] = "Email không đúng định dạng !!!";
+                    $_SESSION['error-form-register'] = "Email không đúng định dạng !!!";
                     header('Location: dang-nhap-dang-ky');
                     die();
                 }
 
                 if (strlen($student_password) < 6 || strlen($student_password) > 15) {
-                    $_SESSION['error-form'] = "Độ dài mật khẩu sai !!!";
+                    $_SESSION['error-form-register'] = "Độ dài mật khẩu sai !!!";
                     header('Location: dang-nhap-dang-ky');
                     die();
                 }
 
                 $dataStudent = modelStudent::where("student_email", "=", $student_email)->get();
                 if (!empty($dataStudent)) {
-                    $_SESSION['error-form'] = "Email đã tồn tại !!!";
+                    $_SESSION['error-form-register'] = "Email đã tồn tại !!!";
                     header('Location: dang-nhap-dang-ky');
                     die();
                 }
 
                 $dataAdmin = modelAdministrators::where("email", "=", $emailSignUp)->get();
                 if (!empty($dataAdmin)) {
-                    $_SESSION['error-form'] = "Email đã tồn tại !!!";
+                    $_SESSION['error-form-register'] = "Email đã tồn tại !!!";
                     header('Location: dang-nhap-dang-ky');
                     die();
                 }
@@ -82,7 +82,7 @@ class formLog extends baseController
                 modelStudent::insertStudent($data);
                 header('Location: dang-nhap-dang-ky');
             } else {
-                $_SESSION['error-form'] = "Bạn đang bỏ trống dữ liệu !!!";
+                $_SESSION['error-form-register'] = "Bạn đang bỏ trống dữ liệu !!!";
                 header('Location: dang-nhap-dang-ky');
                 die();
             }
