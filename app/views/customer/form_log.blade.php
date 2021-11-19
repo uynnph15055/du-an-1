@@ -18,7 +18,6 @@
             <span>- hoặc sử dụng email để đăng ký</span>
             <!--  -->
             <input type="text" name="student_name" id="check-name-reg" onblur="checkName()" oninput="checkName()" placeholder="Tên" />
-            <!-- <span class="error-sign-up"></span> -->
             <span class="alert-mess check-name-reg"></span>
 
             <input type="email" name="student_email" id="email-sign-up" onblur="checkEmail()" oninput="checkEmail()" placeholder="Email" />

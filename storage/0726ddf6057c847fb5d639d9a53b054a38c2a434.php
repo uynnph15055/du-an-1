@@ -18,7 +18,6 @@
             <span>- hoặc sử dụng email để đăng ký</span>
             <!--  -->
             <input type="text" name="student_name" id="check-name-reg" onblur="checkName()" oninput="checkName()" placeholder="Tên" />
-            <!-- <span class="error-sign-up"></span> -->
             <span class="alert-mess check-name-reg"></span>
 
             <input type="email" name="student_email" id="email-sign-up" onblur="checkEmail()" oninput="checkEmail()" placeholder="Email" />
@@ -30,6 +29,10 @@
 
             <button class="btn__log btn-primary">Đăng ký</button>
             <a class="form-link" href="./">Trang chủ</a>
+            <?php if(isset($_SESSION['error-form'])): ?>
+            <span style="color: #E80007;padding-top:20px"><?php echo e($_SESSION['error-form']); ?></span>
+            <?php unset($_SESSION['error-form']); ?>
+            <?php endif; ?>
         </form>
     </div>
     <div class="form-container-item sign-in-container">
@@ -52,6 +55,10 @@
             <button class="btn__log btn-primary">Đăng nhập</button>
             <a class="form-link" href="#">Quên mật khẩu?</a>
             <a class="form-link" href="./">Trang chủ</a>
+            <?php if(isset($_SESSION['error-form'])): ?>
+            <span style="color: #E80007;padding-top:20px"><?php echo e($_SESSION['error-form']); ?></span>
+            <?php unset($_SESSION['error-form']); ?>
+            <?php endif; ?>
         </form>
     </div>
     <div class="overlay-container">

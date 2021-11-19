@@ -16,9 +16,6 @@ function checkName(){
     else if(checkNameReg.value.length < 2){
         showError(".check-name-reg", "Vui lòng nhập tối thiểu 2 chữ cái!", "red");
     }
-    // else if(isNumber(checkNameReg.value)){
-    //     showError(".check-name-reg", "Vui lòng nhập tối thiểu 1 chữ cái!", "red");
-    // }
     else{
         showError(".check-name-reg", "", "");
     }
@@ -39,13 +36,6 @@ function checkEmail(){
         showError(".check-email", "", "");
     }
 }
-// function filterPass(characters){
-//    return /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{characters})$/ ;
-
-// }
-// var filterPassWeak = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{0,4})$/ ;
-// var filterPassMedium = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{5,6})$/ ;
-// var filterPassStrong = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{7,8})$/ ;
 
 function checkPass(){
     var checkPassReg = document.querySelector("#check-pass-reg");
