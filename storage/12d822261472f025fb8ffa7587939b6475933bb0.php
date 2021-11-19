@@ -21,7 +21,11 @@
                         </div>
                         <div id="comment-lesson" class="tab-content">
                             <div class="count-comment">
-                                <span>10 bình luận</span>
+                                <?php if(!empty($dataComment)): ?>
+                                <span style="color: #444;">Hiện có <?php echo count($dataComment) ?> bình luận</span>
+                                <?php else: ?>
+                                <span style="color: #444;">Chưa có bình luận nào !</span>
+                                <?php endif; ?>
                             </div>
                             <div class="form-comment-input ">
                                 <div class="comment-img">
@@ -54,21 +58,23 @@
 
                                         </p>
                                     </div>
+                                    <?php if($userInfo['student_id'] == $key['student_id']): ?>
                                     <div class="action-ctrl">
-                                        <button class="item-ctrl-btn"><a href=""><i class="fas fa-trash"></i></a></button>
+                                        <button class="item-ctrl-btn"><a class="delete_cmtt" data-id="<?php echo e($key['cmtt_id']); ?>" href=""><i class="fas fa-trash"></i></a></button>
                                         <button class="item-ctrl-btn"><a href=""><i class="fas fa-pen"></i></a></button>
                                     </div>
+                                    <?php endif; ?>
                                 </div>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </div>
 
-                        <div id="note-lesson" class="tab-content">
-                            <form class="form__note" action="">
+                        <div id="note-lesson" class="tab-content" style="margin-left: -70px;">
+                            <form class="form__note" action="" method="POST">
                                 <label class="form__note__title" for="">Tạo ghi chú mới</label>
                                 <div class="note-section-content">
                                     <input class="input__time-note" type="text" placeholder="Thời gian">
-                                    <textarea class="input__content-note" type="text" placeholder="Nội dung ghi chú"> </textarea>
+                                    <textarea style="border-radius: 15px;padding:10px;font-size:18px" placeholder="Nội dung ghi chú" name="banner_text" onkeyup="banner_textt()" id="banner_text" cols="70" rows="6"></textarea>
                                     <button type="submit" class="btn btn-note">
                                         <i class="fas fa-save"></i>
                                     </button>
@@ -76,8 +82,7 @@
                             </form>
                             <div class="note-lesson-list">
                                 <div class="note-lesson-item">
-                                    <span class="note__time">
-                                        3:15
+                                    <span class="">
                                     </span>
                                     <div class="note-text-container">
                                         <span class="lesson-title">Bài 1: Làm quen js</span>
@@ -110,7 +115,7 @@
                     <div class="lesson-list">
                         <?php $__currentLoopData = $dataLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="lesson-item">
-                            <a data-id="<?php echo e($key['lesson_id']); ?>" href="" class="lesson-item-info">
+                            <a href="bai-hoc?mon=<?php echo e($subject_slug); ?>&bai=<?php echo e($key['lesson_slug']); ?>" class="lesson-item-info">
                                 <span class="lesson__index" style="margin-top: 10px;margin-left:5px"><i class="fas fa-play-circle"></i></span>
                                 <h4 class="lesson-item__title" style="line-height: 1.4;">
                                     Bài <?= $index++ ?>: <?php echo e($key['lesson_name']); ?>
@@ -143,13 +148,13 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
     $(document).ready(function() {
-        $('.lesson-item-info').click(function(e) {
+        $('.delete_cmtt').click(function(e) {
             e.preventDefault();
-            var lesson_id = $(this).data('id');
-            $.get("bai-hoc-tiep-theo", {
-                lesson_id: lesson_id
+            var cmtt_id = $(this).data('id');
+            $.get("xoa-binh-luan", {
+                cmtt_id: cmtt_id
             }, function($data) {
-                $('.learning__video').html($data);
+                $('.comment-list').html($data);
             })
         })
     })
