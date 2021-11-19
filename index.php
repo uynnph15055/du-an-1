@@ -201,15 +201,15 @@ switch ($url) {
         // --------------
         // -------- Giao diện khách hàng
         // TRang chủ
-    case 'trang-chu';
-        $ctr = new Lesson();
-        echo $ctr->question();
-        break;
+        // case 'trang-chu';
+        //     $ctr = new Lesson();
+        //     echo $ctr->question();
+        //     break;
         // Hiển thị câu hỏi.
-    case 'khoa-hoc/cau-hoi';
-        $ctr = new Lesson();
-        echo $ctr->question();
-        break;
+        // case 'khoa-hoc/cau-hoi';
+        //     $ctr = new Lesson();
+        //     echo $ctr->question();
+        //     break;
         // Hiển thi khóa học.
     case 'khoa-hoc';
         $ctr = new Courses();
@@ -237,13 +237,21 @@ switch ($url) {
         $ctr = new introCourse();
         echo $ctr->index();
         break;
-    case 'bai-hoc-tiep-theo';
+    case 'ghi-chu-bai-hoc';
         $ctr = new Lesson();
-        echo $ctr->nextLesson();
+        echo $ctr->note();
+        break;
+    case 'xoa-ghi-chu';
+        $ctr = new Lesson();
+        echo $ctr->deleteNote();
         break;
     case 'binh-luan-bai-hoc';
         $ctr = new Lesson();
         echo $ctr->comment();
+        break;
+    case 'xoa-binh-luan';
+        $ctr = new Lesson();
+        echo $ctr->deleteComment();
         break;
 
 
@@ -252,7 +260,7 @@ switch ($url) {
         $ctr = new Question();
         echo $ctr->index();
         break;
-        case 'quzi-answer';
+    case 'quzi-answer';
         $ctr = new Question();
         echo $ctr->answerQuestion();
         break;

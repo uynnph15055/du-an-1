@@ -1,7 +1,7 @@
 @extends('customer.layout.layout')
 @section('title', 'Khóa học')
 @section('main_content')
-<main class="bgr-light" style="margin-top: 80px;">
+<main class="bgr-light" style="margin-top: 40px;">
     <div class="learning-section">
         <div class="container-fluid">
             <div class="learning-fluid">
@@ -21,7 +21,11 @@
                         </div>
                         <div id="comment-lesson" class="tab-content">
                             <div class="count-comment">
-                                <span>10 bình luận</span>
+                                @if(!empty($dataComment))
+                                <span style="color: #444;">Hiện có <?php echo count($dataComment) ?> bình luận</span>
+                                @else
+                                <span style="color: #444;">Chưa có bình luận nào !</span>
+                                @endif
                             </div>
                             <div class="form-comment-input ">
                                 <div class="comment-img">
@@ -51,36 +55,38 @@
                                             {{$key['comment_content']}}
                                         </p>
                                     </div>
+                                    @if($userInfo['student_id'] == $key['student_id'])
                                     <div class="action-ctrl">
-                                        <button class="item-ctrl-btn"><a href=""><i class="fas fa-trash"></i></a></button>
+                                        <button class="item-ctrl-btn"><a class="delete_cmtt" data-id="{{$key['cmtt_id']}}" href=""><i class="fas fa-trash"></i></a></button>
                                         <button class="item-ctrl-btn"><a href=""><i class="fas fa-pen"></i></a></button>
                                     </div>
+                                    @endif
                                 </div>
                                 @endforeach
                             </div>
                         </div>
 
-                        <div id="note-lesson" class="tab-content">
-                            <form class="form__note" action="">
+                        <div id="note-lesson" class="tab-content" style="margin-left: -70px;">
+                            @if(empty($dataNote))
+                            <form class="form__note" action="ghi-chu-bai-hoc?student_id={{$userInfo['student_id']}}" method="POST">
                                 <label class="form__note__title" for="">Tạo ghi chú mới</label>
                                 <div class="note-section-content">
                                     <input class="input__time-note" type="text" placeholder="Thời gian">
-                                    <textarea class="input__content-note" type="text" placeholder="Nội dung ghi chú"> </textarea>
+                                    <textarea style="border-radius: 15px;padding:10px;font-size:18px" placeholder="Nội dung ghi chú" name="content_note" cols="70" rows="6"></textarea>
                                     <button type="submit" class="btn btn-note">
                                         <i class="fas fa-save"></i>
                                     </button>
                                 </div>
                             </form>
+                            @else
                             <div class="note-lesson-list">
                                 <div class="note-lesson-item">
-                                    <span class="note__time">
-                                        3:15
+                                    <span class="">
                                     </span>
                                     <div class="note-text-container">
-                                        <span class="lesson-title">Bài 1: Làm quen js</span>
+                                        <span class="lesson-title">Nội dung ghi chú</span>
                                         <p class="note-content">
-                                            Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay
-                                            Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay Tips hay
+                                            {{$dataNote['content_note']}}
                                         </p>
                                     </div>
                                     <div class="action-ctrl note-item-ctrl">
@@ -88,11 +94,12 @@
                                             <a href=""><i class="fas fa-pencil-alt"></i></a>
                                         </button>
                                         <button class="item-ctrl-btn">
-                                            <a href=""><i class="fas fa-trash"></i></a>
+                                            <a href="xoa-ghi-chu?note_id={{$dataNote['note_id']}}"><i class="fas fa-trash"></i></a>
                                         </button>
                                     </div>
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -114,7 +121,7 @@
                         <div>
 
                             <div class="lesson-item">
-                                <a data-id="{{$key['lesson_id']}}" href="" class="lesson-item-info">
+                                <a href="bai-hoc?mon={{$subject_slug}}&bai={{$key['lesson_slug']}}" class="lesson-item-info">
                                     <span class="lesson__index" style="margin-top: 10px;margin-left:5px"><i class="fas fa-play-circle"></i></span>
                                     <h4 class="lesson-item__title" style="line-height: 1.4;">
                                         Bài <?= $index++ ?>: {{$key['lesson_name']}}
@@ -141,9 +148,6 @@
                                 </div>
                             </div>
                         </div>
-                       
-
-
                         @endforeach
                     </div>
                 </aside>
@@ -155,13 +159,13 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
     $(document).ready(function() {
-        $('.lesson-item-info').click(function(e) {
+        $('.delete_cmtt').click(function(e) {
             e.preventDefault();
-            var lesson_id = $(this).data('id');
-            $.get("bai-hoc-tiep-theo", {
-                lesson_id: lesson_id
+            var cmtt_id = $(this).data('id');
+            $.get("xoa-binh-luan", {
+                cmtt_id: cmtt_id
             }, function($data) {
-                $('.learning__video').html($data);
+                $('.comment-list').html($data);
             })
         })
     })

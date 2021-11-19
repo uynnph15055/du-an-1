@@ -21,7 +21,7 @@ class introCourse extends baseController
         $subject = modelSubject::where("subject_slug", "=", $subject_slug)->get();
         $subject_id = $subject[0]['subject_id'];
         $lesson = modelLesson::where("subject_id", "=", $subject_id)->get();
- 
+
         $this->render("customer.courseDetail", [
             'subject' => $subject[0],
             'lesson' => $lesson,

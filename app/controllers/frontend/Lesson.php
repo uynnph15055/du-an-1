@@ -7,6 +7,7 @@ use App\Models\modelComment;
 use App\Models\modelLesson;
 use App\Models\modelSubject;
 use App\Models\modelMenu;
+use App\Models\modelNote;
 
 class Lesson extends baseController
 {
@@ -26,7 +27,8 @@ class Lesson extends baseController
         }
 
         $subject_slug = isset($_GET['mon']) ? $_GET['mon'] : null;
-
+        $lesson_slug = isset($_GET['bai']) ? $_GET['bai'] : null;
+        // $this->dd($lesson_slug);
         //  Lấy ra tất cả các bài học.
         $subject = modelSubject::where("subject_slug", "=", $subject_slug)->get();
         $subject_id = $subject[0]['subject_id'];
@@ -34,60 +36,156 @@ class Lesson extends baseController
 
         // Data mon -> Hiền thị xuống file leaning 
         $dataLesson = modelLesson::where('subject_id', "=", $subject_id)->get();
-        $lessonFist = $dataLesson[0];
+        // $this->dd
+        $lessonFist = [];
+        if ($lesson_slug == null) {
+            $lessonFist = $dataLesson[0];
+        } else {
+            $lessonDta = modelLesson::where("lesson_slug", "=", $lesson_slug)->get();
+            $lessonFist = $lessonDta[0];
+            // Lưu id cho xuống phần bình luận.
+            $_SESSION['lesson_id'] = $lessonFist['lesson_id'];
+            // $this->dd($_SESSION['lesson_id']);
+        }
 
-        if (empty($lessonFist)) {
-            $_SESSION['error'] = "Hiện chưa có bài học nào !!!";
-            header("location: mo-ta-mon-hoc?mon=$subject_slug");
+
+        if (empty($dataLesson)) {
             die();
         }
 
 
         // Lấy id của lesson 
-        $lesson_id = $dataLesson[0]['lesson_id'];
+        $lesson_id = $lessonFist['lesson_id'];
+        // $this->dd($lesson_id);
         $dataComment = modelComment::getAll($lesson_id);
-        // $this->dd($dataComment);
+        $dataNote = modelNote::getAll($lesson_id);
+        // die();
 
         $this->render("customer.learning", [
             'dataLesson' => $dataLesson,
             'subjectName' => $subjectName,
+            'subject_slug' => $subject_slug,
             'lessonFist' => $lessonFist,
             'userInfo' => $dataInfo[0],
             'menu' => $this->menu,
             'dataComment' => $dataComment,
+            'dataNote' => $dataNote[0],
         ]);
     }
 
 
     // Chuyển bài học tiếp theo.
-    function nextLesson()
+
+    function deleteComment()
     {
-        $lesson_id = $_GET['lesson_id'];
+        if (!isset($_SESSION['user_info'])) {
+            header("location: dang-nhap-dang-ky");
+            die();
+        } else {
+            $dataInfo = $_SESSION['user_info'];
+        }
+        $cmtt_id = isset($_GET['cmtt_id']) ? $_GET['cmtt_id'] : null;
+        // $this->dd($cmtt_id);
+        if (isset($_SESSION['lesson_id'])) {
+            $lesson_id = $_SESSION['lesson_id'];
+            unset($_SESSION['lesson_id']);
+        }
 
-        // Lưu lại id bài học
-        $_SESSION['lesson_id'] = $lesson_id;
-
-        $lessonNext = modelLesson::where('lesson_id', "=", $lesson_id)->get();
-        echo "<iframe width='98%' height='520' src='https://www.youtube.com/embed/" . $lessonNext[0]['lesson_link'] . "' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>
-        </iframe>
-        <h2 style='font-size: 18px;text-align:center'>" . $lessonNext[0]['lesson_name'] . "</h2>";
+        modelComment::delete('cmtt_id', "=", $cmtt_id)->executeQuery();
+        $dataComment = modelComment::getAll($lesson_id);
+        foreach ($dataComment as $key) {
+            $function = '';
+            if ($dataInfo[0]['student_id'] == $key['student_id']) {
+                $function = "<button class='item-ctrl-btn'><a class='delete_cmtt' data-id='" . $key['cmtt_id'] . "' href='><i class='fas fa-trash'></i></a></button>
+                <button class='item-ctrl-btn'><a href='><i class='fas fa-pen'></i></a></button>";
+            };
+            echo " <div class='comment-item'>
+            <div class='comment-img comment-img--acc '>
+                <img width='50px' src='./public/img/" . $key['student_avatar'] . "' alt=' class='img-fluid'>
+            </div>
+            <div class='comment-text'>
+                <span class='comment-item__name'>
+                    " . $key['student_name'] . "
+                </span>
+                <span class='comment-item__date' style='margin-left: 30px;'>
+                " . $key['date_cmtt'] . "
+                </span>
+                <p class='comment-item__content'>
+                " . $key['comment_content'] . "
+                </p>
+            </div>
+            <div class='action-ctrl'>
+            " . $function . "
+            </div>
+        </div>";
+        };
     }
 
-    function question()
+    // Ghi chú bài học.
+    public function note()
     {
-        $lesson_id = isset($_SESSION['lesson_id']) ? $_SESSION['lesson_id'] : null;
-        echo $lesson_id;
+        $student_id = isset($_GET['student_id']) ? $_GET['student_id'] : null;
+        if (isset($_SESSION['lesson_id'])) {
+            $lesson_id = $_SESSION['lesson_id'];
+            unset($_SESSION['lesson_id']);
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            extract($_POST);
+
+            if (!empty($content_note) || trim($content_note)) {
+                $data = [
+                    'student_id' => $student_id,
+                    'lesson_id' => $lesson_id,
+                    'content_note' => $content_note,
+                ];
+
+                modelNote::insert($data);
+                header('location: ' . $_SERVER['HTTP_REFERER']);
+            } else {
+                $_SESSION['error'] = "Bạn đang bỏ trống comment !!!";
+                header('location: ' . $_SERVER['HTTP_REFERER']);
+                die();
+            }
+        }
     }
 
+    public function deleteNote()
+    {
+        $note_id = isset($_GET['note_id']) ? $_GET['note_id'] : null;
+        modelNote::delete("note_id", "=", $note_id)->executeQuery();
+        header('location: ' . $_SERVER['HTTP_REFERER']);
+    }
+
+
+
+    // Comment bài học.
     public function comment()
     {
         $student_id = isset($_GET['student_id']) ? $_GET['student_id'] : null;
-        $lesson_id = $_SESSION['lesson_id'];
+        if (isset($_SESSION['lesson_id'])) {
+            $lesson_id = $_SESSION['lesson_id'];
+            unset($_SESSION['lesson_id']);
+        }
+        // $this->dd($lesson_id);
+
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
 
             if (!empty($comment_content) || trim($comment_content)) {
-                echo $comment_content;
+                $date_cmtt = date('Y-m-d');
+
+                $data = [
+                    'student_id' => $student_id,
+                    'lesson_id' => $lesson_id,
+                    'comment_content' => $comment_content,
+                    'date_cmtt' => $date_cmtt,
+                ];
+
+                // $this->dd($data);
+                modelComment::insertAll($data);
+                // unset($lesson_id);
+                header('location: ' . $_SERVER['HTTP_REFERER']);
             } else {
                 $_SESSION['error'] = "Bạn đang bỏ trống comment !!!";
                 header('location: ' . $_SERVER['HTTP_REFERER']);

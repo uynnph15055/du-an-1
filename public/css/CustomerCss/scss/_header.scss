@@ -78,6 +78,20 @@ header {
           .account-section {
             position: relative;
 
+            #btn-acc{
+              cursor: pointer;
+              border-radius: 50%;
+              overflow: hidden;
+              width: 30px;
+              height: 30px;
+              padding: 0 !important;
+              
+              img{
+                object-fit: cover;
+                width: 30px;
+                height: 30px;
+              }
+            }
             .icon-account {
               background: linear-gradient(
                 90deg,

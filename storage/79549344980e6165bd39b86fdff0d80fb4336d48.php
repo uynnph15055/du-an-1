@@ -1,35 +1,37 @@
-@extends('customer.layout.layout')
-@section('title', 'Câu Hỏi')
-@section('link')
+
+<?php $__env->startSection('title', 'Câu Hỏi'); ?>
+<?php $__env->startSection('link'); ?>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500&family=Montserrat:ital,wght@0,200;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
-@endsection
-@section('main_content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('main_content'); ?>
 <!-- <div style="margin-top:130px" class="container bgr-white">
     <div class="container-fluid ">
         <div class="quiz-lesson-container">
             <div class="quiz-container">
-                @if(isset($dataQuestion))
+                <?php if(isset($dataQuestion)): ?>
                 <h5 class="quiz__question">
-                    {{$dataQuestion['question']}}
+                    <?php echo e($dataQuestion['question']); ?>
+
                 </h5>
-                @endif
+                <?php endif; ?>
                 <div class="quiz__img">
-                    <img class="img-fluid" src="./public/img/{{$dataQuestion['question_img']}}" alt="">
+                    <img class="img-fluid" src="./public/img/<?php echo e($dataQuestion['question_img']); ?>" alt="">
                 </div>
                 <div class="quiz-content">
                     <form action="quzi-answer" method="POST" class="quiz-answer">
-                        @if($countAnswers>1)
+                        <?php if($countAnswers>1): ?>
                         <div class="list-answer">
                             <div class="inputGroup">
-                                <input type="hidden" name="question_id" value="{{$dataQuestion['question_id']}}">
+                                <input type="hidden" name="question_id" value="<?php echo e($dataQuestion['question_id']); ?>">
                                 <input id="option1" name="anwer_one" value="1" type="checkbox" />
                                 <label class="" for="option1">
                                     <div class="grid">
                                         <span class="index-option">A</span>
                                         <p>
-                                            {{$dataQuestion['anwer_one']}}
+                                            <?php echo e($dataQuestion['anwer_one']); ?>
+
                                         </p>
                                     </div>
                                 </label>
@@ -40,7 +42,8 @@
                                     <div class="grid">
                                         <span class="index-option">B</span>
                                         <p>
-                                            {{$dataQuestion['anwer_two']}}
+                                            <?php echo e($dataQuestion['anwer_two']); ?>
+
                                         </p>
                                     </div>
                                 </label>
@@ -51,7 +54,8 @@
                                     <div class="grid">
                                         <span class="index-option">C</span>
                                         <p>
-                                            {{$dataQuestion['anwer_three']}}
+                                            <?php echo e($dataQuestion['anwer_three']); ?>
+
                                         </p>
                                     </div>
                                 </label>
@@ -62,13 +66,14 @@
                                     <div class="grid">
                                         <span class="index-option">D</span>
                                         <p>
-                                            {{$dataQuestion['anwer_four']}}
+                                            <?php echo e($dataQuestion['anwer_four']); ?>
+
                                         </p>
                                     </div>
                                 </label>
                             </div>
                         </div>
-                        @else
+                        <?php else: ?>
 
                         <div class="list-answer">
                             <div class="inputGroup">
@@ -77,7 +82,8 @@
                                     <div class="grid">
                                         <span class="index-option">A</span>
                                         <p>
-                                            {{$dataQuestion['anwer_one']}}
+                                            <?php echo e($dataQuestion['anwer_one']); ?>
+
                                         </p>
                                     </div>
                                 </label>
@@ -88,7 +94,8 @@
                                     <div class="grid">
                                         <span class="index-option">B</span>
                                         <p>
-                                            {{$dataQuestion['anwer_two']}}
+                                            <?php echo e($dataQuestion['anwer_two']); ?>
+
                                         </p>
                                     </div>
                                 </label>
@@ -99,7 +106,8 @@
                                     <div class="grid">
                                         <span class="index-option">C</span>
                                         <p>
-                                            {{$dataQuestion['anwer_three']}}
+                                            <?php echo e($dataQuestion['anwer_three']); ?>
+
                                         </p>
                                     </div>
                                 </label>
@@ -110,13 +118,14 @@
                                     <div class="grid">
                                         <span class="index-option">D</span>
                                         <p>
-                                            {{$dataQuestion['anwer_four']}}
+                                            <?php echo e($dataQuestion['anwer_four']); ?>
+
                                         </p>
                                     </div>
                                 </label>
                             </div>
                         </div>
-                        @endif
+                        <?php endif; ?>
                         <div class="btn-submit">
                             <button type="submit"  class="btn-primary">Submit</button>
                         </div>
@@ -136,41 +145,43 @@
             <aside class="aside__question">
 
                 <h3 class="course__name">
-                    {{ $dataLessonJoinQuestion['subject_name']}}
+                    <?php echo e($dataLessonJoinQuestion['subject_name']); ?>
+
                 </h3>
-                <h4 style="color: #333;" class="lesson__title">Bài học: {{ $dataLessonJoinQuestion['lesson_name']}} </h4>
+                <h4 style="color: #333;" class="lesson__title">Bài học: <?php echo e($dataLessonJoinQuestion['lesson_name']); ?> </h4>
                 <h5 class="quiz__question">
                     <span class="subtitle">Bài tập</span>
                     <?= $dataQuestion['question'] ?>
 
                 </h5>
                 <div class="quiz__img">
-                    <img class="img-fluid" src="./public/img/{{$dataQuestion['question_img']}}" alt="">
+                    <img class="img-fluid" src="./public/img/<?php echo e($dataQuestion['question_img']); ?>" alt="">
                 </div>
                 <div class="quiz-hint">
                     <h5 class="subtitle quiz-hint__title">Gợi ý</h5>
-                    Chọn {{$countAnswers}} đáp án
+                    Chọn <?php echo e($countAnswers); ?> đáp án
                 </div>
             </aside>
             <div class="quiz-container">
                 <div class="index-quiz">
                     <?php $index = 1 ?>
-                    @foreach( $dataQuestionInLesson as $key)
-                    <a href="quzi?question_id={{$key['question_id']}}" class="index__quiz"><?= $index++ ?></a>
-                    @endforeach
+                    <?php $__currentLoopData = $dataQuestionInLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><?= $index++ ?></a>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <div class="quiz-content">
                     <form action="quzi-answer" method="POST" class="quiz-answer">
-                        @if($countAnswers>1)
+                        <?php if($countAnswers>1): ?>
                         <div class="list-answer">
                             <div class="inputGroup">
-                                <input type="hidden" name="question_id" value="{{$dataQuestion['question_id']}}">
+                                <input type="hidden" name="question_id" value="<?php echo e($dataQuestion['question_id']); ?>">
                                 <input id="option1" name="anwer_one" value="1" type="checkbox" />
                                 <label class="" for="option1">
                                     <div class="grid">
                                         <span class="index-option">A</span>
                                         <p>
-                                            {{$dataQuestion['answer_one']}}
+                                            <?php echo e($dataQuestion['answer_one']); ?>
+
                                         </p>
                                     </div>
                                 </label>
@@ -182,7 +193,8 @@
                                     <div class="grid">
                                         <span class="index-option">B</span>
                                         <p>
-                                            {{$dataQuestion['answer_two']}}
+                                            <?php echo e($dataQuestion['answer_two']); ?>
+
                                         </p>
                                     </div>
                                 </label>
@@ -193,7 +205,8 @@
                                     <div class="grid">
                                         <span class="index-option">C</span>
                                         <p>
-                                            {{$dataQuestion['answer_three']}}
+                                            <?php echo e($dataQuestion['answer_three']); ?>
+
                                         </p>
                                     </div>
                                 </label>
@@ -204,23 +217,25 @@
                                     <div class="grid">
                                         <span class="index-option">D</span>
                                         <p>
-                                            {{$dataQuestion['answer_four']}}
+                                            <?php echo e($dataQuestion['answer_four']); ?>
+
                                         </p>
                                     </div>
                                 </label>
                             </div>
                         </div>
-                        @else
+                        <?php else: ?>
 
                         <div class="list-answer">
                             <div class="inputGroup">
-                                <input type="hidden" name="question_id" value="{{$dataQuestion['question_id']}}">
+                                <input type="hidden" name="question_id" value="<?php echo e($dataQuestion['question_id']); ?>">
                                 <input id="option1" name="anwer_one" value="1" type="radio" />
                                 <label class="" for="option1">
                                     <div class="grid">
                                         <span class="index-option">A</span>
                                         <p>
-                                            {{$dataQuestion['answer_one']}}
+                                            <?php echo e($dataQuestion['answer_one']); ?>
+
                                         </p>
                                     </div>
                                 </label>
@@ -231,7 +246,8 @@
                                     <div class="grid">
                                         <span class="index-option">B</span>
                                         <p>
-                                            {{$dataQuestion['answer_two']}}
+                                            <?php echo e($dataQuestion['answer_two']); ?>
+
                                         </p>
                                     </div>
                                 </label>
@@ -242,7 +258,8 @@
                                     <div class="grid">
                                         <span class="index-option">C</span>
                                         <p>
-                                            {{$dataQuestion['answer_three']}}
+                                            <?php echo e($dataQuestion['answer_three']); ?>
+
                                         </p>
                                     </div>
                                 </label>
@@ -253,13 +270,14 @@
                                     <div class="grid">
                                         <span class="index-option">D</span>
                                         <p>
-                                            {{$dataQuestion['answer_four']}}
+                                            <?php echo e($dataQuestion['answer_four']); ?>
+
                                         </p>
                                     </div>
                                 </label>
                             </div>
                         </div>
-                        @endif
+                        <?php endif; ?>
                         <div class="btn-submit" style="display: flex;justify-content: center;">
                             <button type="submit" class="btn-primary">Submit</button>
                         </div>
@@ -273,4 +291,5 @@
 <script src="./public/js/customerJs/tablinks.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/quiz.blade.php ENDPATH**/ ?>

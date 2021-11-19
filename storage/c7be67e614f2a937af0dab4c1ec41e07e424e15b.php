@@ -38,6 +38,7 @@
                 <div class="course-detail-text">
                     <div class="detail-name">
                         <h1 class="course__name">
+                            <?php if(isset($subject)): ?>
                             <?php echo e($subject['subject_name']); ?>
 
                         </h1>
@@ -45,6 +46,7 @@
                             <?php echo e($subject['subject_description']); ?>
 
                         </p>
+                        <?php endif; ?>
                     </div>
                     <div class="detail-content">
                         <?php if(!empty($lesson)): ?>
