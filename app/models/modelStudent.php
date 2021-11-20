@@ -16,4 +16,5 @@ class modelStudent extends DB
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }
+    
 }
