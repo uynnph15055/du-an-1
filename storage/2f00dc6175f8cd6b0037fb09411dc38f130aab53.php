@@ -148,10 +148,10 @@
                     <?php echo e($dataLessonJoinQuestion['subject_name']); ?>
 
                 </h3>
-                <h4 class="lesson__title">Bài học: <?php echo e($dataLessonJoinQuestion['lesson_name']); ?> </h4>
+                <h4 style="color: #333;" class="lesson__title">Bài học: <?php echo e($dataLessonJoinQuestion['lesson_name']); ?> </h4>
                 <h5 class="quiz__question">
                     <span class="subtitle">Bài tập</span>
-                   <?=$dataQuestion['question']?>
+                    <?= $dataQuestion['question'] ?>
 
                 </h5>
                 <div class="quiz__img">
@@ -164,10 +164,27 @@
             </aside>
             <div class="quiz-container">
                 <div class="index-quiz">
-                    <?php $index=1 ?>
+                    <?php
+
+                    use App\Controllers\Frontend\Index;
+
+                    $index = 1;
+                    $user = isset($_SESSION['user_info']) ? $_SESSION['user_info'][0]['student_id'] : null;
+                    ?>
+                  
+                    <br>
+
                     <?php $__currentLoopData = $dataQuestionInLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <a href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><?=$index++?></a>
-                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <a href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><?= $index++ ?></i></a>
+                    <?php if(isset($dataQuestionStatus)): ?>
+                    <?php $__currentLoopData = $dataQuestionStatus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keyQuestionStatus => $valueQuestionStatus): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php if($valueQuestionStatus['question_id']==$key['question_id'] && $valueQuestionStatus['student_id']==$user ): ?>
+                    <a style="background: #46bfd0;" href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><i class="fas fa-check-circle"></i></a>
+                    <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endif; ?>
+
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <div class="quiz-content">
                     <form action="quzi-answer" method="POST" class="quiz-answer">
@@ -228,7 +245,7 @@
 
                         <div class="list-answer">
                             <div class="inputGroup">
-                            <input type="hidden" name="question_id" value="<?php echo e($dataQuestion['question_id']); ?>">
+                                <input type="hidden" name="question_id" value="<?php echo e($dataQuestion['question_id']); ?>">
                                 <input id="option1" name="anwer_one" value="1" type="radio" />
                                 <label class="" for="option1">
                                     <div class="grid">
@@ -278,7 +295,7 @@
                             </div>
                         </div>
                         <?php endif; ?>
-                        <div class="btn-submit">
+                        <div class="btn-submit" style="display: flex;justify-content: center;">
                             <button type="submit" class="btn-primary">Submit</button>
                         </div>
 
@@ -290,6 +307,8 @@
 </div>
 <script src="./public/js/customerJs/tablinks.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
+<script>
+    $a = document.getElementsByName('abc');
+</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/customer/quiz.blade.php ENDPATH**/ ?>

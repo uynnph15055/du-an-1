@@ -6,7 +6,10 @@ use App\Controllers\baseController;
 use App\Models\modelLesson;
 use App\Models\modelQuestion;
 use App\Models\modelMenu;
+use App\Models\modelQuestionStatus;
 use App\Models\modelSubject;
+use App\Models\modelStudent;
+
 
 class Question extends baseController
 {
@@ -19,8 +22,8 @@ class Question extends baseController
     {
         $question_id = isset($_GET['question_id']) ? $_GET['question_id'] : null;
         $biendem_answer = isset($_GET['biendem']) ? $_GET['biendem'] : null;
-        $biendem=0;
-        $biendem+= $biendem_answer;
+        $biendem = 0;
+        $biendem += $biendem_answer;
 
 
         $dataQuestion = modelQuestion::where('question_id', "=", $question_id)->get();
@@ -29,6 +32,11 @@ class Question extends baseController
         $answer = $dataQuestion[0]['answer'];
         $dataLessonJoinQuestion = modelLesson::LessonJoinQuestion($lesson_id);;
         $dataQuestionInLesson = modelQuestion::where('lesson_id', "=", $lesson_id)->get();
+        if (isset($_SESSION['user_info'])) {
+            $student_id = $_SESSION['user_info'][0]['student_id'];
+        }
+        $dataQuestionStatus = modelQuestionStatus::where('student_id', "=",$student_id)->get();
+    //   $this->dd($dataQuestionStatus);
         $answers = explode("/", $answer);
         $countAnswers = count($answers);
 
@@ -39,7 +47,8 @@ class Question extends baseController
             'menu' => $this->menu,
             'dataQuestionInLesson' => $dataQuestionInLesson,
             'countAnswers' => $countAnswers,
-            'biendem'=>$biendem_answer,
+            'biendem' => $biendem_answer,
+            'dataQuestionStatus'=> $dataQuestionStatus
         ]);
     }
 
@@ -70,7 +79,23 @@ class Question extends baseController
                     header("location:quzi?question_id=$question_id");
                     die();
                 } else {
-                   $_SESSION['$right_answer']=1;
+                    if (isset($_SESSION['user_info'])) {
+                        $student_id = $_SESSION['user_info'][0]['student_id'];
+                    }
+                    $dataQuestion = modelQuestion::where('question_id', "=", $question_id)->get();
+                    $lesson_id = $dataQuestion[0]['lesson_id'];
+                    $CountQuestion = modelQuestion::where('lesson_id', "=", $lesson_id)->get();
+                    $CountQuestions = count($CountQuestion);
+                    $a = round(100 / $CountQuestions, 2);
+
+                    $data = [
+                        'student_id' =>  $student_id,
+                        'question_id' => $question_id,
+                        'question_status' => 1,
+                        'question_point' => $a,
+                    ];
+                    modelQuestionStatus::insert($data);
+
                     $_SESSION['success'] = 'Đáp án đúng !!!';
                     header("location:quzi?question_id=$question_id");
                     die();

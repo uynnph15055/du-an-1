@@ -154,9 +154,26 @@
             </aside>
             <div class="quiz-container">
                 <div class="index-quiz">
-                    <?php $index = 1 ?>
+                    <?php
+
+                    use App\Controllers\Frontend\Index;
+
+                    $index = 1;
+                    $user = isset($_SESSION['user_info']) ? $_SESSION['user_info'][0]['student_id'] : null;
+                    ?>
+                  
+                    <br>
+
                     @foreach( $dataQuestionInLesson as $key)
-                    <a href="quzi?question_id={{$key['question_id']}}" class="index__quiz"><?= $index++ ?></a>
+                    <a href="quzi?question_id={{$key['question_id']}}" class="index__quiz"><?= $index++ ?></i></a>
+                    @if(isset($dataQuestionStatus))
+                    @foreach($dataQuestionStatus as $keyQuestionStatus => $valueQuestionStatus)
+                    @if($valueQuestionStatus['question_id']==$key['question_id'] && $valueQuestionStatus['student_id']==$user )
+                    <a style="background: #46bfd0;" href="quzi?question_id={{$key['question_id']}}" class="index__quiz"><i class="fas fa-check-circle"></i></a>
+                    @endif
+                    @endforeach
+                    @endif
+
                     @endforeach
                 </div>
                 <div class="quiz-content">
@@ -272,5 +289,7 @@
 </div>
 <script src="./public/js/customerJs/tablinks.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
+<script>
+    $a = document.getElementsByName('abc');
+</script>
 @endsection
