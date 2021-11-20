@@ -20,19 +20,18 @@ class formLog extends baseController
 
         $dataStudent = modelStudent::where("student_email", "=", $emailSignUp)->get();
         if (!empty($dataStudent)) {
-            echo "Email đã tồn tại !";
+            echo "Email đã tồn tại!";
             die();
         }
         $dataAdmin = modelAdministrators::where("email", "=", $emailSignUp)->get();
         if (!empty($dataAdmin)) {
-            echo "Email đã tồn tại !";
+            echo "Email đã tồn tại!";
             die();
         }
     }
 
 
-    // Check email Ajax Đăng nhập
-
+    // Check email Ajax Đăng ký
     public function register()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -41,28 +40,41 @@ class formLog extends baseController
             if (!empty($student_name) || !empty($student_email) || !empty($student_password)) {
 
                 // Check dữ liệu đầu vào.
+
+                // phần này check không cần show FE
                 if (!filter_var($student_email, FILTER_VALIDATE_EMAIL)) {
-                    $_SESSION['error-form-register'] = "Email không đúng định dạng !!!";
+
+                    $_SESSION['error-form-register'] = "Email không đúng định dạng!";
                     header('Location: dang-nhap-dang-ky');
                     die();
                 }
 
-                if (strlen($student_password) < 6 || strlen($student_password) > 15) {
-                    $_SESSION['error-form-register'] = "Độ dài mật khẩu sai !!!";
+                // phần này check không cần show FE
+                if (strlen(trim($student_password)) <= 4) {
+
+                    $_SESSION['error-form-register'] = "Mật khẩu yếu";
                     header('Location: dang-nhap-dang-ky');
                     die();
                 }
+                // if (strlen(trim($student_password)) <= 8) { MẬT KHẨU TRUNG BÌNH VẪN OK
+                // }
+                // if (strlen(trim($student_password)) > 8) { MẬT KHẨU MẠNH OK
+                // }
 
                 $dataStudent = modelStudent::where("student_email", "=", $student_email)->get();
                 if (!empty($dataStudent)) {
-                    $_SESSION['error-form-register'] = "Email đã tồn tại !!!";
+
+                    $_SESSION['error-form-register'] = "Email đã tồn tại!";
+
                     header('Location: dang-nhap-dang-ky');
                     die();
                 }
 
                 $dataAdmin = modelAdministrators::where("email", "=", $emailSignUp)->get();
                 if (!empty($dataAdmin)) {
-                    $_SESSION['error-form-register'] = "Email đã tồn tại !!!";
+
+                    $_SESSION['error-form-register'] = "Email đã tồn tại!";
+
                     header('Location: dang-nhap-dang-ky');
                     die();
                 }
@@ -81,14 +93,11 @@ class formLog extends baseController
 
                 modelStudent::insertStudent($data);
                 header('Location: dang-nhap-dang-ky');
-            } else {
-                $_SESSION['error-form-register'] = "Bạn đang bỏ trống dữ liệu !!!";
-                header('Location: dang-nhap-dang-ky');
-                die();
-            }
+            } 
         }
     }
 
+    // Check Đăng nhập
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -103,11 +112,11 @@ class formLog extends baseController
                         $_SESSION['user_info'] = $dataStudent;
                         header('Location: ./');
                     } else {
-                        $_SESSION['error-form'] = "Kiểm tra lại thông tin !!!";
+                        $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
                         header('Location: dang-nhap-dang-ky');
                     }
                 } else {
-                    $_SESSION['error-form'] = "Kiểm tra lại thông tin !!!";
+                    $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
                     header('Location: dang-nhap-dang-ky');
                 }
 
@@ -117,15 +126,11 @@ class formLog extends baseController
                         $_SESSION['admin_info'] = $dataAdmin;
                         header('Location: ./quan-tri');
                     } else {
-                        $_SESSION['error-form'] = "Kiểm tra lại thông tin !!! !!!";
+                        $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
                     }
                 } else {
-                    $_SESSION['error-form'] = "Kiểm tra lại thông tin !!! !!!";
+                    $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
                 }
-            } else {
-                $_SESSION['error-form'] = "Bạn đang bỏ trống dữ liệu !!!";
-                header('Location: dang-nhap-dang-ky');
-                die();
             }
         }
     }
