@@ -19,14 +19,19 @@ class adminLesson extends baseController
         $subject_slug = $_GET['mon'];
         $dataSubject =  modelSubject::where("subject_slug", "=", $subject_slug)->get();
         $subject_id = $dataSubject[0]['subject_id'];
-
-        $dataLesson = modelLesson::selectLesson($subject_id);
-        $number = count($dataLesson);
-
+        $page = isset($_GET['trang']) ? $_GET['trang'] : 1;
+        $dataLessons = modelLesson::selectLesson($subject_id);
+        $number = count($dataLessons);
+        $pages = ceil($number / 4);
+        $index = ($page - 1) * 4;
+        $dataLesson = modelLesson::pagSelectLesson($subject_id, $index);
         $this->render("admin.adminLesson.listLesson", [
+            'stt' => $index + 1,
             'subject_id' => $subject_id,
             'dataLesson' => $dataLesson,
             'number' => $number,
+            'page' => $pages,
+            'subject_slug'=>$subject_slug,
         ]);
     }
 
@@ -46,7 +51,8 @@ class adminLesson extends baseController
                 $file = $_FILES['lesson_img'];
 
                 $lesson_link_new = explode('?', filter_var(trim($lesson_link, '?')));
-                $lesson_link_after = $lesson_link_new[1];
+
+                $lesson_link_after = $lesson_link_new[0];
 
 
                 if ($file['size'] > 0) {

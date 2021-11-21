@@ -8,6 +8,7 @@ use App\Models\modelSubject;
 
 class adminSubject extends baseController
 {
+
     //  
     public function index()
     {

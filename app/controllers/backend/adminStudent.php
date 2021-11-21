@@ -13,9 +13,18 @@ class adminStudent extends baseController
         if (!isset($_SESSION['admin_info'])) {
             header('Location: dang-nhap-dang-ky');
         };
-        $dataStudent = modelStudent::all();
+        $page = isset($_GET['trang']) ? $_GET['trang'] :1;
+        $dataStudents = modelStudent::all();
+      
+        $number = count($dataStudents);
+        $pages = ceil($number / 4);
+        $index = ($page - 1) * 4;
+        $dataStudent = modelStudent::selectStudent($index);
         $this->render("admin.adminStudent.listStudent", [
             'dataStudent' => $dataStudent,
+            'stt' => $index + 1,
+            'number' => $number,
+            'page' => $pages,
         ]);
     }
 

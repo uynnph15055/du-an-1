@@ -16,7 +16,16 @@ class modelAdministrators extends DB
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }
-
+    public static function selectAdministrators($index)
+    {
+        $model = new static();
+        $connect = $model->getConnect();
+        $queryBuilder =  "SELECT * FROM  admin ORDER BY id DESC LIMIT $index ,4";
+        $statement = $connect->prepare($queryBuilder);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+    
     public static function updateAdministrators($data)
     {
         $model = new static();

@@ -66,7 +66,7 @@
                 <td>
                     <a class="btn btn-info" href="chi-tiet-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><i class="fas fa-pager"></i></a>
                 </td>
-                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn Sửa môn học này ?')" href="sua-khoa-hoc?id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
+                <td><a class="btn btn-warning" href="sua-khoa-hoc?id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-trash"></i></a></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
