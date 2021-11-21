@@ -2820,6 +2820,7 @@ footer .footer-content .content .footer-links li .link-item {
 
 footer .footer-content .content .footer-links li .link-item:hover {
   color: white;
+  text-shadow: 0 0 5px white;
 }
 
 footer .footer-content .content .footer-copyright {
