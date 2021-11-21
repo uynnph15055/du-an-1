@@ -31,7 +31,7 @@
                                 <div class="comment-img">
                                     <img src="./public/img/{{$userInfo['student_avatar']}}" alt="" class="img-fluid">
                                 </div>
-                                <form method="POST" action="binh-luan-bai-hoc?student_id={{$userInfo['student_id']}}">
+                                <form method="POST" action="binh-luan-bai-hoc?student_id={{$userInfo['student_id']}}&bai={{$lesson_id}}">
                                     <input type="text" name="comment_content" placeholder="Bạn có thắc mắc gì trong bài học này?">
                                     <button type="submit" class="btn btn-comment">
                                         <i class="fas fa-paper-plane"></i>
@@ -68,7 +68,7 @@
 
                         <div id="note-lesson" class="tab-content" style="margin-left: -70px;">
                             @if(empty($dataNote))
-                            <form class="form__note" action="ghi-chu-bai-hoc?student_id={{$userInfo['student_id']}}" method="POST">
+                            <form class="form__note" action="ghi-chu-bai-hoc?student_id={{$userInfo['student_id']}}&bai={{$lesson_id}}" method="POST">
                                 <label class="form__note__title" for="">Tạo ghi chú mới</label>
                                 <div class="note-section-content">
                                     <input class="input__time-note" type="text" placeholder="Thời gian">

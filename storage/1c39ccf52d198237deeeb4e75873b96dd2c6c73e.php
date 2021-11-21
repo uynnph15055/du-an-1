@@ -13,6 +13,9 @@
     <!-- css -->
     <link rel="stylesheet" href="./public/css/customerCss/style.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500&family=Montserrat:ital,wght@0,200;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <?php echo $__env->yieldContent('link'); ?>;
 </head>
 
@@ -47,8 +50,8 @@
                                     <i class="fas fa-bell"></i>
                                 </button>
                                 <div class="account-section action-item">
-                                    <button onclick="toggleShowHide()" id="btn-acc">
-                                        <img style="width:32px" src="./public/img/<?= $user_info[0]['student_avatar'] ?>" alt="">
+                                    <button style="padding: 0; border-radius: 50%; cursor: pointer; overflow: hidden; width: 30px; height: 30px" onclick="toggleShowHide()" id="btn-acc">
+                                        <img style="object-fit: cover; width: 30px; height: 30px" src="./public/img/<?= $user_info[0]['student_avatar'] ?>" alt="">
                                     </button>
                                     <div id="account-list" class="content-container-acc">
                                         <a class="account-item" href="">Thông tin tài khoản</a>
@@ -86,13 +89,59 @@
         <main>
             <?php echo $__env->yieldContent('main_content'); ?>;
         </main>
+        <footer style="margin-top: -250px;background-color: #f1f3f8;">
+            <div class="footer-content">
+                <div class="content">
+                    <div class="footer-social">
+                        <a href="" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <ul class="footer-links">
+                        <li><a class="link-item" href="">Các khóa học</a></li>
+                        <li><a class="link-item" href="">Liên hệ</a></li>
+                        <li><a class="link-item" href="">Giới thiệu</a></li>
+                        <li><a class="link-item" href="">Trợ giúp</a></li>
+                    </ul>
+                    <div class="footer-copyright">
+                        <span>Copyright © 2021 - Course IFT</span>
+                    </div>
+                </div>
+                <div class="gooey-animations">
+                </div>
+            </div>
+
+            <svg xmlns="" version="1.1">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -7" result="goo" />
+                        <feBlend in="SourceGraphic" in2="goo" />
+                    </filter>
+                </defs>
+            </svg>
+
+            <svg viewbox="0 0 1440 328" width="100vw">
+                <defs>
+                    <clipPath id="wave" clipPathUnits="objectBoundingBox" transform="scale(0.00069444444, 0.00304878048)">
+                        <path d="M504.452 27.7002C163.193 -42.9551 25.9595 38.071 0 87.4161V328H1440V27.7002C1270.34 57.14 845.711 98.3556 504.452 27.7002Z" />
+                    </clipPath>
+                </defs>
+            </svg>
+        </footer>
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
     <script src="./public/js/customerJs/darkMode.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(function() {
-     
+
             <?php if (isset($_SESSION['error'])) {
 
             ?>
@@ -129,6 +178,8 @@
             ?>
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./public/js/customerJS/footer.js"></script>
 </body>
 
 </html><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/layout/layout.blade.php ENDPATH**/ ?>

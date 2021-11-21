@@ -178,6 +178,10 @@ switch ($url) {
         $ctr = new adminStudent();
         echo $ctr->index();
         break;
+    case 'xoa-hoc-vien';
+        $ctr = new adminStudent();
+        echo $ctr->deleteStudent();
+        break;
 
         // Banner layout.
     case 'danh-sach-banner';
@@ -193,6 +197,10 @@ switch ($url) {
     case 'thong-tin-nhan-vien';
         $ctr = new inforAdmin;
         echo $ctr->index();
+        break;
+    case 'sua-mau-khau-admin';
+        $ctr = new Administrators;
+        echo $ctr->updatePassword();
         break;
     case 'dang-xuat-nhan-vien';
         $ctr = new inforAdmin;

@@ -328,8 +328,9 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Thông tin
                                 </a>
-                                <a class="dropdown-item" href="thong-tin-nhan-vien">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i>
+
                                     Đổi mật khẩu
                                 </a>
                                 <div class="dropdown-divider"></div>
@@ -338,11 +339,38 @@
                                     Đăng xuất
                                 </a>
                             </div>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Sửa mật khẩu</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="POST" action="sua-mau-khau-admin">
+                                                <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Mật khẩu cũ</label>
+                                                    <input type="password" name="password_old" placeholder="Mật khẩu cũ" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleInputPassword1" class="form-label">Mật khẩu mới</label>
+                                                    <input type="password" name="password_new" placeholder="Mật khẩu mới" class="form-control" id="exampleInputPassword1">
+                                                </div>
+                                                <button type="submit" class="btn btn-success">Thay đổi</button>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                         @endif
                     </ul>
 
                 </nav>
+
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->

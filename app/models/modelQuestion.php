@@ -23,12 +23,23 @@ class modelQuestion extends DB
     {
         // var_dump($data);
         // die();
-  
-        $conn =$this->getConnect();
+
+        $conn = $this->getConnect();
         $queryBuilder = "SELECT * FROM `question` WHERE lesson_id=:id";
         $stmt = $conn->prepare($queryBuilder);
-        $stmt->execute(['id'=>$id]);
+        $stmt->execute(['id' => $id]);
         return $stmt->fetchAll();
+    }
 
+    public static function innerJoin($lesson_id)
+    {
+        $model =  new static();
+        $conn = $model->getConnect();
+        $queryBuilder = "SELECT * FROM question INNER JOIN questionstatus ON question.question_id = questionstatus.question_id INNER JOIN student ON questionstatus.student_id = student.student_id WHERE question.lesson_id = :lesson_id";
+        $stmt = $conn->prepare($queryBuilder);
+        $stmt->execute([
+            'lesson_id' => $lesson_id,
+        ]);
+        return $stmt->fetchAll();
     }
 }

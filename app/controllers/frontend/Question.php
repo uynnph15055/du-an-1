@@ -35,10 +35,13 @@ class Question extends baseController
         if (isset($_SESSION['user_info'])) {
             $student_id = $_SESSION['user_info'][0]['student_id'];
         }
-        $dataQuestionStatus = modelQuestionStatus::where('student_id', "=",$student_id)->get();
-    //   $this->dd($dataQuestionStatus);
+
+        //  Lấy ra câu hỏi liên quan đến student và trạng thái.
+        $dataQuestionStatus = modelQuestion::innerJoin($lesson_id);
+        // $this->dd($dataQuestionStatus);
         $answers = explode("/", $answer);
         $countAnswers = count($answers);
+        // $this->dd($dataQuestionStatus);
 
 
         $this->render("customer.quiz", [
@@ -48,7 +51,7 @@ class Question extends baseController
             'dataQuestionInLesson' => $dataQuestionInLesson,
             'countAnswers' => $countAnswers,
             'biendem' => $biendem_answer,
-            'dataQuestionStatus'=> $dataQuestionStatus
+            'dataQuestionStatus' => $dataQuestionStatus
         ]);
     }
 

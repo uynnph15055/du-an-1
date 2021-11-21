@@ -1,6 +1,6 @@
 // filter email
 var filterEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  
+
 var formSignUp = document.querySelector("#form-sign-up");
 var formSignIn = document.querySelector("#form-sign-in");
 
@@ -51,20 +51,16 @@ function checkPass() {
   if (checkPassReg.value.trim() == "") {
     showError(".check-pass-reg", "Vui lòng nhập nhập mật khẩu!", "red");
     return false;
-  }
-  else if(checkPassReg.value.trim().length <= 4){
+  } else if (checkPassReg.value.trim().length <= 4) {
     showError(".check-pass-reg", "Mật khẩu yếu", "red");
     return false;
-  }
-  else if(checkPassReg.value.trim().length <= 8){
+  } else if (checkPassReg.value.trim().length <= 8) {
     showError(".check-pass-reg", "Mật khẩu trung bình", "orange");
     return true;
-  }
-  else if(checkPassReg.value.trim().length > 8){
+  } else if (checkPassReg.value.trim().length > 8) {
     showError(".check-pass-reg", "Mật khẩu mạnh", "green");
     return true;
-  }
-  else {
+  } else {
     showError(".check-pass-reg", "", "");
     return true;
   }
@@ -72,6 +68,7 @@ function checkPass() {
 
 // check email login
 var checkEmailLogIn = document.querySelector("#email-sign-in");
+
 function checkEmailLogin() {
   if (checkEmailLogIn.value.trim() == "") {
     showError(".check-email-logIn", "Vui lòng nhập nhập email!", "red");

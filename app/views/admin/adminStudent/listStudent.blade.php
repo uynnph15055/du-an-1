@@ -11,7 +11,6 @@
                 <th>Ảnh</th>
                 <th>Email</th>
                 <th width="80px">Chi tiết</th>
-                <th width="80px">Sửa</th>
                 <th width="80px">Xóa</th>
             </tr>
         </thead>
@@ -28,8 +27,7 @@
                 </td>
                 <td>{{$key['student_email']}}</td>
                 <td><a class="btn btn-success" href=""><i class="fas fa-address-card"></i></a></td>
-                <td><a class="btn btn-warning" href=""><i class="fas fa-edit"></i></a></td>
-                <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa menu này ?')" href=""><i class="fas fa-trash"></i></a></td>
+                <td><a class="btn btn-danger" href="xoa-hoc-vien?student_id={{$key['student_id']}}" onclick="return confirm('Bạn có muốn xóa học viên này ?')" href=""><i class="fas fa-trash"></i></a></td>
             </tr>
             @endforeach
         </tbody>

@@ -153,4 +153,40 @@ class Administrators extends baseController
             }
         }
     }
+
+    public function updatePassword()
+    {
+
+        if (isset($_SESSION['admin_info'])) {
+            $dataAdmin = $_SESSION['admin_info'];
+            // $this->dd($dataAdmin);
+        };
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            extract($_POST);
+
+            $password_info = $dataAdmin[0]['password'];
+            $admin_id = $dataAdmin[0]['id'];
+            if (!empty($password_old) || !empty($password_new)) {
+                if (password_verify($password_old, $password_info)) {
+
+                    $data = [
+                        'id' => $admin_id,
+                        'password' => $password_new,
+                    ];
+                    modelAdministrators::updatePassword($data);
+                    $_SESSION['success'] = "Cập nhật mật khẩu thành công !";
+                    header('location: ' . $_SERVER['HTTP_REFERER']);
+                    die();
+                } else {
+                    $_SESSION['error'] = "Sai mật khẩu cũ !";
+                    header('location: ' . $_SERVER['HTTP_REFERER']);
+                    die();
+                }
+            } else {
+                $_SESSION['error'] = "Bạn đang bỏ trống dữ liệu !";
+                header('location: ' . $_SERVER['HTTP_REFERER']);
+                die();
+            }
+        }
+    }
 }

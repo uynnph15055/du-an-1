@@ -25,4 +25,13 @@ class modelAdministrators extends DB
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }
+
+    public static function updatePassword($data)
+    {
+        $model = new static();
+        $conn = $model->getConnect();
+        $queryBuilder = "UPDATE  $model->table SET password=:password WHERE id=:id";
+        $stmt = $conn->prepare($queryBuilder);
+        $stmt->execute($data);
+    }
 }

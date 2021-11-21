@@ -44,7 +44,7 @@ class Lesson extends baseController
             $lessonDta = modelLesson::where("lesson_slug", "=", $lesson_slug)->get();
             $lessonFist = $lessonDta[0];
             // Lưu id cho xuống phần bình luận.
-            $_SESSION['lesson_id'] = $lessonFist['lesson_id'];
+
             // $this->dd($_SESSION['lesson_id']);
         }
 
@@ -57,6 +57,7 @@ class Lesson extends baseController
 
         // Lấy id của lesson 
         $lesson_id = $lessonFist['lesson_id'];
+        $_SESSION['lesson_id'] = $lesson_id;
         // $this->dd($lesson_id);
         $dataComment = modelComment::getAll($lesson_id);
         $dataNote = modelNote::getAll($lesson_id);
@@ -72,6 +73,7 @@ class Lesson extends baseController
             'menu' => $this->menu,
             'dataComment' => $dataComment,
             'dataNote' => $dataNote,
+            'lesson_id' => $lesson_id,
         ]);
     }
 
@@ -90,7 +92,7 @@ class Lesson extends baseController
         // $this->dd($cmtt_id);
         if (isset($_SESSION['lesson_id'])) {
             $lesson_id = $_SESSION['lesson_id'];
-            unset($_SESSION['lesson_id']);
+            // unset($_SESSION['lesson_id']);
         }
 
         modelComment::delete('cmtt_id', "=", $cmtt_id)->executeQuery();
@@ -127,10 +129,7 @@ class Lesson extends baseController
     public function note()
     {
         $student_id = isset($_GET['student_id']) ? $_GET['student_id'] : null;
-        if (isset($_SESSION['lesson_id'])) {
-            $lesson_id = $_SESSION['lesson_id'];
-            unset($_SESSION['lesson_id']);
-        }
+        $lesson_id = isset($_GET['bai']) ? $_GET['bai'] : null;
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             extract($_POST);
@@ -165,10 +164,7 @@ class Lesson extends baseController
     public function comment()
     {
         $student_id = isset($_GET['student_id']) ? $_GET['student_id'] : null;
-        if (isset($_SESSION['lesson_id'])) {
-            $lesson_id = $_SESSION['lesson_id'];
-            unset($_SESSION['lesson_id']);
-        }
+        $lesson_id = isset($_GET['bai']) ? $_GET['bai'] : null;
         // $this->dd($lesson_id);
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {

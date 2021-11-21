@@ -56,10 +56,6 @@ class formLog extends baseController
                     header('Location: dang-nhap-dang-ky');
                     die();
                 }
-                // if (strlen(trim($student_password)) <= 8) { MẬT KHẨU TRUNG BÌNH VẪN OK
-                // }
-                // if (strlen(trim($student_password)) > 8) { MẬT KHẨU MẠNH OK
-                // }
 
                 $dataStudent = modelStudent::where("student_email", "=", $student_email)->get();
                 if (!empty($dataStudent)) {
@@ -93,7 +89,7 @@ class formLog extends baseController
 
                 modelStudent::insertStudent($data);
                 header('Location: dang-nhap-dang-ky');
-            } 
+            }
         }
     }
 
@@ -109,9 +105,9 @@ class formLog extends baseController
                 $dataStudent = modelStudent::where('student_email', "=", $student_email)->get();
                 if (!empty($dataStudent)) {
                     if (password_verify($student_password, $dataStudent[0]['student_password'])) {
-                        // Tài khoản học viên
                         $_SESSION['user_info'] = $dataStudent;
                         header('Location: ./');
+                        // header('location: ' . $_SERVER['HTTP_REFERER']);
                     } else {
                         $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
                         header('Location: dang-nhap-dang-ky');
@@ -124,7 +120,6 @@ class formLog extends baseController
                 $dataAdmin = modelAdministrators::where("email", "=", $student_email)->get();
                 if (!empty($dataAdmin)) {
                     if (password_verify($student_password, $dataAdmin[0]['password'])) {
-                        // Tài khoản người quản trị
                         $_SESSION['admin_info'] = $dataAdmin;
                         header('Location: ./quan-tri');
                     } else {

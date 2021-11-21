@@ -18,4 +18,11 @@ class adminStudent extends baseController
             'dataStudent' => $dataStudent,
         ]);
     }
+
+    public function deleteStudent()
+    {
+        $student_id = isset($_GET['student_id'])  ? $_GET['student_id'] : null;
+        modelStudent::delete("student_id", "=", $student_id)->executeQuery();
+        header('location: ' . $_SERVER['HTTP_REFERER']);
+    }
 }
