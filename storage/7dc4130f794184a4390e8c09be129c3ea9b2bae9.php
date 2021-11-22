@@ -16,7 +16,7 @@
         </thead>
         <tbody>
             <?php
-            $index = 1;
+            $index = $stt;
             ?>
             <?php $__currentLoopData = $dataStudent; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
@@ -32,6 +32,22 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
+    <nav style="float: right;" aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <?php for($i = 1 ; $i <=$page ; $i++): ?> <li class="page-item"><a class="page-link" href="?trang=<?php echo e($i); ?>"><?php echo e($i); ?></a></li>
+                <?php endfor; ?>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+        </ul>
+    </nav>
 </div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/admin/adminStudent/listStudent.blade.php ENDPATH**/ ?>

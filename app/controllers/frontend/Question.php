@@ -7,8 +7,6 @@ use App\Models\modelLesson;
 use App\Models\modelQuestion;
 use App\Models\modelMenu;
 use App\Models\modelQuestionStatus;
-use App\Models\modelSubject;
-use App\Models\modelStudent;
 
 
 class Question extends baseController
@@ -26,6 +24,7 @@ class Question extends baseController
         $biendem += $biendem_answer;
 
 
+
         $dataQuestion = modelQuestion::where('question_id', "=", $question_id)->get();
         $lesson_id = $dataQuestion[0]['lesson_id'];
 
@@ -37,7 +36,7 @@ class Question extends baseController
         }
 
         //  Lấy ra câu hỏi liên quan đến student và trạng thái.
-        $dataQuestionStatus = modelQuestion::innerJoin($lesson_id);
+        // $dataQuestionStatus = modelQuestion::innerJoin($lesson_id);
         // $this->dd($dataQuestionStatus);
         $answers = explode("/", $answer);
         $countAnswers = count($answers);
@@ -51,7 +50,8 @@ class Question extends baseController
             'dataQuestionInLesson' => $dataQuestionInLesson,
             'countAnswers' => $countAnswers,
             'biendem' => $biendem_answer,
-            'dataQuestionStatus' => $dataQuestionStatus
+            'lesson_id' => $lesson_id,
+            'subject_slug' => $dataLessonJoinQuestion[0]['subject_slug']
         ]);
     }
 
@@ -74,12 +74,14 @@ class Question extends baseController
                 // $this->dd($id);
                 $question = modelQuestion::where('question_id', "=", $id)->get();
                 $answerQuestion = $question[0]['answer'];
-                // $this->dd($answerQuestion);
+
+                // ------------------
+                $Question = modelQuestion::where('lesson_id', "=", $lesson_id)->get();
 
                 if ($answer_check !== $answerQuestion) {
 
                     $_SESSION['error'] = 'Đáp án sai !!!';
-                    header("location:quzi?question_id=$question_id");
+                    header('location: ' . $_SERVER['HTTP_REFERER']);
                     die();
                 } else {
                     if (isset($_SESSION['user_info'])) {
@@ -97,15 +99,25 @@ class Question extends baseController
                         'question_status' => 1,
                         'question_point' => $a,
                     ];
+                    // check câu trả lời đúng.
+                    $dataStatusQuestion = modelQuestionStatus::where_and($question_id, $student_id);
+                    $questionStatus = $dataStatusQuestion[0]['question_status'];
+                    if ($questionStatus == 1) {
+                        $_SESSION['error'] = 'Đáp án này bạn đã làn đúng trước đó !!!';
+                        header('location: ' . $_SERVER['HTTP_REFERER']);
+                        die();
+                    }
+
                     modelQuestionStatus::insert($data);
 
+
                     $_SESSION['success'] = 'Đáp án đúng !!!';
-                    header("location:quzi?question_id=$question_id");
+                    header('location: ' . $_SERVER['HTTP_REFERER']);
                     die();
                 }
             } else {
                 $_SESSION['error'] = 'Chưa chọn đáp án !!!';
-                header("location:quzi?question_id=$question_id");
+                header('location: ' . $_SERVER['HTTP_REFERER']);
                 die();
             }
         }

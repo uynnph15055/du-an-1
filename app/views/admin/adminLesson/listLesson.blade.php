@@ -48,15 +48,15 @@
                 <th>STT</th>
                 <th>Tên bài</th>
                 <th>Ảnh</th>
-                <th>Trang thái</th>
                 <th>Ngày Đăng</th>
+                <th width="78px">CMT</th>
                 <th width="78px">Câu hỏi</th>
                 <th width="78px">Sửa</th>
                 <th width="78px">Xóa</th>
             </tr>
         </thead>
         <tbody>
-        <?php
+            <?php
             $index = $stt;
             ?>
             @foreach($dataLesson as $key)
@@ -66,15 +66,9 @@
                 <td>
                     <img width="50px" src="./public/img/{{$key['lesson_img']}}" alt="">
                 </td>
-                <!-- <td>{{$key['cate_name']}}</td> -->
-
-                <td> @if($key['lesson_status']==0)
-                    <span style="color:green">Đang mở</span>
-                    @endif
-                </td>
                 <td>{{$key['date_post']}}</td>
-
-                <td><a class="btn btn-dark" href="danh-sach-cau-hoi?lesson_id={{$key['lesson_id']}}"><i class="fas fa-question-circle"></i></a></td>
+                <td><a class="btn btn-dark" href="danh-sach-cau-hoi?lesson_id={{$key['lesson_id']}}"><i class="fas fa-comment"></i></a></td>
+                <td><a class="btn btn-success" href="danh-sach-cau-hoi?lesson_id={{$key['lesson_id']}}"><i class="fas fa-question-circle"></i></a></td>
                 <td><a class="btn btn-warning" href="trang-sua-bai-hoc?id={{$key['lesson_id']}}&subject_id={{$key['subject_id']}}"><i class="fas fa-edit"></i></a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-bai-hoc?id={{$key['lesson_id']}}&subject_id={{$key['subject_id']}}"><i class="fas fa-trash"></i></a></td>
             </tr>

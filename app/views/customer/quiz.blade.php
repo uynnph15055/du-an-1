@@ -10,7 +10,6 @@
     <div class="container-fluid ">
         <div class="quiz-lesson-container">
             <aside class="aside__question">
-
                 <h3 class="course__name" style="margin-top: 20px;font-size:30px">
                     {{ $dataLessonJoinQuestion['subject_name']}}
                 </h3>
@@ -40,11 +39,13 @@
 
                     <br>
                     @foreach ($dataQuestionInLesson as $key)
+
                     <a href="quzi?question_id={{$key['question_id']}}" class="index__quiz"><?= $index++ ?></a>
                     @endforeach
                 </div>
                 <div class="quiz-content">
                     <form action="quzi-answer" method="POST" class="quiz-answer">
+                        <input type="hidden" name="lesson_id" value="{{$lesson_id}}">
                         @if($countAnswers>1)
                         <div class="list-answer">
                             <div class="inputGroup">
@@ -145,7 +146,7 @@
                         </div>
                         @endif
                         <div class="btn-submit" style="display: flex;justify-content: center;">
-                            <button type="submit" class="btn-primary">Submit</button>
+                            <button type="submit" name="submit" class="btn-primary">Submit</button>
                             <a style="margin-left: 20px;" href="" class="btn-primary">Chọn lại</a>
                         </div>
 
@@ -159,5 +160,59 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
     $a = document.getElementsByName('abc');
+</script>
+@endsection
+@section('javascript')
+<script>
+    $(function() {
+
+        <?php if (isset($_SESSION['error'])) {
+
+        ?>
+
+            Swal.fire({
+                icon: 'warning',
+                title: '<p  style="font-size: 19px;"><?= $_SESSION['error']; ?></p>',
+
+                timer: 3000,
+                width: 400,
+                padding: '4em',
+                confirmButtonText: '<i style="padding: 3px;font-size: 20px">OK</i>',
+            })
+
+        <?php
+            unset($_SESSION['error']);
+        } elseif (isset($_SESSION['success'])) { ?>
+            Swal.fire({
+
+                icon: 'success',
+                title: '<p  style="font-size: 22px;"><?= $_SESSION['success']; ?></p>',
+                showConfirmButton: false,
+                timer: 1500,
+                width: 450,
+                padding: '5em',
+
+            })
+            var index = 0;
+            <?php if (isset($_GET["question_id"]) && !empty($_GET["question_id"])) : ?>
+                <?php foreach ($dataQuestionInLesson as $key) : ?>
+                    index += 1;
+                    if (Number(<?= $key['question_id'] ?>) > Number(<?= $_GET["question_id"] ?>)) {
+                        setTimeout(function() {
+                            window.location = "quzi?question_id=<?= $key['question_id'] ?>";
+                        }, 1500);
+                        die;
+                    } else if (Number(<?= count($dataQuestionInLesson) ?>) == index) {
+                        window.location = "bai-hoc?mon=<?= $subject_slug ?>";
+                    }
+
+                <?php endforeach  ?>
+            <?php endif  ?>
+
+
+        <?php unset($_SESSION['success']);
+        }
+        ?>
+    });
 </script>
 @endsection

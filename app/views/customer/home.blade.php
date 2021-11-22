@@ -310,7 +310,7 @@
 
         <div class="container-fluid">
             <div class="action-call">
-                <button class="btn-action">Bắt đầu học</button>
+                <a href="./khoa-hoc" class="btn-action">Bắt đầu học</a>
             </div>
         </div>
     </main>
