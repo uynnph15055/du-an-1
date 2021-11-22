@@ -16,5 +16,14 @@ class modelStudent extends DB
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }
+    public static function selectStudent($index)
+    {
+        $model = new static();
+        $connect = $model->getConnect();
+        $queryBuilder =  "SELECT * FROM student ORDER BY student_id DESC LIMIT $index ,4";
+        $statement = $connect->prepare($queryBuilder);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
     
 }

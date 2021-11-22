@@ -41,7 +41,7 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <!-- <h5 style="margin-bottom:-30px">Tổng số : <?php echo e($number); ?> môn</h5> -->
     </div>
-    <span style="float:right;font-style:italic">Tổng có : <?php echo e($number); ?> menu</span>
+    <span style="float:right;font-style:italic">Tổng có : <?php echo e($number); ?> bài</span>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -56,8 +56,8 @@
             </tr>
         </thead>
         <tbody>
-            <?php
-            $index = 1;
+        <?php
+            $index = $stt;
             ?>
             <?php $__currentLoopData = $dataLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
@@ -73,14 +73,30 @@
                     <?php endif; ?>
                 </td>
                 <td><?php echo e($key['date_post']); ?></td>
-               
+
                 <td><a class="btn btn-dark" href="danh-sach-cau-hoi?lesson_id=<?php echo e($key['lesson_id']); ?>"><i class="fas fa-question-circle"></i></a></td>
-                <td><a class="btn btn-warning" onclick="return confirm('Bạn có muốn sửa môn học này ?')" href="trang-sua-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
+                <td><a class="btn btn-warning" href="trang-sua-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-trash"></i></a></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
+    <nav style="float: right;" aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <?php for($i = 1 ; $i <=$page ; $i++): ?> <li class="page-item"><a class="page-link" href="?trang=<?php echo e($i); ?>&mon=<?php echo e($subject_slug); ?>"><?php echo e($i); ?></a></li>
+                <?php endfor; ?>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+        </ul>
+    </nav>
     <?php endif; ?>
 </div>
 <?php $__env->stopSection(); ?>

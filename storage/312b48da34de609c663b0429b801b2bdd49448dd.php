@@ -1,7 +1,7 @@
 
 <?php $__env->startSection('title', 'Khóa học'); ?>
 <?php $__env->startSection('main_content'); ?>
-<main class="bgr-light" style="margin-top: 40px;">
+<main class="bgr-light" style="margin-top: 80px;">
     <div class="learning-section">
         <div class="container-fluid">
             <div class="learning-fluid">
@@ -31,7 +31,7 @@
                                 <div class="comment-img">
                                     <img src="./public/img/<?php echo e($userInfo['student_avatar']); ?>" alt="" class="img-fluid">
                                 </div>
-                                <form method="POST" action="binh-luan-bai-hoc?student_id=<?php echo e($userInfo['student_id']); ?>">
+                                <form method="POST" action="binh-luan-bai-hoc?student_id=<?php echo e($userInfo['student_id']); ?>&bai=<?php echo e($lesson_id); ?>">
                                     <input type="text" name="comment_content" placeholder="Bạn có thắc mắc gì trong bài học này?">
                                     <button type="submit" class="btn btn-comment">
                                         <i class="fas fa-paper-plane"></i>
@@ -71,7 +71,7 @@
 
                         <div id="note-lesson" class="tab-content" style="margin-left: -70px;">
                             <?php if(empty($dataNote)): ?>
-                            <form class="form__note" action="ghi-chu-bai-hoc?student_id=<?php echo e($userInfo['student_id']); ?>" method="POST">
+                            <form class="form__note" action="ghi-chu-bai-hoc?student_id=<?php echo e($userInfo['student_id']); ?>&bai=<?php echo e($lesson_id); ?>" method="POST">
                                 <label class="form__note__title" for="">Tạo ghi chú mới</label>
                                 <div class="note-section-content">
                                     <input class="input__time-note" type="text" placeholder="Thời gian">
@@ -83,13 +83,14 @@
                             </form>
                             <?php else: ?>
                             <div class="note-lesson-list">
+                                <?php $__currentLoopData = $dataNote; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="note-lesson-item">
                                     <span class="">
                                     </span>
                                     <div class="note-text-container">
                                         <span class="lesson-title">Nội dung ghi chú</span>
                                         <p class="note-content">
-                                            <?php echo e($dataNote['content_note']); ?>
+                                            <?php echo e($key['content_note']); ?>
 
                                         </p>
                                     </div>
@@ -98,10 +99,11 @@
                                             <a href=""><i class="fas fa-pencil-alt"></i></a>
                                         </button>
                                         <button class="item-ctrl-btn">
-                                            <a href="xoa-ghi-chu?note_id=<?php echo e($dataNote['note_id']); ?>"><i class="fas fa-trash"></i></a>
+                                            <a href="xoa-ghi-chu?note_id=<?php echo e($key['note_id']); ?>"><i class="fas fa-trash"></i></a>
                                         </button>
                                     </div>
                                 </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                             <?php endif; ?>
                         </div>

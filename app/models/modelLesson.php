@@ -7,7 +7,7 @@ use App\config\DB;
 class modelLesson extends DB
 {
     protected $table = "lesson";
-
+    protected $item_per_page = 4;
     // Truy vẫn thêm dữ liệu vào bảng.
     public static function insertLesson($data)
     {
@@ -43,6 +43,21 @@ class modelLesson extends DB
         $statement->execute(['id' => $id]);
         return  $statement->fetchAll();
     }
+
+    // phân trang theo môn học
+
+    public static function pagSelectLesson($id,$index)
+    {
+        $model = new static();
+        $connect = $model->getConnect();
+        $queryBuilder =  " SELECT * FROM `lesson` INNER JOIN `subject` ON lesson.subject_id = subject.subject_id WHERE lesson.subject_id=:id LIMIT $index ,4";
+
+        $statement = $connect->prepare($queryBuilder);
+        $statement->execute(['id' => $id,
+        ]);
+        return  $statement->fetchAll();
+    }
+
     public static function LessonJoinQuestion($id)
     {
         $model = new static();
@@ -52,8 +67,8 @@ class modelLesson extends DB
         $statement->execute(['id' => $id]);
         return  $statement->fetchAll();
     }
-    
-   
+
+
     public static function joinQuestion($id)
     {
         $model = new static();

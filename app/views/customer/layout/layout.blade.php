@@ -25,7 +25,7 @@
             <div class="navbar-container">
                 <div class="navbar-fluid">
                     <div class="navbar-logo">
-                        <a href="">
+                        <a href="./">
                             <img src="./public/img/images/logo-main.png" alt="" class="img-fluid img__logo">
                         </a>
                     </div>
@@ -89,7 +89,11 @@
         <main>
             @yield('main_content');
         </main>
+<<<<<<< HEAD
         <footer style="">
+=======
+        <footer style="margin-top: -100px;">
+>>>>>>> 20f8f1e610214dbeb1f34570d2c248f03069b9d8
             <div class="footer-content">
                 <div class="content">
                     <div class="footer-social">
@@ -139,47 +143,10 @@
     <script src="./public/js/customerJs/toggle.js"></script>
     <script src="./public/js/customerJs/darkMode.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        $(function() {
 
-            <?php if (isset($_SESSION['error'])) {
-
-            ?>
-
-                Swal.fire({
-                    icon: 'warning',
-                    title: '<p  style="font-size: 19px;"><?= $_SESSION['error']; ?></p>',
-
-                    timer: 3000,
-                    width: 400,
-                    padding: '4em',
-                    confirmButtonText: '<i style="padding: 3px;font-size: 20px">OK</i>',
-
-
-
-                })
-
-            <?php
-                unset($_SESSION['error']);
-            } elseif (isset($_SESSION['success'])) { ?>
-                Swal.fire({
-
-                    icon: 'success',
-                    title: '<p  style="font-size: 22px;"><?= $_SESSION['success']; ?></p>',
-                    showConfirmButton: false,
-                    timer: 1500,
-                    width: 450,
-                    padding: '5em',
-
-                })
-
-            <?php unset($_SESSION['success']);
-            }
-            ?>
-        });
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./public/js/customerJS/footer.js"></script>
+    @yield('javascript')
 </body>
 
 </html>

@@ -48,8 +48,8 @@
                 <th>STT</th>
                 <th>Tên bài</th>
                 <th>Ảnh</th>
-                <th>Trang thái</th>
                 <th>Ngày Đăng</th>
+                <th width="78px">CMT</th>
                 <th width="78px">Câu hỏi</th>
                 <th width="78px">Sửa</th>
                 <th width="78px">Xóa</th>
@@ -57,7 +57,7 @@
         </thead>
         <tbody>
             <?php
-            $index = 1;
+            $index = $stt;
             ?>
             <?php $__currentLoopData = $dataLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
@@ -66,21 +66,31 @@
                 <td>
                     <img width="50px" src="./public/img/<?php echo e($key['lesson_img']); ?>" alt="">
                 </td>
-                <!-- <td><?php echo e($key['cate_name']); ?></td> -->
-
-                <td> <?php if($key['lesson_status']==0): ?>
-                    <span style="color:green">Đang mở</span>
-                    <?php endif; ?>
-                </td>
                 <td><?php echo e($key['date_post']); ?></td>
-
-                <td><a class="btn btn-dark" href="danh-sach-cau-hoi?lesson_id=<?php echo e($key['lesson_id']); ?>"><i class="fas fa-question-circle"></i></a></td>
+                <td><a class="btn btn-dark" href="danh-sach-cau-hoi?lesson_id=<?php echo e($key['lesson_id']); ?>"><i class="fas fa-comment"></i></a></td>
+                <td><a class="btn btn-success" href="danh-sach-cau-hoi?lesson_id=<?php echo e($key['lesson_id']); ?>"><i class="fas fa-question-circle"></i></a></td>
                 <td><a class="btn btn-warning" href="trang-sua-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-bai-hoc?id=<?php echo e($key['lesson_id']); ?>&subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-trash"></i></a></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
+    <nav style="float: right;" aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <?php for($i = 1 ; $i <=$page ; $i++): ?> <li class="page-item"><a class="page-link" href="?trang=<?php echo e($i); ?>&mon=<?php echo e($subject_slug); ?>"><?php echo e($i); ?></a></li>
+                <?php endfor; ?>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+        </ul>
+    </nav>
     <?php endif; ?>
 </div>
 <?php $__env->stopSection(); ?>

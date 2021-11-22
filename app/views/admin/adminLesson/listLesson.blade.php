@@ -48,8 +48,8 @@
                 <th>STT</th>
                 <th>Tên bài</th>
                 <th>Ảnh</th>
-                <th>Trang thái</th>
                 <th>Ngày Đăng</th>
+                <th width="78px">CMT</th>
                 <th width="78px">Câu hỏi</th>
                 <th width="78px">Sửa</th>
                 <th width="78px">Xóa</th>
@@ -57,7 +57,7 @@
         </thead>
         <tbody>
             <?php
-            $index = 1;
+            $index = $stt;
             ?>
             @foreach($dataLesson as $key)
             <tr>
@@ -66,21 +66,31 @@
                 <td>
                     <img width="50px" src="./public/img/{{$key['lesson_img']}}" alt="">
                 </td>
-                <!-- <td>{{$key['cate_name']}}</td> -->
-
-                <td> @if($key['lesson_status']==0)
-                    <span style="color:green">Đang mở</span>
-                    @endif
-                </td>
                 <td>{{$key['date_post']}}</td>
-
-                <td><a class="btn btn-dark" href="danh-sach-cau-hoi?lesson_id={{$key['lesson_id']}}"><i class="fas fa-question-circle"></i></a></td>
+                <td><a class="btn btn-dark" href="danh-sach-cau-hoi?lesson_id={{$key['lesson_id']}}"><i class="fas fa-comment"></i></a></td>
+                <td><a class="btn btn-success" href="danh-sach-cau-hoi?lesson_id={{$key['lesson_id']}}"><i class="fas fa-question-circle"></i></a></td>
                 <td><a class="btn btn-warning" href="trang-sua-bai-hoc?id={{$key['lesson_id']}}&subject_id={{$key['subject_id']}}"><i class="fas fa-edit"></i></a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-bai-hoc?id={{$key['lesson_id']}}&subject_id={{$key['subject_id']}}"><i class="fas fa-trash"></i></a></td>
             </tr>
             @endforeach
         </tbody>
     </table>
+    <nav style="float: right;" aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @for($i = 1 ; $i <=$page ; $i++) <li class="page-item"><a class="page-link" href="?trang={{$i}}&mon={{$subject_slug}}">{{$i}}</a></li>
+                @endfor
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+        </ul>
+    </nav>
     @endif
 </div>
 @endsection

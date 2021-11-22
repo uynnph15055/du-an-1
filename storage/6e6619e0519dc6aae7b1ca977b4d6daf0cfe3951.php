@@ -50,4 +50,4 @@
     </nav>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/admin/adminStudent/listStudent.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/admin/adminStudent/listStudent.blade.php ENDPATH**/ ?>

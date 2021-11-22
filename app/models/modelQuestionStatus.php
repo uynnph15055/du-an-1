@@ -38,7 +38,7 @@ class modelQuestionStatus extends DB
 
         $model =  new static();
         $conn = $model->getConnect();
-        $queryBuilder = "SELECT * FROM `questionstatus` WHERE question_id=:question_id AND student_id=:student_id";
+        $queryBuilder = "SELECT * FROM questionstatus WHERE question_id=:question_id AND student_id=:student_id";
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute([
             'question_id' => $question_id,
@@ -46,5 +46,4 @@ class modelQuestionStatus extends DB
         ]);
         return $stmt->fetchAll();
     }
-
 }

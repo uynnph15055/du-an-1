@@ -10,7 +10,6 @@
     <div class="container-fluid ">
         <div class="quiz-lesson-container">
             <aside class="aside__question">
-
                 <h3 class="course__name" style="margin-top: 20px;font-size:30px">
                     <?php echo e($dataLessonJoinQuestion['subject_name']); ?>
 
@@ -41,11 +40,13 @@
 
                     <br>
                     <?php $__currentLoopData = $dataQuestionInLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
                     <a href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><?= $index++ ?></a>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <div class="quiz-content">
                     <form action="quzi-answer" method="POST" class="quiz-answer">
+                        <input type="hidden" name="lesson_id" value="<?php echo e($lesson_id); ?>">
                         <?php if($countAnswers>1): ?>
                         <div class="list-answer">
                             <div class="inputGroup">
@@ -154,7 +155,7 @@
                         </div>
                         <?php endif; ?>
                         <div class="btn-submit" style="display: flex;justify-content: center;">
-                            <button type="submit" class="btn-primary">Submit</button>
+                            <button type="submit" name="submit" class="btn-primary">Submit</button>
                             <a style="margin-left: 20px;" href="" class="btn-primary">Chọn lại</a>
                         </div>
 
@@ -168,6 +169,60 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
     $a = document.getElementsByName('abc');
+</script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('javascript'); ?>
+<script>
+    $(function() {
+
+        <?php if (isset($_SESSION['error'])) {
+
+        ?>
+
+            Swal.fire({
+                icon: 'warning',
+                title: '<p  style="font-size: 19px;"><?= $_SESSION['error']; ?></p>',
+
+                timer: 3000,
+                width: 400,
+                padding: '4em',
+                confirmButtonText: '<i style="padding: 3px;font-size: 20px">OK</i>',
+            })
+
+        <?php
+            unset($_SESSION['error']);
+        } elseif (isset($_SESSION['success'])) { ?>
+            Swal.fire({
+
+                icon: 'success',
+                title: '<p  style="font-size: 22px;"><?= $_SESSION['success']; ?></p>',
+                showConfirmButton: false,
+                timer: 1500,
+                width: 450,
+                padding: '5em',
+
+            })
+            var index = 0;
+            <?php if (isset($_GET["question_id"]) && !empty($_GET["question_id"])) : ?>
+                <?php foreach ($dataQuestionInLesson as $key) : ?>
+                    index += 1;
+                    if (Number(<?= $key['question_id'] ?>) > Number(<?= $_GET["question_id"] ?>)) {
+                        setTimeout(function() {
+                            window.location = "quzi?question_id=<?= $key['question_id'] ?>";
+                        }, 1500);
+                        die;
+                    } else if (Number(<?= count($dataQuestionInLesson) ?>) == index) {
+                        window.location = "bai-hoc?mon=<?= $subject_slug ?>";
+                    }
+
+                <?php endforeach  ?>
+            <?php endif  ?>
+
+
+        <?php unset($_SESSION['success']);
+        }
+        ?>
+    });
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/quiz.blade.php ENDPATH**/ ?>

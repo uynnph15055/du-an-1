@@ -6,145 +6,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500&family=Montserrat:ital,wght@0,200;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('main_content'); ?>
-<!-- <div style="margin-top:130px" class="container bgr-white">
-    <div class="container-fluid ">
-        <div class="quiz-lesson-container">
-            <div class="quiz-container">
-                <?php if(isset($dataQuestion)): ?>
-                <h5 class="quiz__question">
-                    <?php echo e($dataQuestion['question']); ?>
-
-                </h5>
-                <?php endif; ?>
-                <div class="quiz__img">
-                    <img class="img-fluid" src="./public/img/<?php echo e($dataQuestion['question_img']); ?>" alt="">
-                </div>
-                <div class="quiz-content">
-                    <form action="quzi-answer" method="POST" class="quiz-answer">
-                        <?php if($countAnswers>1): ?>
-                        <div class="list-answer">
-                            <div class="inputGroup">
-                                <input type="hidden" name="question_id" value="<?php echo e($dataQuestion['question_id']); ?>">
-                                <input id="option1" name="anwer_one" value="1" type="checkbox" />
-                                <label class="" for="option1">
-                                    <div class="grid">
-                                        <span class="index-option">A</span>
-                                        <p>
-                                            <?php echo e($dataQuestion['anwer_one']); ?>
-
-                                        </p>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="inputGroup">
-                                <input id="option2" name="anwer_two" value="2" type="checkbox" />
-                                <label class="" for="option2">
-                                    <div class="grid">
-                                        <span class="index-option">B</span>
-                                        <p>
-                                            <?php echo e($dataQuestion['anwer_two']); ?>
-
-                                        </p>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="inputGroup">
-                                <input id="option3" name="anwer_three" value="3" type="checkbox" />
-                                <label class="" for="option3">
-                                    <div class="grid">
-                                        <span class="index-option">C</span>
-                                        <p>
-                                            <?php echo e($dataQuestion['anwer_three']); ?>
-
-                                        </p>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="inputGroup">
-                                <input id="option4" name="anwer_four" value="4" type="checkbox" />
-                                <label class="" for="option4">
-                                    <div class="grid">
-                                        <span class="index-option">D</span>
-                                        <p>
-                                            <?php echo e($dataQuestion['anwer_four']); ?>
-
-                                        </p>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                        <?php else: ?>
-
-                        <div class="list-answer">
-                            <div class="inputGroup">
-                                <input id="option1" name="anwer_one" value="1" type="radio" />
-                                <label class="" for="option1">
-                                    <div class="grid">
-                                        <span class="index-option">A</span>
-                                        <p>
-                                            <?php echo e($dataQuestion['anwer_one']); ?>
-
-                                        </p>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="inputGroup">
-                                <input id="option2" name="anwer_two" value="2" type="radio" />
-                                <label class="" for="option2">
-                                    <div class="grid">
-                                        <span class="index-option">B</span>
-                                        <p>
-                                            <?php echo e($dataQuestion['anwer_two']); ?>
-
-                                        </p>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="inputGroup">
-                                <input id="option3" name="anwer_three" value="3" type="radio" />
-                                <label class="" for="option3">
-                                    <div class="grid">
-                                        <span class="index-option">C</span>
-                                        <p>
-                                            <?php echo e($dataQuestion['anwer_three']); ?>
-
-                                        </p>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="inputGroup">
-                                <input id="option4" name="anwer_four" value="4" type="radio" />
-                                <label class="" for="option4">
-                                    <div class="grid">
-                                        <span class="index-option">D</span>
-                                        <p>
-                                            <?php echo e($dataQuestion['anwer_four']); ?>
-
-                                        </p>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                        <?php endif; ?>
-                        <div class="btn-submit">
-                            <button type="submit"  class="btn-primary">Submit</button>
-                        </div>
-                     
-                    </form>
-                </div>
-            </div>
-
-     
-        </div>
-    </div>
-</div> -->
-
-<div style="margin-top:100px" class="container bgr-white">
+<div style="margin-top:40px" class="container bgr-white">
     <div class="container-fluid ">
         <div class="quiz-lesson-container">
             <aside class="aside__question">
 
-                <h3 class="course__name">
+                <h3 class="course__name" style="margin-top: 20px;font-size:30px">
                     <?php echo e($dataLessonJoinQuestion['subject_name']); ?>
 
                 </h3>
@@ -171,19 +38,10 @@
                     $index = 1;
                     $user = isset($_SESSION['user_info']) ? $_SESSION['user_info'][0]['student_id'] : null;
                     ?>
-                  
+
                     <br>
-
                     <?php $__currentLoopData = $dataQuestionInLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <a href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><?= $index++ ?></i></a>
-                    <?php if(isset($dataQuestionStatus)): ?>
-                    <?php $__currentLoopData = $dataQuestionStatus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keyQuestionStatus => $valueQuestionStatus): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <?php if($valueQuestionStatus['question_id']==$key['question_id'] && $valueQuestionStatus['student_id']==$user ): ?>
-                    <a style="background: #46bfd0;" href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><i class="fas fa-check-circle"></i></a>
-                    <?php endif; ?>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    <?php endif; ?>
-
+                    <a href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><?= $index++ ?></a>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <div class="quiz-content">
@@ -297,6 +155,7 @@
                         <?php endif; ?>
                         <div class="btn-submit" style="display: flex;justify-content: center;">
                             <button type="submit" class="btn-primary">Submit</button>
+                            <a style="margin-left: 20px;" href="" class="btn-primary">Chọn lại</a>
                         </div>
 
                     </form>

@@ -9,11 +9,22 @@ class Administrators extends baseController
 {
     public function index()
     {
-        if (!isset($_SESSION['admin_info'])) {
-            header('Location: dang-nhap-dang-ky');
-        };
+        // if (!isset($_SESSION['admin_info'])) {
+        //     header('Location: dang-nhap-dang-ky');
+        // };
+        $page = isset($_GET['trang']) ? $_GET['trang'] :1;
+    
         $dataAdministrators = modelAdministrators::all();
-        $this->render("admin.administrators.listAdministrators", ['dataAdministrators' => $dataAdministrators]);
+        $number = count($dataAdministrators);
+        $pages = ceil($number / 4);
+        $index = ($page - 1) * 4;
+        $dataAdministrator = modelAdministrators::selectAdministrators($index);
+        $this->render("admin.administrators.listAdministrators",
+         ['dataAdministrators' => $dataAdministrator,
+         'stt' => $index + 1,
+            'number' => $number,
+            'page' => $pages,
+        ]);
     }
     public function AddAdministrators()
     {

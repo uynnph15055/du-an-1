@@ -1,14 +1,10 @@
 
 <?php $__env->startSection('title', 'Đăng nhập'); ?>
 <?php $__env->startSection('main_content'); ?>
-<style>
-    #error-email {
-        color: red;
-    }
-</style>
+
 <div class="form-log-container form-log-width" id="form-log-container">
     <div class="form-container-item sign-up-container">
-        <form class="log__form" action="dang-ky" method="POST">
+        <form class="log__form" id="form-sign-up" action="dang-ky" method="POST">
             <h3 class="form__title">Đăng ký</h3>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -18,26 +14,22 @@
             <span>- hoặc sử dụng email để đăng ký</span>
             <!--  -->
             <input type="text" name="student_name" id="check-name-reg" onblur="checkName()" oninput="checkName()" placeholder="Tên" />
-            <!-- <span class="error-sign-up"></span> -->
             <span class="alert-mess check-name-reg"></span>
 
             <input type="email" name="student_email" id="email-sign-up" onblur="checkEmail()" oninput="checkEmail()" placeholder="Email" />
-            <span class="alert-mess check-email" id="error-email"></span>
+            <span class="alert-mess check-email"></span>
+            <span style="color:red" class="alert-mess" id="error-email"></span>
 
             <input type="password" name="student_password" id="check-pass-reg" onblur="checkPass()" oninput="checkPass()" placeholder="Mật khẩu" />
-            <!-- <span class="error-sign-up"></span> -->
             <span class="alert-mess check-pass-reg mess-margin"></span>
 
-            <button class="btn__log btn-primary">Đăng ký</button>
+            <button type="submit" class="btn__log btn-primary">Đăng ký</button>
             <a class="form-link" href="./">Trang chủ</a>
-            <?php if(isset($_SESSION['error-form-register'])): ?>
-            <span style="color: #E80007;padding-top:20px"><?php echo e($_SESSION['error-form-register']); ?></span>
-            <?php unset($_SESSION['error-form-register']); ?>
-            <?php endif; ?>
+
         </form>
     </div>
     <div class="form-container-item sign-in-container">
-        <form class="log__form" method="POST" action="dang-nhap">
+        <form class="log__form" id="form-sign-in" method="POST" action="dang-nhap">
             <h3 class="form__title">Đăng nhập</h3>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -47,19 +39,18 @@
             <span>- hoặc sử dụng tài khoản</span>
 
             <input id="email-sign-in" name="student_email" type="email" onblur="checkEmailLogin()" oninput="checkEmailLogin()" placeholder="Email" />
-
             <span class="alert-mess check-email-logIn"></span>
 
             <input type="password" id="check-pass-logIn" name="student_password" onblur="checkPassLogin()" oninput="checkPassLogin()" placeholder="Mật khẩu" />
             <span class="alert-mess check-pass-logIn mess-margin"></span>
-
-            <button class="btn__log btn-primary">Đăng nhập</button>
-            <a class="form-link" href="#">Quên mật khẩu?</a>
-            <a class="form-link" href="./">Trang chủ</a>
             <?php if(isset($_SESSION['error-form'])): ?>
-            <span style="color: #E80007;padding-top:20px"><?php echo e($_SESSION['error-form']); ?></span>
+            <span style="color:red;" class="alert-mess mess-margin"><?php echo e($_SESSION['error-form']); ?></span>
             <?php unset($_SESSION['error-form']); ?>
             <?php endif; ?>
+
+            <button type="submit" class="btn__log btn-primary">Đăng nhập</button>
+            <a class="form-link" href="#">Quên mật khẩu?</a>
+            <a class="form-link" href="./">Trang chủ</a>
         </form>
     </div>
     <div class="overlay-container">
@@ -85,6 +76,7 @@
         </div>
     </div>
 </div>
+<script src="./public/js/customerJs/validateFormLog.js"></script>
 <script src="./public/js/customerJs/form-log.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
@@ -99,6 +91,5 @@
         });
     })
 </script>
-<script src="./public/js/customerJs/validateFormLog.js"></script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('customer.layout.layout_login', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/customer/form_log.blade.php ENDPATH**/ ?>
