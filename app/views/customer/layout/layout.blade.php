@@ -89,7 +89,7 @@
         <main>
             @yield('main_content');
         </main>
-        <footer style="margin-top: -250px;background-color: #f1f3f8;">
+        <footer style="">
             <div class="footer-content">
                 <div class="content">
                     <div class="footer-social">
