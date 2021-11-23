@@ -316,7 +316,7 @@
             </div>
         </div>
     </main>
-    <footer style="margin-top: -250px;">
+    <footer style="margin-top: -150px;">
         <div class="footer-content">
             <div class="content">
                 <div class="footer-social">

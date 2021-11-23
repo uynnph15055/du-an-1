@@ -19,6 +19,7 @@ use App\Controllers\Backend\Administrators;
 use App\Controllers\Backend\adminStudent;
 use App\Controllers\Frontend\Contact;
 use App\Controllers\Backend\inforAdmin;
+use App\Controllers\Frontend\About;
 use App\Controllers\Frontend\Home;
 use App\Controllers\Frontend\formLog;
 use App\Controllers\Frontend\Question;
@@ -306,6 +307,16 @@ switch ($url) {
 
         // Trang liên hệ
     case 'lien-he';
+        $ctr = new Contact();
+        echo $ctr->index();
+        break;
+    case 'gioi-thieu';
+        $ctr = new About();
+        echo $ctr->index();
+        break;
+
+        // Thông tin khách hàng.
+    case 'thong-tin-khach-hang';
         $ctr = new Contact();
         echo $ctr->index();
         break;

@@ -1,0 +1,481 @@
+.profile-section {
+  padding: 50px;
+  background: var(--color-white-1);
+  $padding-box-profile: 20px;
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 7fr;
+    grid-gap: 50px;
+
+    // phần thông tin cá nhân
+    .profile-control {
+      position: relative;
+
+      .profile-control-general {
+        .general-img {
+          img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+          }
+
+          .ctrl-img {
+            color: white;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            z-index: 10;
+            background: linear-gradient(
+              to right,
+              var(--color-primary),
+              var(--color-secondary)
+            );
+            border: none;
+            border-radius: 50%;
+            padding: 7px 9px;
+            cursor: pointer;
+          }
+        }
+        .general-text {
+          text-align: center;
+          padding: $padding-box-profile;
+
+          .general__username {
+            font-weight: bold;
+          }
+          .general-exp {
+            margin: 10px 0;
+
+            i {
+              color: var(--color-star);
+            }
+          }
+          .general__bio {
+            font-size: $small;
+          }
+        }
+      }
+
+      .profile-control-info {
+        padding: $padding-box-profile;
+        
+        .open-modal-user-info-btn{
+          cursor: pointer;
+        }
+        .info-content {
+          .info-list {
+            padding: 10px 0;
+            .info-item {
+              &__title {
+                padding-right: 5px;
+              }
+            }
+            .info-item + .info-item {
+              margin-top: 5px;
+            }
+          }
+          .change-pass-link {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    // phần thông tin lộ trình học và một số chức năng khác
+    .profile-course {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+
+      // phần thông tin lộ trình học
+      .course-status {
+        padding: $padding-box-profile;
+
+        .status-content {
+          .status-course-list {
+            margin-top: 10px;
+
+            .status-course-item {
+              display: grid;
+              grid-template-columns: 1fr 2.5fr;
+              grid-gap: 10px;
+
+              padding: 5px;
+              background: var(--color-white-2);
+              border-radius: $radius;
+
+              .status-course-img {
+                img {
+                  border-radius: $radius;
+                  width: 100px;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+              .status-course-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .status-course__name {
+                  font-weight: bold;
+                }
+                .status-course__count-lesson {
+                  text-align: right;
+                }
+              }
+            }
+            .status-course-item + .status-course-item {
+              margin-top: 8px;
+            }
+          }
+        }
+      }
+
+      // phần chức năng khác
+      .course-function {
+        .course-function-item {
+          padding: $padding-box-profile;
+        }
+
+        .bill {
+          .bill-list {
+            margin-top: 10px;
+            .bill-item {
+              width: 100%;
+              display: grid;
+              grid-template-columns: 2fr 0.8fr;
+
+              padding: 5px;
+
+              .bill-course {
+                display: flex;
+
+                &-img {
+                  img {
+                    width: 80px;
+                    height: 100%;
+                    object-fit: cover;
+                    margin-right: 10px;
+                    border-radius: $radius;
+                  }
+                }
+                &-text {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+
+                  .bill-course__price {
+                    font-size: $smaller;
+                  }
+                  .bill-course__price--new {
+                    color: var(--danger);
+                  }
+                  .bill-course__price--old {
+                    text-decoration: line-through;
+                  }
+                }
+              }
+              .bill-status {
+                font-size: $smaller;
+
+                .bill-status--waiting {
+                  color: var(--danger);
+                }
+                .bill-status--bought {
+                  color: var(--success);
+                }
+              }
+            }
+            .bill-item + .bill-item {
+              border-top: 1px solid var(--gray);
+            }
+          }
+        }
+
+        .note {
+          max-height: 450px;
+          overflow: auto;
+          .note-list {
+            margin-top: 10px;
+
+            .note-item {
+              margin: 5px 0;
+              padding: 10px;
+              background: var(--color-white-2);
+              border-radius: $radius;
+
+              .note__course-name {
+                font-weight: bold;
+              }
+
+              //list note trong 1 khóa học
+              .note-course-content-list {
+                margin: 2px 0;
+                font-size: $small;
+
+                .note-course-content-item {
+                  display: flex;
+
+                  .detail-content {
+                    width: 80%;
+                  }
+                }
+                .note-course-content-item + .note-course-content-item {
+                  padding-top: 5px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // phần dùng chung
+    .section-box {
+      background: var(--white);
+      border-radius: $radius-2;
+      box-shadow: 0 3px 15px var(--gray);
+      overflow: hidden;
+    }
+    .section-box + .section-box {
+      margin-top: 30px;
+    }
+    .head-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .head-section {
+      color: var(--color-primary);
+
+      .head-section__name {
+        width: 120px;
+      }
+      .head-section__line {
+        border-bottom: 1px solid var(--color-primary);
+        width: 100%;
+        margin: 0 5px;
+      }
+      .head-section__sub {
+        i {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .head-grid {
+      display: grid;
+      grid-template-columns: 35px 1fr 20px;
+    }
+    .status-head {
+      color: var(--color-primary);
+
+      .head-status__icon {
+        font-size: 20px;
+      }
+      .head-status__name {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.container-ctrl-img {
+  .modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .modal__inner {
+    width: 750px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    animation: showModal linear 0.2s;
+    position: relative;
+    margin: 30px auto;
+  }
+  @keyframes showModal {
+    from {
+      top: -200px;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+  
+  .modal__header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 15px;
+    font-size: 17px;
+    font-weight: bold;
+
+    i {
+      cursor: pointer;
+    }
+  }
+
+  .modal__body {
+    padding: 15px 30px 30px;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+  }
+  .modal__body__img img {
+    width: 350px;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  .modal__body__btn-file {
+    margin: 80px auto;
+    text-align: center;
+
+    button {
+      margin-top: 10px;
+      transition: $trans-second;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .preview {
+    border: 2px dashed var(--color-primary);
+    width: 200px;
+    height: 180px;
+    color: var(--color-primary);
+    font-size: 18px;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .preview i {
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+
+  .modal__footer {
+    padding: 15px;
+    text-align: right;
+  }
+}
+
+
+//----------------------------------------------------
+.container-change-info {
+  .form__btn{
+    margin: 10px;
+  }
+  .open-modal-user-info-btn{
+    cursor: pointer;
+  }
+  .modal-user-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+  }
+
+ 
+  .hide-user-info {
+    display: none;
+  }
+
+  .modal-user-info__inner {
+    width: 650px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    animation: showModalUser linear 0.2s;
+    position: relative;
+    margin: 200px auto;
+  }
+  @keyframes showModalUser {
+    from {
+      top: -200px;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+  
+  .modal-user-info__header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 15px;
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  .modal-user-info__body {
+    padding: 5px 50px 20px;
+  }
+  .user-email {
+    padding: 0 10px 20px;
+    text-align: center;
+    color: var(--gray-more);
+  }
+  .modal-user-info__body .form-row-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin-bottom: 5px;
+  }
+  .modal-user-info__body label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .modal-user-info__body input,
+  textarea {
+    width: 100%;
+    max-height: 100px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+    outline: none;
+    transition: $trans-second;
+  }
+  .modal-user-info__body input:focus,
+  textarea:focus {
+    border: 1px solid var(--color-primary);
+  }
+  .modal-user-info__body .form__btn {
+    text-align: center;
+  }
+
+}
+
+// Dùng chung
+
