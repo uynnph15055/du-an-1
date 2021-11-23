@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="./public/css/customerCss/style.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500&family=Montserrat:ital,wght@0,200;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
-    <?php echo $__env->yieldContent('link'); ?>;
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<?php echo $__env->yieldContent('link'); ?>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
             <div class="navbar-container">
                 <div class="navbar-fluid">
                     <div class="navbar-logo">
-                        <a href="">
+                        <a href="./">
                             <img src="./public/img/images/logo-main.png" alt="" class="img-fluid img__logo">
                         </a>
                     </div>
@@ -89,7 +89,8 @@
         <main>
             <?php echo $__env->yieldContent('main_content'); ?>;
         </main>
-        <footer style="">
+        <footer style="margin-top: -100px;">
+
             <div class="footer-content">
                 <div class="content">
                     <div class="footer-social">
@@ -139,47 +140,10 @@
     <script src="./public/js/customerJs/toggle.js"></script>
     <script src="./public/js/customerJs/darkMode.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        $(function() {
 
-            <?php if (isset($_SESSION['error'])) {
-
-            ?>
-
-                Swal.fire({
-                    icon: 'warning',
-                    title: '<p  style="font-size: 19px;"><?= $_SESSION['error']; ?></p>',
-
-                    timer: 3000,
-                    width: 400,
-                    padding: '4em',
-                    confirmButtonText: '<i style="padding: 3px;font-size: 20px">OK</i>',
-
-
-
-                })
-
-            <?php
-                unset($_SESSION['error']);
-            } elseif (isset($_SESSION['success'])) { ?>
-                Swal.fire({
-
-                    icon: 'success',
-                    title: '<p  style="font-size: 22px;"><?= $_SESSION['success']; ?></p>',
-                    showConfirmButton: false,
-                    timer: 1500,
-                    width: 450,
-                    padding: '5em',
-
-                })
-
-            <?php unset($_SESSION['success']);
-            }
-            ?>
-        });
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./public/js/customerJS/footer.js"></script>
+    <?php echo $__env->yieldContent('javascript'); ?>
 </body>
 
 </html><?php /**PATH C:\xampp\htdocs\project_one\app\views/customer/layout/layout.blade.php ENDPATH**/ ?>

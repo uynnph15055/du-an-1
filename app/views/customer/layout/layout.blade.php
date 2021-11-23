@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="./public/css/customerCss/style.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500&family=Montserrat:ital,wght@0,200;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
-    @yield('link');
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+@yield('link')
 </head>
 
 <body>
@@ -89,11 +89,8 @@
         <main>
             @yield('main_content');
         </main>
-<<<<<<< HEAD
-        <footer style="">
-=======
         <footer style="margin-top: -100px;">
->>>>>>> 20f8f1e610214dbeb1f34570d2c248f03069b9d8
+
             <div class="footer-content">
                 <div class="content">
                     <div class="footer-social">

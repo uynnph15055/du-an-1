@@ -6,17 +6,16 @@ html {
   line-height: 1.6;
   font-family: sans-serif;
   // font-family: 'Crimson Pro', serif;
-// font-family: 'Lora', serif;
-font-family: 'Montserrat', sans-serif;
+  // font-family: 'Lora', serif;
+  font-family: "Varela Round", sans-serif;
   box-sizing: border-box;
 }
-
 
 // ==================================== variables =================
 :root {
   --white: white;
   --black: black;
-  --color-white-1: #F8F9FC;
+  --color-white-1: #f8f9fc;
   --color-white-2: #f1f3f8;
   --color-primary: #0098d2;
   --color-secondary: #00bcca;
@@ -24,7 +23,7 @@ font-family: 'Montserrat', sans-serif;
   --color-purple-30: rgba(125, 127, 220, 0.3);
   --color-purple-light: #e1bbe5;
   --color-thirty-30: #46bfd0;
-  --color-star: #FFE600;
+  --color-star: #ffe600;
   --gray: #ccc;
   --gray-more: #c4c4c4;
   --grey: #f2f2f2;
@@ -33,8 +32,7 @@ font-family: 'Montserrat', sans-serif;
   --danger: #ff0000;
   --hightlight: #00bcca;
   --hightlight-color: white;
-  --color-dark: #03485D;
-
+  --color-dark: #03485d;
 }
 
 [data-theme="dark"] {
@@ -61,15 +59,15 @@ $trans-second: 0.5s;
 $max-width: 1280px;
 
 ::selection {
-  background:var(--hightlight); 
+  background: var(--hightlight);
   color: var(--hightlight-color);
 }
 ::-moz-selection {
-  background:var(--hightlight); 
+  background: var(--hightlight);
   color: var(--hightlight-color);
 }
 ::-webkit-selection {
-  background:var(--hightlight); 
+  background: var(--hightlight);
   color: var(--hightlight-color);
 }
 // ==================================== MIXIN =================
@@ -106,17 +104,17 @@ $max-width: 1280px;
   border: 2px solid transparent;
   border-radius: 5px;
 }
-@function margin-custom($max-width: $max-width){
+@function margin-custom($max-width: $max-width) {
   @return $max-width/12 + 30px;
 }
-@function one-col($max-width: $max-width){
+@function one-col($max-width: $max-width) {
   @return $max-width/12;
 }
 
 // dùng chung
 $px-box-shadow: 10px;
 
-@function px-box-shadow($px-box-shadow: $px-box-shadow){
+@function px-box-shadow($px-box-shadow: $px-box-shadow) {
   @return $px-box-shadow - $px-box-shadow/2;
 }
 // --------------------------------------------------------------------------------------------------------
@@ -189,7 +187,7 @@ a {
 //   background-color: white;
 // }
 // .subject-item-secondary{
-  
+
 // }
 // .name__section{
 
@@ -199,7 +197,7 @@ a {
 
 // }
 
-.play-list{
+.play-list {
   padding: 20px 10px;
   background: var(--white);
   border-radius: $radius;
@@ -208,24 +206,24 @@ a {
   scrollbar-width: none;
   -ms-overflow-style: none;
 
-  .course__title{
-      font-weight: bold;
+  .course__title {
+    font-weight: bold;
   }
 
-  .lesson-item-test{
-      padding:0 40px;
+  .lesson-item-test {
+    padding: 0 40px;
 
-      .test_index{
-          display: inline-block;
-          min-width:35px;
-          padding: 10px 13px;
-          background: var(--gray-more);
-          border-radius: 50%;
-          margin: 0 10px 0 0;
-      }
+    .test_index {
+      display: inline-block;
+      min-width: 35px;
+      padding: 10px 13px;
+      background: var(--gray-more);
+      border-radius: 50%;
+      margin: 0 10px 0 0;
+    }
   }
 }
-.play-list::-webkit-scrollbar { 
+.play-list::-webkit-scrollbar {
   width: 0 !important;
-  display: none; 
+  display: none;
 }
