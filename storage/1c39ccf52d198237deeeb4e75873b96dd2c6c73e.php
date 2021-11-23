@@ -54,7 +54,7 @@
                                         <img style="object-fit: cover; width: 30px; height: 30px" src="./public/img/<?= $user_info[0]['student_avatar'] ?>" alt="">
                                     </button>
                                     <div id="account-list" class="content-container-acc">
-                                        <a class="account-item" href="">Thông tin tài khoản</a>
+                                        <a class="account-item" href="thong-tin-khach-hang">Thông tin tài khoản</a>
                                         <div class="account-item account-item--mode">
                                             <span>
                                                 Chế độ
