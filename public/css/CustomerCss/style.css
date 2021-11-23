@@ -9,7 +9,7 @@ html {
   font-size: 62.5%;
   line-height: 1.6;
   font-family: sans-serif;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Varela Round", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -17,7 +17,7 @@ html {
 :root {
   --white: white;
   --black: black;
-  --color-white-1: #F8F9FC;
+  --color-white-1: #f8f9fc;
   --color-white-2: #f1f3f8;
   --color-primary: #0098d2;
   --color-secondary: #00bcca;
@@ -25,7 +25,7 @@ html {
   --color-purple-30: rgba(125, 127, 220, 0.3);
   --color-purple-light: #e1bbe5;
   --color-thirty-30: #46bfd0;
-  --color-star: #FFE600;
+  --color-star: #ffe600;
   --gray: #ccc;
   --gray-more: #c4c4c4;
   --grey: #f2f2f2;
@@ -34,7 +34,7 @@ html {
   --danger: #ff0000;
   --hightlight: #00bcca;
   --hightlight-color: white;
-  --color-dark: #03485D;
+  --color-dark: #03485d;
 }
 
 [data-theme="dark"] {
@@ -2634,35 +2634,35 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   background: #ffffff;
 }
 
-.form-log-section .form-log-header {
+.form-log-section .form-base-header {
   background: -webkit-gradient(linear, left top, right top, from(#0098d2), to(#00bcca));
   background: linear-gradient(to right, #0098d2, #00bcca);
 }
 
-.form-log-section .form-log-header h4 {
+.form-log-section .form-base-header h4 {
   margin: 0;
   padding: 20px 10px;
   text-align: center;
 }
 
-.form-log-section .forgot-pass-container {
+.form-log-section .form-base {
   text-align: center;
   background: white;
 }
 
-.form-log-section .form-forgot-content {
-  margin: 100px auto;
+.form-log-section .form-base-content {
+  margin: 50px auto;
 }
 
 .form-log-section .icon i {
   font-size: 36px;
 }
 
-.form-log-section .btn-forgot-section {
+.form-log-section .btn-base-log-section {
   width: 100%;
 }
 
-.form-log-section .forgot__btn {
+.form-log-section .base-logn__btn {
   display: inline-block;
   border-radius: 3px;
   font-size: 12px;

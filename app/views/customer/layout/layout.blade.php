@@ -44,10 +44,14 @@
                             @if(isset($user_info))
                             <div class="navbar-action-content">
                                 <button class="action-item">
-                                    <i class="fas fa-grin-stars"></i>
+                                    <abbr title="Đánh giá">
+                                        <i class="fas fa-grin-stars"></i>
+                                    </abbr>
                                 </button>
                                 <button class="action-item">
-                                    <i class="fas fa-bell"></i>
+                                      <abbr title="Thông báo">
+                                        <i class="fas fa-bell"></i>
+                                    </abbr>
                                 </button>
                                 <div class="account-section action-item">
                                     <button style="padding: 0; border-radius: 50%; cursor: pointer; overflow: hidden; width: 30px; height: 30px" onclick="toggleShowHide()" id="btn-acc">
@@ -89,8 +93,8 @@
         <main>
             @yield('main_content');
         </main>
-<<<<<<< HEAD
-        <footer style="margin-top: -100px;">
+
+        <!-- <footer style="margin-top: -100px;">
 
             <div class="footer-content">
                 <div class="content">
@@ -136,9 +140,8 @@
                     </clipPath>
                 </defs>
             </svg>
-        </footer>
-=======
->>>>>>> 473fb33459496197fe24ce4cbd987b50a59895ea
+        </footer> -->
+
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
     <script src="./public/js/customerJs/darkMode.js"></script>

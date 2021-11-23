@@ -316,32 +316,32 @@
     background: #ffffff;
     
   }
-  .form-log-header {
+  .form-base-header {
     background: linear-gradient(to right, #0098d2, #00bcca);
   }
 
-  .form-log-header h4 {
+  .form-base-header h4 {
     margin: 0;
     padding: 20px 10px;
     text-align: center;
   }
 
-  .forgot-pass-container {
+  .form-base {
     text-align: center;
     background: white;
   }
 
-  .form-forgot-content {
-    margin: 100px auto;
+  .form-base-content {
+    margin: 50px auto;
   }
 
   .icon i {
     font-size: 36px;
   }
-  .btn-forgot-section{
+  .btn-base-log-section{
     width: 100%;
   }
-  .forgot__btn {
+  .base-logn__btn {
     display: inline-block;
     border-radius: 3px;
     font-size: 12px;
@@ -353,3 +353,11 @@
   }
 
 }
+
+
+// Phần đổi mật khẩu
+
+
+
+
+
