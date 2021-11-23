@@ -21,7 +21,7 @@
 <div class="container">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Thêm Admin
+        Thêm nhân viên
     </button>
 
     <!-- Modal -->
@@ -30,7 +30,7 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div style="text-align: center;" class="modal-header">
-                    <h5 style="text-align: center;" class="modal-title" id="exampleModalLabel">Thêm Admin</h5>
+                    <h5 style="text-align: center;" class="modal-title" id="exampleModalLabel">Thêm nhân viên</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

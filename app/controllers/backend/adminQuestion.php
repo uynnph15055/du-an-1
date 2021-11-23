@@ -16,6 +16,10 @@ class adminQuestion extends baseController
             header('Location: dang-nhap-dang-ky');
         };
         $lesson_id = isset($_GET['lesson_id']) ? $_GET['lesson_id'] : null;
+        if (!  $lesson_id) {
+            header('Location: ./?mess=id hiện không tồn tại');
+            die();
+        }
         $dataQuestion = modelQuestion::where("lesson_id", "=", $lesson_id)->get();
         $this->render("admin.question.listQuestion", [
             'dataQuestion' => $dataQuestion,

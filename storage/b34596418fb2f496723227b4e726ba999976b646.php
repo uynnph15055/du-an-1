@@ -13,8 +13,6 @@
     }
 </style>
 <div class="container">
-    <h3> Trang chính :</h3>
-    <br>
     <div class="row">
         <div class="col-xl-3 col-md-6">
             <div class="card bg-success text-white mb-4">

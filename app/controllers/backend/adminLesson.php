@@ -5,7 +5,7 @@ namespace App\Controllers\Backend;
 use App\Controllers\baseController;
 use App\Models\modelLesson;
 use App\Models\modelSubject;
-
+use App\Models\modelComment;
 class adminLesson extends baseController
 {
 
@@ -31,7 +31,7 @@ class adminLesson extends baseController
             'dataLesson' => $dataLesson,
             'number' => $number,
             'page' => $pages,
-            'subject_slug'=>$subject_slug,
+            'subject_slug' => $subject_slug,
         ]);
     }
 

@@ -67,7 +67,7 @@
                     <img width="50px" src="./public/img/{{$key['lesson_img']}}" alt="">
                 </td>
                 <td>{{$key['date_post']}}</td>
-                <td><a class="btn btn-dark" href="danh-sach-cau-hoi?lesson_id={{$key['lesson_id']}}"><i class="fas fa-comment"></i></a></td>
+                <td><a class="btn btn-dark" href="danh-sach-binh-luan?lesson_id={{$key['lesson_id']}}"><i class="fas fa-comment"></i></a></td>
                 <td><a class="btn btn-success" href="danh-sach-cau-hoi?lesson_id={{$key['lesson_id']}}"><i class="fas fa-question-circle"></i></a></td>
                 <td><a class="btn btn-warning" href="trang-sua-bai-hoc?id={{$key['lesson_id']}}&subject_id={{$key['subject_id']}}"><i class="fas fa-edit"></i></a></td>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-bai-hoc?id={{$key['lesson_id']}}&subject_id={{$key['subject_id']}}"><i class="fas fa-trash"></i></a></td>
