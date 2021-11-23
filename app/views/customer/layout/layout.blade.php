@@ -89,6 +89,7 @@
         <main>
             @yield('main_content');
         </main>
+<<<<<<< HEAD
         <footer style="margin-top: -100px;">
 
             <div class="footer-content">
@@ -136,6 +137,8 @@
                 </defs>
             </svg>
         </footer>
+=======
+>>>>>>> 473fb33459496197fe24ce4cbd987b50a59895ea
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
     <script src="./public/js/customerJs/darkMode.js"></script>

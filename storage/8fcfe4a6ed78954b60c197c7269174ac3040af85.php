@@ -316,6 +316,52 @@
             </div>
         </div>
     </main>
+    <footer style="margin-top: -150px;">
+        <div class="footer-content">
+            <div class="content">
+                <div class="footer-social">
+                    <a href="" class="social-link">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                <ul class="footer-links">
+                    <li><a class="link-item" href="">Các khóa học</a></li>
+                    <li><a class="link-item" href="">Liên hệ</a></li>
+                    <li><a class="link-item" href="">Giới thiệu</a></li>
+                    <li><a class="link-item" href="">Trợ giúp</a></li>
+                </ul>
+                <div class="footer-copyright">
+                    <span>Copyright © 2021 - Course IFT</span>
+                </div>
+            </div>
+            <div class="gooey-animations">
+            </div>
+        </div>
+
+        <svg xmlns="" version="1.1">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -7" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+        </svg>
+
+        <svg viewbox="0 0 1440 328" width="100vw">
+            <defs>
+                <clipPath id="wave" clipPathUnits="objectBoundingBox" transform="scale(0.00069444444, 0.00304878048)">
+                    <path d="M504.452 27.7002C163.193 -42.9551 25.9595 38.071 0 87.4161V328H1440V27.7002C1270.34 57.14 845.711 98.3556 504.452 27.7002Z" />
+                </clipPath>
+            </defs>
+        </svg>
+    </footer>
 </div>
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
