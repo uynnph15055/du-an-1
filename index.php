@@ -22,6 +22,7 @@ use App\Controllers\Backend\inforAdmin;
 use App\Controllers\Frontend\About;
 use App\Controllers\Frontend\Home;
 use App\Controllers\Frontend\formLog;
+use App\Controllers\Frontend\proFile;
 use App\Controllers\Frontend\Question;
 
 
@@ -317,7 +318,7 @@ switch ($url) {
 
         // Thông tin khách hàng.
     case 'thong-tin-khach-hang';
-        $ctr = new Contact();
+        $ctr = new proFile();
         echo $ctr->index();
         break;
 
