@@ -3,6 +3,7 @@
 namespace App\Controllers\Frontend;
 
 use App\Controllers\baseController;
+use App\Models\modelHistory;
 use App\Models\modelLesson;
 use App\Models\modelQuestion;
 use App\Models\modelMenu;
@@ -77,6 +78,9 @@ class Question extends baseController
 
                 // ------------------
                 $Question = modelQuestion::where('lesson_id', "=", $lesson_id)->get();
+                $lessonId = modelLesson::where('lesson_id', "=", $lesson_id)->get();
+                $subject_id = $lessonId[0]['subject_id'];
+                // $this->dd($subject_id);
 
                 if ($answer_check !== $answerQuestion) {
 
@@ -89,8 +93,8 @@ class Question extends baseController
                     }
                     $dataQuestion = modelQuestion::where('question_id', "=", $question_id)->get();
                     $lesson_id = $dataQuestion[0]['lesson_id'];
-                    $CountQuestion = modelQuestion::where('lesson_id', "=", $lesson_id)->get();
-                    $CountQuestions = count($CountQuestion);
+                    $questionLesson = modelQuestion::where('lesson_id', "=", $lesson_id)->get();
+                    $CountQuestions = count($questionLesson);
                     $a = round(100 / $CountQuestions, 2);
 
                     $data = [
@@ -101,19 +105,54 @@ class Question extends baseController
                     ];
                     // check câu trả lời đúng.
                     $dataStatusQuestion = modelQuestionStatus::where_and($question_id, $student_id);
+                    // $this->dd($dataStatusQuestion);
                     $questionStatus = $dataStatusQuestion[0]['question_status'];
                     if ($questionStatus == 1) {
-                        $_SESSION['error'] = 'Đáp án này bạn đã làn đúng trước đó !!!';
+                        $_SESSION['error'] = 'Đáp án này bạn đã lời đúng trước đó !!!';
                         header('location: ' . $_SERVER['HTTP_REFERER']);
                         die();
                     }
 
                     modelQuestionStatus::insert($data);
 
+                    // Nếu trả lời đúng hết câu hỏi trong bài học đó sẽ lưu vào lộ trình
+                    // Lấy ra 1 chuỗi các câu trả lời của học viên hiện tại.
+                    $questionStudent = modelQuestionStatus::getWhereStudent($student_id);
+                    $checkHistory = modelHistory::checkStatus($student_id, $subject_id);
+                    $sumLesson = $checkHistory[0]['sum_lesson'];
+
+                    $stringQuestionStudent = [];
+                    foreach ($questionStudent as $key) {
+                        $stringQuestionStudent[] = $key['question_id'];
+                    }
+
+                    $stringStudent = implode("-", array_values($stringQuestionStudent));
+
+                    $stringQuestionFist = [];
+                    foreach ($questionLesson as $key) {
+                        $stringQuestionFist[] = $key['question_id'];
+                    }
+
+                    $stringQuestion = implode("-", array_values($stringQuestionFist));
+
+                    $pos = strpos($stringStudent, $stringQuestion);
+                    if ($pos !== false) {
+                        modelHistory::updateSumLesson($student_id, $subject_id, $sumLesson);
+                        $_SESSION['success'] = 'Đáp án đúng !!!';
+                        header('location: ' . $_SERVER['HTTP_REFERER']);
+                        die();
+                    }
+
 
                     $_SESSION['success'] = 'Đáp án đúng !!!';
                     header('location: ' . $_SERVER['HTTP_REFERER']);
                     die();
+
+
+
+
+
+                    // -----------------------------------------------------------------------
                 }
             } else {
                 $_SESSION['error'] = 'Chưa chọn đáp án !!!';

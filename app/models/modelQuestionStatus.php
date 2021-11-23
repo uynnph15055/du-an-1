@@ -46,4 +46,16 @@ class modelQuestionStatus extends DB
         ]);
         return $stmt->fetchAll();
     }
+
+    public static function getWhereStudent($student_id)
+    {
+        $model =  new static();
+        $conn = $model->getConnect();
+        $queryBuilder = "SELECT * FROM questionstatus WHERE student_id=:student_id";
+        $stmt = $conn->prepare($queryBuilder);
+        $stmt->execute([
+            'student_id' => $student_id
+        ]);
+        return $stmt->fetchAll();
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Controllers\Frontend;
 
 use App\Controllers\baseController;
 use App\Models\modelComment;
+use App\Models\modelHistory;
 use App\Models\modelLesson;
 use App\Models\modelSubject;
 use App\Models\modelMenu;
@@ -24,6 +25,7 @@ class Lesson extends baseController
             die();
         } else {
             $dataInfo = $_SESSION['user_info'];
+            $student_id = $dataInfo[0]['student_id'];
         }
 
         $subject_slug = isset($_GET['mon']) ? $_GET['mon'] : null;
@@ -48,7 +50,6 @@ class Lesson extends baseController
             // $this->dd($_SESSION['lesson_id']);
         }
 
-
         if (empty($dataLesson)) {
             header('location: ' . $_SERVER['HTTP_REFERER']);
             die();
@@ -61,6 +62,33 @@ class Lesson extends baseController
         // $this->dd($lesson_id);
         $dataComment = modelComment::getAll($lesson_id);
         $dataNote = modelNote::getAll($lesson_id);
+
+        // Khới tạo bảng lộ trình.
+        $date_start = date('Y-m-d');
+
+        $dataHistory = [
+            'student_id' => $student_id,
+            'subject_id' => $subject_id,
+            'date_start' => $date_start,
+        ];
+
+        $dataHistoryCheck = modelHistory::checkStatus($student_id, $subject_id);
+        if (!empty($dataHistoryCheck)) {
+            $this->render("customer.learning", [
+                'dataLesson' => $dataLesson,
+                'subjectName' => $subjectName,
+                'subject_slug' => $subject_slug,
+                'lessonFist' => $lessonFist,
+                'userInfo' => $dataInfo[0],
+                'menu' => $this->menu,
+                'dataComment' => $dataComment,
+                'dataNote' => $dataNote,
+                'lesson_id' => $lesson_id,
+            ]);
+            die();
+        }
+
+        modelHistory::insert($dataHistory);
         // die();
         // $this->dd($dataNote);
 
