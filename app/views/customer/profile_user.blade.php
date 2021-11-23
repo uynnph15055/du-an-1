@@ -1,20 +1,25 @@
 @extends('customer.layout.layout')
 @section('title', 'Khóa học')
 @section('main_content')
-<div class="container">
+<style>
+    .info-item__title {
+        font-weight: 600;
+    }
+</style>
+<div class="container" style="margin-top:50px">
     <div class="profile-section">
         <div class="container-fluid">
             <div class="profile-grid">
                 <div class="profile-control">
                     <div class="section-box profile-control-general">
                         <div class="general-img">
-                            <img src="https://image.thanhnien.vn/w660/Uploaded/2021/bzivoxbp/2021_01_25/rose_qnem.jpg" alt="" class="img-fluid">
+                            <img src="./public/img/{{$dataInfo[0]['student_avatar']}}" alt="" class="img-fluid">
                             <abbr class="open-modal-btn" title=" Chỉnh sửa ảnh">
-                                <button class="ctrl-img"><i class="fas fa-camera"></i></button>
+                                <button style="z-index: 1;" class="ctrl-img"><i class="fas fa-camera"></i></button>
                             </abbr>
                         </div>
                         <div class="general-text">
-                            <h4 class="general__username">Nguyễn Anh</h4>
+                            <h4 class="general__username">{{$dataInfo[0]['student_name']}}</h4>
                             <div class="general-exp"><i class="fas fa-trophy"></i> 123 EXP</div>
                             <p class="general__bio">
                                 "Hello, I’m Anh.
@@ -39,7 +44,7 @@
                                         Tên:
                                     </span>
                                     <span class="info-item__content">
-                                        Nguyễn Anh
+                                        {{$dataInfo[0]['student_name']}}
                                     </span>
                                 </div>
                                 <div class="info-item">
@@ -47,15 +52,7 @@
                                         Email:
                                     </span>
                                     <span class="info-item__content">
-                                        anh@gmail.com
-                                    </span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-item__title">
-                                        Địa chỉ:
-                                    </span>
-                                    <span class="info-item__content">
-                                        Hà Nội Hà Nội Hà Nội Hà Nội Hà Nội Hà Nội
+                                        {{$dataInfo[0]['student_email']}}
                                     </span>
                                 </div>
                             </div>
@@ -74,29 +71,25 @@
                                 <span class="head-status__sub">2</span>
                             </div>
                             <div class="status-content">
+                                <?php
+
+                                use App\Models\modelLesson;
+
+                                ?>
                                 <div class="status-course-list">
+                                    @foreach($dataCourseLeaning as $key)
                                     <div class="status-course-item">
                                         <div class="status-course-img">
                                             <a href="">
-                                                <img src="../../../public/img/images/abc.jpg" alt="" class="img-fluid">
+                                                <img src="./public/img/{{$key['subject_img']}}" alt="" class="img-fluid">
                                             </a>
                                         </div>
                                         <div class="status-course-text">
-                                            <h3 class="status-course__name"><a href="">HTML</a></h3>
-                                            <span class="status-course__count-lesson">3/10</span>
+                                            <h3 class="status-course__name"><a href="">{{$key['subject_name']}}</a></h3>
+                                            <span class="status-course__count-lesson">{{$key['sum_lesson']}} / <?php echo count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?></span>
                                         </div>
                                     </div>
-                                    <div class="status-course-item">
-                                        <div class="status-course-img">
-                                            <a href="">
-                                                <img src="../../../public/img/images/abc.jpg" alt="" class="img-fluid">
-                                            </a>
-                                        </div>
-                                        <div class="status-course-text">
-                                            <h3 class="status-course__name"><a href="">HTML</a></h3>
-                                            <span class="status-course__count-lesson">3/10</span>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -111,7 +104,7 @@
                                     <div class="status-course-item">
                                         <div class="status-course-img">
                                             <a href="">
-                                                <img src="../../../public/img/images/abc.jpg" alt="" class="img-fluid">
+                                                <img src="./public/img/images/abc.jpg" alt="" class="img-fluid">
                                             </a>
                                         </div>
                                         <div class="status-course-text">
@@ -122,7 +115,7 @@
                                     <div class="status-course-item">
                                         <div class="status-course-img">
                                             <a href="">
-                                                <img src="../../../public/img/images/abc.jpg" alt="" class="img-fluid">
+                                                <img src="./public/img/images/abc.jpg" alt="" class="img-fluid">
                                             </a>
                                         </div>
                                         <div class="status-course-text">
@@ -146,7 +139,7 @@
                                     <div class="bill-course">
                                         <div class="bill-course-img">
                                             <a href="">
-                                                <img src="../../../public/img/images/abc.jpg" alt="" class="img-fluid">
+                                                <img src="./public/img/images/abc.jpg" alt="" class="img-fluid">
                                             </a>
                                         </div>
                                         <div class="bill-course-text">
@@ -173,7 +166,7 @@
                                     <div class="bill-course">
                                         <div class="bill-course-img">
                                             <a href="">
-                                                <img src="../../../public/img/images/abc.jpg" alt="" class="img-fluid">
+                                                <img src="./public/img/images/abc.jpg" alt="" class="img-fluid">
                                             </a>
                                         </div>
                                         <div class="bill-course-text">
@@ -200,7 +193,7 @@
                                     <div class="bill-course">
                                         <div class="bill-course-img">
                                             <a href="">
-                                                <img src="../../../public/img/images/abc.jpg" alt="" class="img-fluid">
+                                                <img src="./public/img/images/abc.jpg" alt="" class="img-fluid">
                                             </a>
                                         </div>
                                         <div class="bill-course-text">
@@ -310,7 +303,7 @@
                 </div>
                 <div class="modal__body">
                     <div class="modal__body__img">
-                        <img src="https://image.thanhnien.vn/w660/Uploaded/2021/bzivoxbp/2021_01_25/rose_qnem.jpg" alt="" />
+                        <img src="./public/img/{{$dataInfo[0]['student_avatar']}}" alt="" />
                     </div>
                     <form class="modal__body__btn-file">
                         <label for="input-img" class="preview">
@@ -342,12 +335,12 @@
                     <div class="form-row-1">
                         <div class="form-item">
                             <label for="">Họ và tên</label>
-                            <input type="text" name="" id="" />
+                            <input type="text" name="" value="{{$dataInfo[0]['student_name']}}" id="" />
                             <span class="mess-alert"></span>
                         </div>
                         <div class="form-item">
                             <label for="">Số điện thoại</label>
-                            <input type="text" name="" id="" />
+                            <input type="text" name="" value="{{$dataInfo[0]['student_phone']}}" id="" />
                         </div>
                     </div>
                     <div class="form-row">

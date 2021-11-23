@@ -43,4 +43,18 @@ class modelHistory extends DB
             ]
         );
     }
+
+    public static function getWidthSubject($student_id)
+    {
+        $model  = new static();
+        $conn = $model->getConnect();
+        $queryBuilder = "SELECT * FROM history INNER JOIN subject ON history.subject_id = subject.subject_id WHERE history.student_id = :student_id  AND history.sum_lesson > 0";
+        $statement = $conn->prepare($queryBuilder);
+        $statement->execute(
+            [
+                'student_id' => $student_id
+            ]
+        );
+        return $statement->fetchAll();
+    }
 }
