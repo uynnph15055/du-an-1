@@ -94,7 +94,7 @@ class Lesson extends baseController
         // $this->dd($dataNote);
 
         $this->render("customer.learning", [
-'dataLesson' => $dataLesson,
+            'dataLesson' => $dataLesson,
             'subjectName' => $subjectName,
             'subject_slug' => $subject_slug,
             'lessonFist' => $lessonFist,
@@ -174,7 +174,7 @@ class Lesson extends baseController
                 header('location: ' . $_SERVER['HTTP_REFERER']);
             } else {
                 $_SESSION['error'] = "Bạn đang bỏ trống comment !!!";
-header('location: ' . $_SERVER['HTTP_REFERER']);
+                header('location: ' . $_SERVER['HTTP_REFERER']);
                 die();
             }
         }

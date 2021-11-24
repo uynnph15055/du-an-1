@@ -25,5 +25,22 @@ class modelStudent extends DB
         $statement->execute();
         return $statement->fetchAll();
     }
-    
+
+    public static function updateImg($data)
+    {
+        $model = new static();
+        $connect = $model->getConnect();
+        $queryBuilder =  "UPDATE student SET student_avatar = :student_img WHERE student_id = :student_id";
+        $statement = $connect->prepare($queryBuilder);
+        $statement->execute($data);
+    }
+
+    public static function updateInfo($data)
+    {
+        $model = new static();
+        $connect = $model->getConnect();
+        $queryBuilder =  "UPDATE student SET student_name = :student_name , student_phone =:student_phone , student_story=:student_story WHERE student_id = :student_id";
+        $statement = $connect->prepare($queryBuilder);
+        $statement->execute($data);
+    }
 }

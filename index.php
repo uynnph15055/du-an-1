@@ -113,9 +113,9 @@ switch ($url) {
         break;
     case 'xoa-binh-luan-where-checkbox';
         $ctr = new adminComment();
-        echo $ctr-> delete_where();
+        echo $ctr->delete_where();
         break;
- 
+
         //THE_END
 
         // Danh sách câu hỏi.
@@ -337,6 +337,14 @@ switch ($url) {
     case 'thong-tin-khach-hang';
         $ctr = new proFile();
         echo $ctr->index();
+        break;
+    case 'thay-anh-dai-dien';
+        $ctr = new proFile();
+        echo $ctr->updateImg();
+        break;
+    case 'thay-doi-thong-tin';
+        $ctr = new proFile();
+        echo $ctr->updateInfo();
         break;
 
     default:

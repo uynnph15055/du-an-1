@@ -29,35 +29,13 @@
                 <div class="about-team-list">
                     <div class="about-team-item">
                         <div class="team-item-img">
-                            <img src="https://i.pinimg.com/564x/b8/27/b5/b827b58d9f980d372afdf3bcdb187958.jpg" alt="" class="img-fluid">
-                        </div>
-                        <h5 class="team-item__name">
-                            Nguyen Ngoc Anh
-                        </h5>
-                        <div class="team-item__quotes">
-                            Sunt in culpa qui officia deserunt mollit anim id est laborum
-                        </div>
-                        <div class="team-item-social">
-                            <a href="">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                            <a href="">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="about-team-item">
-                        <div class="team-item-img">
                             <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t1.6435-9/53184570_2289900747998046_8670164284736536576_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=GwVvjG2uHuQAX--Nrd2&_nc_ht=scontent.fhan2-3.fna&oh=b0b1f3a02c4e4e379b1807c7bcb8980d&oe=61C3CA5A" alt="" class="img-fluid">
                         </div>
                         <h5 class="team-item__name">
-                            Nguyen Ngoc Uy
+                            Nguyễn Ngọc Uy
                         </h5>
                         <div class="team-item__quotes">
-                            Sunt in culpa qui officia deserunt mollit anim id est laborum
+                            BACK END (WEB)
                         </div>
                         <div class="team-item-social">
                             <a href="">
@@ -73,13 +51,36 @@
                     </div>
                     <div class="about-team-item">
                         <div class="team-item-img">
-                            <img src="https://i.pinimg.com/564x/b8/27/b5/b827b58d9f980d372afdf3bcdb187958.jpg" alt="" class="img-fluid">
+                            <img src="./public/img/IMG_7709.JPG" alt="" class="img-fluid">
                         </div>
                         <h5 class="team-item__name">
-                            Nguyen Ngoc Anh
+                            Nguyễn Ngọc Anh
                         </h5>
                         <div class="team-item__quotes">
-                            Sunt in culpa qui officia deserunt mollit anim id est laborum
+                            FONT END (WEB)
+                        </div>
+                        <div class="team-item-social">
+                            <a href="">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="about-team-item">
+                        <div class="team-item-img">
+                            <img src="./public/img/z2963473880854_d45c0e94cd5d2ef889b2179dbbf782e2.jpg" alt="" class="img-fluid">
+                        </div>
+                        <h5 class="team-item__name">
+                            Nguyễn Đức Bình
+                        </h5>
+                        <div class="team-item__quotes">
+                            BACK END (WEB)
                         </div>
                         <div class="team-item-social">
                             <a href="">
@@ -103,7 +104,7 @@
                     <img class="img-fluid" src="./public/img/Capy-Its-Getting-There-At-Blog-Archive-At-Stfu-Playstation-.gif" alt="" class="img-fluid">
                 </div>
                 <div class="visibility-text">
-                    <p class="visibility__text" style="font-style: italic;">Trở thành công ty công nghệ giáo dục có vị thế vững vàng trên thị
+                    <p class="visibility__text" style="font-style: italic;text-align:center">Trở thành công ty công nghệ giáo dục có vị thế vững vàng trên thị
                         trường, với các sản phẩm hỗ
                         trợ học lập trình chất lượng, thông minh và hiệu quả. F8 sẽ nổi tiếng bởi chất lượng sản
                         phẩm vượt trội và được cộng đồng tin tưởng chứ không phải vì tiếp thị tốt.</p>
