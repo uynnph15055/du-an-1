@@ -21,7 +21,7 @@
 
 <body>
     <div class="container">
-        <header style="z-index: 10;">
+        <header>
             <div class="navbar-container">
                 <div class="navbar-fluid">
                     <div class="navbar-logo">

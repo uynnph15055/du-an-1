@@ -2713,6 +2713,10 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   margin-bottom: 10px;
 }
 
+.about-section .about-intro .intro-content .text-content {
+  text-align: justify;
+}
+
 .about-section .about-intro .intro-content .text-content + .text-content {
   margin-top: 10px;
 }
