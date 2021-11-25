@@ -45,8 +45,7 @@ class formLog extends baseController
   for the required scopes, and uses that when
   generating the authentication URL later.
  * ********************************************** */
-        $service = new Google_Service_Oauth2($client);
-
+     
         /* * **********************************************
   If we have a code back from the OAuth 2.0 flow,
   we need to exchange that with the authenticate()
@@ -55,8 +54,10 @@ class formLog extends baseController
  */
 
         if (isset($_GET['code'])) {
-     $client->fetchAccessTokenWithAuthCode($_GET['code']);
-           $client->fetchAccessTokenWithAuthCode($_GET['code']); 
+          $client->fetchAccessTokenWithAuthCode($_GET['code']); 
+       
+           $service = new Google_Service_Oauth2($client);
+
             $_SESSION['access_token'] = $client->getAccessToken();
             header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
             exit;
@@ -67,6 +68,7 @@ class formLog extends baseController
  * ********************************************** */
         if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
             $client->setAccessToken($_SESSION['access_token']);
+
         } else {
             $authUrl = $client->createAuthUrl();
         }

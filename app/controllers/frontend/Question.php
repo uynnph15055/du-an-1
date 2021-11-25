@@ -137,7 +137,25 @@ class Question extends baseController
 
                     $pos = strpos($stringStudent, $stringQuestion);
                     if ($pos !== false) {
+
                         modelHistory::updateSumLesson($student_id, $subject_id, $sumLesson);
+
+                        // Làm hết bài tập và chuyễn sang đánh giá
+                        $AllLesson = modelLesson::where("subject_id", "=", $subject_id)->get();
+                        // $this->dd($AllLesson);
+                        $countLesson = count($AllLesson);
+
+                        // -------------------
+                        $lessonWhereStudent =  modelHistory::checkStatus($student_id, $subject_id);
+                        $countLessonHistory = $lessonWhereStudent[0]['sum_lesson'];
+                        // $this->dd($countLessonHistory);
+                        if ($countLessonHistory == $countLesson) {
+                            header('Location:  danh-gia');
+                            die();
+                        }
+
+                        // echo "Tín";
+                        // die();
                         $_SESSION['success'] = 'Đáp án đúng !!!';
                         header('location: ' . $_SERVER['HTTP_REFERER']);
                         die();

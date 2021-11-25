@@ -31,11 +31,11 @@
             <div class="contact-form">
                 <form action="" class="contact__form">
                     <label class="form__title" for="">Họ tên</label>
-                    <input type="text" placeholder="Họ và tên" class="form__input">
+                    <input type="text" class="form__input">
                     <label class="form__title" for="">Email</label>
-                    <input type="email" placeholder="Email" class="form__input">
+                    <input type="email" class="form__input">
                     <label class="form__title" for="">Nội dung</label>
-                    <textarea class="form__input" placeholder="Nội dung" name="" id="" cols="30" rows="10"></textarea>
+                    <textarea class="form__input" name="" id="" cols="30" rows="10"></textarea>
                     <div class="btn-right">
                         <button type="submit" class="btn-primary">Submit</button>
                     </div>

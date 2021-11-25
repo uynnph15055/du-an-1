@@ -41,7 +41,10 @@ class adminQuestion extends baseController
     {
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             extract($_POST);
+<<<<<<< HEAD
 // $this->dd($_POST);
+=======
+>>>>>>> 24ba0323a1872af28172acb5bab06210b271763c
             if (!empty($answer_A) || !empty($answer_B) || !empty($answer_C) || !empty($answer_D)) {
                 $answer = [];
                 isset($answer_A) ? $answer[0] = $answer_A : [];
@@ -62,6 +65,8 @@ class adminQuestion extends baseController
                     header("Location: ./trang-them-cau-hoi?lesson_id=$lesson_id");
                     die();
                 }
+
+
                 $file = $_FILES['question_img'];
 
                 if ($file['size'] > 0) {
@@ -86,7 +91,7 @@ class adminQuestion extends baseController
                 modelQuestion::insert($data);
                 header("Location: ./danh-sach-cau-hoi?lesson_id=$lesson_id");
             } else {
-                $_SESSION['error'] = "Chưa Nhập Đáp Án Đúng !!!";
+                $_SESSION['error'] = "Chưa điền đủ thông tin !!!";
                 header("Location: ./trang-them-cau-hoi?lesson_id=$lesson_id");
                 die();
             }

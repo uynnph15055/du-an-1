@@ -26,6 +26,7 @@ use App\Controllers\Frontend\formLog;
 use App\Controllers\Frontend\proFile;
 use App\Controllers\Frontend\Question;
 use App\Controllers\Backend\adminComment;
+use App\Controllers\Frontend\assess;
 
 switch ($url) {
     case 'quan-tri':
@@ -280,7 +281,7 @@ switch ($url) {
         $ctr = new Lesson();
         echo $ctr->comment();
         break;
-    case 'xoa-binh-luan';
+    case 'xoa-binh';
         $ctr = new Lesson();
         echo $ctr->deleteComment();
         break;
@@ -350,6 +351,16 @@ switch ($url) {
     case 'thay-doi-thong-tin';
         $ctr = new proFile();
         echo $ctr->updateInfo();
+        break;
+
+        // Dánh giá
+    case 'danh-gia';
+        $ctr = new assess();
+        echo $ctr->index();
+        break;
+    case 'luu-danh-gia';
+        $ctr = new assess();
+        echo $ctr->addAssess();
         break;
 
     default:

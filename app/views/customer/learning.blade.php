@@ -24,7 +24,7 @@
                                 @if(!empty($dataComment))
                                 <span style="color: #444;">Hiện có <?php echo count($dataComment) ?> bình luận</span>
                                 @else
-                                <span style="color: #444;">Chưa có bình luận nào !</span>
+                                <span style="color: #444;">Chưa có bình luận nào!</span>
                                 @endif
                             </div>
                             <div class="form-comment-input ">
@@ -48,7 +48,7 @@
                                         <span class="comment-item__name">
                                             {{$key['student_name']}}
                                         </span>
-                                        <span class="comment-item__date" style="margin-left: 30px;">
+                                        <span class="comment-item__date">
                                             {{$key['date_cmtt']}}
                                         </span>
                                         <p class="comment-item__content">
@@ -66,13 +66,13 @@
                             </div>
                         </div>
 
-                        <div id="note-lesson" class="tab-content" style="margin-left: -70px;">
+                        <div id="note-lesson" class="tab-content">
                             @if(empty($dataNote))
                             <form class="form__note" action="ghi-chu-bai-hoc?student_id={{$userInfo['student_id']}}&bai={{$lesson_id}}" method="POST">
                                 <label class="form__note__title" for="">Tạo ghi chú mới</label>
                                 <div class="note-section-content">
                                     <input class="input__time-note" type="text" placeholder="Thời gian">
-                                    <textarea style="border-radius: 15px;padding:10px;font-size:18px" placeholder="Nội dung ghi chú" name="content_note" cols="70" rows="6"></textarea>
+                                    <textarea class="input__content-note" placeholder="Nội dung ghi chú" name="content_note" cols="70" rows="6"></textarea>
                                     <button type="submit" class="btn btn-note">
                                         <i class="fas fa-save"></i>
                                     </button>
@@ -109,7 +109,6 @@
                     <h3 class="course__title" style="font-size: 23px;margin-top:-10px">
                         Khóa học {{$subjectName}}
 
-
                     </h3>
                     <?php
 
@@ -124,7 +123,7 @@
 
                             <div class="lesson-item">
                                 <a href="bai-hoc?mon={{$subject_slug}}&bai={{$key['lesson_slug']}}" class="lesson-item-info">
-                                    <span class="lesson__index" style="margin-top: 10px;margin-left:5px"><i class="fas fa-play-circle"></i></span>
+                                    <span class="lesson__index" ><i class="fas fa-play-circle"></i></span>
                                     <h4 class="lesson-item__title" style="line-height: 1.4;">
                                         Bài <?= $index++ ?>: {{$key['lesson_name']}}
                                     </h4>
@@ -164,7 +163,7 @@
         $('.delete_cmtt').click(function(e) {
             e.preventDefault();
             var cmtt_id = $(this).data('id');
-            $.get("xoa-binh-luan", {
+            $.get("xoa-binh", {
                 cmtt_id: cmtt_id
             }, function($data) {
                 $('.comment-list').html($data);

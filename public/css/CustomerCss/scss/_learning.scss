@@ -1,209 +1,214 @@
-.learning-fluid{
-    margin: 0 $margin-popular;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-gap: 10px;
+.learning-fluid {
+  margin: 0 $margin-popular;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 10px;
 
+  .learning-tabs {
+    .btn-tab {
+      border-bottom: 1px solid var(--gray);
+      text-align: center;
 
-    .learning-tabs {
-        .btn-tab {
-            border-bottom: 1px solid var(--gray);
-            text-align: center;
+      .tablinks {
+        font-size: 18px;
+        padding: 10px 0;
+        margin: 0 20px;
+        background: none;
+        border: none;
+        font-size: $normal;
+        cursor: pointer;
+      }
 
-            .tablinks{
-                font-size: 18px;
-                padding: 10px 0;
-                margin: 0 20px;
-                background: none;
-                border: none;
-                font-size: $normal;
-                cursor: pointer;
-            }
-            
-            .tablinks.active{
-                border-bottom: 3px solid var(--color-primary);
+      .tablinks.active {
+        border-bottom: 3px solid var(--color-primary);
+      }
+    }
+    #comment-lesson {
+      .count-comment {
+        font-weight: bold;
+        padding: 10px 0;
+      }
 
-            }
+      .form-comment-input {
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        grid-gap: 30px;
+        margin: 20px 0 30px;
+
+        .comment-img {
+          img {
+            width: 45px;
+            height: 46px;
+            object-fit: cover;
+            border-radius: 50%;
+          }
         }
-        #comment-lesson{
+        form {
+          display: grid;
+          grid-template-columns: 1fr 30px;
+          grid-gap: 30px;
 
-            .count-comment{
-                font-weight: bold;
-                padding: 10px 0;
-            }
+          input,
+          button {
+            border: none;
+            background: none;
+            outline: none;
+          }
 
-            .form-comment-input {
-                display: grid;
-                grid-template-columns: 50px 1fr;
-                grid-gap: 30px;
-                margin: 20px 0 30px;
-
-                form{
-                    display: grid;
-                    grid-template-columns: 1fr 30px;
-                    grid-gap: 30px;
-                    
-                    input, button{
-                        border: none;
-                        background: none;
-                        outline: none;
-                        
-                    }
-
-                    input{
-                        width: 100%;
-                        border-bottom: 1px solid var(--gray);
-                        font-size: $normal;
-                        
-                    }
-                    button{
-                        font-size: 22px;
-                        cursor: pointer;
-                    }
-                }
-            }
-
-            .comment-list{
-                margin: 20px 0;
-
-                .comment-item{
-                    display: grid;
-                    grid-template-columns: 50px 1fr 50px;
-                    grid-gap: 30px;
-                 
-                    .comment-text{
-                        background: var(--grey);
-                        padding: 15px;
-                        border-radius: 20px;
-                    }
-                    .comment-item__name{
-                        font-weight: bold;
-                    }
-                    .comment-item__date{
-                        color: var(--gray);
-                        text-align: right;
-                    }
-                    .comment-item__content{
-                        padding: 10px 0;
-                        font-size: $small;
-                    }
-                 }
-
-            }
+          input {
+            width: 100%;
+            border-bottom: 1px solid var(--white);
+            font-size: $normal;
+          }
+          button {
+            font-size: 22px;
+            cursor: pointer;
+          }
         }
-        
-        #note-lesson{
-            .form__note{
-                margin: 10px 0 10px 80px;
-                display: block;
+      }
 
-                .form__note__title{
-                    display: inline-block;
-                    margin: 10px 0;
-                    font-weight: bold;
-                }
-                input, textarea{
-                    background: var(--grey);
-                    border: none;
-                    padding: 10px;
-                    outline: none;
-                    margin-right: 10px;
-                }
-         
-                .input__time-note{
-                    display: block;
-                    border-radius: $radius-2;
-                    max-width: 100px;
-                    background: var(--color-primary);
-                    text-align: center;
-                    font-weight: bold;
-                }
-                .input__time-note::placeholder{
-                    color: rgb(56, 56, 56);
-                    font-weight: lighter;
+      .comment-list {
+        margin: 20px 0;
 
-                }
-                .note-section-content{
-                    display: flex;
-                    margin: 10px 0;
-                    
-                    .input__time-note{
-                        height: 30px;
+        .comment-item {
+          display: grid;
+          grid-template-columns: 50px 1fr 50px;
+          grid-gap: 30px;
 
-                    }
-                    .input__content-note{
-                        display: block;
-                        width: 100%;
-                        border-radius: $radius-2;
-                        height: 100px;
-                    }
-                    .btn-note{
-                        border: none;
-                        padding: 10px;
-                        background: none;
-                        cursor: pointer;
-                        font-size: $normal;
-                        color: var(--gray);
-                        transition: $trans-second;
-                    }
-                    .btn-note:hover{
-                        color: var(--black);
-                    }
-                }
-            }
-            .note-lesson-list {
-                padding: 20px 0;
-
-                .note-lesson-item {
-                    display: grid;
-                    grid-template-columns: 50px 1fr 50px;
-                    grid-gap: 30px;
-
-                    .note__time{
-                        height: 20px;
-                        padding: 10px;
-                        background: var(--color-primary);
-                        border-radius: $radius-2;
-                        font-weight: bold;
-                        display: flex;
-                        align-items: center;
-                    }
-                    .note-text-container{
-                        background: var(--grey);
-                        padding: 15px;
-                        border-radius: 20px;
-
-                        .lesson-title{
-                            font-weight: bold;
-                            display: inline-block;
-                            padding-bottom: 10px;
-                        }
-                    }
-                }
-            }
+          .comment-text {
+            background: var(--white);
+            padding: 15px;
+            border-radius: $radius-2;
+          }
+          .comment-item__name {
+            font-weight: bold;
+          }
+          .comment-item__date {
+            color: var(--gray);
+            text-align: right;
+            padding-left: 15px;
+          }
+          .comment-item__content {
+            padding: 10px 0;
+            font-size: $small;
+          }
         }
-
-        .tab-content{
-            display: none;
-        }
-        .action-ctrl{
-            display: flex;
-            align-items: flex-start;
-
-            .item-ctrl-btn{
-                border: none;
-                background: none;
-                outline: none;
-
-                a{
-                    color: var(--gray-more);
-                }
-            }
-            .item-ctrl-btn:hover a{
-                color: var(--black);
-            }
-
-        }
+      }
     }
 
+    #note-lesson {
+      .form__note {
+        margin: 10px 0 10px 80px;
+        display: block;
+
+        .form__note__title {
+          display: inline-block;
+          margin: 10px 0;
+          font-weight: bold;
+        }
+        input,
+        textarea {
+          background: var(--white);
+          border: none;
+          padding: 10px;
+          outline: none;
+          margin-right: 10px;
+          border-radius: $radius-2;
+        }
+
+        .input__time-note {
+          display: block;
+          border-radius: $radius-2;
+          max-width: 100px;
+          background: var(--color-primary);
+          text-align: center;
+          font-weight: bold;
+        }
+        .input__time-note::placeholder {
+          color: rgb(56, 56, 56);
+          font-weight: lighter;
+        }
+        .note-section-content {
+          display: flex;
+          margin: 10px 0;
+
+          .input__time-note {
+            height: 30px;
+          }
+          .input__content-note {
+            display: block;
+            width: 100%;
+            border-radius: $radius-2;
+            height: 100px;
+            border-radius: 15px;
+            padding: 10px;
+          }
+          .btn-note {
+            border: none;
+            padding: 10px;
+            background: none;
+            cursor: pointer;
+            font-size: $normal;
+            color: var(--gray);
+            transition: $trans-second;
+          }
+          .btn-note:hover {
+            color: var(--black);
+          }
+        }
+      }
+      .note-lesson-list {
+        padding: 20px 0;
+
+        .note-lesson-item {
+          display: grid;
+          grid-template-columns: 50px 1fr 50px;
+          grid-gap: 30px;
+
+          .note__time {
+            height: 20px;
+            padding: 10px;
+            background: var(--color-primary);
+            border-radius: $radius-2;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+          }
+          .note-text-container {
+            background: var(--grey);
+            padding: 15px;
+            border-radius: 20px;
+
+            .lesson-title {
+              font-weight: bold;
+              display: inline-block;
+              padding-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      display: none;
+      margin-left: -70px;
+    }
+    .action-ctrl {
+      display: flex;
+      align-items: flex-start;
+
+      .item-ctrl-btn {
+        border: none;
+        background: none;
+        outline: none;
+
+        a {
+          color: var(--gray-more);
+        }
+      }
+      .item-ctrl-btn:hover a {
+        color: var(--black);
+      }
+    }
+  }
 }
