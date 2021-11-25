@@ -8,8 +8,7 @@
 html {
   font-size: 62.5%;
   line-height: 1.6;
-  font-family: sans-serif;
-  font-family: "Varela Round", sans-serif;
+  font-family: 'Verdana', 'Roboto', sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -805,7 +804,7 @@ body {
 
 header {
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   background: var(--white);
   top: 0;
   left: 0;
@@ -1251,7 +1250,7 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 
 .count-member .count-member-text .text-numb {
   display: block;
-  font-size: 48px;
+  font-size: 100px;
 }
 
 .count-member .count-member-text .text-numb-sub {
@@ -1469,6 +1468,7 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 
 .search-section .form-container .form-content {
   margin: auto 0;
+  padding-right: 100px;
 }
 
 .search-section .form-container .form-content h2 {
@@ -1526,18 +1526,23 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 }
 
 .oval-1 {
+  right: 80px;
+  bottom: 50px;
   width: 50px;
   height: 50px;
   background: var(--color-purple-30);
 }
 
 .oval-2 {
-  width: 30px;
-  height: 30px;
-  background: var(--color-purple-30);
+  right: 0;
+  top: 140px;
+  width: 80px;
+  height: 80px;
+  background: var(--color-thirty-30);
 }
 
 .oval-3 {
+  top: 90px;
   width: 30px;
   height: 30px;
   background: var(--color-purple-30);

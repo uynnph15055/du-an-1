@@ -25,7 +25,7 @@
             <div class="navbar-container">
                 <div class="navbar-fluid">
                     <div class="navbar-logo">
-                        <a href="">
+                        <a href="./">
                             <img src="./public/img/images/logo-main.png" alt="" class="img-fluid img__logo">
                         </a>
                     </div>
@@ -54,7 +54,7 @@
                                         <img style="object-fit: cover; width: 30px; height: 30px" src="./public/img/<?= $user_info[0]['student_avatar'] ?>" alt="">
                                     </button>
                                     <div id="account-list" class="content-container-acc">
-                                        <a class="account-item" href="">Thông tin tài khoản</a>
+                                        <a class="account-item" href="thong-tin-khach-hang">Thông tin tài khoản</a>
                                         <div class="account-item account-item--mode">
                                             <span>
                                                 Chế độ
@@ -89,97 +89,14 @@
         <main>
             <?php echo $__env->yieldContent('main_content'); ?>;
         </main>
-        <footer style="margin-top: -250px;background-color: #f1f3f8;">
-            <div class="footer-content">
-                <div class="content">
-                    <div class="footer-social">
-                        <a href="" class="social-link">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                    <ul class="footer-links">
-                        <li><a class="link-item" href="">Các khóa học</a></li>
-                        <li><a class="link-item" href="">Liên hệ</a></li>
-                        <li><a class="link-item" href="">Giới thiệu</a></li>
-                        <li><a class="link-item" href="">Trợ giúp</a></li>
-                    </ul>
-                    <div class="footer-copyright">
-                        <span>Copyright © 2021 - Course IFT</span>
-                    </div>
-                </div>
-                <div class="gooey-animations">
-                </div>
-            </div>
-
-            <svg xmlns="" version="1.1">
-                <defs>
-                    <filter id="goo">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
-                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -7" result="goo" />
-                        <feBlend in="SourceGraphic" in2="goo" />
-                    </filter>
-                </defs>
-            </svg>
-
-            <svg viewbox="0 0 1440 328" width="100vw">
-                <defs>
-                    <clipPath id="wave" clipPathUnits="objectBoundingBox" transform="scale(0.00069444444, 0.00304878048)">
-                        <path d="M504.452 27.7002C163.193 -42.9551 25.9595 38.071 0 87.4161V328H1440V27.7002C1270.34 57.14 845.711 98.3556 504.452 27.7002Z" />
-                    </clipPath>
-                </defs>
-            </svg>
-        </footer>
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
     <script src="./public/js/customerJs/darkMode.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        $(function() {
 
-            <?php if (isset($_SESSION['error'])) {
-
-            ?>
-
-                Swal.fire({
-                    icon: 'warning',
-                    title: '<p  style="font-size: 19px;"><?= $_SESSION['error']; ?></p>',
-
-                    timer: 3000,
-                    width: 400,
-                    padding: '4em',
-                    confirmButtonText: '<i style="padding: 3px;font-size: 20px">OK</i>',
-
-
-
-                })
-
-            <?php
-                unset($_SESSION['error']);
-            } elseif (isset($_SESSION['success'])) { ?>
-                Swal.fire({
-
-                    icon: 'success',
-                    title: '<p  style="font-size: 22px;"><?= $_SESSION['success']; ?></p>',
-                    showConfirmButton: false,
-                    timer: 1500,
-                    width: 450,
-                    padding: '5em',
-
-                })
-
-            <?php unset($_SESSION['success']);
-            }
-            ?>
-        });
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./public/js/customerJS/footer.js"></script>
+    <?php echo $__env->yieldContent('javascript'); ?>
 </body>
 
 </html><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/customer/layout/layout.blade.php ENDPATH**/ ?>

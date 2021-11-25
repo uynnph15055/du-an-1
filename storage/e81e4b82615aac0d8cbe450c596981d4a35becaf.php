@@ -6,7 +6,7 @@
         font-weight: 600;
     }
 </style>
-<div class="container" style="margin-top:50px">
+<div class="container" style="margin-top:40px">
     <div class="profile-section">
         <div class="container-fluid">
             <div class="profile-grid">
@@ -20,11 +20,18 @@
                         </div>
                         <div class="general-text">
                             <h4 class="general__username"><?php echo e($dataInfo[0]['student_name']); ?></h4>
-                            <div class="general-exp"><i class="fas fa-trophy"></i> 123 EXP</div>
+                            <?php $sumPoint = 0;
+                            foreach ($countPoint as $key) :
+                                $sumPoint += $key['question_point'];
+                            endforeach
+                            ?>
+                            <div class="general-exp"><i class="fas fa-trophy"></i> <?= $sumPoint ?> EXP</div>
+                            <?php if(isset($dataInfo[0]['student_story'])): ?>
                             <p class="general__bio">
-                                "Hello, I’m Anh.
-                                Unt in culpa qui officia deserunt mollit anim id est laborum."
+                                <?php echo e($dataInfo[0]['student_story']); ?>
+
                             </p>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="section-box profile-control-info">
@@ -57,6 +64,17 @@
 
                                     </span>
                                 </div>
+                                <?php if(isset($dataInfo[0]['student_phone'])): ?>
+                                <div class="info-item">
+                                    <span class="info-item__title">
+                                        Số điện thoại :
+                                    </span>
+                                    <span class="info-item__content">
+                                        <?php echo e($dataInfo[0]['student_phone']); ?>
+
+                                    </span>
+                                </div>
+                                <?php endif; ?>
                             </div>
                             <a class="change-pass-link" href="">Đổi mật khẩu</a>
                         </div>
@@ -70,7 +88,7 @@
                             <div class="status-head head-grid">
                                 <span class="head-status__icon"><i class="fas fa-book-reader"></i></span>
                                 <span class="head-status__name">Khóa đang học</span>
-                                <span class="head-status__sub">2</span>
+                                <span class="head-status__sub"><?php echo count($dataCourseLeaning) ?></span>
                             </div>
                             <div class="status-content">
                                 <?php
@@ -86,8 +104,9 @@
                                                 <img src="./public/img/<?php echo e($key['subject_img']); ?>" alt="" class="img-fluid">
                                             </a>
                                         </div>
-                                        <div class="status-course-text">
+                                        <div class="status-course-text" style="">
                                             <h3 class="status-course__name"><a href=""><?php echo e($key['subject_name']); ?></a></h3>
+                                            <p style="line-height: 1.6;">Ngày bắt đầu : <?php echo e($key['date_start']); ?></p>
                                             <span class="status-course__count-lesson"><?php echo e($key['sum_lesson']); ?> / <?php echo count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?></span>
                                         </div>
                                     </div>
@@ -110,7 +129,7 @@
                                             </a>
                                         </div>
                                         <div class="status-course-text">
-                                            <h3 class="status-course__name"><a href="">HTML</a></h3>
+                                            <h3 style="margin-top:20px" class="status-course__name"><a href="">HTML</a></h3>
                                             <span class="status-course__count-lesson">10/10</span>
                                         </div>
                                     </div>
@@ -121,7 +140,7 @@
                                             </a>
                                         </div>
                                         <div class="status-course-text">
-                                            <h3 class="status-course__name"><a href="">HTML</a></h3>
+                                            <h3 style="margin-top:20px" class="status-course__name"><a href="">HTML</a></h3>
                                             <span class="status-course__count-lesson">10/10</span>
                                         </div>
                                     </div>
@@ -227,66 +246,27 @@
                                 <span class="head-section__sub">1</span>
                             </div>
                             <div class="note-list">
+                                <?php $__currentLoopData = $dataNote; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="note-item">
                                     <h3 class="note__course-name">
                                         <a href="">
-                                            HTML
+                                            <?php echo e($key['lesson_name']); ?>
+
                                         </a>
                                     </h3>
+                                    <br>
                                     <div class="note-course-content-list">
                                         <div class="note-course-content-item">
                                             <span class="detail-content">
                                                 ∘
                                                 <!-- text -->
-                                                DOM hello note DOM hello note DOM hello note DOM hello note
-                                            </span>
-                                            <span class="detail-date">
-                                                1-1-2021
-                                            </span>
-                                        </div>
-                                        <div class="note-course-content-item">
+                                                <?php echo e($key['content_note']); ?>
 
-                                            <span class="detail-content">
-                                                ∘
-                                                <!-- text -->
-                                                DOM hello note DOM hello note DOM hello note DOM hello note
-                                            </span>
-                                            <span class="detail-date">
-                                                1-1-2021
                                             </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="note-item">
-                                    <h3 class="note__course-name">
-                                        <a href="">
-                                            CSS
-                                        </a>
-                                    </h3>
-                                    <div class="note-course-content-list">
-                                        <div class="note-course-content-item">
-                                            <span class="detail-content">
-                                                ∘
-                                                <!-- text -->
-                                                DOM hello note DOM hello note DOM hello note DOM hello note
-                                            </span>
-                                            <span class="detail-date">
-                                                1-1-2021
-                                            </span>
-                                        </div>
-                                        <div class="note-course-content-item">
-
-                                            <span class="detail-content">
-                                                ∘
-                                                <!-- text -->
-                                                DOM hello note DOM hello note DOM hello note DOM hello note
-                                            </span>
-                                            <span class="detail-date">
-                                                1-1-2021
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </div>
                     </div>
@@ -305,14 +285,14 @@
                 </div>
                 <div class="modal__body">
                     <div class="modal__body__img">
-                        <img src="./public/img/<?php echo e($dataInfo[0]['student_avatar']); ?>" alt="" />
+                        <img id="img_main" src="./public/img/<?php echo e($dataInfo[0]['student_avatar']); ?>" alt="" />
                     </div>
-                    <form class="modal__body__btn-file">
-                        <label for="input-img" class="preview">
+                    <form method="POST" action="thay-anh-dai-dien" enctype="multipart/form-data" class="modal__body__btn-file">
+                        <label for="banner_img" class="preview">
                             <i class="fas fa-cloud-upload-alt"></i>
                             <span>Chọn ảnh</span>
                         </label>
-                        <input type="file" hidden id="input-img" />
+                        <input type="file" name="student_img_new" onchange="banner_imgg()" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" hidden id="banner_img" />
                         <button class="btn-primary" type="submit">Lưu thay đổi</button>
                     </form>
                 </div>
@@ -328,27 +308,27 @@
                 <div class="modal-user-info__header">
                     <span></span>
                     <p>
-                        Cập nhật ảnh đại diện
+                        Cập nhật thông tin
                     </p>
                     <i class="fas fa-times"></i>
                 </div>
-                <form class="modal-user-info__body">
-                    <p class="user-email">anh@gmail.com</p>
+                <form method="POST" action="thay-doi-thong-tin" class="modal-user-info__body">
+                    <p class="user-email"><?php echo e($dataInfo[0]['student_email']); ?></p>
                     <div class="form-row-1">
                         <div class="form-item">
                             <label for="">Họ và tên</label>
-                            <input type="text" name="" value="<?php echo e($dataInfo[0]['student_name']); ?>" id="" />
+                            <input type="text" placeholder="Họ và tên" name="student_name" value="<?php echo e($dataInfo[0]['student_name']); ?>" id="" />
                             <span class="mess-alert"></span>
                         </div>
                         <div class="form-item">
                             <label for="">Số điện thoại</label>
-                            <input type="text" name="" value="<?php echo e($dataInfo[0]['student_phone']); ?>" id="" />
+                            <input type="text" name="student_phone" value="" id="" />
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-item">
                             <label for="">Tiểu sử</label>
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <textarea name="student_story" id="" cols="30" rows="10"></textarea>
                         </div>
                     </div>
                     <div class="form__btn">
@@ -361,5 +341,22 @@
 </div>
 
 <script src="./public/js/customerJs/profile.js"></script>
+<script>
+    function banner_imgg() {
+        var banner_img = document.getElementById('banner_img').files;
+
+        if (banner_img.length > 0) {
+            var filetoload = banner_img[0];
+            var fileReader = new FileReader();
+            fileReader.onload = function(fileLoaderEvent) {
+                var srcData = fileLoaderEvent.target.result;
+                var newimg = document.createElement('img');
+                newimg.src = srcData;
+                document.getElementById('img_main').src = newimg.src;
+            }
+            fileReader.readAsDataURL(filetoload);
+        }
+    }
+</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/profile_user.blade.php ENDPATH**/ ?>

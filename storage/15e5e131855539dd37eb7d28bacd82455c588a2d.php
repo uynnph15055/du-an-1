@@ -12,11 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
     <!-- css -->
     <link rel="stylesheet" href="./public/css/customerCss/style.css">
+    <!-- css footer -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-<?php echo $__env->yieldContent('link'); ?>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
+    <?php echo $__env->yieldContent('link'); ?>
 </head>
 
 <body>
@@ -49,7 +51,7 @@
                                     </abbr>
                                 </button>
                                 <button class="action-item">
-                                      <abbr title="Thông báo">
+                                    <abbr title="Thông báo">
                                         <i class="fas fa-bell"></i>
                                     </abbr>
                                 </button>
@@ -149,6 +151,35 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./public/js/customerJS/footer.js"></script>
+    <script>
+        $(function() {
+            <?php if (isset($_SESSION['error'])) { ?>
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: '<?= $_SESSION['error']; ?>',
+                    timer: 3000,
+                    width: 450,
+                    padding: '5em',
+                })
+
+            <?php
+                unset($_SESSION['error']);
+            } elseif (isset($_SESSION['success'])) { ?>
+                Swal.fire({
+
+                    icon: 'success',
+                    title: '<?= $_SESSION['success']; ?>',
+                    showConfirmButton: false,
+                    timer: 1500
+
+                })
+
+            <?php unset($_SESSION['success']);
+            }
+            ?>
+        });
+    </script>
     <?php echo $__env->yieldContent('javascript'); ?>
 </body>
 

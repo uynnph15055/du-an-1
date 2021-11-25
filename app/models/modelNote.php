@@ -27,4 +27,14 @@ class modelNote extends DB
         $statement->execute(['id' => $id]);
         return $statement->fetchAll();
     }
+
+    public static function getNote($student_id)
+    {
+        $model = new static();
+        $conn = $model->getConnect();
+        $queryBuilder = "SELECT * FROM note INNER JOIN lesson ON note.lesson_id = lesson.lesson_id INNER JOIN student ON note.student_id = student.student_id WHERE note.student_id = :student_id GROUP BY note.note_id DESC LIMIT 4";
+        $statement = $conn->prepare($queryBuilder);
+        $statement->execute(['student_id' => $student_id]);
+        return $statement->fetchAll();
+    }
 }

@@ -73,6 +73,7 @@ class Lesson extends baseController
         ];
 
         $dataHistoryCheck = modelHistory::checkStatus($student_id, $subject_id);
+        // $this->dd($dataHistoryCheck);
         if (!empty($dataHistoryCheck)) {
             $this->render("customer.learning", [
                 'dataLesson' => $dataLesson,

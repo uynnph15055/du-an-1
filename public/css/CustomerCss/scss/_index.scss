@@ -38,7 +38,7 @@
       box-shadow: 0 0 20px var(--gray);
       border-radius: $radius-2;
       transition: $trans-second;
-  
+      
       &__icon {
         display: flex;
         margin: auto;
@@ -49,12 +49,13 @@
         margin: auto;
   
         span {
-          color: var(--color-secondary);
           font-weight: bold;
           margin-bottom: 10px;
         }
-        p {
+        .significant-item__detail{
           font-size: $small;
+          line-height: 1.4;
+          margin-top: 5px;
         }
       }
     }
@@ -182,7 +183,7 @@
   
       .text-numb{
         display: block;
-        font-size: $larger;
+        font-size: 100px;
       }
       .text-numb-sub{
         font-size: $large;
@@ -220,6 +221,10 @@
           font-weight: bold;
           margin-bottom: 10px;
           display: block;
+        }
+
+        .your-gift__text-sub{
+          line-height: 1.4;
         }
       }
     }

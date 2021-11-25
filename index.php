@@ -24,7 +24,7 @@ use App\Controllers\Frontend\Home;
 use App\Controllers\Frontend\formLog;
 use App\Controllers\Frontend\proFile;
 use App\Controllers\Frontend\Question;
-
+use App\Controllers\Backend\adminComment;
 
 switch ($url) {
     case 'quan-tri':
@@ -101,6 +101,23 @@ switch ($url) {
         $ctr = new adminLesson();
         echo $ctr->index();
         break;
+
+        //danh sách Bình Luận.
+    case 'danh-sach-binh-luan';
+        $ctr = new adminComment();
+        echo $ctr->index();
+        break;
+    case 'xoa-binh-luan';
+        $ctr = new adminComment();
+        echo $ctr->delete();
+        break;
+    case 'xoa-binh-luan-where-checkbox';
+        $ctr = new adminComment();
+        echo $ctr->delete_where();
+        break;
+
+        //THE_END
+
         // Danh sách câu hỏi.
     case 'danh-sach-cau-hoi';
         $ctr = new adminQuestion;
@@ -320,6 +337,14 @@ switch ($url) {
     case 'thong-tin-khach-hang';
         $ctr = new proFile();
         echo $ctr->index();
+        break;
+    case 'thay-anh-dai-dien';
+        $ctr = new proFile();
+        echo $ctr->updateImg();
+        break;
+    case 'thay-doi-thong-tin';
+        $ctr = new proFile();
+        echo $ctr->updateInfo();
         break;
 
     default:

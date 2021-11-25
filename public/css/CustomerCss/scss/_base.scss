@@ -5,22 +5,16 @@
 html {
   font-size: 62.5%;
   line-height: 1.6;
-  font-family: sans-serif;
-  // font-family: 'Crimson Pro', serif;
-  // font-family: 'Lora', serif;
-
-  font-family: "Varela Round", sans-serif;
-  // font-family: 'Montserrat', sans-serif;
-
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
 
 // ==================================== variables =================
 :root {
   --white: white;
-  --black: black;
+  --black: #1e266d;
   --color-white-1: #f8f9fc;
-  --color-white-2: #f1f3f8;
+  --color-white-2: #f6f8ff;
   --color-primary: #0098d2;
   --color-secondary: #00bcca;
   --color-purple: #7d7fdc;

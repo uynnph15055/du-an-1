@@ -1,16 +1,7 @@
 @extends('customer.layout.layout')
 @section('title', 'Trang chủ')
 @section('main_content')
-<style>
-    .significant-item-detail {
-        line-height: 1.6;
-        margin-top: 5px;
-    }
 
-    .significant-item-detail-sub {
-        line-height: 1.4;
-    }
-</style>
 <div class="container">
     <div class="banner">
         <div class="row">
@@ -44,7 +35,7 @@
                         <span>
                             Lộ trình rõ ràng
                         </span>
-                        <p class="significant-item-detail">Lộ trình được nghiên cứu và sắp xếp bởi các thầy cô có nhiều kinh nghiệm</p>
+                        <p class="significant-item__detail">Lộ trình được nghiên cứu và sắp xếp bởi các thầy cô có nhiều kinh nghiệm</p>
                     </div>
                 </div>
                 <div class="significant-item">
@@ -55,7 +46,7 @@
                         <span>
                             Ghi chú dễ dàng
                         </span>
-                        <p class="significant-item-detail">Ghi chú dễ dàng, nhanh chóng , ngay tại nội dung bài học.</p>
+                        <p class="significant-item__detail">Ghi chú dễ dàng, nhanh chóng , ngay tại nội dung bài học.</p>
                     </div>
                 </div>
                 <div class="significant-item">
@@ -66,7 +57,7 @@
                         <span>
                             Nội dung chất lượng
                         </span>
-                        <p class="significant-item-detail">Nội dung với chất lượng được đảm bảo bởi những chuyên gia</p>
+                        <p class="significant-item__detail">Nội dung với chất lượng được đảm bảo bởi những chuyên gia</p>
                     </div>
                 </div>
             </div>
@@ -140,7 +131,7 @@
         </div>
 
         <div class="count-member">
-            <img class="img-fluid" src="./public/img/images/marvin-meyer-SYTO3xs06fU-unsplash.jpg" alt="">
+            <img class="img-fluid" src="./public/img/images/bgr-count-member.png" alt="">
             <div class="container-fluid">
                 <div class="count-member-text">
                     <span class="text-numb">
@@ -171,7 +162,7 @@
                             <span class="your-gift__text">
                                 2. Tính tự học
                             </span>
-                            <span class="your-gift__text-sub significant-item-detail-sub">
+                            <span class="your-gift__text-sub">
                                 Một con người chỉ thực sự trưởng thành trong sự nghiệp nếu họ biết cách
                                 tự
                                 thu
@@ -181,7 +172,7 @@
                             <span class="your-gift__text">
                                 3. Tiết kiệm thời gian
                             </span>
-                            <span class="your-gift__text-sub significant-item-detail-sub">
+                            <span class="your-gift__text-sub">
                                 Thay vì chật vật vài năm thì chỉ cần 4-6 tháng để có thể bắt đầu công việc đầu tiên
                                 với
                                 vị
@@ -191,7 +182,7 @@
                             <span class="your-gift__text">
                                 4. Làm điều quan trọng
                             </span>
-                            <span class="your-gift__text-sub significant-item-detail-sub">
+                            <span class="your-gift__text-sub">
                                 Chỉ học và làm những điều quan trọng để đạt được mục tiêu đi làm được trong thời
                                 gian
                                 ngắn nhất.</span>

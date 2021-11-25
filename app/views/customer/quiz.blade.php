@@ -188,7 +188,7 @@
                 icon: 'success',
                 title: '<p  style="font-size: 22px;"><?= $_SESSION['success']; ?></p>',
                 showConfirmButton: false,
-                timer: 1500,
+                timer: 3000,
                 width: 450,
                 padding: '5em',
 
