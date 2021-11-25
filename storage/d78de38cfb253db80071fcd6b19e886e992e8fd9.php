@@ -354,7 +354,7 @@
             </defs>
         </svg>
 
-        <svg viewbox="0 0 1440 328" width="100vw">
+        <svg viewbox="0 0 1440 328" width="100%">
             <defs>
                 <clipPath id="wave" clipPathUnits="objectBoundingBox" transform="scale(0.00069444444, 0.00304878048)">
                     <path d="M504.452 27.7002C163.193 -42.9551 25.9595 38.071 0 87.4161V328H1440V27.7002C1270.34 57.14 845.711 98.3556 504.452 27.7002Z" />

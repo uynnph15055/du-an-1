@@ -170,7 +170,7 @@
         $('.delete_cmtt').click(function(e) {
             e.preventDefault();
             var cmtt_id = $(this).data('id');
-            $.get("xoa-binh-luan", {
+            $.get("xoa-binh", {
                 cmtt_id: cmtt_id
             }, function($data) {
                 $('.comment-list').html($data);

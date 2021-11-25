@@ -52,7 +52,7 @@
                 <td><?= $index++ ?></td>
                 <td><?php echo e($key['subject_name']); ?></td>
                 <td>
-                    <img width="70px" src="./public/img/<?php echo e($key['subject_img']); ?>" alt="">
+                    <img width="100px" src="./public/img/<?php echo e($key['subject_img']); ?>" alt="">
                 </td>
                 <td><?php echo e($key['cate_name']); ?></td>
                 <td><?php if($key['type_id'] == 1): ?>

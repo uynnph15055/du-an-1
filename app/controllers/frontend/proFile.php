@@ -64,7 +64,6 @@ class proFile extends baseController
             $_SESSION['user_info'] = $dataStudent;
             header('location: ' . $_SERVER['HTTP_REFERER']);
         } else {
-            $_SESSION['error'] = "Bạn chưa chọn ảnh !";
             header('location: ' . $_SERVER['HTTP_REFERER']);
             die();
         }
