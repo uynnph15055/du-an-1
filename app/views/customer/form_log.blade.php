@@ -8,7 +8,9 @@
             <h3 class="form__title">Đăng ký</h3>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                @if(isset($authUrl))
+                <a href="{{$authUrl}}" class="social"><i class="fab fa-google-plus-g"></i></a>
+                @endif
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>- hoặc sử dụng email để đăng ký</span>
@@ -33,7 +35,9 @@
             <h3 class="form__title">Đăng nhập</h3>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                @if(isset($authUrl))
+                <a href="{{$authUrl}}" class="social"><i class="fab fa-google-plus-g"></i></a>
+                @endif
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>- hoặc sử dụng tài khoản</span>

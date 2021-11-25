@@ -16,7 +16,7 @@ class adminQuestion extends baseController
             header('Location: dang-nhap-dang-ky');
         };
         $lesson_id = isset($_GET['lesson_id']) ? $_GET['lesson_id'] : null;
-        if (!  $lesson_id) {
+        if (!$lesson_id) {
             header('Location: ./?mess=id hiện không tồn tại');
             die();
         }
@@ -41,16 +41,17 @@ class adminQuestion extends baseController
     {
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             extract($_POST);
-            if (!empty($anwer_A) || !empty($answer_B) || !empty($answer_C) || !empty($answer_D)) {
+// $this->dd($_POST);
+            if (!empty($answer_A) || !empty($answer_B) || !empty($answer_C) || !empty($answer_D)) {
                 $answer = [];
                 isset($answer_A) ? $answer[0] = $answer_A : [];
                 isset($answer_B) ? $answer[1] = $answer_B : [];
                 isset($answer_C) ? $answer[2] = $answer_C : [];
                 isset($answer_D) ? $answer[3] = $answer_D : [];
+                // $this->dd($answer);
                 $answer_correct =  implode("/", array_values($answer));
 
                 // echo  filter_var(trim($answer,'/'));
-
                 if (empty($question)) {
                     $_SESSION['error'] = "Chưa nhập tiêu đề!!!";
                     header("Location: ./trang-them-cau-hoi?lesson_id=$lesson_id");
