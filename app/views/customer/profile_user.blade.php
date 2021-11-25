@@ -1,11 +1,7 @@
 @extends('customer.layout.layout')
 @section('title', 'Khóa học')
 @section('main_content')
-<style>
-    .info-item__title {
-        font-weight: 600;
-    }
-</style>
+
 <div class="container" style="margin-top:40px">
     <div class="profile-section">
         <div class="container-fluid">

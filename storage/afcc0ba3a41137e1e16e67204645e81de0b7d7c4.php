@@ -1,6 +1,6 @@
-@extends('customer.layout.layout')
-@section('title', 'Khóa học')
-@section('main_content')
+
+<?php $__env->startSection('title', 'Khóa học'); ?>
+<?php $__env->startSection('main_content'); ?>
 <div class="container bgr-img">
     <div class="container-fluid">
         <div class="contact-section">
@@ -44,4 +44,5 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\project_one\app\views/customer/contact.blade.php ENDPATH**/ ?>

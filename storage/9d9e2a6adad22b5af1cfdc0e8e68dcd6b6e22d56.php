@@ -1,6 +1,6 @@
-@extends('customer.layout.layout')
-@section('title', 'Giới thiệu')
-@section('main_content')
+
+<?php $__env->startSection('title', 'Giới thiệu'); ?>
+<?php $__env->startSection('main_content'); ?>
 <div class="container" style="margin-top: 80px;">
     <div class="about-section">
         <div class="about-intro">
@@ -197,4 +197,5 @@
         </footer>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\project_one\app\views/customer/about.blade.php ENDPATH**/ ?>

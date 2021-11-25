@@ -2,30 +2,19 @@
   box-sizing: inherit;
 }
 
-html {
-  font-size: 62.5%;
-  line-height: 1.6;
-  font-family: sans-serif;
-  // font-family: 'Crimson Pro', serif;
-  // font-family: 'Lora', serif;
-  // font-family: 'Montserrat', sans-serif;
-  box-sizing: border-box;
-}
-
-
 // ==================================== variables =================
 :root {
   --white: white;
-  --black: black;
-  --color-white-1: #F8F9FC;
-  --color-white-2: #f1f3f8;
+  --black: #232930;
+  --color-white-1: #f8f9fc;
+  --color-white-2: #f6f8ff;
   --color-primary: #0098d2;
   --color-secondary: #00bcca;
   --color-purple: #7d7fdc;
   --color-purple-30: rgba(125, 127, 220, 0.3);
   --color-purple-light: #e1bbe5;
-  --color-thirty-30: #46bfd0;
-  --color-star: #FFE600;
+  --color-thirty-30: rgba(70, 191, 208, 0.3);
+  --color-star: #ffe600;
   --gray: #ccc;
   --gray-more: #c4c4c4;
   --grey: #f2f2f2;
@@ -34,13 +23,20 @@ html {
   --danger: #ff0000;
   --hightlight: #00bcca;
   --hightlight-color: white;
-  --color-dark: #03485D;
-
+  --color-dark: #03485d;
 }
 
 [data-theme="dark"] {
   --white: black;
   --black: white;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  color: var(--black);
 }
 
 // ------------- font-size -----------
@@ -108,6 +104,11 @@ $max-width: 1280px;
   border: 2px solid transparent;
   border-radius: 5px;
 }
+
+@function margin-custom($max-width: $max-width) {
+  @return $max-width/12 + 30px;
+}
+
 
 @function margin-custom($max-width: $max-width) {
   @return $max-width/12+30px;
@@ -234,7 +235,6 @@ a {
     }
   }
 }
-
 .play-list::-webkit-scrollbar {
   width: 0 !important;
   display: none;
