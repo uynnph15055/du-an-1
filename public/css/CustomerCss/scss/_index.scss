@@ -53,8 +53,8 @@
           margin-bottom: 10px;
         }
         .significant-item__detail{
-          font-size: $small;
-          line-height: 1.4;
+          // font-size: $small;
+          line-height: 1.4 !important;
           margin-top: 5px;
         }
       }
@@ -162,15 +162,10 @@
     margin: 100px 0;
     height: 400px;
     overflow: hidden;
-  
-    .overlay{
-      position: absolute;
-      z-index: 11;
-      background: red;
+
+    img{
       width: 100%;
-      height: 100px;
     }
-  
     .count-member-text{
       position: absolute;
       top: 50%;

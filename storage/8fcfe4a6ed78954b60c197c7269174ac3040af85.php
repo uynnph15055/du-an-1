@@ -21,12 +21,11 @@
                 </div>
             </div>
             <div class="banner-img col l-6 m-6 c-12">
-                <img width="600px" src="./public/img/<?php echo e($banner['banner_img']); ?>" alt="">
+                <img class="img-fluid" src="./public/img/<?php echo e($banner['banner_img']); ?>" alt="">
             </div>
         </div>
     </div>
     <main>
-        <!-- <img class="img-fluid bgr" src="./asset/images/nasa-Q1p7bh3SHj8-unsplash.jpg" alt=""> -->
         <div class="container-fluid">
             <div class="significant">
                 <div class="significant-item">
@@ -66,7 +65,7 @@
 
             <div class="course-new">
                 <h2>CÁC KHÓA HỌC MỚI NHẤT</h2>
-                <div class="swiper" style="z-index: 1;">
+                <div class="swiper">
                     <div class="swiper-wrapper">
                         <?php $__currentLoopData = $dataSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="swiper-slide">

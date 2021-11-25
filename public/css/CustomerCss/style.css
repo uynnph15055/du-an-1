@@ -5,25 +5,17 @@
           box-sizing: inherit;
 }
 
-html {
-  font-size: 62.5%;
-  line-height: 1.6;
-  font-family: 'Verdana', 'Roboto', sans-serif;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 :root {
   --white: white;
-  --black: black;
+  --black: #1e266d;
   --color-white-1: #f8f9fc;
-  --color-white-2: #f1f3f8;
+  --color-white-2: #f6f8ff;
   --color-primary: #0098d2;
   --color-secondary: #00bcca;
   --color-purple: #7d7fdc;
   --color-purple-30: rgba(125, 127, 220, 0.3);
   --color-purple-light: #e1bbe5;
-  --color-thirty-30: #46bfd0;
+  --color-thirty-30: rgba(70, 191, 208, 0.3);
   --color-star: #ffe600;
   --gray: #ccc;
   --gray-more: #c4c4c4;
@@ -39,6 +31,15 @@ html {
 [data-theme="dark"] {
   --white: black;
   --black: white;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: var(--black);
 }
 
 ::-moz-selection {
@@ -804,7 +805,7 @@ body {
 
 header {
   position: fixed;
-  z-index: 100;
+  z-index: 1000;
   background: var(--white);
   top: 0;
   left: 0;
@@ -1117,13 +1118,13 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 }
 
 .significant-item__text span {
-  color: var(--color-secondary);
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.significant-item__text p {
-  font-size: 14px;
+.significant-item__text .significant-item__detail {
+  line-height: 1.4 !important;
+  margin-top: 5px;
 }
 
 .significant-item:hover {
@@ -1293,6 +1294,10 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   font-weight: bold;
   margin-bottom: 10px;
   display: block;
+}
+
+.your-gift .your-gift-text-list .your-gift-text-item .your-gift__text-sub {
+  line-height: 1.4;
 }
 
 .rating {
@@ -1841,6 +1846,14 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   margin: 20px 0 30px;
 }
 
+.learning-fluid .learning-tabs #comment-lesson .form-comment-input .comment-img img {
+  width: 45px;
+  height: 46px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
 .learning-fluid .learning-tabs #comment-lesson .form-comment-input form {
   display: -ms-grid;
   display: grid;
@@ -1849,7 +1862,8 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   grid-gap: 30px;
 }
 
-.learning-fluid .learning-tabs #comment-lesson .form-comment-input form input, .learning-fluid .learning-tabs #comment-lesson .form-comment-input form button {
+.learning-fluid .learning-tabs #comment-lesson .form-comment-input form input,
+.learning-fluid .learning-tabs #comment-lesson .form-comment-input form button {
   border: none;
   background: none;
   outline: none;
@@ -1857,7 +1871,7 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 
 .learning-fluid .learning-tabs #comment-lesson .form-comment-input form input {
   width: 100%;
-  border-bottom: 1px solid var(--gray);
+  border-bottom: 1px solid var(--white);
   font-size: 15px;
 }
 
@@ -1879,9 +1893,9 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 }
 
 .learning-fluid .learning-tabs #comment-lesson .comment-list .comment-item .comment-text {
-  background: var(--grey);
+  background: var(--white);
   padding: 15px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .learning-fluid .learning-tabs #comment-lesson .comment-list .comment-item .comment-item__name {
@@ -1891,6 +1905,7 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 .learning-fluid .learning-tabs #comment-lesson .comment-list .comment-item .comment-item__date {
   color: var(--gray);
   text-align: right;
+  padding-left: 15px;
 }
 
 .learning-fluid .learning-tabs #comment-lesson .comment-list .comment-item .comment-item__content {
@@ -1909,12 +1924,14 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   font-weight: bold;
 }
 
-.learning-fluid .learning-tabs #note-lesson .form__note input, .learning-fluid .learning-tabs #note-lesson .form__note textarea {
-  background: var(--grey);
+.learning-fluid .learning-tabs #note-lesson .form__note input,
+.learning-fluid .learning-tabs #note-lesson .form__note textarea {
+  background: var(--white);
   border: none;
   padding: 10px;
   outline: none;
   margin-right: 10px;
+  border-radius: 10px;
 }
 
 .learning-fluid .learning-tabs #note-lesson .form__note .input__time-note {
@@ -1962,6 +1979,8 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   width: 100%;
   border-radius: 10px;
   height: 100px;
+  border-radius: 15px;
+  padding: 10px;
 }
 
 .learning-fluid .learning-tabs #note-lesson .form__note .note-section-content .btn-note {
@@ -2019,6 +2038,7 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 
 .learning-fluid .learning-tabs .tab-content {
   display: none;
+  margin-left: -70px;
 }
 
 .learning-fluid .learning-tabs .action-ctrl {
@@ -2648,6 +2668,8 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   margin: 0;
   padding: 20px 10px;
   text-align: center;
+  color: white;
+  font-weight: bold;
 }
 
 .form-log-section .form-base {

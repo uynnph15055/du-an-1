@@ -29,7 +29,7 @@
                             Nguyễn Ngọc Uy
                         </h5>
                         <div class="team-item__quotes">
-                            BACK END (WEB)
+                            BACKEND (WEB)
                         </div>
                         <div class="team-item-social">
                             <a href="">
@@ -51,7 +51,7 @@
                             Nguyễn Ngọc Anh
                         </h5>
                         <div class="team-item__quotes">
-                            FONT END (WEB)
+                            FRONTEND (WEB)
                         </div>
                         <div class="team-item-social">
                             <a href="">
@@ -74,7 +74,7 @@
                             Nguyễn Đức Bình
                         </h5>
                         <div class="team-item__quotes">
-                            BACK END (WEB)
+                            BACKEND (WEB)
                         </div>
                         <div class="team-item-social">
                             <a href="">
