@@ -1,24 +1,18 @@
 
 <?php $__env->startSection('title', 'Giới thiệu'); ?>
 <?php $__env->startSection('main_content'); ?>
-<style>
-    p {
-        line-height: 1.5;
-        text-align: justify;
-    }
-</style>
 <div class="container" style="margin-top: 80px;">
     <div class="about-section">
         <div class="about-intro">
-            <div class="intro-img" style="margin-top: 50px;">
+            <div class="intro-img">
                 <img src="https://cdn.dribbble.com/users/2918596/screenshots/8860450/marketing.gif" alt="" class="img-fluid">
             </div>
             <div class="intro-content">
                 <p class="text-title">COURSE IFT</p>
-                <p class="text-content" style="padding-right: -400px;">
+                <p class="text-content">
                     COURSE IFT được công nhận là một trong những lĩnh vực phát triển nhanh nhất, nên dĩ nhiên, sẽ không có khả năng có sự thiếu hụt các công việc để theo đuổi các chuyên gia công mới của bạn. Bạn có thể đủ điều kiện cho mình hơn nữa bằng cách hoàn thành chương trình học của bạn, quá. Một số vị trí nào bạn có thể đủ điều kiện để bao gồm các chuyên gia CNTT, kỹ sư mạng, nhân viên hỗ trợ kỹ thuật hoặc phát triển web. Với một phạm vi như vậy lựa chọn, không có gì lạ độ này là một lựa chọn phổ biến.
                 </p>
-                <p class="text-content" style="padding-right: -400px;">
+                <p class="text-content">
                     Bạn có thể ghi danh vào một khóa học trực tuyến trong CNTT thông qua các trường đại học của riêng bạn. Tìm kiếm các chương trình của bạn bên dưới và liên hệ trực tiếp văn phòng tuyển sinh của trường của sự lựa chọn của bạn bằng cách điền vào mẫu chì.
                 </p>
             </div>
@@ -35,7 +29,7 @@
                             Nguyễn Ngọc Uy
                         </h5>
                         <div class="team-item__quotes">
-                            BACK END (WEB)
+                            BACKEND (WEB)
                         </div>
                         <div class="team-item-social">
                             <a href="">
@@ -57,7 +51,7 @@
                             Nguyễn Ngọc Anh
                         </h5>
                         <div class="team-item__quotes">
-                            FONT END (WEB)
+                            FRONTEND (WEB)
                         </div>
                         <div class="team-item-social">
                             <a href="">
@@ -80,7 +74,7 @@
                             Nguyễn Đức Bình
                         </h5>
                         <div class="team-item__quotes">
-                            BACK END (WEB)
+                            BACKEND (WEB)
                         </div>
                         <div class="team-item-social">
                             <a href="">

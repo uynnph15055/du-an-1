@@ -150,7 +150,7 @@ class Question extends baseController
                         $countLessonHistory = $lessonWhereStudent[0]['sum_lesson'];
                         // $this->dd($countLessonHistory);
                         if ($countLessonHistory == $countLesson) {
-                            header('Location:  danh-gia');
+                            header("Location:  danh-gia?mon=$subject_id");
                             die();
                         }
 

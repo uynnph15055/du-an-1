@@ -6,6 +6,7 @@ $url = isset($_GET['url']) ? $_GET['url'] : "/";
 require_once "./vendor/autoload.php";
 require_once('./googleApi/Google/libraries/Google/autoload.php');
 
+use App\Controllers\Backend\adminAssess;
 use App\Controllers\Backend\adminCateSubject;
 use App\Controllers\Backend\adminLesson;
 use App\Controllers\Backend\adminMain;
@@ -202,6 +203,12 @@ switch ($url) {
     case 'xoa-hoc-vien';
         $ctr = new adminStudent();
         echo $ctr->deleteStudent();
+        break;
+
+        // -----------------------
+    case 'danh-sach-danh-gia';
+        $ctr = new adminAssess();
+        echo $ctr->index();
         break;
 
         // Banner layout.
