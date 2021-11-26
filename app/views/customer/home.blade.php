@@ -199,7 +199,7 @@
                     <div class="mySlides fade">
                         <div class="rating-feedback">
                             <div class="img-acc">
-                                <img src="./public/img/{{$key['student_avatar']}}" alt="" class="img-fluid">
+                                <img src="{{$key['student_avatar']}}" alt="" class="img-fluid">
                                 <h4 class="name-acc">
                                     {{$key['student_name']}}
                                 </h4>

@@ -201,7 +201,7 @@
                     <div class="mySlides fade">
                         <div class="rating-feedback">
                             <div class="img-acc">
-                                <img src="./public/img/<?php echo e($key['student_avatar']); ?>" alt="" class="img-fluid">
+                                <img src="<?php echo e($key['student_avatar']); ?>" alt="" class="img-fluid">
                                 <h4 class="name-acc">
                                     <?php echo e($key['student_name']); ?>
 
