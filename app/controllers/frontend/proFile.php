@@ -21,6 +21,8 @@ class proFile extends baseController
         $this->menu = modelMenu::sortMenu();
         if (isset($_SESSION['user_info'])) {
             $dataInfo = $_SESSION['user_info'];
+        } else {
+            header('location: dang-nhap-dang-ky');
         }
 
         $this->dataInfo = $dataInfo;

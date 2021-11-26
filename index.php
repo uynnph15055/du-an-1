@@ -210,6 +210,19 @@ switch ($url) {
         $ctr = new adminAssess();
         echo $ctr->index();
         break;
+    case 'trang-thai-danh-gia';
+        $ctr = new adminAssess();
+        echo $ctr->editStatus();
+        break;
+
+    case 'sua-trang-thai-danh-gia';
+        $ctr = new adminAssess();
+        echo $ctr->edit();
+        break;
+    case 'xoa-danh-gia';
+        $ctr = new adminAssess();
+        echo $ctr->delete();
+        break;
 
         // Banner layout.
     case 'danh-sach-banner';

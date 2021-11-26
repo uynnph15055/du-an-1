@@ -13,10 +13,19 @@ use App\Models\modelQuestionStatus;
 class Question extends baseController
 {
     private $menu;
+    private $student_id;
+
+
     public function __construct()
     {
         $this->menu = modelMenu::sortMenu();
+        if (isset($_SESSION['user_info'])) {
+            $dataInfo = $_SESSION['user_info'];
+        }
+
+        $this->student_id = $dataInfo[0]['student_id'];
     }
+
     function index()
     {
         $question_id = isset($_GET['question_id']) ? $_GET['question_id'] : null;
@@ -32,9 +41,6 @@ class Question extends baseController
         $answer = $dataQuestion[0]['answer'];
         $dataLessonJoinQuestion = modelLesson::LessonJoinQuestion($lesson_id);;
         $dataQuestionInLesson = modelQuestion::where('lesson_id', "=", $lesson_id)->get();
-        if (isset($_SESSION['user_info'])) {
-            $student_id = $_SESSION['user_info'][0]['student_id'];
-        }
 
         //  Lấy ra câu hỏi liên quan đến student và trạng thái.
         // $dataQuestionStatus = modelQuestion::innerJoin($lesson_id);
@@ -88,9 +94,7 @@ class Question extends baseController
                     header('location: ' . $_SERVER['HTTP_REFERER']);
                     die();
                 } else {
-                    if (isset($_SESSION['user_info'])) {
-                        $student_id = $_SESSION['user_info'][0]['student_id'];
-                    }
+
                     $dataQuestion = modelQuestion::where('question_id', "=", $question_id)->get();
                     $lesson_id = $dataQuestion[0]['lesson_id'];
                     $questionLesson = modelQuestion::where('lesson_id', "=", $lesson_id)->get();
@@ -98,13 +102,13 @@ class Question extends baseController
                     $a = round(100 / $CountQuestions, 2);
 
                     $data = [
-                        'student_id' =>  $student_id,
+                        'student_id' =>  $this->student_id,
                         'question_id' => $question_id,
                         'question_status' => 1,
                         'question_point' => $a,
                     ];
                     // check câu trả lời đúng.
-                    $dataStatusQuestion = modelQuestionStatus::where_and($question_id, $student_id);
+                    $dataStatusQuestion = modelQuestionStatus::where_and($question_id, $this->student_id);
                     // $this->dd($dataStatusQuestion);
                     $questionStatus = $dataStatusQuestion[0]['question_status'];
                     if ($questionStatus == 1) {
@@ -117,8 +121,8 @@ class Question extends baseController
 
                     // Nếu trả lời đúng hết câu hỏi trong bài học đó sẽ lưu vào lộ trình
                     // Lấy ra 1 chuỗi các câu trả lời của học viên hiện tại.
-                    $questionStudent = modelQuestionStatus::getWhereStudent($student_id);
-                    $checkHistory = modelHistory::checkStatus($student_id, $subject_id);
+                    $questionStudent = modelQuestionStatus::getWhereStudent($this->student_id);
+                    $checkHistory = modelHistory::checkStatus($this->student_id, $subject_id);
                     $sumLesson = $checkHistory[0]['sum_lesson'];
 
                     $stringQuestionStudent = [];
@@ -138,7 +142,7 @@ class Question extends baseController
                     $pos = strpos($stringStudent, $stringQuestion);
                     if ($pos !== false) {
 
-                        modelHistory::updateSumLesson($student_id, $subject_id, $sumLesson);
+                        modelHistory::updateSumLesson($this->student_id, $subject_id, $sumLesson);
 
                         // Làm hết bài tập và chuyễn sang đánh giá
                         $AllLesson = modelLesson::where("subject_id", "=", $subject_id)->get();
@@ -146,7 +150,7 @@ class Question extends baseController
                         $countLesson = count($AllLesson);
 
                         // -------------------
-                        $lessonWhereStudent =  modelHistory::checkStatus($student_id, $subject_id);
+                        $lessonWhereStudent =  modelHistory::checkStatus($this->student_id, $subject_id);
                         $countLessonHistory = $lessonWhereStudent[0]['sum_lesson'];
                         // $this->dd($countLessonHistory);
                         if ($countLessonHistory == $countLesson) {
