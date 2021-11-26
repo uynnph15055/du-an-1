@@ -16,6 +16,16 @@ class modelStudent extends DB
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }
+    //inster tài khoảng google
+    
+    public static function insertGoogle($data)
+    {
+        $model = new static();
+        $conn = $model->getConnect();
+        $queryBuilder = "INSERT INTO student(student_name, student_avatar, student_email) VALUES (:student_name, :student_avatar, :student_email)";
+        $stmt = $conn->prepare($queryBuilder);
+        $stmt->execute($data);
+    }
     public static function selectStudent($index)
     {
         $model = new static();

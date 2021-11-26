@@ -9,7 +9,9 @@
                 <div class="profile-control">
                     <div class="section-box profile-control-general">
                         <div class="general-img">
-                            <img src="./public/img/{{$dataInfo[0]['student_avatar']}}" alt="" class="img-fluid">
+            
+                            <img src="{{$dataInfo[0]['student_avatar']}}" alt="" class="img-fluid">
+                           
                             <abbr class="open-modal-btn" title=" Chỉnh sửa ảnh">
                                 <button style="z-index: 1;" class="ctrl-img"><i class="fas fa-camera"></i></button>
                             </abbr>

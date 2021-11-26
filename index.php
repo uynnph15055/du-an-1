@@ -4,7 +4,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 session_start();
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 require_once "./vendor/autoload.php";
-require_once('./googleApi/Google/libraries/Google/autoload.php');
+
 
 use App\Controllers\Backend\adminCateSubject;
 use App\Controllers\Backend\adminLesson;
