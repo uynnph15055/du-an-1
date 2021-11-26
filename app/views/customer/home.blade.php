@@ -130,7 +130,7 @@
         </div>
 
         <div class="count-member">
-            <img class="img-fluid" src="./public/img/images/bgr-count-member.png" alt="">
+            <img class="img-fluid" style="width:100%" src="./public/img/images/bgr-count-member.png" alt="">
             <div class="container-fluid">
                 <div class="count-member-text">
                     <span class="text-numb">

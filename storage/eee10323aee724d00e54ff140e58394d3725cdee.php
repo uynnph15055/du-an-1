@@ -1,6 +1,11 @@
 
 <?php $__env->startSection('title', 'Giới thiệu'); ?>
 <?php $__env->startSection('main_content'); ?>
+<style>
+    p {
+        line-height: 1.5;
+    }
+</style>
 <div class="container" style="margin-top: 80px;">
     <div class="about-section">
         <div class="about-intro">
@@ -128,7 +133,7 @@
                             <img src="https://cdn.dribbble.com/users/1350622/screenshots/4408287/8.gif" alt="" class="img-fluid">
                         </div>
                         <div class="content-text">
-                            <p class="text-body"> tin rằng sản phẩm tuyệt vời chỉ có thể tạo ra bởi những con
+                            <p class="text-body"> Tin rằng sản phẩm tuyệt vời chỉ có thể tạo ra bởi những con
                                 người tài năng. Công ty muốn tăng trưởng nhanh bền vững phải có những nhân sự xuất
                                 sắc có tâm, có tài. Vì vậy, không ngừng tìm kiếm và phát triển những cá nhân tài
                                 năng cùng xây dựng bộ máy. Nếu bạn muốn được làm cùng với những người giỏi giang
