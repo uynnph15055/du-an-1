@@ -55,7 +55,7 @@ class proFile extends baseController
 
             $data = [
                 'student_id' => $this->student_id,
-                'student_img' => $file_name,
+                'student_img' => "./public/img/".$file_name,
             ];
 
             // $this->dd($data);
