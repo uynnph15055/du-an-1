@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '9d65d0dac14e8516cc34bb3f34656274108a4489',
+        'reference' => '3d3095c82cf29db6e71e3313af1ebb2bbea3bad9',
         'name' => 'uynguyen/php_2',
         'dev' => true,
     ),
@@ -419,7 +419,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '9d65d0dac14e8516cc34bb3f34656274108a4489',
+            'reference' => '3d3095c82cf29db6e71e3313af1ebb2bbea3bad9',
             'dev_requirement' => false,
         ),
         'voku/portable-ascii' => array(

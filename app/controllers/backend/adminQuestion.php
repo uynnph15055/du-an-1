@@ -41,10 +41,6 @@ class adminQuestion extends baseController
     {
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             extract($_POST);
-<<<<<<< HEAD
-// $this->dd($_POST);
-=======
->>>>>>> 24ba0323a1872af28172acb5bab06210b271763c
             if (!empty($answer_A) || !empty($answer_B) || !empty($answer_C) || !empty($answer_D)) {
                 $answer = [];
                 isset($answer_A) ? $answer[0] = $answer_A : [];
