@@ -42,7 +42,6 @@ class formLog extends baseController
           function. We store the resultant access token
           bundle in the session, and redirect to ourself.
          */
-
         if (isset($_GET['code'])) {
             $client->authenticate($_GET['code']);
             $_SESSION['access_token'] = $client->getAccessToken();

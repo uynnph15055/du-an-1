@@ -385,5 +385,6 @@ switch ($url) {
 
     default:
         "Không tồn tại file nào";
+        'hello';
         break;
 }
