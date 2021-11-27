@@ -395,5 +395,6 @@ switch ($url) {
 
     default:
         "Không tồn tại file nào";
+'heloo binh';
         break;
 }
