@@ -31,6 +31,7 @@ class modelQuestion extends DB
         return $stmt->fetchAll();
     }
 
+    // Hàm join ba bảng student , question , questionStatus
     public static function innerJoin($lesson_id)
     {
         $model =  new static();
@@ -42,4 +43,5 @@ class modelQuestion extends DB
         ]);
         return $stmt->fetchAll();
     }
+
 }

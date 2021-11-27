@@ -22,7 +22,6 @@
     <?php echo $__env->yieldContent('link'); ?>;
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
     <?php echo $__env->yieldContent('link'); ?>
-    >>>>>>> fc7c72093c1aeb1d402f68ed1e469ca2582e31ce
 </head>
 
 <body>
@@ -61,7 +60,7 @@
                                 </button>
                                 <div class="account-section action-item">
                                     <button style="padding: 0; border-radius: 50%; cursor: pointer; overflow: hidden; width: 30px; height: 30px" onclick="toggleShowHide()" id="btn-acc">
-                                        <img style="object-fit: cover; width: 30px; height: 30px" src="./public/img/<?= $user_info[0]['student_avatar'] ?>" alt="">
+                                        <img style="object-fit: cover; width: 30px; height: 30px" src="<?= $user_info[0]['student_avatar'] ?>" alt="">
                                     </button>
                                     <div id="account-list" class="content-container-acc">
                                         <a class="account-item" href="thong-tin-khach-hang">Thông tin tài khoản</a>

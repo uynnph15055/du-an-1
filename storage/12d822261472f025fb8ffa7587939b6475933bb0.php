@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-comment-input ">
                                 <div class="comment-img">
-                                    <img src="./public/img/<?php echo e($userInfo['student_avatar']); ?>" alt="" class="img-fluid">
+                                    <img src="<?php echo e($userInfo['student_avatar']); ?>" alt="" class="img-fluid">
                                 </div>
                                 <form method="POST" action="binh-luan-bai-hoc?student_id=<?php echo e($userInfo['student_id']); ?>&bai=<?php echo e($lesson_id); ?>">
                                     <input type="text" name="comment_content" placeholder="Bạn có thắc mắc gì trong bài học này?">
@@ -42,7 +42,7 @@
                                 <?php $__currentLoopData = $dataComment; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="comment-item">
                                     <div class="comment-img comment-img--acc ">
-                                        <img src="./public/img/<?php echo e($key['student_avatar']); ?>" alt="" class="img-fluid">
+                                        <img src="<?php echo e($key['student_avatar']); ?>" alt="" class="img-fluid">
                                     </div>
                                     <div class="comment-text">
                                         <span class="comment-item__name">
@@ -146,9 +146,9 @@
                                     <?php foreach ($dataQuestion as $value) {
 
                                     ?>
-                                        <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
+                                        <ahref= href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>
-                                        </a>
+                                        </ahref=>
                                     <?php   } ?>
 
 

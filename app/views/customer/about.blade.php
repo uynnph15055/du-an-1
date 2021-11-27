@@ -10,6 +10,7 @@
     <div class="about-section">
         <div class="about-intro">
             <div class="intro-img">
+                <h3>csc</h3>
                 <img src="https://cdn.dribbble.com/users/2918596/screenshots/8860450/marketing.gif" alt="" class="img-fluid">
             </div>
             <div class="intro-content">
