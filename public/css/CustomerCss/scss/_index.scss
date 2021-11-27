@@ -222,6 +222,11 @@
           line-height: 1.4;
         }
       }
+
+      .your-gift__img{
+        margin-top: 40px;
+        margin-left: 40px;
+      }
     }
   }
   
@@ -240,12 +245,19 @@
       grid-gap: 30px;
   
       .img-acc{
-        border-radius: $radius-2;
+        width: 200px;
+
+        img{
+          width: 200px;
+          height: 200px;object-fit: cover;
+          border-radius: $radius-2;
+        }
+        
       }
       .name-acc{
         text-align: center;
         font-weight: bold;
-        margin: 20px;
+        margin: 20px 0 0;
       }
   
       .feedback-text{

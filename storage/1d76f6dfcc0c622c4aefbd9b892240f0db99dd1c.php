@@ -24,8 +24,6 @@
         <div class="container-fluid">
             <div class="courses-section">
                 <aside class="category">
-                    <!-- <div class="filter"> -->
-                    <!-- <h4 class="filter__title">Bộ lọc</h4> -->
                     <div class="filter-list">
                         <form action="" class="select">
                             <select name="" id="select_status">
@@ -48,7 +46,6 @@
                     </ul>
                 </aside>
                 <div class="course-list">
-
                     <?php if(isset($subject)): ?>
                     <?php $__currentLoopData = $subject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="course-item">
@@ -56,7 +53,7 @@
                             <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
                         </div>
                         <div class="course-text">
-                            <h3 class="course__title" style="font-size: 15px;"><?php echo e($key['subject_name']); ?></h3>
+                            <h3 class="course__title"><?php echo e($key['subject_name']); ?></h3>
                             <span class="course__members">
                                 <i class="fas fa-users"></i>
                                 123
@@ -74,7 +71,7 @@
                 </div>
             </div>
     </main>
-    <footer style="margin-top: -150px;">
+    <footer >
         <div class="footer-content">
             <div class="content">
                 <div class="footer-social">
@@ -112,7 +109,7 @@
             </defs>
         </svg>
 
-        <svg viewbox="0 0 1440 328" width="100%">
+        <svg viewbox="0 0 1440 0" width="100%">
             <defs>
                 <clipPath id="wave" clipPathUnits="objectBoundingBox" transform="scale(0.00069444444, 0.00304878048)">
                     <path d="M504.452 27.7002C163.193 -42.9551 25.9595 38.071 0 87.4161V328H1440V27.7002C1270.34 57.14 845.711 98.3556 504.452 27.7002Z" />

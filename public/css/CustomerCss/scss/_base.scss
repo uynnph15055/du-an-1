@@ -213,15 +213,24 @@ a {
   padding: 20px 10px;
   background: var(--white);
   border-radius: $radius;
-  max-height: 600px;
-  overflow: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+
 
   .course__title {
     font-weight: bold;
+    font-size: 22px;
+    margin-top:-10px;
   }
-
+  
+  .lesson-list{
+    max-height: 600px;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  // .lesson-list::-webkit-scrollbar {
+  //   width: 0 !important;
+  //   display: none;
+  // }
   .lesson-item-test {
     padding: 0 40px;
 
@@ -234,8 +243,4 @@ a {
       margin: 0 10px 0 0;
     }
   }
-}
-.play-list::-webkit-scrollbar {
-  width: 0 !important;
-  display: none;
 }

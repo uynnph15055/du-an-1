@@ -7,7 +7,7 @@
 
 :root {
   --white: white;
-  --black: #1e266d;
+  --black: #232930;
   --color-white-1: #f8f9fc;
   --color-white-2: #f6f8ff;
   --color-primary: #0098d2;
@@ -163,14 +163,19 @@ a {
   padding: 20px 10px;
   background: var(--white);
   border-radius: 5px;
-  max-height: 600px;
-  overflow: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 }
 
 .play-list .course__title {
   font-weight: bold;
+  font-size: 22px;
+  margin-top: -10px;
+}
+
+.play-list .lesson-list {
+  max-height: 600px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .play-list .lesson-item-test {
@@ -184,11 +189,6 @@ a {
   background: var(--gray-more);
   border-radius: 50%;
   margin: 0 10px 0 0;
-}
-
-.play-list::-webkit-scrollbar {
-  width: 0 !important;
-  display: none;
 }
 
 .grid {
@@ -1229,12 +1229,8 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   overflow: hidden;
 }
 
-.count-member .overlay {
-  position: absolute;
-  z-index: 11;
-  background: red;
+.count-member img {
   width: 100%;
-  height: 100px;
 }
 
 .count-member .count-member-text {
@@ -1300,6 +1296,11 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   line-height: 1.4;
 }
 
+.your-gift .your-gift-text-list .your-gift__img {
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
 .rating {
   background: var(--color-white-2);
   padding: 30px;
@@ -1328,13 +1329,21 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 }
 
 .rating .rating-feedback .img-acc {
+  width: 200px;
+}
+
+.rating .rating-feedback .img-acc img {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 10px;
 }
 
 .rating .rating-feedback .name-acc {
   text-align: center;
   font-weight: bold;
-  margin: 20px;
+  margin: 20px 0 0;
 }
 
 .rating .rating-feedback .feedback-text {
@@ -1813,6 +1822,10 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   grid-gap: 10px;
 }
 
+.learning-fluid .learning__video {
+  margin-bottom: 20px;
+}
+
 .learning-fluid .learning-tabs .btn-tab {
   border-bottom: 1px solid var(--gray);
   text-align: center;
@@ -2038,7 +2051,6 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 
 .learning-fluid .learning-tabs .tab-content {
   display: none;
-  margin-left: -70px;
 }
 
 .learning-fluid .learning-tabs .action-ctrl {
@@ -3585,7 +3597,6 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 
 footer .footer-content {
   text-align: center;
-  width: 100%;
   bottom: 0;
   position: absolute;
   left: 0;
@@ -3599,7 +3610,8 @@ footer .footer-content {
       -ms-flex-pack: center;
           justify-content: center;
   overflow: hidden;
-  height: 400px;
+  width: 100%;
+  height: 235px;
   -webkit-filter: url("#goo");
           filter: url("#goo");
 }
