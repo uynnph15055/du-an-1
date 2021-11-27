@@ -21,6 +21,8 @@ class proFile extends baseController
         $this->menu = modelMenu::sortMenu();
         if (isset($_SESSION['user_info'])) {
             $dataInfo = $_SESSION['user_info'];
+        } else {
+            header('location: dang-nhap-dang-ky');
         }
 
         $this->dataInfo = $dataInfo;
@@ -53,7 +55,7 @@ class proFile extends baseController
 
             $data = [
                 'student_id' => $this->student_id,
-                'student_img' => $file_name,
+                'student_img' => "./public/img/".$file_name,
             ];
 
             // $this->dd($data);

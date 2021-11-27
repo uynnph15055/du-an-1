@@ -106,6 +106,7 @@
         <div class="stars">
             <form action="luu-danh-gia" method="POST">
                 <div class="star-bg">
+                    <input type="text" hidden name="subject_id" value="<?php echo e($subject_id); ?>">
                     <input class="star star-5" value="1" id="star-5" type="radio" name="star[]" />
                     <label class="star star-5" for="star-5"></label>
                     <input class="star star-4" value="2" id="star-4" type="radio" name="star[]" />

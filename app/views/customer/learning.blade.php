@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-comment-input ">
                                 <div class="comment-img">
-                                    <img src="./public/img/{{$userInfo['student_avatar']}}" alt="" class="img-fluid">
+                                    <img src="{{$userInfo['student_avatar']}}" alt="" class="img-fluid">
                                 </div>
                                 <form method="POST" action="binh-luan-bai-hoc?student_id={{$userInfo['student_id']}}&bai={{$lesson_id}}">
                                     <input type="text" name="comment_content" placeholder="Bạn có thắc mắc gì trong bài học này?">
@@ -42,7 +42,7 @@
                                 @foreach($dataComment as $key)
                                 <div class="comment-item">
                                     <div class="comment-img comment-img--acc ">
-                                        <img src="./public/img/{{$key['student_avatar']}}" alt="" class="img-fluid">
+                                        <img src="{{$key['student_avatar']}}" alt="" class="img-fluid">
                                     </div>
                                     <div class="comment-text">
                                         <span class="comment-item__name">

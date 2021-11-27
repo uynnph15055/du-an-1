@@ -47,10 +47,10 @@ class adminQuestion extends baseController
                 isset($answer_B) ? $answer[1] = $answer_B : [];
                 isset($answer_C) ? $answer[2] = $answer_C : [];
                 isset($answer_D) ? $answer[3] = $answer_D : [];
+                // $this->dd($answer);
                 $answer_correct =  implode("/", array_values($answer));
 
                 // echo  filter_var(trim($answer,'/'));
-
                 if (empty($question)) {
                     $_SESSION['error'] = "Chưa nhập tiêu đề!!!";
                     header("Location: ./trang-them-cau-hoi?lesson_id=$lesson_id");

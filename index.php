@@ -5,6 +5,8 @@ session_start();
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 require_once "./vendor/autoload.php";
 
+
+use App\Controllers\Backend\adminAssess;
 use App\Controllers\Backend\adminCateSubject;
 use App\Controllers\Backend\adminLesson;
 use App\Controllers\Backend\adminMain;
@@ -203,6 +205,25 @@ switch ($url) {
         echo $ctr->deleteStudent();
         break;
 
+        // -----------------------
+    case 'danh-sach-danh-gia';
+        $ctr = new adminAssess();
+        echo $ctr->index();
+        break;
+    case 'trang-thai-danh-gia';
+        $ctr = new adminAssess();
+        echo $ctr->editStatus();
+        break;
+
+    case 'sua-trang-thai-danh-gia';
+        $ctr = new adminAssess();
+        echo $ctr->edit();
+        break;
+    case 'xoa-danh-gia';
+        $ctr = new adminAssess();
+        echo $ctr->delete();
+        break;
+
         // Banner layout.
     case 'danh-sach-banner';
         $ctr = new Banner();
@@ -297,6 +318,10 @@ switch ($url) {
         break;
 
         // Đăng nhập đăng ký
+    case 'login-google';
+        $ctr = new formLog();
+        echo $ctr->googleSource();
+        break;
     case 'dang-nhap-dang-ky';
         $ctr = new formLog();
         echo $ctr->index();
