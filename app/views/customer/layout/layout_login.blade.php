@@ -15,6 +15,38 @@
 
 <body class="bgr-img form-log-section">
     @yield('main_content')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            <?php if (isset($_SESSION['error'])) { ?>
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: '<?= $_SESSION['error']; ?>',
+                    timer: 3000,
+                    width: 450,
+                    padding: '5em',
+                })
+
+            <?php
+                unset($_SESSION['error']);
+            } elseif (isset($_SESSION['success'])) { ?>
+                Swal.fire({
+
+                    icon: 'success',
+                    title: '<?= $_SESSION['success']; ?>',
+                    showConfirmButton: false,
+                    timer: 1500
+
+                })
+
+            <?php unset($_SESSION['success']);
+            }
+            ?>
+        });
+    </script>
 </body>
 
 </html>

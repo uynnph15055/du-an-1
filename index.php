@@ -318,10 +318,10 @@ switch ($url) {
         break;
 
         // Đăng nhập đăng ký
-    case 'login-google';
-        $ctr = new formLog();
-        echo $ctr->googleSource();
-        break;
+        // case 'login-google';
+        //     $ctr = new formLog();
+        //     echo $ctr->googleSource();
+        //     break;
     case 'dang-nhap-dang-ky';
         $ctr = new formLog();
         echo $ctr->index();
@@ -381,6 +381,16 @@ switch ($url) {
     case 'luu-danh-gia';
         $ctr = new assess();
         echo $ctr->addAssess();
+        break;
+
+        // Đổi mật khẩu.
+    case 'doi-mat-khau';
+        $ctr = new formLog();
+        echo $ctr->changPassPage();
+        break;
+    case 'doi-mat-khau-hoc-vien';
+        $ctr = new formLog();
+        echo $ctr->changPass();
         break;
 
     default:
