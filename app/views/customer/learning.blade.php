@@ -139,9 +139,9 @@
                                     <?php foreach ($dataQuestion as $value) {
 
                                     ?>
-                                        <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
+                                        <ahref= href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>
-                                        </a>
+                                        </ahref=>
                                     <?php   } ?>
 
 

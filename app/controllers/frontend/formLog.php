@@ -10,6 +10,7 @@ use Google_Client;
 
 class formLog extends baseController
 {
+
     public function index()
     {
         //Google Code
@@ -232,6 +233,41 @@ class formLog extends baseController
             unset($_SESSION['access_token']);
             unset($_SESSION['user_info']);
             header('location: ' . $_SERVER['HTTP_REFERER']);
+        }
+    }
+
+    // Chuyển đến trang đổi mật khẩu.
+    public function changPassPage()
+    {
+        $this->render("customer.form_change_pass", []);
+    }
+
+    public function changPass()
+    {
+        if (isset($_SESSION['user_info'])) {
+            $dataInfo = $_SESSION['user_info'];
+        };
+
+        $student_id = $dataInfo[0]['student_id'];
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            extract($_POST);
+
+            if (!empty($pass_old) || !empty($pass_new) || !empty($pass_confirm)) {
+
+                $dataStudent = modelStudent::where("student_id", "=", $student_id)->get();
+                $pass = $dataStudent[0]['student_password'];
+
+                if (password_verify($pass_old, $pass)) {
+                    if ($pass_new == $pass_confirm) {
+                        modelStudent::updatePass($pass_new, $student_id);
+                        $_SESSION['success'] = "Cập nhật thành công !!!";
+                        header('Location: thong-tin-khach-hang');
+                    }
+                } else {
+                    header('location: ' . $_SERVER['HTTP_REFERER']);
+                }
+            }
         }
     }
 }

@@ -26,8 +26,11 @@
     @yield('link');
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
     @yield('link')
+<<<<<<< HEAD
     >>>>>>> fc7c72093c1aeb1d402f68ed1e469ca2582e31ce
 >>>>>>> 58335c231384cdd317bd54a570f33dd4a51d8dd8
+=======
+>>>>>>> 6af5058736b74ae42595e13422204d5d3aab2034
 </head>
 
 <body>

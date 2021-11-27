@@ -1540,7 +1540,7 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 }
 
 .oval-1 {
-  right: 80px;
+  right: 150px;
   bottom: 50px;
   width: 50px;
   height: 50px;
@@ -1548,7 +1548,7 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 }
 
 .oval-2 {
-  right: 0;
+  right: 30px;
   top: 140px;
   width: 80px;
   height: 80px;

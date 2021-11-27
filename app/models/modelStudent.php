@@ -17,7 +17,7 @@ class modelStudent extends DB
         $stmt->execute($data);
     }
     //inster tài khoảng google
-    
+
     public static function insertGoogle($data)
     {
         $model = new static();
@@ -52,5 +52,17 @@ class modelStudent extends DB
         $queryBuilder =  "UPDATE student SET student_name = :student_name , student_phone =:student_phone , student_story=:student_story WHERE student_id = :student_id";
         $statement = $connect->prepare($queryBuilder);
         $statement->execute($data);
+    }
+
+    public static function updatePass($passNew, $student_id)
+    {
+        $model = new static();
+        $connect = $model->getConnect();
+        $queryBuilder =  "UPDATE student SET student_password = :passNew WHERE student_id = :student_id";
+        $statement = $connect->prepare($queryBuilder);
+        $statement->execute([
+            'passNew' => $passNew,
+            'student_id' => $student_id,
+        ]);
     }
 }
