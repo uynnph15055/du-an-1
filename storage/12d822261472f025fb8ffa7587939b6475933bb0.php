@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="learning-fluid">
                 <div class="learning-space">
-                    <div class="learning__video" style="margin-bottom: 20px;">
+                    <div class="learning__video">
                         <?php if(isset($lessonFist)): ?>
                         <iframe width="98%" height="520" src="https://www.youtube.com/embed/<?php echo e($lessonFist['lesson_link']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
@@ -75,7 +75,7 @@
                                 <label class="form__note__title" for="">Tạo ghi chú mới</label>
                                 <div class="note-section-content">
                                     <input class="input__time-note" type="text" placeholder="Thời gian">
-                                    <textarea class="input__content-note" placeholder="Nội dung ghi chú" name="content_note" cols="70" rows="6"></textarea>
+                                    <textarea class="input__content-note" placeholder="Nội dung ghi chú" name="content_note" cols="30" rows="6"></textarea>
                                     <button type="submit" class="btn btn-note">
                                         <i class="fas fa-save"></i>
                                     </button>
@@ -110,9 +110,8 @@
                     </div>
                 </div>
                 <aside class="play-list">
-                    <h3 class="course__title" style="font-size: 23px;margin-top:-10px">
+                    <h3 class="course__title">
                         Khóa học <?php echo e($subjectName); ?>
-
 
                     </h3>
                     <?php
@@ -128,7 +127,7 @@
 
                             <div class="lesson-item">
                                 <a href="bai-hoc?mon=<?php echo e($subject_slug); ?>&bai=<?php echo e($key['lesson_slug']); ?>" class="lesson-item-info">
-                                    <span class="lesson__index" ><i class="fas fa-play-circle"></i></span>
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
                                     <h4 class="lesson-item__title" style="line-height: 1.4;">
                                         Bài <?= $index++ ?>: <?php echo e($key['lesson_name']); ?>
 
@@ -146,9 +145,9 @@
                                     <?php foreach ($dataQuestion as $value) {
 
                                     ?>
-                                        <ahref= href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
+                                        <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>
-                                        </ahref=>
+                                        </a>
                                     <?php   } ?>
 
 

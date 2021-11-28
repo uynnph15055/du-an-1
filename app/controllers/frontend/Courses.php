@@ -43,7 +43,7 @@ class Courses extends baseController
                     $type = "Miễn Phí";
                     $class = 'course__price--free';
                 } else {
-                    $class = 'course__price--cost';
+                    $class = 'course__price--old';
                     $type = number_format($key['subject_price']);
                     $sale = number_format($key['subject_sale']) . 'đ';
                 }
@@ -58,8 +58,8 @@ class Courses extends baseController
                         <i class='fas fa-users'></i>
                         123
                     </span>
+                    <span class='course__price course__price--cost'>" . $sale . "</span>
                     <span class='course__price " . $class . "'>" . $type . "</span>
-                    <span class='course__price course__price--old'>" . $sale . "</span>
                 </div>
             </div>";
             }
@@ -117,10 +117,10 @@ class Courses extends baseController
                 $sale = '';
                 $class = '';
                 if ((int)$key['type_id'] == 0) {
-                    $type = "Miễn Phí";
                     $class = 'course__price--free';
+                    $type = "Miễn Phí";
                 } else {
-                    $class = 'course__price--cost';
+                    $class = 'course__price--old';
                     $type = number_format($key['subject_price']);
                     $sale = number_format($key['subject_sale']) . 'đ';
                 }
@@ -135,7 +135,7 @@ class Courses extends baseController
                         <i class='fas fa-users'></i>
                         123
                     </span>
-                    <span class='course__price '>" . $sale . "</span>
+                    <span class='course__price course__price--cost'>" . $sale . "</span>
                     <span class='course__price " . $class . "'>" . $type . "</span>
                 </div>
             </div>";
@@ -174,8 +174,8 @@ class Courses extends baseController
                         <i class='fas fa-users'></i>
                         123
                     </span>
-                    <span class='course__price course__price--cost'>" . $subject_price . "đ</span>
-                    <span class='course__price course__price--old'>" . $subject_sale . "đ</span>
+                    <span class='course__price course__price--cost'>" . $subject_sale . "đ</span>
+                    <span class='course__price course__price--old'>" . $subject_price . "đ</span>
                 </div>
             </div>";
             }

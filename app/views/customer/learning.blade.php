@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="learning-fluid">
                 <div class="learning-space">
-                    <div class="learning__video" >
+                    <div class="learning__video">
                         @if(isset($lessonFist))
                         <iframe width="98%" height="520" src="https://www.youtube.com/embed/{{$lessonFist['lesson_link']}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
@@ -122,7 +122,7 @@
 
                             <div class="lesson-item">
                                 <a href="bai-hoc?mon={{$subject_slug}}&bai={{$key['lesson_slug']}}" class="lesson-item-info">
-                                    <span class="lesson__index" ><i class="fas fa-play-circle"></i></span>
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
                                     <h4 class="lesson-item__title" style="line-height: 1.4;">
                                         Bài <?= $index++ ?>: {{$key['lesson_name']}}
                                     </h4>
@@ -139,9 +139,9 @@
                                     <?php foreach ($dataQuestion as $value) {
 
                                     ?>
-                                        <ahref= href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
+                                        <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>
-                                        </ahref=>
+                                        </a>
                                     <?php   } ?>
 
 
