@@ -135,8 +135,8 @@ class Courses extends baseController
                         <i class='fas fa-users'></i>
                         123
                     </span>
+                    <span class='course__price '>" . $sale . "</span>
                     <span class='course__price " . $class . "'>" . $type . "</span>
-                    <span class='course__price course__price--old'>" . $sale . "</span>
                 </div>
             </div>";
             }

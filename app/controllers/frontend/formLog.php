@@ -7,6 +7,9 @@ use App\Models\modelAdministrators;
 use App\Models\modelStudent;
 use Google_Service_Oauth2;
 use Google_Client;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 class formLog extends baseController
 {
@@ -99,10 +102,6 @@ class formLog extends baseController
         }
         //End Google Code
         $this->render("customer.form_log", ['authUrl' => $client->createAuthUrl()]);
-    }
-
-    public function loginGoogle()
-    {
     }
     // Check email Ajax 
     public function checkEmailSignUp()
@@ -270,4 +269,5 @@ class formLog extends baseController
             }
         }
     }
+
 }
