@@ -9,9 +9,9 @@
                 <div class="profile-control">
                     <div class="section-box profile-control-general">
                         <div class="general-img">
-            
+
                             <img src="<?php echo e($dataInfo[0]['student_avatar']); ?>" alt="" class="img-fluid">
-                           
+
                             <abbr class="open-modal-btn" title=" Chỉnh sửa ảnh">
                                 <button style="z-index: 1;" class="ctrl-img"><i class="fas fa-camera"></i></button>
                             </abbr>
@@ -74,7 +74,9 @@
                                 </div>
                                 <?php endif; ?>
                             </div>
-                            <a class="change-pass-link" href="">Đổi mật khẩu</a>
+                            <?php if(!empty($dataInfo[0]['student_password'])): ?>
+                            <a class="change-pass-link" href="doi-mat-khau">Đổi mật khẩu</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

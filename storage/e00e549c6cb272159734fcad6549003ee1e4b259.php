@@ -22,7 +22,6 @@
     <?php echo $__env->yieldContent('link'); ?>;
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
     <?php echo $__env->yieldContent('link'); ?>
-    >>>>>>> fc7c72093c1aeb1d402f68ed1e469ca2582e31ce
 </head>
 
 <body>
