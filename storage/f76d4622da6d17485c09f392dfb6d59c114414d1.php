@@ -1,5 +1,5 @@
 
-<?php $__env->startSection('title', 'Danh sách môn học'); ?>
+<?php $__env->startSection('title', 'Danh sách khóa học'); ?>
 <?php $__env->startSection('main_content'); ?>
 
 <style>

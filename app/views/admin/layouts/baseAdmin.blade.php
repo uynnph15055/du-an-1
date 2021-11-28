@@ -76,8 +76,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="./danh-sach-loai-mon-hoc">Danh mục môn học</a>
-                        <a class="collapse-item" href="./danh-sach-mon?trang=1 ">Danh sách các môn</a>
+                        <a class="collapse-item" href="./danh-sach-loai-mon-hoc">Danh mục khóa học</a>
+                        <a class="collapse-item" href="./danh-sach-mon?trang=1 ">Danh sách các khóa</a>
                     </div>
                 </div>
             </li>
@@ -99,11 +99,11 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-users-cog"></i>
-                    <span>Quản lý nhân viên</span>
+                    <span>Quản lý admin</span>
                 </a>
                 <div id="collapseUtilitie" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="danh-sach-admin">Thông tin nhân viên</a>
+                        <a class="collapse-item" href="danh-sach-admin">Thông tin admin</a>
                     </div>
                 </div>
             </li>
@@ -384,7 +384,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <h6>Copyright @admin project one Course IFT</h6>
+                        <h6>Copyright © Course IFT</h6>
                     </div>
                 </div>
             </footer>

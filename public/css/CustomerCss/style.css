@@ -847,8 +847,36 @@ header .navbar-fluid .navbar-content .nav__menu .nav__list .nav__item {
   padding: 0 20px;
 }
 
-header .navbar-fluid .navbar-content .nav__menu .nav__list .nav__item-link {
+header .navbar-fluid .navbar-content .nav__menu .nav__list .nav__item .nav__item-link {
   font-size: 16px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+header .navbar-fluid .navbar-content .nav__menu .nav__list .nav__item .nav__item-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-primary)), to(var(--color-secondary)));
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.6s ease;
+  transition: -webkit-transform 0.6s ease;
+  transition: transform 0.6s ease;
+  transition: transform 0.6s ease, -webkit-transform 0.6s ease;
+}
+
+header .navbar-fluid .navbar-content .nav__menu .nav__list .nav__item .nav__item-link:hover::before {
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
 }
 
 header .navbar-fluid .navbar-content .navbar-action-button .action-btn {
@@ -1684,6 +1712,7 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
           box-shadow: 0 0 5px var(--gray-more);
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  max-height: 230px;
 }
 
 .course-item .course-poster {

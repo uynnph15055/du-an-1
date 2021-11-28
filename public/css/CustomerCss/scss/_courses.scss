@@ -188,6 +188,7 @@
   padding: 10px;
   box-shadow: 0 0 5px var(--gray-more);
   transition: $trans-second;
+  max-height: 230px;
 
   .course-poster {
     border-radius: $radius;

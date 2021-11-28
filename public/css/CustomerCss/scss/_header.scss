@@ -32,11 +32,32 @@ header {
           display: inline-block;
           padding: 0 20px;
 
-          &-link {
+          .nav__item-link {
             font-size: 16px;
+            position: relative;
+            padding-bottom: 8px;
+          }
+          
+          .nav__item-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--color-primary), var(--color-secondary) );
+            transform-origin: bottom right;
+            transform: scaleX(0);
+            transition: transform 0.6s ease;
+          }
+          
+          .nav__item-link:hover::before {
+            transform-origin: bottom left;
+            transform: scaleX(1);
           }
         }
       }
+      
       .navbar-action {
         &-button {
           .action-btn {

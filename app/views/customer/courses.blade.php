@@ -53,7 +53,11 @@
                             <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}"><img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img></a>
                         </div>
                         <div class="course-text">
-                            <h3 class="course__title">{{$key['subject_name']}}</h3>
+                            <h3 class="course__title">
+                                <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}">
+                                    {{$key['subject_name']}}
+                                </a>
+                            </h3>
                             <span class="course__members">
                                 <i class="fas fa-users"></i>
                                 123
