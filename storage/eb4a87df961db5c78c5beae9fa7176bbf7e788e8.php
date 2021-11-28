@@ -80,7 +80,7 @@
                 </div>
                 <div class="course-detail-video">
                     <img src="./public/img/<?php echo e($subject['subject_img']); ?>" alt="" class="img-fluid course__img">
-                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" class="btn-primary">
+                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 30px 0px;" class="btn-primary">
                         Học ngay
                     </a>
                     <?php if(!empty($lesson)): ?>
@@ -88,7 +88,7 @@
                     <?php else: ?>
                     <h6 style="margin: 10px 0px;">Chưa có bài nào</h6>
                     <?php endif; ?>
-                    <span class="sub-des" style="font-style: italic;">Học mọi lúc, mọi nơi</span>
+                    <span class="sub-des" style="font-style: italic;font-size:16px">Học mọi lúc, mọi nơi</span>
                 </div>
             </div>
         </div>

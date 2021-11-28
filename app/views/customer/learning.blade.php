@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="learning-fluid">
                 <div class="learning-space">
-                    <div class="learning__video" style="margin-bottom: 20px;">
+                    <div class="learning__video" >
                         @if(isset($lessonFist))
                         <iframe width="98%" height="520" src="https://www.youtube.com/embed/{{$lessonFist['lesson_link']}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
@@ -72,7 +72,7 @@
                                 <label class="form__note__title" for="">Tạo ghi chú mới</label>
                                 <div class="note-section-content">
                                     <input class="input__time-note" type="text" placeholder="Thời gian">
-                                    <textarea class="input__content-note" placeholder="Nội dung ghi chú" name="content_note" cols="70" rows="6"></textarea>
+                                    <textarea class="input__content-note" placeholder="Nội dung ghi chú" name="content_note" cols="30" rows="6"></textarea>
                                     <button type="submit" class="btn btn-note">
                                         <i class="fas fa-save"></i>
                                     </button>
@@ -106,9 +106,8 @@
                     </div>
                 </div>
                 <aside class="play-list">
-                    <h3 class="course__title" style="font-size: 23px;margin-top:-10px">
+                    <h3 class="course__title">
                         Khóa học {{$subjectName}}
-
                     </h3>
                     <?php
 

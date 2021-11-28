@@ -1,5 +1,5 @@
 @extends('admin.layouts.baseAdmin')
-@section('title', 'Danh sách môn học')
+@section('title', 'Danh sách khóa học')
 @section('main_content')
 
 <style>

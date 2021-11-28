@@ -132,7 +132,7 @@
         </div>
 
         <div class="count-member">
-            <img class="img-fluid" src="./public/img/images/bgr-count-member.png" alt="">
+            <img class="img-fluid" style="width:100%" src="./public/img/images/bgr-count-member.png" alt="">
             <div class="container-fluid">
                 <div class="count-member-text">
                     <span class="text-numb">
@@ -190,100 +190,37 @@
                         </div>
                     </div>
                 </div>
-                <img style="margin-top: 40px;margin-left: 40px;" src="./public/img/istockphoto-1171646208-612x612.jpg" alt="" class="img-fluid your-gift__img">
+                <img src="./public/img/istockphoto-1171646208-612x612.jpg" alt="" class="img-fluid your-gift__img">
             </div>
         </div>
 
         <div class="rating">
             <div class="rating-container">
                 <div class="slideshow-container">
+                    <?php $__currentLoopData = $dataAssess; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="mySlides fade">
                         <div class="rating-feedback">
                             <div class="img-acc">
-                                <img src="https://picsum.photos/200/200" alt="" class="img-fluid">
+                                <img src="<?php echo e($key['student_avatar']); ?>" alt="" class="img-fluid">
                                 <h4 class="name-acc">
-                                    Nguyễn Anh
+                                    <?php echo e($key['student_name']); ?>
+
                                 </h4>
                             </div>
-                            <div class="feedback-text">
+                            <div class="feedback-text" style="margin-top: 10px;">
                                 <div class="fb-m">
                                     <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
+                                        <?php for($i =0 ; $i < $key['assess_star'] ; $i++): ?> <i class="fas fa-star"></i>
+                                            <?php endfor; ?>
                                     </div>
-                                    <p class="feedback-text__content">
-                                        “Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                        dolore eu
-                                        fugiat nulla pariatur.
-
-                                        Excepteur sint occaecat cupidatat
-                                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum”
+                                    <p class="feedback-text__content" style="line-height: 1.6;font-size:20px;margin-top:-10px">
+                                        “ <?php echo e($key['assess_content']); ?> ”
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="mySlides fade">
-                        <div class="rating-feedback">
-                            <div class="img-acc">
-                                <img src="https://picsum.photos/200/200" alt="" class="img-fluid">
-                                <h4 class="name-acc">
-                                    Nguyễn Anh 2
-                                </h4>
-                            </div>
-                            <div class="feedback-text">
-                                <div class="fb-m">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <p class="feedback-text__content">
-                                        “Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                        dolore eu
-                                        fugiat nulla pariatur.
-
-                                        Excepteur sint occaecat cupidatat
-                                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum”
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mySlides fade">
-                        <div class="rating-feedback">
-                            <div class="img-acc">
-                                <img src="https://picsum.photos/200/200" alt="" class="img-fluid">
-                                <h4 class="name-acc">
-                                    Nguyễn Anh 3
-                                </h4>
-                            </div>
-                            <div class="feedback-text">
-                                <div class="fb-m">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <p class="feedback-text__content">
-                                        “Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                        dolore eu
-                                        fugiat nulla pariatur.
-
-                                        Excepteur sint occaecat cupidatat
-                                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum”
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -306,7 +243,7 @@
             </div>
         </div>
     </main>
-    <footer style="margin-top: -150px;">
+    <footer>
         <div class="footer-content">
             <div class="content">
                 <div class="footer-social">
@@ -344,7 +281,7 @@
             </defs>
         </svg>
 
-        <svg viewbox="0 0 1440 328" width="100%">
+        <svg viewbox="0 0 1440 0" width="100%">
             <defs>
                 <clipPath id="wave" clipPathUnits="objectBoundingBox" transform="scale(0.00069444444, 0.00304878048)">
                     <path d="M504.452 27.7002C163.193 -42.9551 25.9595 38.071 0 87.4161V328H1440V27.7002C1270.34 57.14 845.711 98.3556 504.452 27.7002Z" />
