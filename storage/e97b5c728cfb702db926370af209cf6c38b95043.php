@@ -1,8 +1,8 @@
 
-<?php $__env->startSection('title', 'Thông tin nhân viên'); ?>
+<?php $__env->startSection('title', 'Thông tin admin'); ?>
 <?php $__env->startSection('main_content'); ?>
 <div id="content">
-    <h3 class="text-center" style="margin-bottom: 30px;">Thông tin nhân viên</h3>
+    <h3 class="text-center" style="margin-bottom: 30px;">Thông tin cá nhân</h3>
     <div class="container-fluid">
         <div class="container">
             <div class="profile_admin">
@@ -13,12 +13,12 @@
                                 <div class="account-settings">
                                     <div class="user-profile">
                                         <div class="user-avatar">
-                                            <img style="width:204px;border-radius:50%" src="./public/img/<?php echo e($admin['img']); ?>" alt="Maxwell Admin">
+                                            <img style="width: 175px; height: 175px; object-fit: cover; border-radius: 50%" class="img-fluid" src="./public/img/<?php echo e($admin['img']); ?>" alt="Maxwell Admin">
                                         </div>
                                     </div>
                                     <div class="text-center">
                                         <br>
-                                        <h4 class="text-center">Nhân Viên</h4>
+                                        <h6 class="text-center">Admin</h6>
                                         <h5 class="user-name" style="color:brown"><?php echo e($admin['name']); ?></h5>
                                         <p>SĐT : <?php echo e($admin['phone']); ?></p>
                                     </div>

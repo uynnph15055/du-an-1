@@ -28,3 +28,20 @@ iconCloseModal.addEventListener("click", toggleModal);
 modal.addEventListener("click", (e) => {
     if (e.target == e.currentTarget) toggleModal();
 });
+
+// js phần bill
+const modal = document.querySelector(".modal-bill");
+const openModalBtn = document.querySelector(".open-modal-bill-btn");
+const iconCloseModal = document.querySelector(".modal-bill__header");
+
+function toggleModal() {
+    modal.classList.toggle("hide");
+}
+
+openModalBtn.addEventListener("click", toggleModal);
+iconCloseModal.addEventListener("click", toggleModal);
+
+modal.addEventListener("click", (e) => {
+    if (e.target == e.currentTarget) toggleModal();
+});
+

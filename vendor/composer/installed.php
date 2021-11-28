@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '3d3095c82cf29db6e71e3313af1ebb2bbea3bad9',
+        'reference' => 'fbc6acc0e5cac087f6ceeb70a39073b7f934a66b',
         'name' => 'uynguyen/php_2',
         'dev' => true,
     ),
@@ -208,6 +208,15 @@
             'reference' => 'f4655858a784988f880c1b8c7feabbf02dfdf045',
             'dev_requirement' => false,
         ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.5.3',
+            'version' => '6.5.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'reference' => 'baeb7cde6b60b1286912690ab0693c7789a31e71',
+            'dev_requirement' => false,
+        ),
         'phpseclib/phpseclib' => array(
             'pretty_version' => '2.0.34',
             'version' => '2.0.34.0',
@@ -277,8 +286,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0',
+                0 => '1.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -419,7 +428,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '3d3095c82cf29db6e71e3313af1ebb2bbea3bad9',
+            'reference' => 'fbc6acc0e5cac087f6ceeb70a39073b7f934a66b',
             'dev_requirement' => false,
         ),
         'voku/portable-ascii' => array(

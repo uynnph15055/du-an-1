@@ -273,6 +273,7 @@
     </div>
 </div>
 
+<!-- modal img -->
 <div class="container-ctrl-img">
     <div class="modal hide">
         <div class="modal__inner">
@@ -297,9 +298,24 @@
         </div>
     </div>
 </div>
-<div class="container-detail-bill">
 
+<!-- modal bill -->
+<div class="container-detail-bill">
+    <div class="modal-bill hide">
+        <div class="modal-bill__inner">
+            <div class="modal-bill__header">
+                <span></span>
+                <p>Chi tiết</p>
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-bill__body">
+                
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- modal info -->
 <div class="container-change-info">
     <div class="modal-user-info hide-user-info">
         <div class="modal-user-info__inner">

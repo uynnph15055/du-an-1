@@ -393,8 +393,13 @@ switch ($url) {
         echo $ctr->changPass();
         break;
 
+    case 'gui-mail';
+        $ctr = new formLog();
+        echo $ctr->sendEmail();
+        break;
+
     default:
         "Không tồn tại file nào";
-'heloo binh';
+        'heloo binh';
         break;
 }

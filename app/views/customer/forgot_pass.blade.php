@@ -18,9 +18,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 
 </head>
-<style>
-    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-</style>
 
 <body class="bgr-img form-log-section">
     <div class="form-log-container">

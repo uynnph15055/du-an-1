@@ -3,7 +3,10 @@
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-gap: 10px;
-
+  
+  .learning__video{
+    margin-bottom: 20px;
+  }
   .learning-tabs {
     .btn-tab {
       border-bottom: 1px solid var(--gray);
@@ -191,7 +194,6 @@
 
     .tab-content {
       display: none;
-      margin-left: -70px;
     }
     .action-ctrl {
       display: flex;

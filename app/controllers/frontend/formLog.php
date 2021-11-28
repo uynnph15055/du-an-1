@@ -7,6 +7,9 @@ use App\Models\modelAdministrators;
 use App\Models\modelStudent;
 use Google_Service_Oauth2;
 use Google_Client;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 class formLog extends baseController
 {
@@ -98,10 +101,6 @@ class formLog extends baseController
         }
         //End Google Code
         $this->render("customer.form_log", ['authUrl' => $client->createAuthUrl()]);
-    }
-
-    public function loginGoogle()
-    {
     }
     // Check email Ajax 
     public function checkEmailSignUp()
@@ -267,6 +266,45 @@ class formLog extends baseController
                     header('location: ' . $_SERVER['HTTP_REFERER']);
                 }
             }
+        }
+    }
+
+
+    public function sendEmail()
+    {
+        $mail = new PHPMailer(true);     // Passing `true` enables exceptions
+
+        try {
+
+            // Email server settings
+            $mail->SMTPDebug = 0;
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';             //  smtp host
+            $mail->SMTPAuth = true;
+            $mail->Username = 'uyhuongson123@gmail.com';   //  sender username
+            $mail->Password = 'uynguyen123';       // sender password
+            $mail->SMTPSecure = 'tls';                  // encryption - ssl/tls
+            $mail->Port = 587;                          // port - 587/465
+
+            $mail->setFrom('uyhuongson123@gmail.com', 'Uy nguyen');
+
+            $mail->addAddress('uynnph15055@fpt.edu.vn');
+
+            $mail->isHTML(true);                // Set email content format to HTML
+
+            $mail->Subject = 'abcs';
+            $mail->Body    = 'Gửi mail thành công';
+
+            // $mail->AltBody = plain text version of email body;
+
+            if (!$mail->send()) {
+                // return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
+                $this->dd($mail->ErrorInfo);
+            } else {
+                $this->dd("Successfully");
+            }
+        } catch (Exception $e) {
+            $this->dd("Email error");
         }
     }
 }
