@@ -334,6 +334,7 @@ switch ($url) {
         $ctr = new formLog();
         echo $ctr->register();
         break;
+
     case 'dang-nhap';
         $ctr = new formLog();
         echo $ctr->login();
@@ -393,10 +394,26 @@ switch ($url) {
         echo $ctr->changPass();
         break;
 
+        // Quên mật khẩu.
     case 'gui-mail';
         $ctr = new formLog();
         echo $ctr->sendEmail();
         break;
+    case 'trang-quen-mat-khau';
+        $ctr = new formLog();
+        echo $ctr->forgetPassForm();
+        break;
+
+        // Xác nhận tài khoản
+    case 'xac-nhan-tai-khoan';
+        $ctr = new formLog();
+        echo $ctr->confirmAccount();
+        break;
+    case 'xac-nhan';
+        $ctr = new formLog();
+        echo $ctr->confirmAccountPage();
+        break;
+
 
     default:
         "Không tồn tại file nào";
