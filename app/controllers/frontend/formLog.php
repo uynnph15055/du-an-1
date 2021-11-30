@@ -122,8 +122,6 @@ class formLog extends baseController
 
     // đằn nhập bằng gg
 
-
-
     // Check email Ajax Đăng ký
     public function register()
     {
@@ -159,7 +157,7 @@ class formLog extends baseController
                     die();
                 }
 
-                $dataAdmin = modelAdministrators::where("email", "=", $emailSignUp)->get();
+                $dataAdmin = modelAdministrators::where("email", "=", $student_email)->get();
                 if (!empty($dataAdmin)) {
 
                     $_SESSION['error-form-register'] = "Email đã tồn tại!";
@@ -168,22 +166,99 @@ class formLog extends baseController
                     die();
                 }
 
-                $file_name = '103160_man_512x512.png';
+                $mail = new PHPMailer(true);
+                // Passing `true` enables exceptions
 
-                // Mã hóa mật khẩu
-                $passwordNew = password_hash($student_password, PASSWORD_DEFAULT);
+                try {
 
-                $data = [
-                    'student_name' => $student_name,
-                    'student_email' => $student_email,
-                    'student_password' => $passwordNew,
-                    'student_avatar' => "./public/img/" . $file_name,
-                ];
+                    // Email server settings
+                    $mail->SMTPDebug = 0;
+                    $mail->charSet = "UTF-8";
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';             //  smtp host
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'courseift123@gmail.com';   //  sender username
+                    $mail->Password = 'uynguyen1234';       // sender password
+                    $mail->SMTPSecure = 'tls';                  // encryption - ssl/tls
+                    $mail->Port = 587;                    // port - 587/465
 
-                modelStudent::insertStudent($data);
-                header('Location: dang-nhap-dang-ky');
+                    $mail->setFrom('courseift123@gmail.com', 'Course IFT');
+
+                    $mail->addAddress($student_email);
+
+                    $mail->isHTML(true);      // Set email content format to HTML
+
+                    // Randum mật khẩu mới.
+                    $numberStart = 100000;
+                    $numberEnd = 999999;
+                    $numberRanDum = rand($numberStart, $numberEnd);
+
+                    $passNew = password_hash($student_password, PASSWORD_DEFAULT);
+
+                    $data = [
+                        'student_email' => $student_email,
+                        'student_password' => $passNew,
+                        'student_name' => $student_name,
+                        'code_check' => $numberRanDum,
+                    ];
+
+                    $InforTemporary  = implode("/", array_values($data));
+
+                    setcookie('data_check', $InforTemporary, time() + 3600);
+
+                    $mail->Subject = 'Mã xác nhận đăng nhập hệ thống học tập COURSE IFT !';
+                    $mail->Body    = 'Mã xác nhận của bạn : ' . $numberRanDum;
+
+                    // $mail->AltBody = plain text version of email body;
+                    // die();
+                    if (!$mail->send()) {
+                        $this->dd($mail->ErrorInfo);
+                    } else {
+                        header('Location: xac-nhan');
+                    }
+                } catch (Exception $e) {
+                    $_SESSION['error'] = "Email của bạn không tồn tại";
+                    header('location: ' . $_SERVER['HTTP_REFERER']);
+                }
             }
         }
+    }
+
+    public function confirmAccount()
+    {
+        $code_check = $_POST['code_check'];
+        // $this->dd($code_check);
+        if (isset($_COOKIE['data_check'])) {
+            $dataCookie = $_COOKIE['data_check'];
+            $dataCheck = explode('/', filter_var(trim($dataCookie, '/')));
+        }
+        // $this->dd($dataCheck);
+        // Lấy mã code.
+        $codeCookie = $dataCheck[3];
+        // $this->dd($codeCookie);
+        // setcookie("code_check", "", time() - 3600);
+        $file_name = '103160_man_512x512.png';
+        // $this->dd($codeCookie);
+        if ($code_check == $codeCookie) {
+            $data = [
+                'student_name' => $dataCheck[2],
+                'student_email' => $dataCheck[0],
+                'student_password' => $dataCheck[1],
+                'student_avatar' => "./public/img/" . $file_name,
+            ];
+
+            modelStudent::insertStudent($data);
+            $_SESSION['success'] = "Xác nhận thành công!!!";
+            header('Location: xac-nhan');
+        } else {
+            $_SESSION['error'] = "Sai mã xác nhận !!!";
+            header('location: ' . $_SERVER['HTTP_REFERER']);
+        }
+    }
+
+    public function confirmAccountPage()
+    {
+        $this->render('customer.confirm_account', []);
     }
 
     // Check Đăng nhập
@@ -240,6 +315,7 @@ class formLog extends baseController
         $this->render("customer.form_change_pass", []);
     }
 
+    // Sửa mật khẩu
     public function changPass()
     {
         if (isset($_SESSION['user_info'])) {
@@ -258,7 +334,8 @@ class formLog extends baseController
 
                 if (password_verify($pass_old, $pass)) {
                     if ($pass_new == $pass_confirm) {
-                        modelStudent::updatePass($pass_new, $student_id);
+                        $passNew = password_hash($pass_new, PASSWORD_DEFAULT);
+                        modelStudent::updatePass($passNew, $student_id);
                         $_SESSION['success'] = "Cập nhật thành công !!!";
                         header('Location: thong-tin-khach-hang');
                     }
@@ -269,10 +346,32 @@ class formLog extends baseController
         }
     }
 
-
     public function sendEmail()
     {
-        $mail = new PHPMailer(true);     // Passing `true` enables exceptions
+
+        $email_check = $_POST['email_check'];
+
+        if (empty($email_check)) {
+            header('location: ' . $_SERVER['HTTP_REFERER']);
+            die();
+        } else {
+            $dataStudent = modelStudent::where("student_email", "=", $email_check)->get();
+            if (!empty($dataStudent)) {
+                $student_id = $dataStudent[0]['student_id'];
+                // $passInDb = $dataStudent[0]['student_password'];
+                // if ($passInDb == '') {
+                //     $_SESSION['notifi'] = "Email này không tích hợp quên mật khẩu !";
+                //     header('location: ' . $_SERVER['HTTP_REFERER']);
+                //     die();
+                // }
+            } else {
+                header('location: ' . $_SERVER['HTTP_REFERER']);
+                die();
+            }
+        }
+
+        $mail = new PHPMailer(true);
+        $mail->charSet = "UTF-8";     // Passing `true` enables exceptions
 
         try {
 
@@ -281,30 +380,46 @@ class formLog extends baseController
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';             //  smtp host
             $mail->SMTPAuth = true;
-            $mail->Username = 'uyhuongson123@gmail.com';   //  sender username
-            $mail->Password = 'uynguyen123';       // sender password
+            $mail->Username = 'courseift123@gmail.com';   //  sender username
+            $mail->Password = 'uynguyen1234';       // sender password
             $mail->SMTPSecure = 'tls';                  // encryption - ssl/tls
-            $mail->Port = 587;                          // port - 587/465
+            $mail->Port = 587;                    // port - 587/465
 
-            $mail->setFrom('uyhuongson123@gmail.com', 'Uy nguyen');
+            $mail->setFrom('courseift123@gmail.com', 'Course IFT');
 
-            $mail->addAddress('uynnph15055@fpt.edu.vn');
+            $mail->addAddress($email_check);
 
-            $mail->isHTML(true);                // Set email content format to HTML
+            $mail->isHTML(true);      // Set email content format to HTML
 
-            $mail->Subject = 'abcs';
-            $mail->Body    = 'Gửi mail thành công';
+            // Randum mật khẩu mới.
+            $numberStart = 100000;
+            $numberEnd = 999999;
+            $numberRanDum = rand($numberStart, $numberEnd);
+
+            $passNew = password_hash($numberRanDum, PASSWORD_DEFAULT);
+            modelStudent::updatePass($passNew, $student_id);
+
+            $mail->Subject = 'Mail cập nhật mật khẩu mới !';
+            $mail->Body    = 'Mật khẩu mới của bạn là : ' . $numberRanDum;
 
             // $mail->AltBody = plain text version of email body;
 
             if (!$mail->send()) {
-                // return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
                 $this->dd($mail->ErrorInfo);
             } else {
-                $this->dd("Successfully");
+                $_SESSION['notifi'] = "Bạn hãy vào email để nhận mật khẩu mới !";
+                header('location: ' . $_SERVER['HTTP_REFERER']);
             }
         } catch (Exception $e) {
-            $this->dd("Email error");
+            $_SESSION['error'] = "Email của bạn không tồn tại";
+            header('location: ' . $_SERVER['HTTP_REFERER']);
         }
+    }
+
+
+    // Chuyển đén trang xác nhận email
+    public function forgetPassForm()
+    {
+        $this->render("customer.forgot_pass", []);
     }
 }

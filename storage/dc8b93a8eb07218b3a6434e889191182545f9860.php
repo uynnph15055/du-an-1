@@ -53,7 +53,7 @@
             <?php endif; ?>
 
             <button type="submit" class="btn__log btn-primary">Đăng nhập</button>
-            <a class="form-link" href="#">Quên mật khẩu?</a>
+            <a class="form-link" href="trang-quen-mat-khau">Quên mật khẩu?</a>
             <a class="form-link" href="./">Trang chủ</a>
         </form>
     </div>

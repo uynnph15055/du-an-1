@@ -303,7 +303,7 @@
                 <i class="fas fa-times"></i>
             </div>
             <div class="modal-bill__body">
-                
+
             </div>
         </div>
     </div>
@@ -346,8 +346,6 @@
         </div>
     </div>
 </div>
-</div>
-
 <script src="./public/js/customerJs/profile.js"></script>
 <script>
     function banner_imgg() {
