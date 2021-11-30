@@ -28,6 +28,7 @@ use App\Controllers\Frontend\proFile;
 use App\Controllers\Frontend\Question;
 use App\Controllers\Backend\adminComment;
 use App\Controllers\Frontend\assess;
+use App\Controllers\Frontend\Payment;
 
 switch ($url) {
     case 'quan-tri':
@@ -322,6 +323,7 @@ switch ($url) {
         //     $ctr = new formLog();
         //     echo $ctr->googleSource();
         //     break;
+        
     case 'dang-nhap-dang-ky';
         $ctr = new formLog();
         echo $ctr->index();
@@ -398,8 +400,24 @@ switch ($url) {
         echo $ctr->sendEmail();
         break;
 
+
+        // Thanh toán VNPAY 
+
+    case 'thanh-toan-vnpay';
+        $ctr = new Payment();
+        echo $ctr->index();
+        break;
+    case 'vnpay_create_payment';
+        $ctr = new Payment();
+        echo $ctr->vnpay_create_payment();
+        break;
+    case 'vnpay_return';
+        $ctr = new Payment();
+        echo $ctr->vnpay_return();
+        break;
+
     default:
         "Không tồn tại file nào";
-        'heloo binh';
+
         break;
 }

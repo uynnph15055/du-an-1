@@ -71,7 +71,20 @@
                         <div class="swiper-slide">
                             <div class="course-item">
                                 <div class="course-poster">
+                                    <?php $__currentLoopData = $dataBill; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valueBill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id']): ?>
+                                    <?php $bill_vnpay = $valueBill['code_vnpay'] ?>
+                                    <?php endif; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($key['type_id'] == 0): ?>
                                     <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                                    <?php elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$key['subject_id']): ?>
+                                
+                                    <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                                    <?php else: ?>
+                                    <a href="thanh-toan-vnpay?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                                    <?php endif; ?>
+
                                 </div>
                                 <div class="course-text">
                                     <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>">
@@ -80,12 +93,26 @@
                                             <i class="fas fa-users"></i>
                                             123
                                         </span>
+                                        <?php $__currentLoopData = $dataBill; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valueBill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id']): ?>
+                                        <?php $bill_vnpay = $valueBill['code_vnpay'] ?>
+                                        <?php endif; ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         <?php if($key['type_id'] == 0): ?>
                                         <span class="course__price course__price--free">Miễn phí</span>
+                                        <?php elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$key['subject_id']): ?>
+                                        <span class="course__price course__price--free">Đã mở</span>
+                                    
+
                                         <?php else: ?>
                                         <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
                                         <span class="course__price course__price--old"><?php echo number_format($key['subject_price']) ?>đ</span>
                                         <?php endif; ?>
+                                        <!-- <?php if($key['type_id'] == 0): ?>
+                                        <span class="course__price course__price--free">Miễn phí</span>
+                                        <?php else: ?>
+                                        
+                                        <?php endif; ?> -->
                                     </a>
                                 </div>
                             </div>
@@ -190,7 +217,7 @@
                         </div>
                     </div>
                 </div>
-                <img style="margin-top: 40px;margin-left: 40px;" src="./public/img/istockphoto-1171646208-612x612.jpg" alt="" class="img-fluid your-gift__img">
+                <img src="./public/img/istockphoto-1171646208-612x612.jpg" alt="" class="img-fluid your-gift__img">
             </div>
         </div>
 
@@ -243,7 +270,7 @@
             </div>
         </div>
     </main>
-    <footer style="margin-top: -150px;">
+    <footer>
         <div class="footer-content">
             <div class="content">
                 <div class="footer-social">
@@ -281,7 +308,7 @@
             </defs>
         </svg>
 
-        <svg viewbox="0 0 1440 328" width="100%">
+        <svg viewbox="0 0 1440 0" width="100%">
             <defs>
                 <clipPath id="wave" clipPathUnits="objectBoundingBox" transform="scale(0.00069444444, 0.00304878048)">
                     <path d="M504.452 27.7002C163.193 -42.9551 25.9595 38.071 0 87.4161V328H1440V27.7002C1270.34 57.14 845.711 98.3556 504.452 27.7002Z" />
