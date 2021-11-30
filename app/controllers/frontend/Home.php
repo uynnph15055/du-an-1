@@ -21,7 +21,7 @@ class Home extends baseController
     {
 
         if(!isset($_SESSION['user_info'])){
-            header('location:dang-nhap-dang-ky');
+            header('location: dang-nhap-dang-ky');
         }
         $dataAssess = modelAssess::getAssessStudent();
         // $this->dd($dataAssess);

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'PT16306 project_one')</title>
+    <title><?php echo $__env->yieldContent('title', 'PT16306 project_one'); ?></title>
     <!-- Custom styles for this template -->
     <link href="./vnpay_php/assets/jumbotron-narrow.css" rel="stylesheet">
     <script src="./vnpay_php/assets/jquery-1.11.3.min.js"></script>
@@ -13,7 +13,7 @@
 </head>
 
 <body class="bg-light">
-    @yield('main_content')
+    <?php echo $__env->yieldContent('main_content'); ?>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -48,4 +48,4 @@
     </script>
 </body>
 
-</html>
+</html><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/layout/layout_payment.blade.php ENDPATH**/ ?>

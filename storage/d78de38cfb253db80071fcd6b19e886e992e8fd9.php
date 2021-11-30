@@ -71,7 +71,20 @@
                         <div class="swiper-slide">
                             <div class="course-item">
                                 <div class="course-poster">
+                                    <?php $__currentLoopData = $dataBill; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valueBill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id']): ?>
+                                    <?php $bill_vnpay = $valueBill['code_vnpay'] ?>
+                                    <?php endif; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($key['type_id'] == 0): ?>
                                     <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                                    <?php elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$key['subject_id']): ?>
+
+                                    <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                                    <?php else: ?>
+                                    <a href="thanh-toan-vnpay?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                                    <?php endif; ?>
+
                                 </div>
                                 <div class="course-text">
                                     <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>">
@@ -80,12 +93,26 @@
                                             <i class="fas fa-users"></i>
                                             123
                                         </span>
+                                        <?php $__currentLoopData = $dataBill; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valueBill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id']): ?>
+                                        <?php $bill_vnpay = $valueBill['code_vnpay'] ?>
+                                        <?php endif; ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         <?php if($key['type_id'] == 0): ?>
                                         <span class="course__price course__price--free">Miễn phí</span>
+                                        <?php elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$key['subject_id']): ?>
+                                        <span class="course__price course__price--free">Đã mở</span>
+
+
                                         <?php else: ?>
                                         <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
                                         <span class="course__price course__price--old"><?php echo number_format($key['subject_price']) ?>đ</span>
                                         <?php endif; ?>
+                                        <!-- <?php if($key['type_id'] == 0): ?>
+                                        <span class="course__price course__price--free">Miễn phí</span>
+                                        <?php else: ?>
+                                        
+                                        <?php endif; ?> -->
                                     </a>
                                 </div>
                             </div>

@@ -1,9 +1,9 @@
-@extends('customer.layout.layout_payment')
-@section('title', 'Trang chủ')
-@section('link')
 
-@endsection
-@section('main_content')
+<?php $__env->startSection('title', 'Trang chủ'); ?>
+<?php $__env->startSection('link'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('main_content'); ?>
 <?php require_once('./vnpay_php/config.php') ?>
 <style>
     .grid-anh {
@@ -24,16 +24,16 @@
     </header>
     <div class="grid-anh my-2">
         <div class=" bg-white p-3">
-            <img src="./public/img/{{$subject['subject_img']}}" alt="" class="img-fluid">
+            <img src="./public/img/<?php echo e($subject['subject_img']); ?>" alt="" class="img-fluid">
             <div class="row my-2">
                 <div class="col-8">
-                    <h5 style="color: #0098d2">Tên khóa học: {{$subject['subject_name']}}</h5>
-                    <p class="m-0">Gồm: {{$countLesson}} bài học</p>
+                    <h5 style="color: #0098d2">Tên khóa học: <?php echo e($subject['subject_name']); ?></h5>
+                    <p class="m-0">Gồm: <?php echo e($countLesson); ?> bài học</p>
 
                 </div>
                 <div class="col-4 text-end">
-                    <span style="color: #0098d2" class="fs-5 fw-bold"> {{number_format($subject['subject_sale'])}} đ</span>
-                    <span class="fs-8 text-decoration-line-through"> {{number_format($subject['subject_price'])}} đ</span>
+                    <span style="color: #0098d2" class="fs-5 fw-bold"> <?php echo e(number_format($subject['subject_sale'])); ?> đ</span>
+                    <span class="fs-8 text-decoration-line-through"> <?php echo e(number_format($subject['subject_price'])); ?> đ</span>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                         <h3>Tạo mới đơn hàng</h3>
                         <div class="form-group">
                             <label for="language">Tên khóa học </label>
-                            <input name="order_type" id="order_type" class="form-control" type="text" value="{{$subject['subject_name']}}" />
+                            <input name="order_type" id="order_type" class="form-control" type="text" value="<?php echo e($subject['subject_name']); ?>" />
                         </div>
                         <div class="form-group">
                             <label for="order_id">Mã hóa đơn</label>
@@ -52,11 +52,11 @@
                         </div>
                         <div class="form-group">
                             <label for="amount">Số tiền</label>
-                            <input class="form-control" id="amount" name="amount" type="number" value="{{$subject['subject_sale']}}" />
+                            <input class="form-control" id="amount" name="amount" type="number" value="<?php echo e($subject['subject_sale']); ?>" />
                         </div>
                         <div class="form-group">
                             <label for="order_desc">Nội dung thanh toán</label>
-                            <textarea class="form-control" cols="20" id="order_desc" name="order_desc" rows="2">thanh toan khoa hoc {{$subject['subject_name']}}</textarea>
+                            <textarea class="form-control" cols="20" id="order_desc" name="order_desc" rows="2">thanh toan khoa hoc <?php echo e($subject['subject_name']); ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="bank_code">Ngân hàng</label>
@@ -175,7 +175,7 @@
                         <h3>Thông tin gửi Hóa đơn điện tử (Invoice)</h3>
                         <div class="form-group">
                             <label>Tên khách hàng</label>
-                            <input class="form-control" id="txt_inv_customer" name="txt_inv_customer" type="text" value="{{$user['student_name']}}" />
+                            <input class="form-control" id="txt_inv_customer" name="txt_inv_customer" type="text" value="<?php echo e($user['student_name']); ?>" />
                         </div>
                         <div class="form-group">
                             <label>Công ty</label>
@@ -198,7 +198,7 @@
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input class="form-control" id="txt_inv_email" name="txt_inv_email" type="text" value="{{$user['student_email']}}" />
+                            <input class="form-control" id="txt_inv_email" name="txt_inv_email" type="text" value="<?php echo e($user['student_email']); ?>" />
                         </div>
                         <div class="form-group">
                             <label>Điện thoại</label>
@@ -223,10 +223,10 @@
     <div class="table-responsive">
      
         <form action="vnpay_create_payment" id="create_form" method="post">
-            <input type="hidden" name="subject_id" value="{{$subject['subject_id']}}">
+            <input type="hidden" name="subject_id" value="<?php echo e($subject['subject_id']); ?>">
             <div class="form-group">
                 <label for="language">Tên khóa học </label>
-                <input name="order_type" id="order_type" class="form-control" type="text" value="{{$subject['subject_name']}}" />
+                <input name="order_type" id="order_type" class="form-control" type="text" value="<?php echo e($subject['subject_name']); ?>" />
             </div>
             <div class="form-group">
                 <label for="order_id">Mã hóa đơn</label>
@@ -234,11 +234,11 @@
             </div>
             <div class="form-group">
                 <label for="amount">Số tiền</label>
-                <input class="form-control" id="amount" name="amount" type="number" value="{{$subject['subject_sale']}}" />
+                <input class="form-control" id="amount" name="amount" type="number" value="<?php echo e($subject['subject_sale']); ?>" />
             </div>
             <div class="form-group">
                 <label for="order_desc">Nội dung thanh toán</label>
-                <textarea class="form-control" cols="20" id="order_desc" name="order_desc" rows="2">thanh toan khoa hoc {{$subject['subject_name']}}</textarea>
+                <textarea class="form-control" cols="20" id="order_desc" name="order_desc" rows="2">thanh toan khoa hoc <?php echo e($subject['subject_name']); ?></textarea>
             </div>
             <div class="form-group">
                 <label for="bank_code">Ngân hàng</label>
@@ -285,11 +285,11 @@
                 </div>
                 <div class="form-group">
                         <label>Họ tên (*)</label>
-                        <input class="form-control" id="txt_billing_fullname" name="txt_billing_fullname" type="text" value="{{$user['student_name']}}" />
+                        <input class="form-control" id="txt_billing_fullname" name="txt_billing_fullname" type="text" value="<?php echo e($user['student_name']); ?>" />
                     </div>
                     <div class="form-group">
                         <label>Email (*)</label>
-                        <input class="form-control" id="txt_billing_email" name="txt_billing_email" type="text" value="{{$user['student_email']}}" />
+                        <input class="form-control" id="txt_billing_email" name="txt_billing_email" type="text" value="<?php echo e($user['student_email']); ?>" />
                     </div>
                     <div class="form-group">
                         <label>Số điện thoại (*)</label>
@@ -443,4 +443,5 @@
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="./public/js/customerJs/swiper-slider.js"></script>
 <script src="./public/js/customerJs/slideshow-rating.js"></script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('customer.layout.layout_payment', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/payment.blade.php ENDPATH**/ ?>

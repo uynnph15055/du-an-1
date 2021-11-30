@@ -202,7 +202,7 @@ class formLog extends baseController
                         'code_check' => $numberRanDum,
                     ];
 
-                    $InforTemporary  = implode("/", array_values($data));
+                    $InforTemporary  = implode("-", array_values($data));
 
                     setcookie('data_check', $InforTemporary, time() + 3600);
 
@@ -230,16 +230,20 @@ class formLog extends baseController
         // $this->dd($code_check);
         if (isset($_COOKIE['data_check'])) {
             $dataCookie = $_COOKIE['data_check'];
-            $dataCheck = explode('/', filter_var(trim($dataCookie, '/')));
+            // $this->dd($dataCookie);
+            $dataCheck = explode('-', filter_var(trim($dataCookie, '/')));
         }
         // $this->dd($dataCheck);
+        // unset($dataCheck[3]);
         // Lấy mã code.
-        $codeCookie = $dataCheck[3];
-        // $this->dd($codeCookie);
+        $codeCookie = end($dataCheck);
         // setcookie("code_check", "", time() - 3600);
         $file_name = '103160_man_512x512.png';
         // $this->dd($codeCookie);
         if ($code_check == $codeCookie) {
+            unset($dataCheck[3]);
+            // $this->dd($dataCheck);
+            // $this->dd($dataCheck);
             $data = [
                 'student_name' => $dataCheck[2],
                 'student_email' => $dataCheck[0],
