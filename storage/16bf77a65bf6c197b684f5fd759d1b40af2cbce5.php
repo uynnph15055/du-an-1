@@ -49,9 +49,27 @@
                     <?php if(isset($subject)): ?>
                     <?php $__currentLoopData = $subject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="course-item">
+
+
+                        <?php $__currentLoopData = $dataBill; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valueBill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id']): ?>
+                        <?php $bill_vnpay = $valueBill['code_vnpay'] ?>
+                        <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($key['type_id'] == 0): ?>
                         <div class="course-poster">
                             <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
                         </div>
+                        <?php elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$key['subject_id']): ?>
+
+                        <div class="course-poster">
+                            <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                        </div>
+                        <?php else: ?>
+                        <div class="course-poster">
+                            <a href="thanh-toan-vnpay?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                        </div>
+                        <?php endif; ?>
                         <div class="course-text">
                             <h3 class="course__title">
                                 <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>">
@@ -63,8 +81,17 @@
                                 <i class="fas fa-users"></i>
                                 123
                             </span>
+                            <?php $__currentLoopData = $dataBill; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valueBill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id']): ?>
+                            <?php $bill_vnpay = $valueBill['code_vnpay'] ?>
+                            <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             <?php if($key['type_id'] == 0): ?>
                             <span class="course__price course__price--free">Miễn phí</span>
+                            <?php elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$key['subject_id']): ?>
+                            <span class="course__price course__price--free">Đã mở</span>
+
+
                             <?php else: ?>
                             <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
                             <span class="course__price course__price--old"><?php echo number_format($key['subject_price']) ?>đ</span>
@@ -76,7 +103,7 @@
                 </div>
             </div>
     </main>
-    <footer >
+    <footer>
         <div class="footer-content">
             <div class="content">
                 <div class="footer-social">

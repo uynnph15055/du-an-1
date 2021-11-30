@@ -49,9 +49,27 @@
                     @if(isset($subject))
                     @foreach($subject as $key)
                     <div class="course-item">
+
+
+                        @foreach($dataBill as $valueBill)
+                        @if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id'])
+                        <?php $bill_vnpay = $valueBill['code_vnpay'] ?>
+                        @endif
+                        @endforeach
+                        @if($key['type_id'] == 0)
                         <div class="course-poster">
                             <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}"><img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img></a>
                         </div>
+                        @elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$key['subject_id'])
+
+                        <div class="course-poster">
+                            <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}"><img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img></a>
+                        </div>
+                        @else
+                        <div class="course-poster">
+                            <a href="thanh-toan-vnpay?mon={{$key['subject_slug']}}"><img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img></a>
+                        </div>
+                        @endif
                         <div class="course-text">
                             <h3 class="course__title">
                                 <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}">
@@ -62,8 +80,17 @@
                                 <i class="fas fa-users"></i>
                                 123
                             </span>
+                            @foreach($dataBill as $valueBill)
+                            @if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id'])
+                            <?php $bill_vnpay = $valueBill['code_vnpay'] ?>
+                            @endif
+                            @endforeach
                             @if($key['type_id'] == 0)
                             <span class="course__price course__price--free">Miễn phí</span>
+                            @elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$key['subject_id'])
+                            <span class="course__price course__price--free">Đã mở</span>
+
+
                             @else
                             <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
                             <span class="course__price course__price--old"><?php echo number_format($key['subject_price']) ?>đ</span>
@@ -75,7 +102,7 @@
                 </div>
             </div>
     </main>
-    <footer >
+    <footer>
         <div class="footer-content">
             <div class="content">
                 <div class="footer-social">
