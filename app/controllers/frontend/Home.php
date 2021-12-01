@@ -8,6 +8,7 @@ use App\Models\modelBanner;
 use App\Models\modelMenu;
 use App\Models\modelSubject;
 use App\Models\modelBill;
+
 class Home extends baseController
 {
     private $menu;
@@ -20,27 +21,33 @@ class Home extends baseController
     public function index()
     {
 
-        if(!isset($_SESSION['user_info'])){
-            header('location: dang-nhap-dang-ky');
+
+        if (!isset($_SESSION['user_info'])) {
+            $dataAssess = modelAssess::getAssessStudent();
+            $dataSubject = modelSubject::addNew();
+            $dataBanner = modelBanner::all();
+            $this->render("customer.home",  [
+                'banner' => $dataBanner[0],
+                'menu' => $this->menu,
+                'dataAssess' => $dataAssess,
+                'dataSubject' => $dataSubject,
+            ]);
+        } else {
+            $dataAssess = modelAssess::getAssessStudent();
+            // $this->dd($dataAssess);
+            $dataBanner = modelBanner::all();
+            $dataSubject = modelSubject::addNew();
+            $dataBill = modelBill::all();
+
+
+            $this->render("customer.home",  [
+                'dataBill' => $dataBill,
+                'banner' => $dataBanner[0],
+                'menu' => $this->menu,
+                'user' => $_SESSION['user_info'][0],
+                'dataSubject' => $dataSubject,
+                'dataAssess' => $dataAssess,
+            ]);
         }
-        $dataAssess = modelAssess::getAssessStudent();
-        // $this->dd($dataAssess);
-        $dataBanner = modelBanner::all();
-        $dataSubject = modelSubject::addNew();
-        $dataBill=modelBill::all();
-        foreach($dataBill as $valueBill){
-            if($_SESSION['user_info'][0]['student_id'] == $valueBill['student_id']){
-            $student_id=$valueBill['student_id'];
-    
-            }
-        }
-        $this->render("customer.home",  [
-            'dataBill'=>$dataBill,
-            'banner' => $dataBanner[0],
-            'menu' => $this->menu,
-            'user' => $_SESSION['user_info'][0],
-            'dataSubject' => $dataSubject,
-            'dataAssess' => $dataAssess,
-        ]);
     }
 }
