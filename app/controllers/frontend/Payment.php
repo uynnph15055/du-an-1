@@ -173,13 +173,16 @@ if(!isset($_SESSION['user_info'])){
         $expire = date('Y-m-d H:i:s', strtotime('+15 minutes', strtotime($startTime)));
 
        $price=$_GET['vnp_Amount']/100;
-    //    $this->dd($price);
+  
+      $subject_id= trim(str_replace($_SESSION['user_info'][0]['student_id'], "",$_GET['vnp_TxnRef']));
+    //   $this->dd($subject_id);
         $data = [
             'student_id' => $_SESSION['user_info'][0]['student_id'],
             'transfer_time' => date("Y-m-d H:i:s"),
             'note_bill' => $_GET['vnp_OrderInfo'],
             'code_vnpay' => $_GET['vnp_TxnRef'],
             'code_back' => $_GET['vnp_BankCode'],
+            'subject_id'=>$subject_id,
             'monney' =>  $price,
         ];
         modelBill::insertBill($data);

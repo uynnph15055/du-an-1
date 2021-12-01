@@ -13,7 +13,7 @@ class modelBill extends DB
     {
         $model = new static;
         $conn = $model->getConnect();
-        $queryBuilder = "INSERT INTO $model->table (student_id,transfer_time,note_bill,code_vnpay,code_back,monney)	 VALUES (:student_id,:transfer_time,:note_bill,:code_vnpay,:code_back,:monney)";
+        $queryBuilder = "INSERT INTO $model->table (student_id,transfer_time,note_bill,code_vnpay,code_back,monney,subject_id)	 VALUES (:student_id,:transfer_time,:note_bill,:code_vnpay,:code_back,:monney,:subject_id)";
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }

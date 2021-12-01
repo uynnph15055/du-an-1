@@ -84,7 +84,7 @@
 
                                     <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}"><img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img></a>
                                     @else
-                                    <a href="thanh-toan-vnpay?mon={{$key['subject_slug']}}"><img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img></a>
+                                    <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}"><img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img></a>
                                     @endif
 
                                 </div>

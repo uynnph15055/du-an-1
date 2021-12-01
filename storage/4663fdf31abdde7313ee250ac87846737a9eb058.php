@@ -66,6 +66,10 @@
             <div class="course-new">
                 <h2>CÁC KHÓA HỌC MỚI NHẤT</h2>
                 <div class="swiper">
+                    <?php if (isset($_SESSION['user_info'])) {
+                        $user_info = $_SESSION['user_info'];
+                    } ?>
+                    <?php if(isset($user_info)): ?>
                     <div class="swiper-wrapper">
                         <?php $__currentLoopData = $dataSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="swiper-slide">
@@ -79,10 +83,10 @@
                                     <?php if($key['type_id'] == 0): ?>
                                     <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
                                     <?php elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$key['subject_id']): ?>
-                                
+
                                     <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
                                     <?php else: ?>
-                                    <a href="thanh-toan-vnpay?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                                    <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
                                     <?php endif; ?>
 
                                 </div>
@@ -102,7 +106,7 @@
                                         <span class="course__price course__price--free">Miễn phí</span>
                                         <?php elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$key['subject_id']): ?>
                                         <span class="course__price course__price--free">Đã mở</span>
-                                    
+
 
                                         <?php else: ?>
                                         <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
@@ -119,6 +123,39 @@
                         </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
+                    <?php else: ?>
+                    <div class="swiper-wrapper">
+                        <?php $__currentLoopData = $dataSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="swiper-slide">
+                            <div class="course-item">
+                                <div class="course-poster">
+                                    <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                                </div>
+                                <div class="course-text">
+                                    <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>">
+                                        <h3 class="course__title"><?php echo e($key['subject_name']); ?></h3>
+                                        <span class="course__members">
+                                            <i class="fas fa-users"></i>
+                                            123
+                                        </span>
+                                        <?php if($key['type_id'] == 0): ?>
+                                        <span class="course__price course__price--free">Miễn phí</span>
+                                        <?php else: ?>
+                                        <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
+                                        <span class="course__price course__price--old"><?php echo number_format($key['subject_price']) ?>đ</span>
+                                        <?php endif; ?>
+                                        <!-- <?php if($key['type_id'] == 0): ?>
+                                        <span class="course__price course__price--free">Miễn phí</span>
+                                        <?php else: ?>
+                                        
+                                        <?php endif; ?> -->
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </div>
+                    <?php endif; ?>
                     <div class="swiper-button swiper-button-next"></div>
                     <div class="swiper-button swiper-button-prev"></div>
                 </div>
