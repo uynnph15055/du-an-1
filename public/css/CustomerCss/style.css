@@ -3624,6 +3624,251 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   text-align: center;
 }
 
+.bill-section {
+  background: var(--color-white-2);
+  padding: 50px;
+  /* Accordion styles */
+}
+
+.bill-section .bill-section__title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.bill-section .bill-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background: var(--white);
+  border-radius: 10px;
+}
+
+.bill-section .bill-list .bill-item {
+  border-radius: 5px;
+}
+
+.bill-section .bill-list .bill-item-accordion {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 130px 1fr;
+      grid-template-columns: 130px 1fr;
+  grid-gap: 10px;
+}
+
+.bill-section .bill-list .bill-item-accordion .bill-item-img img {
+  height: 80px;
+}
+
+.bill-section .bill-list .bill-item-accordion .bill-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px 0;
+}
+
+.bill-section .bill-list .bill-item-accordion .bill-text .bill-item__title {
+  font-size: 20px;
+}
+
+.bill-section .bill-list .bill-item-accordion .bill-text .bill-item-price .bill-item__price--new {
+  color: var(--color-primary);
+  font-size: 20px;
+}
+
+.bill-section .bill-list .bill-item-accordion .bill-text .bill-item-price .bill-item__price--old {
+  text-decoration: line-through;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-head .head-course {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 160px 1fr;
+      grid-template-columns: 160px 1fr;
+  grid-gap: 10px;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-head .head-img img {
+  height: 100px;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-head .head-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px 0;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-head .head-text .bill-item__title {
+  font-size: 22px;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-head .head-text .bill-item-price {
+  font-weight: bold;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-head .head-text .bill-item-price .bill-item__price--new {
+  color: var(--color-primary);
+  font-size: 20px;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-head .head-text .bill-item-price .bill-item__price--old {
+  text-decoration: line-through;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-head .head-time .time {
+  display: block;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-body {
+  margin: 15px 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 500px;
+      grid-template-columns: 1fr 500px;
+  grid-gap: 10px;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-body .body-col:last-child {
+  border-left: 1px solid #acacac;
+  padding: 0 10px;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-body .info-bill-item {
+  margin: 5px 0;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-body .info-bill__title::after {
+  content: ": ";
+}
+
+.bill-section .bill-list .bill-detail .bill-item-body .info-bill__input {
+  font-weight: bold;
+}
+
+.bill-section .bill-list .bill-detail .bill-item-body .bill-note__title {
+  font-weight: bold;
+}
+
+.bill-section input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.bill-section .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bill-section .row .col {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.bill-section .tabs {
+  overflow: hidden;
+  -webkit-box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+
+.bill-section .tab {
+  width: 100%;
+  overflow: hidden;
+}
+
+.bill-section .tab-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px;
+  background: var(--color-white-2);
+  font-weight: bold;
+  cursor: pointer;
+  /* Icon */
+}
+
+.bill-section .tab-label:hover {
+  opacity: 0.8;
+}
+
+.bill-section .tab-label::after {
+  content: "\276F";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.bill-section .tab-content {
+  max-height: 0;
+  padding: 0 1em;
+  background: white;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.bill-section .tab-close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 1em;
+  font-size: 0.75em;
+  cursor: pointer;
+}
+
+.bill-section input:checked + .tab-label::after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.bill-section input:checked ~ .tab-content {
+  max-height: 100vh;
+  padding: 1em;
+}
+
 footer .footer-content {
   text-align: center;
   bottom: 0;

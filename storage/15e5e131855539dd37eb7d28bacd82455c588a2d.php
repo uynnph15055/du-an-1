@@ -17,20 +17,17 @@
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<<<<<<< HEAD
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
     <?php echo $__env->yieldContent('link'); ?>
-=======
+
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500&family=Montserrat:ital,wght@0,200;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+    <link rel="icon" href="./public/img/350x490_1.jpg" type="image/gif" sizes="16x16">
     <?php echo $__env->yieldContent('link'); ?>;
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
     <?php echo $__env->yieldContent('link'); ?>
-<<<<<<< HEAD
-    >>>>>>> fc7c72093c1aeb1d402f68ed1e469ca2582e31ce
->>>>>>> 58335c231384cdd317bd54a570f33dd4a51d8dd8
-=======
->>>>>>> 6af5058736b74ae42595e13422204d5d3aab2034
+
 </head>
 
 <body>
@@ -104,58 +101,7 @@
                 </div>
             </div>
         </header>
-        <main>
             <?php echo $__env->yieldContent('main_content'); ?>;
-        </main>
-
-        <!-- <footer style="margin-top: -100px;">
-
-            <div class="footer-content">
-                <div class="content">
-                    <div class="footer-social">
-                        <a href="" class="social-link">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                    <ul class="footer-links">
-                        <li><a class="link-item" href="">Các khóa học</a></li>
-                        <li><a class="link-item" href="">Liên hệ</a></li>
-                        <li><a class="link-item" href="">Giới thiệu</a></li>
-                        <li><a class="link-item" href="">Trợ giúp</a></li>
-                    </ul>
-                    <div class="footer-copyright">
-                        <span>Copyright © 2021 - Course IFT</span>
-                    </div>
-                </div>
-                <div class="gooey-animations">
-                </div>
-            </div>
-
-            <svg xmlns="" version="1.1">
-                <defs>
-                    <filter id="goo">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
-                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -7" result="goo" />
-                        <feBlend in="SourceGraphic" in2="goo" />
-                    </filter>
-                </defs>
-            </svg>
-
-            <svg viewbox="0 0 1440 328" width="100vw">
-                <defs>
-                    <clipPath id="wave" clipPathUnits="objectBoundingBox" transform="scale(0.00069444444, 0.00304878048)">
-                        <path d="M504.452 27.7002C163.193 -42.9551 25.9595 38.071 0 87.4161V328H1440V27.7002C1270.34 57.14 845.711 98.3556 504.452 27.7002Z" />
-                    </clipPath>
-                </defs>
-            </svg>
-        </footer> -->
-
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
     <script src="./public/js/customerJs/darkMode.js"></script>
