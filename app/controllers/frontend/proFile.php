@@ -8,7 +8,7 @@ use App\Models\modelMenu;
 use App\Models\modelNote;
 use App\Models\modelQuestionStatus;
 use App\Models\modelStudent;
-
+use App\Models\modelBill;
 class proFile extends baseController
 {
     private $menu;
@@ -34,7 +34,6 @@ class proFile extends baseController
 
         $dataCourseLeaning = modelHistory::getWidthSubject($this->student_id);
         $dataNote = modelNote::getNote($this->student_id);
-
         $countPoint = modelQuestionStatus::getWhereStudent($this->student_id);
 
         $this->render("customer.profile_user", [
