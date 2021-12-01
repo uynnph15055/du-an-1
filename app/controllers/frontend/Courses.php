@@ -7,6 +7,7 @@ use App\Models\modelCateSubject;
 use App\Models\modelMenu;
 use App\Models\modelSubject;
 use App\Models\modelBill;
+
 class Courses extends baseController
 {
     private $menu;
@@ -17,17 +18,17 @@ class Courses extends baseController
 
     public function index()
     {
-        if(!isset($_SESSION['user_info'])){
+        if (!isset($_SESSION['user_info'])) {
             header('location:dang-nhap-dang-ky');
         }
-        $dataBill=modelBill::all();
+        $dataBill = modelBill::all();
         $subject = modelSubject::all();
         $cateSubject = modelCateSubject::all();
         $this->render("customer.courses", [
             'cateSubject' => $cateSubject,
             'subject' => $subject,
             'menu' => $this->menu,
-            'dataBill'=>$dataBill,
+            'dataBill' => $dataBill,
             'user' => $_SESSION['user_info'][0],
         ]);
     }

@@ -38,6 +38,7 @@ class Home extends baseController
             'dataBill'=>$dataBill,
             'banner' => $dataBanner[0],
             'menu' => $this->menu,
+            
             'user' => $_SESSION['user_info'][0],
             'dataSubject' => $dataSubject,
             'dataAssess' => $dataAssess,
