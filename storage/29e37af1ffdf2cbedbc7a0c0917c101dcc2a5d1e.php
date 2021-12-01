@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./public/css/customerCss/reset.css">
     <!-- icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="icon" href="./public/img/350x490_1.jpg" type="image/gif" sizes="16x16">
     <!-- css -->
     <link rel="stylesheet" href="./public/css/customerCss/style.css">
 </head>
@@ -21,7 +22,6 @@
     <script>
         $(function() {
             <?php if (isset($_SESSION['error'])) { ?>
-
                 Swal.fire({
                     icon: 'warning',
                     title: '<?= $_SESSION['error']; ?>',
@@ -29,19 +29,15 @@
                     width: 450,
                     padding: '5em',
                 })
-
             <?php
                 unset($_SESSION['error']);
             } elseif (isset($_SESSION['success'])) { ?>
                 Swal.fire({
-
                     icon: 'success',
                     title: '<?= $_SESSION['success']; ?>',
                     showConfirmButton: false,
                     timer: 1500
-
                 })
-
             <?php unset($_SESSION['success']);
             }
             ?>
