@@ -34,7 +34,7 @@ class proFile extends baseController
         $dataCourseLeaning = modelHistory::getWidthSubject($this->student_id);
         $dataNote = modelNote::getNote($this->student_id);
         $countPoint = modelQuestionStatus::getWhereStudent($this->student_id);
-        $dataBillJoinSubject = modelBill::selectBill();
+        $dataBillJoinSubject = modelBill::selectBill($_SESSION['user_info'][0]['student_id']);
         // $this->dd($dataBillJoinSubject);
         $this->render("customer.profile_user", [
             'dataBillJoinSubject' => $dataBillJoinSubject,
@@ -50,7 +50,7 @@ class proFile extends baseController
     {
 
 
-        $dataBillJoinSubject = modelBill::selectBillAll();
+        $dataBillJoinSubject = modelBill::selectBillAll($_SESSION['user_info'][0]['student_id']);
       
         // $this->dd($dataBillJoinSubject);
         $this->render("customer.deltai_bill", [

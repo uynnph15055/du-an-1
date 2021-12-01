@@ -121,7 +121,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="thong-tin-hoa-don">
                     <i class="fas fa-sticky-note"></i>
                     <span>Hóa đơn</span></a>
             </li>

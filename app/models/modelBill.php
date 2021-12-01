@@ -17,22 +17,33 @@ class modelBill extends DB
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute($data);
     }
-    public static function selectBill(){
+    public static function selectBill($student_id){
         $model = new static;
         $conn = $model->getConnect();
-        $queryBuilder = " SELECT * FROM bill INNER JOIN subject ON bill.subject_id=subject.subject_id WHERE bill.student_id=19 ORDER BY bill.bill_id DESC LIMIT 0,3";
+        $queryBuilder = " SELECT * FROM bill INNER JOIN subject ON bill.subject_id=subject.subject_id WHERE bill.student_id=:student_id ORDER BY bill.bill_id DESC LIMIT 0,3";
         $stmt = $conn->prepare($queryBuilder);
-        $stmt->execute();
+        $stmt->execute(['student_id'=>$student_id]);
         return $stmt->fetchAll();
     }
 
     
-    public static function selectBillAll(){
+    public static function selectBillAll($student_id){
         $model = new static;
         $conn = $model->getConnect();
-        $queryBuilder = " SELECT * FROM bill INNER JOIN subject ON bill.subject_id=subject.subject_id WHERE bill.student_id=19 ORDER BY bill.bill_id DESC ";
+        $queryBuilder = " SELECT * FROM bill INNER JOIN subject ON bill.subject_id=subject.subject_id WHERE bill.student_id=:student_id ORDER BY bill.bill_id DESC ";
+        $stmt = $conn->prepare($queryBuilder);
+        $stmt->execute(['student_id'=>$student_id]);
+        return $stmt->fetchAll();
+    }
+
+    //select tất cả bill trong admin theo môn học
+    public static function selectBillAllAdmin(){
+        $model = new static;
+        $conn = $model->getConnect();
+        $queryBuilder = "SELECT COUNT(*)so_luong,MAX(bill.transfer_time)moi_nhat,MIN(bill.transfer_time)cu_nhat,SUM(bill.monney)tong_tien,subject.subject_name,subject.subject_img,bill.subject_id,bill.student_id FROM bill JOIN subject ON bill.subject_id=subject.subject_id GROUP BY subject.subject_name HAVING so_luong>0;";
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    
 }
