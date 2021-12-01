@@ -172,7 +172,7 @@
                                 </div>
                                 <div class="bill-status">
                                     <span class="bill-status--waiting">
-                                        Chờ xác nhận
+                                        TG : 20-11-2021
                                     </span>
 
                                 </div>
@@ -232,6 +232,7 @@
                             </div>
 
                         </div>
+                        <a href="" style="display:block;text-align:center;padding-top:5px">Xem tất cả</a>
                     </div>
                     <div class="section-box course-function-item note">
                         <div class="head-section head-flex">

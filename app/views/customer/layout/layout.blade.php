@@ -101,7 +101,7 @@
                 </div>
             </div>
         </header>
-            @yield('main_content');
+        @yield('main_content');
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
     <script src="./public/js/customerJs/darkMode.js"></script>

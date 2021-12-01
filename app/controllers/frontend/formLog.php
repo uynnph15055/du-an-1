@@ -217,8 +217,8 @@ class formLog extends baseController
                         header('Location: xac-nhan');
                     }
                 } catch (Exception $e) {
-                    $_SESSION['error'] = "Email của bạn không tồn tại";
                     header('location: ' . $_SERVER['HTTP_REFERER']);
+                    die();
                 }
             }
         }
@@ -369,6 +369,7 @@ class formLog extends baseController
                 //     die();
                 // }
             } else {
+                $_SESSION['error'] = "Email hiện không tồn tại !!!";
                 header('location: ' . $_SERVER['HTTP_REFERER']);
                 die();
             }
