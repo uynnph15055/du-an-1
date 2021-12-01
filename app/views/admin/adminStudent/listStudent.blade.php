@@ -1,6 +1,11 @@
 @extends('admin.layouts.baseAdmin')
 @section('title', 'Danh sách menu')
 @section('main_content')
+<style>
+    th {
+        text-align: center;
+    }
+</style>
 <div class="container">
     <h3 class="text-center">Danh sách học viên</h3>
     <table class="table table-bordered" style="margin-top:30px">
@@ -22,11 +27,11 @@
             <tr>
                 <td><?= $index++ ?></td>
                 <td>{{$key['student_name']}}</td>
-                <td>
-                    <img width="60px" src="./public/img/{{$key['student_avatar']}}" alt="">
+                <td style="text-align: center;">
+                    <img width="100px" src="{{$key['student_avatar']}}" alt="">
                 </td>
                 <td>{{$key['student_email']}}</td>
-                <td><a class="btn btn-success" href=""><i class="fas fa-address-card"></i></a></td>
+                <td><a class="btn btn-success" href="chi-tiet-hoc-vien?student_id={{$key['student_id']}}"><i class="fas fa-address-card"></i></a></td>
                 <td><a class="btn btn-danger" href="xoa-hoc-vien?student_id={{$key['student_id']}}" onclick="return confirm('Bạn có muốn xóa học viên này ?')" href=""><i class="fas fa-trash"></i></a></td>
             </tr>
             @endforeach

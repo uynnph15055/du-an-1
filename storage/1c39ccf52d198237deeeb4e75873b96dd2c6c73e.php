@@ -101,7 +101,7 @@
                 </div>
             </div>
         </header>
-            <?php echo $__env->yieldContent('main_content'); ?>;
+        <?php echo $__env->yieldContent('main_content'); ?>;
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
     <script src="./public/js/customerJs/darkMode.js"></script>

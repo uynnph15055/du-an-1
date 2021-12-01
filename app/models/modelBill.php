@@ -20,7 +20,17 @@ class modelBill extends DB
     public static function selectBill(){
         $model = new static;
         $conn = $model->getConnect();
-        $queryBuilder = " SELECT * FROM bill INNER JOIN subject ON bill.subject_id=subject.subject_id WHERE bill.student_id=19 ORDER BY bill.bill_id DESC";
+        $queryBuilder = " SELECT * FROM bill INNER JOIN subject ON bill.subject_id=subject.subject_id WHERE bill.student_id=19 ORDER BY bill.bill_id DESC LIMIT 0,3";
+        $stmt = $conn->prepare($queryBuilder);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    
+    public static function selectBillAll(){
+        $model = new static;
+        $conn = $model->getConnect();
+        $queryBuilder = " SELECT * FROM bill INNER JOIN subject ON bill.subject_id=subject.subject_id WHERE bill.student_id=19 ORDER BY bill.bill_id DESC ";
         $stmt = $conn->prepare($queryBuilder);
         $stmt->execute();
         return $stmt->fetchAll();

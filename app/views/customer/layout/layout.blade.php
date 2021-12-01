@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'PT16306 project_one')</title>
     <!-- reset -->
+   
     <link rel="stylesheet" href="./public/css/customerCss/reset.css">
     <!-- icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
@@ -24,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500&family=Montserrat:ital,wght@0,200;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
     <link rel="icon" href="./public/img/350x490_1.jpg" type="image/gif" sizes="16x16">
-    @yield('link');
+    @yield('link')
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
     @yield('link')
 
@@ -101,7 +102,7 @@
                 </div>
             </div>
         </header>
-            @yield('main_content');
+        @yield('main_content');
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
     <script src="./public/js/customerJs/darkMode.js"></script>

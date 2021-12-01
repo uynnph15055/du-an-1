@@ -74,7 +74,7 @@
         ]);
 
         var options = {
-            title: 'Môn theo danh mục'
+            title: 'Khóa theo danh mục'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));

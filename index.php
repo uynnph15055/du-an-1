@@ -205,6 +205,10 @@ switch ($url) {
         $ctr = new adminStudent();
         echo $ctr->deleteStudent();
         break;
+    case 'chi-tiet-hoc-vien';
+        $ctr = new adminStudent();
+        echo $ctr->studentDetail();
+        break;
 
         // -----------------------
     case 'danh-sach-danh-gia';
@@ -323,7 +327,7 @@ switch ($url) {
         //     $ctr = new formLog();
         //     echo $ctr->googleSource();
         //     break;
-        
+
     case 'dang-nhap-dang-ky';
         $ctr = new formLog();
         echo $ctr->index();
@@ -374,6 +378,10 @@ switch ($url) {
     case 'thay-doi-thong-tin';
         $ctr = new proFile();
         echo $ctr->updateInfo();
+        break;
+    case 'chi-tiet-hoa-don';
+        $ctr = new proFile();
+        echo $ctr->deltaiBill();
         break;
 
         // Dánh giá
