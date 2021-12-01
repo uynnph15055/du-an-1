@@ -22,7 +22,6 @@
     <script>
         $(function() {
             <?php if (isset($_SESSION['error'])) { ?>
-
                 Swal.fire({
                     icon: 'warning',
                     title: '<?= $_SESSION['error']; ?>',
@@ -30,19 +29,15 @@
                     width: 450,
                     padding: '5em',
                 })
-
             <?php
                 unset($_SESSION['error']);
             } elseif (isset($_SESSION['success'])) { ?>
                 Swal.fire({
-
                     icon: 'success',
                     title: '<?= $_SESSION['success']; ?>',
                     showConfirmButton: false,
                     timer: 1500
-
                 })
-
             <?php unset($_SESSION['success']);
             }
             ?>

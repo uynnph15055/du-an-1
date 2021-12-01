@@ -14,11 +14,11 @@
 </style>
 
 
-<div style="max-width: 1240px; margin: 10px auto " class="">
+<div style="max-width: 1240px; margin: 5px auto " class="">
     <header>
         <div class="logo bg-white text-center p-3">
             <a href="./">
-                <img style="width: 290px;height:140px" src="./public/img/images/logo-main.png" alt="" class="img-fluid img__logo">
+                <img style="height:70px;" src="./public/img/images/logo-main.png" alt="" class="img-fluid">
             </a>
         </div>
     </header>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group">
                             <label for="order_id">Mã hóa đơn</label>
-                            <input class="form-control" id="order_id" name="order_id" type="text" value="<?php echo $user['student_id'].$subject['subject_id']  ?>" />
+                            <input class="form-control" id="order_id" name="order_id" type="text" value="<?php echo $user['student_id'] . $subject['subject_id']  ?>" />
                         </div>
                         <div class="form-group">
                             <label for="amount">Số tiền</label>

@@ -45,6 +45,10 @@
                         @endforeach
                     </ul>
                 </aside>
+                <?php if (isset($_SESSION['user_info'])) {
+                    $user_info = $_SESSION['user_info'];
+                } ?>
+                @if(isset($user_info))
                 <div class="course-list">
                     @if(isset($subject))
                     @foreach($subject as $key)
@@ -100,6 +104,36 @@
                     @endforeach
                     @endif
                 </div>
+                @else
+                <div class="course-list">
+                    @if(isset($subject))
+                    @foreach($subject as $key)
+                    <div class="course-item">
+                        <div class="course-poster">
+                            <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}"><img src="./public/img/{{$key['subject_img']}}" class=" img-fluid"></img></a>
+                        </div>
+                        <div class="course-text">
+                            <h3 class="course__title">
+                                <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}">
+                                    {{$key['subject_name']}}
+                                </a>
+                            </h3>
+                            <span class="course__members">
+                                <i class="fas fa-users"></i>
+                                123
+                            </span>
+                            @if($key['type_id'] == 0)
+                            <span class="course__price course__price--free">Miễn phí</span>
+                            @else
+                            <span class="course__price course__price--cost"><?php echo number_format($key['subject_sale']) ?>đ</span>
+                            <span class="course__price course__price--old"><?php echo number_format($key['subject_price']) ?>đ</span>
+                            @endif
+                        </div>
+                    </div>
+                    @endforeach
+                    @endif
+                </div>
+                @endif
             </div>
     </main>
     <footer>

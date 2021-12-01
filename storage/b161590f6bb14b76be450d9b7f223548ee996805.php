@@ -6,14 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $__env->yieldContent('title', 'PT16306 project_one'); ?></title>
-    <link href="./vnpay_php/assets/bootstrap.min.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
     <link href="./vnpay_php/assets/jumbotron-narrow.css" rel="stylesheet">
     <script src="./vnpay_php/assets/jquery-1.11.3.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
-<body class="bgr-img form-log-section">
+<body class="bg-light">
     <?php echo $__env->yieldContent('main_content'); ?>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

@@ -31,6 +31,7 @@
         color: #777;
     }
 </style>
+
 <div class="container" style="margin-top:40px">
     <main class="bgr-light">
         <div class="container-fluid">
@@ -75,11 +76,30 @@
                         @endif
                     </div>
                 </div>
+                @if(isset($user))
                 <div class="course-detail-video">
                     <img src="./public/img/{{$subject['subject_img']}}" alt="" class="img-fluid course__img">
+
+                    @foreach($dataBill as $valueBill)
+                    @if($valueBill['code_vnpay']==$user['student_id'].$subject['subject_id'])
+                    <?php $bill_vnpay = $valueBill['code_vnpay'] ?>
+                    @endif
+                    @endforeach
+                    @if($subject['type_id'] == 0)
                     <a href="bai-hoc?mon={{$subject['subject_slug']}}" style="margin: 30px 0px;" class="btn-primary">
                         Học ngay
                     </a>
+                    @elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$subject['subject_id'])
+
+                    <a href="bai-hoc?mon={{$subject['subject_slug']}}" style="margin: 30px 0px;" class="btn-primary">
+                        Học ngay
+                    </a>
+                    @else
+                    <a href="thanh-toan-vnpay?mon={{$subject['subject_slug']}}" style="margin: 30px 0px;" class="btn-primary">
+                        Mua khóa học
+                    </a>
+
+                    @endif
                     @if(!empty($lesson))
                     <span class="sub-des">Hiện có <?php echo count($lesson) ?> bài</span>
                     @else
@@ -87,6 +107,26 @@
                     @endif
                     <span class="sub-des" style="font-style: italic;font-size:16px">Học mọi lúc, mọi nơi</span>
                 </div>
+                @else
+                <div class="course-detail-video">
+                    <img src="./public/img/{{$subject['subject_img']}}" alt="" class="img-fluid course__img">
+                    @if($subject['type_id'] == 0)
+                    <a href="bai-hoc?mon={{$subject['subject_slug']}}" style="margin: 30px 0px;" class="btn-primary">
+                        Học ngay
+                    </a>
+                    @else
+                    <a href="bai-hoc?mon={{$subject['subject_slug']}}" style="margin: 30px 0px;" class="btn-primary">
+                        Mua khóa học
+                    </a>
+                    @endif
+                    @if(!empty($lesson))
+                    <span class="sub-des">Hiện có <?php echo count($lesson) ?> bài</span>
+                    @else
+                    <h6 style="margin: 10px 0px;">Chưa có bài nào</h6>
+                    @endif
+                    <span class="sub-des" style="font-style: italic;font-size:16px">Học mọi lúc, mọi nơi</span>
+                </div>
+                @endif
             </div>
         </div>
     </main>

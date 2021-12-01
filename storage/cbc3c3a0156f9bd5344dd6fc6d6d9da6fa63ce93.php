@@ -444,4 +444,4 @@
 <script src="./public/js/customerJs/swiper-slider.js"></script>
 <script src="./public/js/customerJs/slideshow-rating.js"></script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('customer.layout.layout_payment', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/customer/payment.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('customer.layout.layout_payment', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/payment.blade.php ENDPATH**/ ?>

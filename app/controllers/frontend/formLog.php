@@ -202,10 +202,10 @@ class formLog extends baseController
                         'code_check' => $numberRanDum,
                     ];
 
-                    $InforTemporary  = implode("/", array_values($data));
+                    $InforTemporary  = implode("-", array_values($data));
 
                     setcookie('data_check', $InforTemporary, time() + 3600);
-
+                    $mail->CharSet = "UTF-8";
                     $mail->Subject = 'Mã xác nhận đăng nhập hệ thống học tập COURSE IFT !';
                     $mail->Body    = 'Mã xác nhận của bạn : ' . $numberRanDum;
 
@@ -230,16 +230,20 @@ class formLog extends baseController
         // $this->dd($code_check);
         if (isset($_COOKIE['data_check'])) {
             $dataCookie = $_COOKIE['data_check'];
-            $dataCheck = explode('/', filter_var(trim($dataCookie, '/')));
+            // $this->dd($dataCookie);
+            $dataCheck = explode('-', filter_var(trim($dataCookie, '/')));
         }
         // $this->dd($dataCheck);
+        // unset($dataCheck[3]);
         // Lấy mã code.
-        $codeCookie = $dataCheck[3];
-        // $this->dd($codeCookie);
+        $codeCookie = end($dataCheck);
         // setcookie("code_check", "", time() - 3600);
         $file_name = '103160_man_512x512.png';
         // $this->dd($codeCookie);
         if ($code_check == $codeCookie) {
+            unset($dataCheck[3]);
+            // $this->dd($dataCheck);
+            // $this->dd($dataCheck);
             $data = [
                 'student_name' => $dataCheck[2],
                 'student_email' => $dataCheck[0],
@@ -371,7 +375,7 @@ class formLog extends baseController
         }
 
         $mail = new PHPMailer(true);
-        $mail->charSet = "UTF-8";     // Passing `true` enables exceptions
+        // Passing `true` enables exceptions
 
         try {
 
@@ -399,7 +403,8 @@ class formLog extends baseController
             $passNew = password_hash($numberRanDum, PASSWORD_DEFAULT);
             modelStudent::updatePass($passNew, $student_id);
 
-            $mail->Subject = 'Mail cập nhật mật khẩu mới !';
+            $mail->CharSet = "UTF-8";
+            $mail->Subject = 'Cập nhật mật khẩu mới cho tài khoản của bạn , nếu muốn thay đổi hay vào thông tin cá nhân và đổi mật khẩu !';
             $mail->Body    = 'Mật khẩu mới của bạn là : ' . $numberRanDum;
 
             // $mail->AltBody = plain text version of email body;
@@ -411,7 +416,7 @@ class formLog extends baseController
                 header('location: ' . $_SERVER['HTTP_REFERER']);
             }
         } catch (Exception $e) {
-            $_SESSION['error'] = "Email của bạn không tồn tại";
+            $_SESSION['notifi'] = "Email của bạn không tồn tại";
             header('location: ' . $_SERVER['HTTP_REFERER']);
         }
     }

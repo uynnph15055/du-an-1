@@ -88,7 +88,7 @@
                             <div class="status-head head-grid">
                                 <span class="head-status__icon"><i class="fas fa-book-reader"></i></span>
                                 <span class="head-status__name">Khóa đang học</span>
-                                <span class="head-status__sub"><?php echo count($dataCourseLeaning) ?></span>
+                                <span class="head-status__sub"><?php echo count($dataCourseLeaning) - 1 ?></span>
                             </div>
                             <div class="status-content">
                                 <?php
@@ -121,7 +121,7 @@
                         <div class="status-head head-grid">
                             <span class="head-status__icon"><i class="fas fa-medal"></i></span>
                             <span class="head-status__name">Khóa đã hoàn thành</span>
-                            <span class="head-status__sub"><?php echo count($dataCourseLeaning) ?></span>
+                            <span class="head-status__sub"><?php echo count($dataCourseLeaning) - 1 ?></span>
                         </div>
                         <div class="status-content">
                             <div class="status-course-list">
@@ -300,7 +300,7 @@
 </div>
 
 <!-- modal bill -->
-<div class="container-detail-bill">
+<!-- <div class="container-detail-bill">
     <div class="modal-bill hide">
         <div class="modal-bill__inner">
             <div class="modal-bill__header">
@@ -313,7 +313,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- modal info -->
 <div class="container-change-info">

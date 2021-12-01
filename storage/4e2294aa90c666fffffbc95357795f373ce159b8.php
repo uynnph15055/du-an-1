@@ -1,5 +1,5 @@
 
-<?php $__env->startSection('title', 'Danh sách môn học'); ?>
+<?php $__env->startSection('title', 'Danh sách khóa học'); ?>
 <?php $__env->startSection('main_content'); ?>
 <style>
     .input-text {
@@ -23,16 +23,16 @@
     }
 </style>
 <div class="container">
-    <h4 class="text-center">Danh sách môn học</h4>
+    <h4 class="text-center">Danh sách khóa học</h4>
     <div class="header__list">
-        <a href="trang-them-mon-hoc" class="btn btn-primary">Thêm môn </a>
+        <a href="trang-them-mon-hoc" class="btn btn-primary">Thêm khóa </a>
     </div>
-    <span style="float:right;font-style:italic">Tổng có : <?php echo e($number); ?> môn</span>
+    <span style="float:right;font-style:italic">Tổng có : <?php echo e($number); ?> khóa</span>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>STT</th>
-                <th width="150px">Tên môn</th>
+                <th width="150px">Tên khóa</th>
                 <th>Ảnh</th>
                 <th>Chuyên ngành</th>
                 <th>Trang thái</th>
@@ -67,7 +67,7 @@
                     <a class="btn btn-info" href="chi-tiet-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><i class="fas fa-pager"></i></a>
                 </td>
                 <td><a class="btn btn-warning" href="sua-khoa-hoc?id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-edit"></i></a></td>
-                <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa môn học này ?')" href="xoa-khoa-hoc?id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-trash"></i></a></td>
+                <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa khóa học này ?')" href="xoa-khoa-hoc?id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-trash"></i></a></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>

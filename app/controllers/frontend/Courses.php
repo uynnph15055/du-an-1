@@ -19,8 +19,6 @@ class Courses extends baseController
     public function index()
     {
         if (!isset($_SESSION['user_info'])) {
-            header('location:dang-nhap-dang-ky');
-        }
         $dataBill = modelBill::all();
         $subject = modelSubject::all();
         $cateSubject = modelCateSubject::all();
@@ -31,6 +29,27 @@ class Courses extends baseController
             'dataBill' => $dataBill,
             'user' => $_SESSION['user_info'][0],
         ]);
+
+            $subject = modelSubject::all();
+            $cateSubject = modelCateSubject::all();
+            $this->render("customer.courses", [
+                'cateSubject' => $cateSubject,
+                'subject' => $subject,
+                'menu' => $this->menu,
+            ]);
+        } else {
+            $dataBill = modelBill::all();
+            $subject = modelSubject::all();
+            $cateSubject = modelCateSubject::all();
+            $this->render("customer.courses", [
+                'cateSubject' => $cateSubject,
+                'subject' => $subject,
+                'menu' => $this->menu,
+                'dataBill' => $dataBill,
+                'user' => $_SESSION['user_info'][0],
+            ]);
+        }
+
     }
 
     public function listCourse()

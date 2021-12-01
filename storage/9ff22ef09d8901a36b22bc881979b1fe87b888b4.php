@@ -9,7 +9,7 @@
 <div class="container" style="margin-top: 80px;">
     <div class="about-section">
         <div class="about-intro">
-            <div class="intro-img">
+            <div class="intro-img" style="margin-top: 50px;">
                 <img src="https://cdn.dribbble.com/users/2918596/screenshots/8860450/marketing.gif" alt="" class="img-fluid">
             </div>
             <div class="intro-content">
@@ -70,7 +70,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="about-team-item">
                         <div class="team-item-img">
                             <img src="./public/img/z2963473880854_d45c0e94cd5d2ef889b2179dbbf782e2.jpg" alt="" class="img-fluid">
@@ -151,7 +150,7 @@
                 <p class="quotes__content">Quan điểm của chúng mình là không phải bạn đi xin việc và công ty cũng
                     không đi xin ứng viên tài năng. Tôn trọng thời gian và sự quan tâm của các bạn tới chúng mình.
                 </p>
-                <button class="btn-action">Bắt đầu ngay</button>
+                <a href="khoa-hoc" class="btn-action">Bắt đầu ngay</a>
             </div>
         </div>
         <footer style="margin-top: -150px;">
