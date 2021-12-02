@@ -118,7 +118,7 @@
                     <input class="star star-1" value="5" id="star-1" type="radio" name="star[]" />
                     <label class="star star-1" for="star-1"></label>
                 </div>
-                <textarea id="" cols="30" rows="10" name="content_assess">
+                <textarea id="" cols="30" style="font-size: 20px;" rows="10" name="content_assess">
                     </textarea>
                 <div class="btn-feedback">
                     <button class="btn-primary">

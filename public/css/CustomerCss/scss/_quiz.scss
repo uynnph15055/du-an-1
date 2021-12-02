@@ -1,22 +1,23 @@
 .bgr-white {
   background: var(--color-white-2);
 }
+
 .quiz-lesson-container {
   margin: 0 $margin-popular;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   grid-gap: 20px;
 
-  .aside__question{
-    background: var(--color-white-1);
+  .aside__question {
+    // background: var(--color-white-1);
     padding: 30px;
 
-    .course__name{
+    .course__name {
       font-size: 18px;
       color: var(--color-primary);
     }
-    
-    .lesson__title{
+
+    .lesson__title {
       font-size: 18px;
       font-weight: bold;
       margin: 20px 0 0;
@@ -25,66 +26,71 @@
     .quiz__question {
       margin: 10px 0;
 
-    
+
     }
 
     .quiz__img {
       text-align: center;
       margin: 5px 0;
+
       img {
         min-height: 100px;
         max-height: 150px;
       }
     }
 
-    .subtitle{
+    .subtitle {
       font-weight: bold;
-        display: block;
+      display: block;
       margin: 10px 0;
 
-      }
+    }
 
   }
 
   .quiz-container {
     margin: 20px auto;
 
-    .index-quiz{
+    .index-quiz {
       text-align: center;
 
-      .index__quiz{
+      .index__quiz {
         display: inline-block;
         border: 1.5px solid var(--color-thirty-30);
-        border-radius:$radius;
+        border-radius: $radius;
         padding: 6px 10px;
         min-width: 32px;
         margin: 5px;
         transition: $trans-second;
       }
-      .index__quiz:hover{
+
+      .index__quiz:hover {
         background: var(--color-thirty-30);
       }
-      .index__quiz--active{
+
+      .index__quiz--active {
         background: var(--color-thirty-30);
       }
     }
+
     .quiz-content {
       margin: auto;
       padding: 0px;
 
       .quiz-answer {
         .list-answer {
-          background: var(--color-white-1);
+          // background: var(--color-white-1);
           border-radius: $radius-2;
           margin: 20px;
           padding: 50px;
           text-align: center;
 
-          .grid{
-              display: grid;
-              grid-template-columns: 50px 1fr;
+          .grid {
+            display: grid;
+            grid-template-columns: 50px 1fr;
 
           }
+
           label {
             display: block;
           }
@@ -137,18 +143,19 @@
             }
 
             input:checked {
-              ~ label {
+              ~label {
                 color: #fff;
 
                 &:before {
-                
+
                   transform: translate(-50%, -50%) scale3d(100, 56, 1);
                   opacity: 1;
                 }
-                .index-option{
-  
-                    color: var(--color-secondary);
-                    background: white;
+
+                .index-option {
+
+                  color: var(--color-secondary);
+                  background: white;
                 }
               }
 
@@ -174,7 +181,7 @@
           margin: 10px 0 0 0;
           text-align: center;
 
-          button{
+          button {
             min-width: 150px;
           }
         }

@@ -88,7 +88,7 @@
                             <div class="status-head head-grid">
                                 <span class="head-status__icon"><i class="fas fa-book-reader"></i></span>
                                 <span class="head-status__name">Khóa đang học</span>
-                                <span class="head-status__sub"><?php echo count($dataCourseLeaning) - 1 ?></span>
+                                <span class="head-status__sub"><?php echo count($dataCourseLeaning) ?></span>
                             </div>
                             <div class="status-content">
                                 <?php
@@ -121,7 +121,7 @@
                         <div class="status-head head-grid">
                             <span class="head-status__icon"><i class="fas fa-medal"></i></span>
                             <span class="head-status__name">Khóa đã hoàn thành</span>
-                            <span class="head-status__sub"><?php echo count($dataCourseLeaning) - 1 ?></span>
+                            <span class="head-status__sub"><?php echo count($dataCourseLeaning) ?></span>
                         </div>
                         <div class="status-content">
                             <div class="status-course-list">
@@ -151,7 +151,7 @@
                         <div class="head-section head-flex">
                             <span class="head-section__name">Đơn mua</span>
                             <span class="head-section__line"></span>
-                            <span class="head-section__sub">1</span>
+                            <span class="head-section__sub"><?php echo count($dataBillJoinSubject) ?></span>
                         </div>
                         <div class="bill-list">
                             <?php $__currentLoopData = $dataBillJoinSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keyBillJoinSubject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -189,14 +189,16 @@
                         <div>
 
                         </div>
+                        <?php if(!empty($dataBillJoinSubject)): ?>
                         <a href="chi-tiet-hoa-don" style="display:block;text-align:center;margin-top:15px ;background:linear-gradient(to right, #0098d2, #00bcca) ; padding:10px;width:100px;border-radius: 5px;   text-align: center;
   transform:translateX(150px);color:#ffff">Xem tất cả</a>
+                        <?php endif; ?>
                     </div>
                     <div class="section-box course-function-item note">
                         <div class="head-section head-flex">
                             <span class="head-section__name">Ghi chú</span>
                             <span class="head-section__line"></span>
-                            <span class="head-section__sub">1</span>
+                            <span class="head-section__sub"><?php echo count($dataNote) ?></span>
                         </div>
                         <div class="note-list">
                             <?php $__currentLoopData = $dataNote; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

@@ -9,7 +9,7 @@
 <div style="margin-top:40px" class="container bgr-white">
     <div class="container-fluid ">
         <div class="quiz-lesson-container">
-            <aside class="aside__question">
+            <aside class="aside__question" style="background-color: #ffff;">
                 <h3 class="course__name" style="margin-top: 20px;font-size:30px">
                     {{ $dataLessonJoinQuestion['subject_name']}}
                 </h3>
@@ -47,7 +47,7 @@
                     <form action="quzi-answer" method="POST" class="quiz-answer">
                         <input type="hidden" name="lesson_id" value="{{$lesson_id}}">
                         @if($countAnswers>1)
-                        <div class="list-answer">
+                        <div class="list-answer" style="background-color: #ffff;">
                             <div class="inputGroup">
                                 <input type="hidden" name="question_id" value="{{$dataQuestion['question_id']}}">
                                 <input id="option1" name="anwer_one" value="1" type="checkbox" />
@@ -97,7 +97,7 @@
                         </div>
                         @else
 
-                        <div class="list-answer">
+                        <div class="list-answer" style="background-color: #ffff;">
                             <div class="inputGroup">
                                 <input type="hidden" name="question_id" value="{{$dataQuestion['question_id']}}">
                                 <input id="option1" name="anwer_one" value="1" type="radio" />
