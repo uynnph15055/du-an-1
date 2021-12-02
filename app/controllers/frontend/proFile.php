@@ -45,18 +45,19 @@ class proFile extends baseController
             'countPoint' => $countPoint,
         ]);
     }
+
     //chi tiết tát cả các môn học đã mua.
     public function deltaiBill()
     {
 
 
         $dataBillJoinSubject = modelBill::selectBillAll($_SESSION['user_info'][0]['student_id']);
-      
+
         // $this->dd($dataBillJoinSubject);
         $this->render("customer.deltai_bill", [
             'dataBillJoinSubject' => $dataBillJoinSubject,
             'menu' => $this->menu,
-            'user'=>$_SESSION['user_info'][0],
+            'user' => $_SESSION['user_info'][0],
 
         ]);
     }

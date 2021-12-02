@@ -4,8 +4,10 @@
 <div class="container" style="width:1080px">
     <h4 style="padding-top:20px" class="text-center">Danh sách hóa đơn</h4>
     <div class="header__list">
+
         <span> Tổng doanh thu : <?php echo e(number_format($sumAll)); ?> đ</span>
     </div>
+
     <table class="table table-bordered">
 
         <thead>
@@ -14,12 +16,12 @@
                 <th>STT</th>
                 <th>Ảnh</th>
                 <th>Môn học</th>
-                <th>Số lượng</th>
-                <th>Cũ nhất</th>
-                <th>Mới nhất</th>
+                <th>Mã hóa đơn</th>
+                <th>Ngân hàng</th>
+                <th>Thời gian</th>
                 <th>Tổng tiền</th>
-                <th>Chi tiết</th>
                 <th>Xóa</th>
+
             </tr>
         </thead>
         <tbody>
@@ -35,22 +37,22 @@
             <tr>
 
                 <td><?= $index++ ?></td>
-                <td><img style="width:100px;height:100px" src="./public/img/<?php echo e($key['subject_img']); ?>" alt=""></td>
+                <td><img style="width:100px;" src="./public/img/<?php echo e($key['subject_img']); ?>" alt=""></td>
                 <td><?php echo e($key['subject_name']); ?></td>
-                <td><?php echo e($key['so_luong']); ?></td>
-                <td><?php echo date('H:i d-m-Y', strtotime($key['cu_nhat'])) ?></td>
-                <td><?php echo date('H:i d-m-Y', strtotime($key['moi_nhat'])) ?></td>
+                <td><?php echo e($key['code_vnpay']); ?></td>
+                <td><?php echo e($key['code_back']); ?></td>
+                <td><?php echo date('d-m-Y', strtotime($key['moi_nhat'])) ?></td>
                 <td><?php echo e(number_format($key['tong_tien'])); ?> đ</td>
-                <th><a class="btn btn-info" href="chi-tiet-hoa-don?subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-align-justify"></i></a></th>
+
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa bình luận  này ?')" href=""><i class="fas fa-trash"></i></a></td>
 
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
- 
+
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/admin/adminBill/listBill.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/admin/adminBill/listBill.blade.php ENDPATH**/ ?>

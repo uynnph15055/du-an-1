@@ -145,4 +145,4 @@
 </footer>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\KI III\xam\htdocs\project_one\app\views/customer/deltai_bill.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/deltai_bill.blade.php ENDPATH**/ ?>

@@ -28,7 +28,7 @@ class AdminBill extends baseController
     //   $this->dd($dataBill);
         $this->render("admin.adminBill.listDeltailBill", [
             'dataBill' => $dataBill,
-  
+
         ]);
     }
 }

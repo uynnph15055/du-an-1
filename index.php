@@ -259,7 +259,7 @@ switch ($url) {
         $ctr = new AdminBill;
         echo $ctr->index();
         break;
-    case 'chi-tiet-hoa-don';
+    case 'chi-tiet-hoa-don-admin';
         $ctr = new AdminBill;
         echo $ctr->deltalBill();
         break;

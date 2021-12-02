@@ -164,7 +164,7 @@
                                             {{$keyBillJoinSubject['subject_name']}}
 
                                         </h3>
-                                        <div class="bill-course__price">
+                                        <div class="bill-course__price" style="margin-bottom:10px">
                                             <span class="bill-course__price--new"> {{number_format($keyBillJoinSubject['subject_sale'])}} đ</span>
                                             <span class="bill-course__price--old">{{number_format($keyBillJoinSubject['subject_price'])}} đ</span>
                                         </div>
@@ -173,7 +173,7 @@
                                 </div>
                                 <div class="bill-status">
                                     <span class="bill-status--waiting">
-                                        <?php echo date('H:i d-m-Y', strtotime($keyBillJoinSubject['transfer_time']))  ?>
+                                        TG :<?php echo date('d-m-Y', strtotime($keyBillJoinSubject['transfer_time']))  ?>
                                     </span>
 
                                 </div>
@@ -184,8 +184,8 @@
                         <div>
 
                         </div>
-                        <a href="chi-tiet-hoa-don" style="display:block;text-align:center;padding-top:5px ;background:linear-gradient(to right, #0098d2, #00bcca) ; padding:10px;width:100px;border-radius: 5px;   text-align: center;
-  transform:translateX(150px);">Xem tất cả</a>
+                        <a href="chi-tiet-hoa-don" style="display:block;text-align:center;margin-top:15px ;background:linear-gradient(to right, #0098d2, #00bcca) ; padding:10px;width:100px;border-radius: 5px;   text-align: center;
+  transform:translateX(150px);color:#ffff">Xem tất cả</a>
                     </div>
                     <div class="section-box course-function-item note">
                         <div class="head-section head-flex">
