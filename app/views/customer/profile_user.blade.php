@@ -102,7 +102,7 @@
                                                 <img src="./public/img/{{$key['subject_img']}}" alt="" class="img-fluid">
                                             </a>
                                         </div>
-                                        <div class="status-course-text" style="">
+                                        <div class="status-course-text">
                                             <h3 class="status-course__name"><a href="">{{$key['subject_name']}}</a></h3>
                                             <p style="line-height: 1.6;">Ngày bắt đầu : {{$key['date_start']}}</p>
                                             <span class="status-course__count-lesson">{{$key['sum_lesson']}} / <?php echo count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?></span>
@@ -150,89 +150,42 @@
                             <span class="head-section__sub">1</span>
                         </div>
                         <div class="bill-list">
+                            @foreach($dataBillJoinSubject as $keyBillJoinSubject)
                             <div class="bill-item">
                                 <div class="bill-course">
                                     <div class="bill-course-img">
                                         <a href="">
-                                            <img src="./public/img/images/abc.jpg" alt="" class="img-fluid">
+                                            <img src="./public/img/{{$keyBillJoinSubject['subject_img']}}" alt="" class="img-fluid">
                                         </a>
                                     </div>
                                     <div class="bill-course-text">
                                         <h3 class="bill-course__name">
-                                            <a href="">
-                                                JS nâng cao
-                                            </a>
+
+                                            {{$keyBillJoinSubject['subject_name']}}
+
                                         </h3>
-                                        <div class="bill-course__price">
-                                            <span class="bill-course__price--new">990.000 đ</span>
-                                            <span class="bill-course__price--old">990.000 đ</span>
+                                        <div class="bill-course__price" style="margin-bottom:10px">
+                                            <span class="bill-course__price--new"> {{number_format($keyBillJoinSubject['subject_sale'])}} đ</span>
+                                            <span class="bill-course__price--old">{{number_format($keyBillJoinSubject['subject_price'])}} đ</span>
                                         </div>
 
                                     </div>
                                 </div>
                                 <div class="bill-status">
                                     <span class="bill-status--waiting">
-                                        TG : 20-11-2021
+                                        TG :<?php echo date('d-m-Y', strtotime($keyBillJoinSubject['transfer_time']))  ?>
                                     </span>
 
                                 </div>
                             </div>
-                            <div class="bill-item">
-                                <div class="bill-course">
-                                    <div class="bill-course-img">
-                                        <a href="">
-                                            <img src="./public/img/images/abc.jpg" alt="" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="bill-course-text">
-                                        <h3 class="bill-course__name">
-                                            <a href="">
-                                                JS nâng cao
-                                            </a>
-                                        </h3>
-                                        <div class="bill-course__price">
-                                            <span class="bill-course__price--new">990.000 đ</span>
-                                            <span class="bill-course__price--old">990.000 đ</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="bill-status">
-                                    <span class="bill-status--waiting">
-                                        Chờ xác nhận
-                                    </span>
-
-                                </div>
-                            </div>
-                            <div class="bill-item">
-                                <div class="bill-course">
-                                    <div class="bill-course-img">
-                                        <a href="">
-                                            <img src="./public/img/images/abc.jpg" alt="" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="bill-course-text">
-                                        <h3 class="bill-course__name">
-                                            <a href="">
-                                                JS nâng cao
-                                            </a>
-                                        </h3>
-                                        <div class="bill-course__price">
-                                            <span class="bill-course__price--new">990.000 đ</span>
-                                            <span class="bill-course__price--old">990.000 đ</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="bill-status">
-                                    <span class="bill-status--bought">
-                                        Đã mua
-                                    </span>
-                                </div>
-                            </div>
+                            @endforeach
 
                         </div>
-                        <a href="" style="display:block;text-align:center;padding-top:5px">Xem tất cả</a>
+                        <div>
+
+                        </div>
+                        <a href="chi-tiet-hoa-don" style="display:block;text-align:center;margin-top:15px ;background:linear-gradient(to right, #0098d2, #00bcca) ; padding:10px;width:100px;border-radius: 5px;   text-align: center;
+  transform:translateX(150px);color:#ffff">Xem tất cả</a>
                     </div>
                     <div class="section-box course-function-item note">
                         <div class="head-section head-flex">

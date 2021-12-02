@@ -31,21 +31,21 @@ class Payment extends baseController
 
     function index()
     {
-    
+
         $subject_slug = isset($_GET['mon']) ? $_GET['mon'] : null;
         $subject = modelSubject::where("subject_slug", "=", $subject_slug)->get();
         $subject_id = $subject[0]['subject_id'];
         $lesson = modelLesson::where("subject_id", "=", $subject_id)->get();
-        $countLesson=count($lesson);
-        
-if(!isset($_SESSION['user_info'])){
-    header('location:dang-nhap-dang-ky');
-}
+        $countLesson = count($lesson);
+
+        if (!isset($_SESSION['user_info'])) {
+            header('location:dang-nhap-dang-ky');
+        }
         $this->render("customer.payment", [
             'subject' => $subject[0],
             'user' => $_SESSION['user_info'][0],
             'menu' => $this->menu,
-'countLesson'=> $countLesson
+            'countLesson' => $countLesson
         ]);
     }
     public function vnpay_create_payment()
@@ -60,7 +60,7 @@ if(!isset($_SESSION['user_info'])){
         //Expire
         $startTime = date("YmdHis");
         $expire = date('YmdHis', strtotime('+15 minutes', strtotime($startTime)));
- 
+
         $vnp_TxnRef = $_POST['order_id']; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         $vnp_OrderInfo = $_POST['order_desc'];
         $vnp_OrderType = $_POST['order_type'];
@@ -119,7 +119,7 @@ if(!isset($_SESSION['user_info'])){
             "vnp_Inv_Company" => $vnp_Inv_Company,
             "vnp_Inv_Taxcode" => $vnp_Inv_Taxcode,
             "vnp_Inv_Type" => $vnp_Inv_Type,
-     
+
         );
         if (isset($vnp_BankCode) && $vnp_BankCode != "") {
             $inputData['vnp_BankCode'] = $vnp_BankCode;
@@ -153,7 +153,7 @@ if(!isset($_SESSION['user_info'])){
             'code' => '00', 'message' => 'success', 'data' => $vnp_Url
         );
         if (isset($_POST['redirect'])) {
-          
+
             header("Location:$vnp_Url");
             die();
         } else {
@@ -172,17 +172,17 @@ if(!isset($_SESSION['user_info'])){
         $startTime = date("Y-m-d H:i:s");
         $expire = date('Y-m-d H:i:s', strtotime('+15 minutes', strtotime($startTime)));
 
-       $price=$_GET['vnp_Amount']/100;
-  
-      $subject_id= trim(str_replace($_SESSION['user_info'][0]['student_id'], "",$_GET['vnp_TxnRef']));
-    //   $this->dd($subject_id);
+        $price = $_GET['vnp_Amount'] / 100;
+
+        $subject_id = trim(str_replace($_SESSION['user_info'][0]['student_id'], "", $_GET['vnp_TxnRef']));
+        //   $this->dd($subject_id);
         $data = [
             'student_id' => $_SESSION['user_info'][0]['student_id'],
             'transfer_time' => date("Y-m-d H:i:s"),
             'note_bill' => $_GET['vnp_OrderInfo'],
             'code_vnpay' => $_GET['vnp_TxnRef'],
             'code_back' => $_GET['vnp_BankCode'],
-            'subject_id'=>$subject_id,
+            'subject_id' => $subject_id,
             'monney' =>  $price,
         ];
         modelBill::insertBill($data);

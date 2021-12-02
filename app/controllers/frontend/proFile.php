@@ -8,14 +8,13 @@ use App\Models\modelMenu;
 use App\Models\modelNote;
 use App\Models\modelQuestionStatus;
 use App\Models\modelStudent;
+use App\Models\modelBill;
 
 class proFile extends baseController
 {
     private $menu;
     private $student_id;
     private $dataInfo;
-
-
     public function __construct()
     {
         $this->menu = modelMenu::sortMenu();
@@ -34,15 +33,31 @@ class proFile extends baseController
 
         $dataCourseLeaning = modelHistory::getWidthSubject($this->student_id);
         $dataNote = modelNote::getNote($this->student_id);
-
         $countPoint = modelQuestionStatus::getWhereStudent($this->student_id);
-
+        $dataBillJoinSubject = modelBill::selectBill($_SESSION['user_info'][0]['student_id']);
+        // $this->dd($dataBillJoinSubject);
         $this->render("customer.profile_user", [
+            'dataBillJoinSubject' => $dataBillJoinSubject,
             'menu' => $this->menu,
             'dataInfo' => $this->dataInfo,
             'dataCourseLeaning' => $dataCourseLeaning,
             'dataNote' => $dataNote,
             'countPoint' => $countPoint,
+        ]);
+    }
+    //chi tiết tát cả các môn học đã mua.
+    public function deltaiBill()
+    {
+
+
+        $dataBillJoinSubject = modelBill::selectBillAll($_SESSION['user_info'][0]['student_id']);
+      
+        // $this->dd($dataBillJoinSubject);
+        $this->render("customer.deltai_bill", [
+            'dataBillJoinSubject' => $dataBillJoinSubject,
+            'menu' => $this->menu,
+            'user'=>$_SESSION['user_info'][0],
+
         ]);
     }
 
@@ -55,7 +70,7 @@ class proFile extends baseController
 
             $data = [
                 'student_id' => $this->student_id,
-                'student_img' => "./public/img/".$file_name,
+                'student_img' => "./public/img/" . $file_name,
             ];
 
             // $this->dd($data);
