@@ -259,6 +259,10 @@ switch ($url) {
         $ctr = new AdminBill;
         echo $ctr->index();
         break;
+    case 'chi-tiet-hoa-don';
+        $ctr = new AdminBill;
+        echo $ctr->deltalBill();
+        break;
         // --------------
         // -------- Giao diện khách hàng
         // TRang chủ
