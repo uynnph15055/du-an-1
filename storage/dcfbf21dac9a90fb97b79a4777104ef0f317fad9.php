@@ -6,13 +6,18 @@
         <h3 class="bill-section__title" style="font-size: 25px;">
             ĐƠN MUA CỦA BẠN
         </h3>
+        <?php
+
+        use App\Models\modelBill;
+
+        ?>
 
         <div class="bill-list">
             <?php $__currentLoopData = $dataBillJoinSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="bill-item tab">
 
-                <input type="checkbox" id="chck1">
-                <label class="tab-label" for="chck1">
+                <input type="checkbox" id="chck<?= $key['subject_id'] ?>">
+                <label class="tab-label" for="chck<?= $key['subject_id']  ?>">
                     <div class="bill-item-accordion">
                         <div class="bill-item-img">
                             <img src="./public/img/<?php echo e($key['subject_img']); ?>" alt="" class="img-fluid">
@@ -26,28 +31,32 @@
                         </div>
                     </div>
                 </label>
+                <?php
+
+                $billRow = modelBill::selectBillSubject($key['subject_id']);
+                ?>
                 <div class="bill-detail tab-content">
                     <div class="bill-item-head">
                         <div class="head-course">
                             <div class="head-img">
-                                <img src="./public/img/<?php echo e($key['subject_img']); ?>" alt="" class="img-fluid">
+                                <img src="./public/img/<?php echo e($billRow[0]['subject_img']); ?>" alt="" class="img-fluid">
                             </div>
                             <div class="head-text">
-                                <h3><a href="" class="bill-item__title"><?php echo e($key['subject_name']); ?></a></h3>
+                                <h3><a href="" class="bill-item__title"><?php echo e($billRow[0]['subject_name']); ?></a></h3>
                                 <div class="bill-item-price" style="margin-bottom: 60px;">
-                                    <span class="bill-item__price bill-item__price--new"><?php echo e(number_format ($key['subject_sale'])); ?> đ</span>
-                                    <span class="bill-item__price bill-item__price--old"><?php echo e(number_format ($key['subject_price'])); ?> đ</span>
+                                    <span class="bill-item__price bill-item__price--new"><?php echo e(number_format ($billRow[0]['subject_sale'])); ?> đ</span>
+                                    <span class="bill-item__price bill-item__price--old"><?php echo e(number_format ($billRow[0]['subject_price'])); ?> đ</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="head-time">
                             <span class="title-date">Mã hóa đơn</span>
-                            <span class="time">CourseIFT-<?php echo e($key['code_vnpay']); ?></span>
+                            <span class="time">CourseIFT-<?php echo e($billRow[0]['code_vnpay']); ?></span>
                             <span class="title-date">Thời gian mua</span>
-                            <span class="time"><?php echo date('H:i d-m-Y', strtotime($key['transfer_time']))  ?></span>
+                            <span class="time"><?php echo date('H:i d-m-Y', strtotime($billRow[0]['transfer_time']))  ?></span>
                             <span class="title-date">Thời gian mở khóa học</span>
-                            <span class="time"><?php echo date('H:i d-m-Y', strtotime('+5 minutes', strtotime($key['transfer_time'])))  ?></span>
+                            <span class="time"><?php echo date('H:i d-m-Y', strtotime('+5 minutes', strtotime($billRow[0]['transfer_time'])))  ?></span>
                         </div>
 
                     </div>
@@ -75,7 +84,7 @@
                         <div class="body-col">
                             <span class="bill-note__title">Ghi chú</span>
                             <p class="bill-note__content">
-                                <?php echo e($key['note_bill']); ?>
+                                <?php echo e($billRow[0]['note_bill']); ?>
 
                             </p>
                         </div>

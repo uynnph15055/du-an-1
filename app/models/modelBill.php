@@ -48,4 +48,16 @@ class modelBill extends DB
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    //select tất cả bill trong admin theo môn học
+    public static function selectBillSubject($subject_id)
+    {
+
+        $model = new static;
+        $conn = $model->getConnect();
+        $queryBuilder = " SELECT * FROM bill INNER JOIN subject ON bill.subject_id=subject.subject_id WHERE bill.subject_id=:subject_id ";
+        $stmt = $conn->prepare($queryBuilder);
+        $stmt->execute(['subject_id' => $subject_id]);
+        return $stmt->fetchAll();
+    }
 }
