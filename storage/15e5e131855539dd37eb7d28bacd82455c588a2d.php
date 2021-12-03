@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $__env->yieldContent('title', 'PT16306 project_one'); ?></title>
     <!-- reset -->
+
     <link rel="stylesheet" href="./public/css/customerCss/reset.css">
     <!-- icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
@@ -101,7 +102,7 @@
                 </div>
             </div>
         </header>
-            <?php echo $__env->yieldContent('main_content'); ?>;
+        <?php echo $__env->yieldContent('main_content'); ?>;
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
 <script src="./public/js/customerJs/form-log.js"></script>

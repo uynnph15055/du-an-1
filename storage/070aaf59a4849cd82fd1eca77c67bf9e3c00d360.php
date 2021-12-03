@@ -88,7 +88,7 @@
                             <div class="status-head head-grid">
                                 <span class="head-status__icon"><i class="fas fa-book-reader"></i></span>
                                 <span class="head-status__name">Khóa đang học</span>
-                                <span class="head-status__sub"><?php echo count($dataCourseLeaning) - 1 ?></span>
+                                <span class="head-status__sub"><?php echo count($dataCourseLeaning) ?></span>
                             </div>
                             <div class="status-content">
                                 <?php
@@ -106,7 +106,7 @@
                                                 <img src="./public/img/<?php echo e($key['subject_img']); ?>" alt="" class="img-fluid">
                                             </a>
                                         </div>
-                                        <div class="status-course-text" style="">
+                                        <div class="status-course-text">
                                             <h3 class="status-course__name"><a href=""><?php echo e($key['subject_name']); ?></a></h3>
                                             <p style="line-height: 1.6;">Ngày bắt đầu : <?php echo e($key['date_start']); ?></p>
                                             <span class="status-course__count-lesson"><?php echo e($key['sum_lesson']); ?> / <?php echo count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?></span>
@@ -121,7 +121,7 @@
                         <div class="status-head head-grid">
                             <span class="head-status__icon"><i class="fas fa-medal"></i></span>
                             <span class="head-status__name">Khóa đã hoàn thành</span>
-                            <span class="head-status__sub"><?php echo count($dataCourseLeaning) - 1 ?></span>
+                            <span class="head-status__sub"><?php echo count($dataCourseLeaning) ?></span>
                         </div>
                         <div class="status-content">
                             <div class="status-course-list">
@@ -151,97 +151,54 @@
                         <div class="head-section head-flex">
                             <span class="head-section__name">Đơn mua</span>
                             <span class="head-section__line"></span>
-                            <span class="head-section__sub">1</span>
+                            <span class="head-section__sub"><?php echo count($dataBillJoinSubject) ?></span>
                         </div>
                         <div class="bill-list">
+                            <?php $__currentLoopData = $dataBillJoinSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keyBillJoinSubject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="bill-item">
                                 <div class="bill-course">
                                     <div class="bill-course-img">
                                         <a href="">
-                                            <img src="./public/img/images/abc.jpg" alt="" class="img-fluid">
+                                            <img src="./public/img/<?php echo e($keyBillJoinSubject['subject_img']); ?>" alt="" class="img-fluid">
                                         </a>
                                     </div>
                                     <div class="bill-course-text">
                                         <h3 class="bill-course__name">
-                                            <a href="">
-                                                JS nâng cao
-                                            </a>
+
+                                            <?php echo e($keyBillJoinSubject['subject_name']); ?>
+
+
                                         </h3>
-                                        <div class="bill-course__price">
-                                            <span class="bill-course__price--new">990.000 đ</span>
-                                            <span class="bill-course__price--old">990.000 đ</span>
+                                        <div class="bill-course__price" style="margin-bottom:10px">
+                                            <span class="bill-course__price--new"> <?php echo e(number_format($keyBillJoinSubject['subject_sale'])); ?> đ</span>
+                                            <span class="bill-course__price--old"><?php echo e(number_format($keyBillJoinSubject['subject_price'])); ?> đ</span>
                                         </div>
 
                                     </div>
                                 </div>
                                 <div class="bill-status">
                                     <span class="bill-status--waiting">
-                                        Chờ xác nhận
+                                        TG :<?php echo date('d-m-Y', strtotime($keyBillJoinSubject['transfer_time']))  ?>
                                     </span>
 
                                 </div>
                             </div>
-                            <div class="bill-item">
-                                <div class="bill-course">
-                                    <div class="bill-course-img">
-                                        <a href="">
-                                            <img src="./public/img/images/abc.jpg" alt="" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="bill-course-text">
-                                        <h3 class="bill-course__name">
-                                            <a href="">
-                                                JS nâng cao
-                                            </a>
-                                        </h3>
-                                        <div class="bill-course__price">
-                                            <span class="bill-course__price--new">990.000 đ</span>
-                                            <span class="bill-course__price--old">990.000 đ</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="bill-status">
-                                    <span class="bill-status--waiting">
-                                        Chờ xác nhận
-                                    </span>
-
-                                </div>
-                            </div>
-                            <div class="bill-item">
-                                <div class="bill-course">
-                                    <div class="bill-course-img">
-                                        <a href="">
-                                            <img src="./public/img/images/abc.jpg" alt="" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="bill-course-text">
-                                        <h3 class="bill-course__name">
-                                            <a href="">
-                                                JS nâng cao
-                                            </a>
-                                        </h3>
-                                        <div class="bill-course__price">
-                                            <span class="bill-course__price--new">990.000 đ</span>
-                                            <span class="bill-course__price--old">990.000 đ</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="bill-status">
-                                    <span class="bill-status--bought">
-                                        Đã mua
-                                    </span>
-                                </div>
-                            </div>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                         </div>
+                        <div>
+
+                        </div>
+                        <?php if(!empty($dataBillJoinSubject)): ?>
+                        <a href="chi-tiet-hoa-don" style="display:block;text-align:center;margin-top:15px ;background:linear-gradient(to right, #0098d2, #00bcca) ; padding:10px;width:100px;border-radius: 5px;   text-align: center;
+  transform:translateX(150px);color:#ffff">Xem tất cả</a>
+                        <?php endif; ?>
                     </div>
                     <div class="section-box course-function-item note">
                         <div class="head-section head-flex">
                             <span class="head-section__name">Ghi chú</span>
                             <span class="head-section__line"></span>
-                            <span class="head-section__sub">1</span>
+                            <span class="head-section__sub"><?php echo count($dataNote) ?></span>
                         </div>
                         <div class="note-list">
                             <?php $__currentLoopData = $dataNote; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -336,13 +293,13 @@
                     </div>
                     <div class="form-item">
                         <label for="">Số điện thoại</label>
-                        <input type="text" name="student_phone" value="" id="" />
+                        <input type="text" name="student_phone" value="<?php echo e($dataInfo[0]['student_phone']); ?>" id="" />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-item">
                         <label for="">Tiểu sử</label>
-                        <textarea name="student_story" id="" cols="30" rows="10"></textarea>
+                        <textarea name="student_story" id="" cols="30" rows="10"><?php echo e($dataInfo[0]['student_story']); ?></textarea>
                     </div>
                 </div>
                 <div class="form__btn">

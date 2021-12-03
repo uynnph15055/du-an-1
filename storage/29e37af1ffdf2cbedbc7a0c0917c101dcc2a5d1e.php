@@ -12,6 +12,7 @@
     <link rel="icon" href="./public/img/images/Blue Gradient Tech Marketing Company Logo.png" type="image/gif" sizes="16x16">
 
     <!-- css -->
+    <link rel="icon" href="./public/img/images/Blue Gradient Tech Marketing Company Logo.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="./public/css/customerCss/style.css">
 </head>
 
