@@ -113,6 +113,8 @@
                     <h3 class="course__title">
                         Khóa học <?php echo e($subjectName); ?>
 
+
+
                     </h3>
                     <?php
 
@@ -145,9 +147,26 @@
                                     <?php foreach ($dataQuestion as $value) {
 
                                     ?>
+                                        <?php $__currentLoopData = $dataQuestionStatus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keyQuestionStatus): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($value['question_id'].$_SESSION['user_info'][0]['student_id']==$keyQuestionStatus['question_id'].$keyQuestionStatus['student_id'] ): ?>
+                                        <?php $kq = $keyQuestionStatus['question_id'] . $keyQuestionStatus['student_id'];
+
+                                        ?>
+                                        <?php endif; ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                        <?php if(isset($kq) && $kq ==$value['question_id'].$_SESSION['user_info'][0]['student_id']): ?>
+                                        <a style="background: #00bcca;" href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
+                                            <i class="fab fa-angellist"></i>
+                                            <? $biendem++ ?>
+                                        </a>
+                                        <?php else: ?>
                                         <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>
                                         </a>
+                                        <?php endif; ?>
+
+
                                     <?php   } ?>
 
 

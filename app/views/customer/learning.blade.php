@@ -109,7 +109,7 @@
                     <h3 class="course__title">
                         Khóa học {{$subjectName}}
 
-                        
+
                     </h3>
                     <?php
 
@@ -152,8 +152,8 @@
                                         @if(isset($kq) && $kq ==$value['question_id'].$_SESSION['user_info'][0]['student_id'])
                                         <a style="background: #00bcca;" href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <i class="fab fa-angellist"></i>
+                                            <? $biendem++ ?>
                                         </a>
-
                                         @else
                                         <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>

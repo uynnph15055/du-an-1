@@ -16,17 +16,17 @@
     <!-- css footer -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet"> -->
     <?php echo $__env->yieldContent('link'); ?>
 
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500&family=Montserrat:ital,wght@0,200;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500&family=Montserrat:ital,wght@0,200;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet"> -->
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
     <link rel="icon" href="./public/img/images/Blue Gradient Tech Marketing Company Logo.png" type="image/gif" sizes="16x16">
     <?php echo $__env->yieldContent('link'); ?>;
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet"> -->
     <?php echo $__env->yieldContent('link'); ?>
 
 </head>
@@ -92,7 +92,7 @@
                                 <a href="dang-nhap-dang-ky" class="action-btn btn-secondary">
                                     Đăng nhập
                                 </a>
-                                <a href="dang-nhap-dang-ky" class="action-btn btn-primary">
+                                <a href="dang-nhap-dang-ky" onclick="openSignUp()" class="action-btn btn-primary">
                                     Đăng ký
                                 </a>
                             </div>
@@ -105,6 +105,8 @@
         <?php echo $__env->yieldContent('main_content'); ?>;
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
+<script src="./public/js/customerJs/form-log.js"></script>
+
     <script src="./public/js/customerJs/darkMode.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
