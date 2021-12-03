@@ -45,10 +45,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div style="font-size: 15px" class="sidebar-brand-icon">
+                    COURSE IFT
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div style="font-size: 15px" class="sidebar-brand-text mx-3">Admin</div>
             </a>
 
             <!-- Divider -->
@@ -66,7 +66,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Quản trị
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -114,7 +114,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Khác    
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -375,7 +375,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                @yield('main_content');
+                @yield('main_content')
                 <!-- /.container-fluid -->
 
             </div>

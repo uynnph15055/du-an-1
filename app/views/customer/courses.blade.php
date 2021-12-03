@@ -53,8 +53,6 @@
                     @if(isset($subject))
                     @foreach($subject as $key)
                     <div class="course-item">
-
-
                         @foreach($dataBill as $valueBill)
                         @if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id'])
                         <?php $bill_vnpay = $valueBill['code_vnpay'] ?>
@@ -82,7 +80,7 @@
                             </h3>
                             <span class="course__members">
                                 <i class="fas fa-users"></i>
-                                123
+                                3
                             </span>
                             @foreach($dataBill as $valueBill)
                             @if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id'])
@@ -120,7 +118,7 @@
                             </h3>
                             <span class="course__members">
                                 <i class="fas fa-users"></i>
-                                123
+                                3
                             </span>
                             @if($key['type_id'] == 0)
                             <span class="course__price course__price--free">Miễn phí</span>

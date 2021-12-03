@@ -10,7 +10,6 @@
       margin: auto 0;
       padding-right: 100px;
 
-
       h2 {
         color: var(--color-primary);
         font-size: $large;
@@ -81,7 +80,7 @@
   margin: 0 margin-custom();
   padding: 60px 0;
   display: grid;
-  grid-template-columns: 1fr 8fr;
+  grid-template-columns: 1fr 9fr;
   grid-gap: 30px;
 
   .category {

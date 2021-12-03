@@ -1,14 +1,20 @@
 
 <?php $__env->startSection('title', 'Giới thiệu'); ?>
 <?php $__env->startSection('main_content'); ?>
+<style>
+    p {
+        line-height: 1.5;
+    }
+</style>
 <div class="container" style="margin-top: 80px;">
     <div class="about-section">
+        <h2 style="text-align: center; font-size: 30px; font-weight:bold; margin-bottom: 20px;">GIỚI THIỆU</h2>
         <div class="about-intro">
-            <div class="intro-img">
-                <img src="https://cdn.dribbble.com/users/2918596/screenshots/8860450/marketing.gif" alt="" class="img-fluid">
+            <div class="intro-img" style="margin-top: 50px;">
+                <img style="height: 200px" src="./public/img/images/Blue Gradient Tech Marketing Company Logo.png" alt="" class="img-fluid">
+                <p>Course IFT</p>
             </div>
             <div class="intro-content">
-                <p class="text-title">COURSE IFT</p>
                 <p class="text-content">
                     COURSE IFT được công nhận là một trong những lĩnh vực phát triển nhanh nhất, nên dĩ nhiên, sẽ không có khả năng có sự thiếu hụt các công việc để theo đuổi các chuyên gia công mới của bạn. Bạn có thể đủ điều kiện cho mình hơn nữa bằng cách hoàn thành chương trình học của bạn, quá. Một số vị trí nào bạn có thể đủ điều kiện để bao gồm các chuyên gia CNTT, kỹ sư mạng, nhân viên hỗ trợ kỹ thuật hoặc phát triển web. Với một phạm vi như vậy lựa chọn, không có gì lạ độ này là một lựa chọn phổ biến.
                 </p>
@@ -65,7 +71,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="about-team-item">
                         <div class="team-item-img">
                             <img src="./public/img/z2963473880854_d45c0e94cd5d2ef889b2179dbbf782e2.jpg" alt="" class="img-fluid">
@@ -95,10 +100,10 @@
             <h4 class="about__title-item">Tầm nhìn</h4>
             <div class="visibility-content">
                 <div class="visibility-img">
-                    <img class="img-fluid" src="./public/img/Capy-Its-Getting-There-At-Blog-Archive-At-Stfu-Playstation-.gif" alt="" class="img-fluid">
+                    <img class="img-fluid" src="./public/img/iStock-655597202-1.jpg" alt="" class="img-fluid">
                 </div>
                 <div class="visibility-text">
-                    <p class="visibility__text" style="font-style: italic;text-align:center">Trở thành công ty công nghệ giáo dục có vị thế vững vàng trên thị
+                    <p class="visibility__text">Trở thành công ty công nghệ giáo dục có vị thế vững vàng trên thị
                         trường, với các sản phẩm hỗ
                         trợ học lập trình chất lượng, thông minh và hiệu quả. F8 sẽ nổi tiếng bởi chất lượng sản
                         phẩm vượt trội và được cộng đồng tin tưởng chứ không phải vì tiếp thị tốt.</p>
@@ -128,7 +133,7 @@
                             <img src="https://cdn.dribbble.com/users/1350622/screenshots/4408287/8.gif" alt="" class="img-fluid">
                         </div>
                         <div class="content-text">
-                            <p class="text-body"> tin rằng sản phẩm tuyệt vời chỉ có thể tạo ra bởi những con
+                            <p class="text-body"> Tin rằng sản phẩm tuyệt vời chỉ có thể tạo ra bởi những con
                                 người tài năng. Công ty muốn tăng trưởng nhanh bền vững phải có những nhân sự xuất
                                 sắc có tâm, có tài. Vì vậy, không ngừng tìm kiếm và phát triển những cá nhân tài
                                 năng cùng xây dựng bộ máy. Nếu bạn muốn được làm cùng với những người giỏi giang
@@ -146,7 +151,7 @@
                 <p class="quotes__content">Quan điểm của chúng mình là không phải bạn đi xin việc và công ty cũng
                     không đi xin ứng viên tài năng. Tôn trọng thời gian và sự quan tâm của các bạn tới chúng mình.
                 </p>
-                <button class="btn-action">Bắt đầu ngay</button>
+                <a href="khoa-hoc" class="btn-action">Bắt đầu ngay</a>
             </div>
         </div>
         <footer style="margin-top: -150px;">

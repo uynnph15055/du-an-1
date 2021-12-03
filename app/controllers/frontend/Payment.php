@@ -10,6 +10,9 @@ use App\Models\modelSubject;
 use App\Models\modelMenu;
 use App\Models\modelNote;
 use App\Models\modelBill;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 class Payment extends baseController
 {
@@ -185,13 +188,53 @@ class Payment extends baseController
             'subject_id' => $subject_id,
             'monney' =>  $price,
         ];
+
+        $dataStubject = modelSubject::where("subject_id", "=", $subject_id)->get();
+        $subject_name =  $dataStubject[0]['subject_name'];
         modelBill::insertBill($data);
+        $mail = new PHPMailer(true);
+        // Passing `true` enables exceptions
 
-        $this->render("customer.vnpay_return", [
+        try {
 
-            'user' => $_SESSION['user_info'][0],
-            'menu' => $this->menu,
+            // Email server settings
+            $mail->SMTPDebug = 0;
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';             //  smtp host
+            $mail->SMTPAuth = true;
+            $mail->Username = 'courseift123@gmail.com';   //  sender username
+            $mail->Password = 'uynguyen1234';       // sender password
+            $mail->SMTPSecure = 'tls';                  // encryption - ssl/tls
+            $mail->Port = 587;                    // port - 587/465
 
-        ]);
+            $mail->setFrom('courseift123@gmail.com', 'Course IFT');
+
+            $email_check = $_SESSION['user_info'][0]['student_email'];
+            $mail->addAddress($email_check);
+
+            $mail->isHTML(true);      // Set email content format to HTML
+
+            // Randum mật khẩu mới.
+
+            $mail->CharSet = "UTF-8";
+            $mail->Subject = 'Thông báo mua hàng !';
+            $mail->Body    = 'Bạn đã mua thành công khóa học : ' . $subject_name;
+
+            // $mail->AltBody = plain text version of email body;
+
+            if (!$mail->send()) {
+                $this->dd($mail->ErrorInfo);
+            } else {
+                $this->render("customer.vnpay_return", [
+
+                    'user' => $_SESSION['user_info'][0],
+                    'menu' => $this->menu,
+
+                ]);
+            }
+        } catch (Exception $e) {
+            $_SESSION['notifi'] = "Email của bạn không tồn tại";
+            header('location: ' . $_SERVER['HTTP_REFERER']);
+        }
     }
 }

@@ -35,7 +35,7 @@
             <tr>
 
                 <td><?= $index++ ?></td>
-                <td><img style="width:100px;height:100px" src="./public/img/{{$key['subject_img']}}" alt=""></td>
+                <td><img style="width:100px;" src="./public/img/{{$key['subject_img']}}" alt=""></td>
                 <td>{{$key['subject_name']}}</td>
                 <td>{{$key['so_luong']}}</td>
                 <td><?php echo date('H:i d-m-Y', strtotime($key['cu_nhat'])) ?></td>
@@ -48,7 +48,7 @@
             @endforeach
         </tbody>
     </table>
- 
+
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 

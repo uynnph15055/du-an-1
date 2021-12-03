@@ -14,7 +14,7 @@
     <!-- Bootrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link rel="icon" href="./public/img/350x490_1.jpg" type="image/gif" sizes="16x16">
+    <link rel="icon" href="./public/img/images/Blue Gradient Tech Marketing Company Logo.png" type="image/gif" sizes="16x16">
 
     <!-- Bootrap 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -45,10 +45,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div style="font-size: 15px" class="sidebar-brand-icon">
+                    COURSE IFT
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div style="font-size: 15px" class="sidebar-brand-text mx-3">Admin</div>
             </a>
 
             <!-- Divider -->
@@ -66,7 +66,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Quản trị
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -114,7 +114,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Khác
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -375,7 +375,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <?php echo $__env->yieldContent('main_content'); ?>;
+                <?php echo $__env->yieldContent('main_content'); ?>
                 <!-- /.container-fluid -->
 
             </div>
