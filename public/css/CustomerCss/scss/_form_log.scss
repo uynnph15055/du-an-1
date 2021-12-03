@@ -9,18 +9,17 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "Montserrat", sans-serif;
   height: 100vh;
   margin: -20px 0 50px;
-  @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
-
+  
+  
   .form-log-width {
     width: 768px;
   }
-
+  
   .form-log-container {
+    box-shadow: 0 0px 40px -5px #fff;
     border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     position: relative;
     overflow: hidden;
     min-height: 480px;
@@ -36,7 +35,7 @@
   }
 
   .form__title {
-    font-size: 28px;
+    font-size: $large;
     font-weight: bold;
     margin: 0;
   }
@@ -63,6 +62,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
+    cursor: pointer;
   }
   .btn__log-2 {
     border: 1px solid #0098d2;
@@ -93,7 +93,7 @@
   }
 
   input {
-    background-color: #eee;
+    background: #eee;
     border: 1px solid #eee;
     padding: 12px 15px;
     margin: 8px 0;
@@ -102,7 +102,13 @@
     transition: $trans-second;
   }
   input:hover{
-    border-color: #0098d2;
+    border: 1px solid #0098d2;
+    
+  }
+  input:focus{
+    border: 1px solid #0098d2;
+    
+    
   }
 
   .sign-in-container {

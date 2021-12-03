@@ -31,6 +31,7 @@
         color: #777;
     }
 </style>
+
 <div class="container" style="margin-top:40px">
     <main class="bgr-light">
         <div class="container-fluid">
@@ -78,11 +79,30 @@
                         <?php endif; ?>
                     </div>
                 </div>
+                <?php if(isset($user)): ?>
                 <div class="course-detail-video">
                     <img src="./public/img/<?php echo e($subject['subject_img']); ?>" alt="" class="img-fluid course__img">
+
+                    <?php $__currentLoopData = $dataBill; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valueBill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php if($valueBill['code_vnpay']==$user['student_id'].$subject['subject_id']): ?>
+                    <?php $bill_vnpay = $valueBill['code_vnpay'] ?>
+                    <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php if($subject['type_id'] == 0): ?>
                     <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 30px 0px;" class="btn-primary">
                         Học ngay
                     </a>
+                    <?php elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$subject['subject_id']): ?>
+
+                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 30px 0px;" class="btn-primary">
+                        Học ngay
+                    </a>
+                    <?php else: ?>
+                    <a href="thanh-toan-vnpay?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 30px 0px;" class="btn-primary">
+                        Mua khóa học
+                    </a>
+
+                    <?php endif; ?>
                     <?php if(!empty($lesson)): ?>
                     <span class="sub-des">Hiện có <?php echo count($lesson) ?> bài</span>
                     <?php else: ?>
@@ -90,6 +110,26 @@
                     <?php endif; ?>
                     <span class="sub-des" style="font-style: italic;font-size:16px">Học mọi lúc, mọi nơi</span>
                 </div>
+                <?php else: ?>
+                <div class="course-detail-video">
+                    <img src="./public/img/<?php echo e($subject['subject_img']); ?>" alt="" class="img-fluid course__img">
+                    <?php if($subject['type_id'] == 0): ?>
+                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 30px 0px;" class="btn-primary">
+                        Học ngay
+                    </a>
+                    <?php else: ?>
+                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 30px 0px;" class="btn-primary">
+                        Mua khóa học
+                    </a>
+                    <?php endif; ?>
+                    <?php if(!empty($lesson)): ?>
+                    <span class="sub-des">Hiện có <?php echo count($lesson) ?> bài</span>
+                    <?php else: ?>
+                    <h6 style="margin: 10px 0px;">Chưa có bài nào</h6>
+                    <?php endif; ?>
+                    <span class="sub-des" style="font-style: italic;font-size:16px">Học mọi lúc, mọi nơi</span>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
     </main>
