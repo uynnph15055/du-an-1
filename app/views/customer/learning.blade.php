@@ -108,6 +108,8 @@
                 <aside class="play-list">
                     <h3 class="course__title">
                         Khóa học {{$subjectName}}
+
+
                     </h3>
                     <?php
 
@@ -139,9 +141,26 @@
                                     <?php foreach ($dataQuestion as $value) {
 
                                     ?>
+                                        @foreach($dataQuestionStatus as $keyQuestionStatus)
+                                        @if($value['question_id'].$_SESSION['user_info'][0]['student_id']==$keyQuestionStatus['question_id'].$keyQuestionStatus['student_id'] )
+                                        <?php $kq = $keyQuestionStatus['question_id'] . $keyQuestionStatus['student_id'];
+
+                                        ?>
+                                        @endif
+                                        @endforeach
+
+                                        @if(isset($kq) && $kq ==$value['question_id'].$_SESSION['user_info'][0]['student_id'])
+                                        <a style="background: #00bcca;" href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
+                                            <i class="fab fa-angellist"></i>
+                                            <? $biendem++ ?>
+                                        </a>
+                                        @else
                                         <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>
                                         </a>
+                                        @endif
+
+
                                     <?php   } ?>
 
 

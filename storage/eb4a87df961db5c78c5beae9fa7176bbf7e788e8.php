@@ -92,7 +92,7 @@
                     <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 10px 0;" class="btn-primary">
                         Học ngay
                     </a>
-                    <span style="display: block;color: green;font-size: 30px;padding: 0 0 10px">Miễn phí</span>
+                    <span style="display: block;color: #04d200;font-size: 20px;padding: 0 0 10px">Miễn phí</span>
 
                     <?php elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$subject['subject_id']): ?>
 
@@ -121,7 +121,7 @@
                     <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 10px 0;" class="btn-primary">
                         Học ngay
                     </a>
-                    <span style="display: block;color: green;font-size: 30px;padding: 0 0 10px">Miễn phí</span>
+                    <span style="display: block;color: #04d200;font-size: 20px;padding: 0 0 10px">Miễn phí</span>
                     <?php else: ?>
                     <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 10px 0;" class="btn-primary">
                         Mua khóa học

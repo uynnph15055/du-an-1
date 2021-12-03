@@ -29,8 +29,6 @@ class modelQuestionStatus extends DB
         $stmt->execute(['id' => $id]);
         return $stmt->fetchAll();
     }
-
-
     public static  function where_and($question_id, $student_id)
     {
         // var_dump($data);

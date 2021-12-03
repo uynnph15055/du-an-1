@@ -41,10 +41,9 @@ $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
         <div class="form-group">
             <label>Mã đơn hàng:</label>
 
-            <label> MKH-<?php echo $_GET['vnp_TxnRef'] ?></label>
+            <label>CourseIFT-<?php echo $_GET['vnp_TxnRef'] ?></label>
         </div>
         <div class="form-group">
-
             <label>Số tiền:</label>
             <label><?php echo number_format($_GET['vnp_Amount']/100) ?>đ</label>
         </div>
