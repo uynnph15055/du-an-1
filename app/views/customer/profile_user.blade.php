@@ -286,13 +286,13 @@
                     </div>
                     <div class="form-item">
                         <label for="">Số điện thoại</label>
-                        <input type="text" name="student_phone" value="" id="" />
+                        <input type="text" name="student_phone" value="{{$dataInfo[0]['student_phone']}}" id="" />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-item">
                         <label for="">Tiểu sử</label>
-                        <textarea name="student_story" id="" cols="30" rows="10"></textarea>
+                        <textarea name="student_story" id="" cols="30" rows="10">{{$dataInfo[0]['student_story']}}</textarea>
                     </div>
                 </div>
                 <div class="form__btn">

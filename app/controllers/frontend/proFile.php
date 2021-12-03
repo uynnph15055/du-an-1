@@ -94,6 +94,17 @@ class proFile extends baseController
             extract($_POST);
 
             if (!empty($student_name)) {
+                $dataStudentOld = modelStudent::where("student_id", "=", $this->student_id)->get();
+
+                if (empty($student_phone)) {
+                    $student_phone = $dataStudentOld[0]['student_phone'];
+                }
+
+                if (empty($student_story)) {
+                    $student_story = $dataStudentOld[0]['student_story'];
+                }
+
+
                 $data = [
                     'student_name' => $student_name,
                     'student_phone' => $student_phone,
@@ -102,10 +113,7 @@ class proFile extends baseController
                 ];
 
                 // $this->dd($data);
-                if (empty($student_phone) || empty($student_story)) {
-                    header('location: ' . $_SERVER['HTTP_REFERER']);
-                    die();
-                }
+
 
                 modelStudent::updateInfo($data);
                 $dataStudent = modelStudent::where("student_id", "=", $this->student_id)->get();
