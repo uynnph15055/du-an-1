@@ -45,7 +45,7 @@
                         <span>
                             Ghi chú dễ dàng
                         </span>
-                        <p class="significant-item__detail">Ghi chú dễ dàng, nhanh chóng , ngay tại nội dung bài học.</p>
+                        <p class="significant-item__detail">Ghi chú dễ dàng, nhanh chóng, ngay tại nội dung bài học.</p>
                     </div>
                 </div>
                 <div class="significant-item">

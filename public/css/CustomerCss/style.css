@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700");
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 * {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
@@ -70,6 +68,10 @@ body {
 a {
   text-decoration: none;
   color: black;
+}
+
+abbr {
+  text-decoration: none;
 }
 
 .container {
@@ -1595,8 +1597,8 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   padding: 60px 0;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 8fr;
-      grid-template-columns: 1fr 8fr;
+  -ms-grid-columns: 1fr 9fr;
+      grid-template-columns: 1fr 9fr;
   grid-gap: 30px;
 }
 
@@ -2317,7 +2319,6 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-family: "Montserrat", sans-serif;
   height: 100vh;
   margin: -20px 0 50px;
 }
@@ -2327,9 +2328,9 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 }
 
 .form-log-section .form-log-container {
+  -webkit-box-shadow: 0 0px 40px -5px #fff;
+          box-shadow: 0 0px 40px -5px #fff;
   border-radius: 10px;
-  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
   min-height: 480px;
@@ -2346,7 +2347,7 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 }
 
 .form-log-section .form__title {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   margin: 0;
 }
@@ -2376,6 +2377,7 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
   transition: -webkit-transform 80ms ease-in;
   transition: transform 80ms ease-in;
   transition: transform 80ms ease-in, -webkit-transform 80ms ease-in;
+  cursor: pointer;
 }
 
 .form-log-section .btn__log-2 {
@@ -2417,7 +2419,7 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 }
 
 .form-log-section input {
-  background-color: #eee;
+  background: #eee;
   border: 1px solid #eee;
   padding: 12px 15px;
   margin: 8px 0;
@@ -2428,7 +2430,11 @@ header .navbar-fluid .navbar-content .navbar-action-content .account-section .co
 }
 
 .form-log-section input:hover {
-  border-color: #0098d2;
+  border: 1px solid #0098d2;
+}
+
+.form-log-section input:focus {
+  border: 1px solid #0098d2;
 }
 
 .form-log-section .sign-in-container {

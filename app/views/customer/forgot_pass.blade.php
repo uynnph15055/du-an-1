@@ -1,7 +1,7 @@
 @extends('customer.layout.layout_login')
 @section('title', 'Email quên mật khẩu')
 @section('main_content')
-<div class="bgr-img form-log-section">
+<div class="">
     <div class="form-log-container" style="margin-top: 140px;">
         <div class="form-base">
             <div class="form-base-header">
