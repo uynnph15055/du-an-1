@@ -154,6 +154,10 @@
                                             <i class="fab fa-angellist"></i>
                                             <? $biendem++ ?>
                                         </a>
+<<<<<<< HEAD
+=======
+                                        <?php $biendem++ ?>
+>>>>>>> 521e9d5e7d05323e41c4edbce7ad7c2092135a87
                                         @else
                                         <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>
