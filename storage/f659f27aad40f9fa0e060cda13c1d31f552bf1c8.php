@@ -14,6 +14,7 @@
     <!-- Bootrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="icon" href="./public/img/images/Blue Gradient Tech Marketing Company Logo.png" type="image/gif" sizes="16x16">
 
     <!-- Bootrap 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -76,8 +77,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="./danh-sach-loai-mon-hoc">Danh mục môn học</a>
-                        <a class="collapse-item" href="./danh-sach-mon?trang=1 ">Danh sách các môn</a>
+                        <a class="collapse-item" href="./danh-sach-loai-mon-hoc">Danh mục khóa học</a>
+                        <a class="collapse-item" href="./danh-sach-mon?trang=1 ">Danh sách các khóa</a>
                     </div>
                 </div>
             </li>
@@ -99,11 +100,11 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitie" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-users-cog"></i>
-                    <span>Quản lý nhân viên</span>
+                    <span>Quản lý admin</span>
                 </a>
                 <div id="collapseUtilitie" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="danh-sach-admin">Thông tin nhân viên</a>
+                        <a class="collapse-item" href="danh-sach-admin">Thông tin admin</a>
                     </div>
                 </div>
             </li>
@@ -120,7 +121,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="thong-tin-hoa-don">
                     <i class="fas fa-sticky-note"></i>
                     <span>Hóa đơn</span></a>
             </li>
@@ -384,7 +385,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <h6>Copyright @admin  project one Course IFT</h6>
+                        <h6>Copyright © Course IFT</h6>
                     </div>
                 </div>
             </footer>

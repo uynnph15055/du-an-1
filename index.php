@@ -29,6 +29,7 @@ use App\Controllers\Frontend\Question;
 use App\Controllers\Backend\adminComment;
 use App\Controllers\Frontend\assess;
 use App\Controllers\Frontend\Payment;
+use App\Controllers\Backend\AdminBill;
 
 switch ($url) {
     case 'quan-tri':
@@ -205,6 +206,10 @@ switch ($url) {
         $ctr = new adminStudent();
         echo $ctr->deleteStudent();
         break;
+    case 'chi-tiet-hoc-vien';
+        $ctr = new adminStudent();
+        echo $ctr->studentDetail();
+        break;
 
         // -----------------------
     case 'danh-sach-danh-gia';
@@ -249,8 +254,15 @@ switch ($url) {
         echo $ctr->logOut();
         break;
 
-
-
+        // thông tin hóa đơn ;
+    case 'thong-tin-hoa-don';
+        $ctr = new AdminBill;
+        echo $ctr->index();
+        break;
+    case 'chi-tiet-hoa-don-admin';
+        $ctr = new AdminBill;
+        echo $ctr->deltalBill();
+        break;
         // --------------
         // -------- Giao diện khách hàng
         // TRang chủ
@@ -323,7 +335,7 @@ switch ($url) {
         //     $ctr = new formLog();
         //     echo $ctr->googleSource();
         //     break;
-        
+
     case 'dang-nhap-dang-ky';
         $ctr = new formLog();
         echo $ctr->index();
@@ -374,6 +386,10 @@ switch ($url) {
     case 'thay-doi-thong-tin';
         $ctr = new proFile();
         echo $ctr->updateInfo();
+        break;
+    case 'chi-tiet-hoa-don';
+        $ctr = new proFile();
+        echo $ctr->deltaiBill();
         break;
 
         // Dánh giá
