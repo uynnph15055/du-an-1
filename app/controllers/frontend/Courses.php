@@ -22,12 +22,12 @@ class Courses extends baseController
             $dataBill = modelBill::all();
             $subject = modelSubject::all();
             $cateSubject = modelCateSubject::all();
-            $this->render("customer.courses", [
-                'cateSubject' => $cateSubject,
-                'subject' => $subject,
-                'menu' => $this->menu,
-                'dataBill' => $dataBill,
-            ]);
+            // $this->render("customer.courses", [
+            //     'cateSubject' => $cateSubject,
+            //     'subject' => $subject,
+            //     'menu' => $this->menu,
+            //     'dataBill' => $dataBill,
+            // ]);
 
             $subject = modelSubject::all();
             $cateSubject = modelCateSubject::all();
