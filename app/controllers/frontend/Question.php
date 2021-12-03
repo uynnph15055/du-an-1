@@ -22,8 +22,12 @@ class Question extends baseController
         if (isset($_SESSION['user_info'])) {
             $dataInfo = $_SESSION['user_info'];
         }
+        else {
+            header('location: dang-nhap-dang-ky');
+        }
 
-        $this->student_id = $dataInfo[0]['student_id'];
+
+        $this->student_id =isset( $dataInfo)?$dataInfo[0]['student_id']:null;
     }
 
     function index()
@@ -32,16 +36,12 @@ class Question extends baseController
         $biendem_answer = isset($_GET['biendem']) ? $_GET['biendem'] : null;
         $biendem = 0;
         $biendem += $biendem_answer;
-
-
-
         $dataQuestion = modelQuestion::where('question_id', "=", $question_id)->get();
         $lesson_id = $dataQuestion[0]['lesson_id'];
-
         $answer = $dataQuestion[0]['answer'];
         $dataLessonJoinQuestion = modelLesson::LessonJoinQuestion($lesson_id);;
         $dataQuestionInLesson = modelQuestion::where('lesson_id', "=", $lesson_id)->get();
-
+        $dataQuestionStatus = modelQuestionStatus::all();
         //  Lấy ra câu hỏi liên quan đến student và trạng thái.
         // $dataQuestionStatus = modelQuestion::innerJoin($lesson_id);
         // $this->dd($dataQuestionStatus);
@@ -51,6 +51,7 @@ class Question extends baseController
 
 
         $this->render("customer.quiz", [
+            'dataQuestionStatus'=> $dataQuestionStatus,
             'dataQuestion' => $dataQuestion[0],
             'dataLessonJoinQuestion' => $dataLessonJoinQuestion[0],
             'menu' => $this->menu,

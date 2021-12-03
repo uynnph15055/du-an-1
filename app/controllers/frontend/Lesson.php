@@ -9,7 +9,7 @@ use App\Models\modelLesson;
 use App\Models\modelSubject;
 use App\Models\modelMenu;
 use App\Models\modelNote;
-
+use App\Models\modelQuestionStatus;
 class Lesson extends baseController
 {
     private $menu;
@@ -71,11 +71,12 @@ class Lesson extends baseController
             'subject_id' => $subject_id,
             'date_start' => $date_start,
         ];
-
+        $dataQuestionStatus = modelQuestionStatus::all();
         $dataHistoryCheck = modelHistory::checkStatus($student_id, $subject_id);
         // $this->dd($dataHistoryCheck);
         if (!empty($dataHistoryCheck)) {
             $this->render("customer.learning", [
+                'dataQuestionStatus'=> $dataQuestionStatus,
                 'dataLesson' => $dataLesson,
                 'subjectName' => $subjectName,
                 'subject_slug' => $subject_slug,

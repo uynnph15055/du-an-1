@@ -34,13 +34,27 @@
                     use App\Controllers\Frontend\Index;
 
                     $index = 1;
+                    $a = 1;
                     $user = isset($_SESSION['user_info']) ? $_SESSION['user_info'][0]['student_id'] : null;
                     ?>
 
                     <br>
                     @foreach ($dataQuestionInLesson as $key)
-
+                    @foreach($dataQuestionStatus as $keyQuestionStatus)
+                    @if($key['question_id'].$_SESSION['user_info'][0]['student_id']==$keyQuestionStatus['question_id'].$keyQuestionStatus['student_id'] )
+                    <?php $kq = $keyQuestionStatus['question_id'] . $keyQuestionStatus['student_id'];
+     
+                    ?>
+                    @endif
+                    @endforeach
+                    @if(isset($kq) && $kq ==$key['question_id'].$_SESSION['user_info'][0]['student_id'])
+             
+                    <a style="background: #00bcca;" href="quzi?question_id={{$key['question_id']}}" class="index__quiz"><i class="fab fa-angellist"></i></a>
+                    <?php $index++ ?>
+                    @else
                     <a href="quzi?question_id={{$key['question_id']}}" class="index__quiz"><?= $index++ ?></a>
+                    @endif
+
                     @endforeach
                 </div>
                 <div class="quiz-content">
