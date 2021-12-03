@@ -108,6 +108,8 @@
                 <aside class="play-list">
                     <h3 class="course__title">
                         Khóa học {{$subjectName}}
+
+                        
                     </h3>
                     <?php
 

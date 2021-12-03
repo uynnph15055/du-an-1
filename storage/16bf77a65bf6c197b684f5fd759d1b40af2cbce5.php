@@ -71,7 +71,7 @@
                         </div>
                         <?php else: ?>
                         <div class="course-poster">
-                            <a href="thanh-toan-vnpay?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                            <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
                         </div>
                         <?php endif; ?>
                         <div class="course-text">
