@@ -240,6 +240,14 @@ abbr{
       display: inline-block;
       min-width: 35px;
       padding: 10px 13px;
+      background: var(--grey);
+      border-radius: 50%;
+      margin: 0 10px 0 0;
+    }
+    .test_index--success {
+      display: inline-block;
+      min-width: 35px;
+      padding: 10px 10px;
       background: var(--gray-more);
       border-radius: 50%;
       margin: 0 10px 0 0;

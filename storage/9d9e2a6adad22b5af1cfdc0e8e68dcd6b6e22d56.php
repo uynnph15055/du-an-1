@@ -109,7 +109,7 @@
                 <div class="visibility-text">
                     <p class="visibility__text">Trở thành công ty công nghệ giáo dục có vị thế vững vàng trên thị
                         trường, với các sản phẩm hỗ
-                        trợ học lập trình chất lượng, thông minh và hiệu quả. F8 sẽ nổi tiếng bởi chất lượng sản
+                        trợ học lập trình chất lượng, thông minh và hiệu quả. Course IFT sẽ nổi tiếng bởi chất lượng sản
                         phẩm vượt trội và được cộng đồng tin tưởng chứ không phải vì tiếp thị tốt.</p>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                                 tương thưởng xứng đáng? Hãy về với </p>
                         </div>
                         <div class="content-img">
-                            <img src="./public/img/home_animate_0.gif" alt="" class="img-fluid">
+                            <img style="padding: 30px;" src="./public/img/home_animate_0.gif" alt="" class="img-fluid">
                         </div>
                     </div>
                     <div class="strategy-row-2">
