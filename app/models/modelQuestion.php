@@ -43,5 +43,4 @@ class modelQuestion extends DB
         ]);
         return $stmt->fetchAll();
     }
-
 }

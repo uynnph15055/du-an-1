@@ -28,6 +28,7 @@ class introCourse extends baseController
         $this->render("customer.courseDetail", [
             'subject' => $subject[0],
             'lesson' => $lesson,
+            'user' => $_SESSION['user_info'][0],
             'menu' => $this->menu,
             'dataBill' => $dataBill,
         ]);
