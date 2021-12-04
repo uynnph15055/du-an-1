@@ -50,7 +50,7 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <?php if(isset($kq) && $kq ==$key['question_id'].$_SESSION['user_info'][0]['student_id']): ?>
              
-                    <a style="background: #00bcca;" href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><i class="fab fa-angellist"></i></a>
+                    <a style="background: #00bcca; color: #fff;" href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><i class="fas fa-check"></i></a>
                     <?php $index++ ?>
                     <?php else: ?>
                     <a href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><?= $index++ ?></a>
@@ -169,8 +169,8 @@
                         </div>
                         <?php endif; ?>
                         <div class="btn-submit" style="display: flex;justify-content: center;">
+                            <a style="margin-right: 20px;" href="" class="btn-primary">Chọn lại</a>
                             <button type="submit" name="submit" class="btn-primary">Submit</button>
-                            <a style="margin-left: 20px;" href="" class="btn-primary">Chọn lại</a>
                         </div>
 
                     </form>
