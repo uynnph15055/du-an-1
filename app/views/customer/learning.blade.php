@@ -150,11 +150,18 @@
                                         @endforeach
 
                                         @if(isset($kq) && $kq ==$value['question_id'].$_SESSION['user_info'][0]['student_id'])
+<<<<<<< HEAD
                                         <a style="background: #00bcca;" href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <i class="fab fa-angellist"></i>
                                             <? $biendem++; ?>
                                         </a>
 
+=======
+                                        <a style="background: #04d200;" href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index--success">
+                                        <i style="color: white" class="fas fa-check"></i>
+                                            <? $biendem++ ?>
+                                        </a>
+>>>>>>> 2f4e2ab83d18852767e2ca56bed617f20c12c2bd
                                         @else
                                         <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>

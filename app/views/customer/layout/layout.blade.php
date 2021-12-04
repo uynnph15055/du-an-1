@@ -105,7 +105,7 @@
         @yield('main_content');
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
-<script src="./public/js/customerJs/form-log.js"></script>
+    <script src="./public/js/customerJs/form-log.js"></script>
 
     <script src="./public/js/customerJs/darkMode.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -142,6 +142,7 @@
         });
     </script>
     @yield('javascript')
+    
 </body>
 
 </html>

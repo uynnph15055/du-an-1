@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="learning-fluid">
                 <div class="learning-space">
-                    <div class="learning__video" >
+                    <div class="learning__video">
                         <?php if(isset($lessonFist)): ?>
                         <iframe width="98%" height="520" src="https://www.youtube.com/embed/<?php echo e($lessonFist['lesson_link']); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-comment-input ">
                                 <div class="comment-img">
-                                    <img src="./public/img/<?php echo e($userInfo['student_avatar']); ?>" alt="" class="img-fluid">
+                                    <img src="<?php echo e($userInfo['student_avatar']); ?>" alt="" class="img-fluid">
                                 </div>
                                 <form method="POST" action="binh-luan-bai-hoc?student_id=<?php echo e($userInfo['student_id']); ?>&bai=<?php echo e($lesson_id); ?>">
                                     <input type="text" name="comment_content" placeholder="Bạn có thắc mắc gì trong bài học này?">
@@ -42,7 +42,7 @@
                                 <?php $__currentLoopData = $dataComment; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="comment-item">
                                     <div class="comment-img comment-img--acc ">
-                                        <img src="./public/img/<?php echo e($key['student_avatar']); ?>" alt="" class="img-fluid">
+                                        <img src="<?php echo e($key['student_avatar']); ?>" alt="" class="img-fluid">
                                     </div>
                                     <div class="comment-text">
                                         <span class="comment-item__name">
@@ -113,6 +113,8 @@
                     <h3 class="course__title">
                         Khóa học <?php echo e($subjectName); ?>
 
+
+
                     </h3>
                     <?php
 
@@ -127,7 +129,7 @@
 
                             <div class="lesson-item">
                                 <a href="bai-hoc?mon=<?php echo e($subject_slug); ?>&bai=<?php echo e($key['lesson_slug']); ?>" class="lesson-item-info">
-                                    <span class="lesson__index" ><i class="fas fa-play-circle"></i></span>
+                                    <span class="lesson__index"><i class="fas fa-play-circle"></i></span>
                                     <h4 class="lesson-item__title" style="line-height: 1.4;">
                                         Bài <?= $index++ ?>: <?php echo e($key['lesson_name']); ?>
 
@@ -145,9 +147,26 @@
                                     <?php foreach ($dataQuestion as $value) {
 
                                     ?>
+                                        <?php $__currentLoopData = $dataQuestionStatus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keyQuestionStatus): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($value['question_id'].$_SESSION['user_info'][0]['student_id']==$keyQuestionStatus['question_id'].$keyQuestionStatus['student_id'] ): ?>
+                                        <?php $kq = $keyQuestionStatus['question_id'] . $keyQuestionStatus['student_id'];
+
+                                        ?>
+                                        <?php endif; ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                        <?php if(isset($kq) && $kq ==$value['question_id'].$_SESSION['user_info'][0]['student_id']): ?>
+                                        <a style="background: #04d200;" href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index--success">
+                                        <i style="color: white" class="fas fa-check"></i>
+                                            <? $biendem++ ?>
+                                        </a>
+                                        <?php else: ?>
                                         <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>
                                         </a>
+                                        <?php endif; ?>
+
+
                                     <?php   } ?>
 
 
