@@ -35,13 +35,27 @@
                     use App\Controllers\Frontend\Index;
 
                     $index = 1;
+                    $a = 1;
                     $user = isset($_SESSION['user_info']) ? $_SESSION['user_info'][0]['student_id'] : null;
                     ?>
 
                     <br>
                     <?php $__currentLoopData = $dataQuestionInLesson; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
+                    <?php $__currentLoopData = $dataQuestionStatus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keyQuestionStatus): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php if($key['question_id'].$_SESSION['user_info'][0]['student_id']==$keyQuestionStatus['question_id'].$keyQuestionStatus['student_id'] ): ?>
+                    <?php $kq = $keyQuestionStatus['question_id'] . $keyQuestionStatus['student_id'];
+     
+                    ?>
+                    <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php if(isset($kq) && $kq ==$key['question_id'].$_SESSION['user_info'][0]['student_id']): ?>
+             
+                    <a style="background: #00bcca; color: #fff;" href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><i class="fas fa-check"></i></a>
+                    <?php $index++ ?>
+                    <?php else: ?>
                     <a href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><?= $index++ ?></a>
+                    <?php endif; ?>
+
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <div class="quiz-content">
@@ -155,8 +169,8 @@
                         </div>
                         <?php endif; ?>
                         <div class="btn-submit" style="display: flex;justify-content: center;">
+                            <a style="margin-right: 20px;" href="" class="btn-primary">Chọn lại</a>
                             <button type="submit" name="submit" class="btn-primary">Submit</button>
-                            <a style="margin-left: 20px;" href="" class="btn-primary">Chọn lại</a>
                         </div>
 
                     </form>

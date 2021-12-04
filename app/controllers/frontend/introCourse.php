@@ -18,8 +18,6 @@ class introCourse extends baseController
 
     public function index()
     {
-
-
         $subject_slug = isset($_GET['mon']) ? $_GET['mon'] : null;
         $subject = modelSubject::where("subject_slug", "=", $subject_slug)->get();
         $subject_id = $subject[0]['subject_id'];

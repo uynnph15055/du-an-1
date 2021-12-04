@@ -8,17 +8,17 @@
 </style>
 <div class="container" style="margin-top: 80px;">
     <div class="about-section">
+        <h2 style="text-align: center; font-size: 30px; font-weight:bold; margin-bottom: 30px;">GIỚI THIỆU</h2>
         <div class="about-intro">
-            <div class="intro-img" style="margin-top: 50px;">
-                <img src="https://cdn.dribbble.com/users/2918596/screenshots/8860450/marketing.gif" alt="" class="img-fluid">
+            <div style="text-align: right" class="intro-img">
+                <img style="height: 350px;" src="./public/img/cf947b46283c10c47e3d5d945afb7053.gif" alt="" class="img-fluid">
             </div>
             <div class="intro-content">
-                <p class="text-title">COURSE IFT</p>
+                <p style="font-weight: bold; font-size: 20px">COURSE IFT</p>
                 <p class="text-content">
                     COURSE IFT được công nhận là một trong những lĩnh vực phát triển nhanh nhất, nên dĩ nhiên, sẽ không có khả năng có sự thiếu hụt các công việc để theo đuổi các chuyên gia công mới của bạn. Bạn có thể đủ điều kiện cho mình hơn nữa bằng cách hoàn thành chương trình học của bạn, quá. Một số vị trí nào bạn có thể đủ điều kiện để bao gồm các chuyên gia CNTT, kỹ sư mạng, nhân viên hỗ trợ kỹ thuật hoặc phát triển web. Với một phạm vi như vậy lựa chọn, không có gì lạ độ này là một lựa chọn phổ biến.
                 </p>
                 <p class="text-content">
-                    Bạn có thể ghi danh vào một khóa học trực tuyến trong CNTT thông qua các trường đại học của riêng bạn. Tìm kiếm các chương trình của bạn bên dưới và liên hệ trực tiếp văn phòng tuyển sinh của trường của sự lựa chọn của bạn bằng cách điền vào mẫu chì.
                 </p>
             </div>
         </div>
@@ -34,6 +34,7 @@
                             Nguyễn Ngọc Uy
                         </h5>
                         <div class="team-item__quotes">
+                            
                             BACKEND (WEB)
                         </div>
                         <div class="team-item-social">
@@ -56,7 +57,9 @@
                             Nguyễn Ngọc Anh
                         </h5>
                         <div class="team-item__quotes">
+                            
                             FRONTEND (WEB)
+
                         </div>
                         <div class="team-item-social">
                             <a href="">
@@ -78,7 +81,9 @@
                             Nguyễn Đức Bình
                         </h5>
                         <div class="team-item__quotes">
+                             
                             BACKEND (WEB)
+
                         </div>
                         <div class="team-item-social">
                             <a href="">
@@ -99,12 +104,12 @@
             <h4 class="about__title-item">Tầm nhìn</h4>
             <div class="visibility-content">
                 <div class="visibility-img">
-                    <img class="img-fluid" src="./public/img/Capy-Its-Getting-There-At-Blog-Archive-At-Stfu-Playstation-.gif" alt="" class="img-fluid">
+                    <img class="img-fluid" src="./public/img/iStock-655597202-1.jpg" alt="" class="img-fluid">
                 </div>
                 <div class="visibility-text">
-                    <p class="visibility__text" style="font-style: italic;text-align:center">Trở thành công ty công nghệ giáo dục có vị thế vững vàng trên thị
+                    <p class="visibility__text">Trở thành công ty công nghệ giáo dục có vị thế vững vàng trên thị
                         trường, với các sản phẩm hỗ
-                        trợ học lập trình chất lượng, thông minh và hiệu quả. F8 sẽ nổi tiếng bởi chất lượng sản
+                        trợ học lập trình chất lượng, thông minh và hiệu quả. Course IFT sẽ nổi tiếng bởi chất lượng sản
                         phẩm vượt trội và được cộng đồng tin tưởng chứ không phải vì tiếp thị tốt.</p>
                 </div>
             </div>
@@ -124,12 +129,12 @@
                                 tương thưởng xứng đáng? Hãy về với </p>
                         </div>
                         <div class="content-img">
-                            <img src="https://daihocvietnam.edu.vn/wp-content/uploads/2019/06/full_build_2.gif" alt="" class="img-fluid">
+                            <img style="padding: 30px;" src="./public/img/home_animate_0.gif" alt="" class="img-fluid">
                         </div>
                     </div>
                     <div class="strategy-row-2">
                         <div class="content-img">
-                            <img src="https://cdn.dribbble.com/users/1350622/screenshots/4408287/8.gif" alt="" class="img-fluid">
+                            <img src="./public/img/9a40da4a4d608a73f580e6767a3b31fd.gif" alt="" class="img-fluid">
                         </div>
                         <div class="content-text">
                             <p class="text-body"> Tin rằng sản phẩm tuyệt vời chỉ có thể tạo ra bởi những con
@@ -191,7 +196,7 @@
                 </defs>
             </svg>
 
-            <svg viewbox="0 0 1440 328" width="100%">
+            <svg viewbox="0 0 1440 200" width="100%">
                 <defs>
                     <clipPath id="wave" clipPathUnits="objectBoundingBox" transform="scale(0.00069444444, 0.00304878048)">
                         <path d="M504.452 27.7002C163.193 -42.9551 25.9595 38.071 0 87.4161V328H1440V27.7002C1270.34 57.14 845.711 98.3556 504.452 27.7002Z" />
