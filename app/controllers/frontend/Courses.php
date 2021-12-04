@@ -60,12 +60,12 @@ class Courses extends baseController
                 if ((int)$key['type_id'] == 0) {
                     $type = "Miễn Phí";
                     $class = 'course__price--free';
-                } else {
+                } elseif ((int)$key['type_id'] == 1) {
                     $class = 'course__price--old';
                     $type = number_format($key['subject_price']);
                     $sale = number_format($key['subject_sale']) . 'đ';
                 }
-                echo "
+                    echo "
             <div class='course-item'>
                 <div class='course-poster'>
                     <a href='mo-ta-mon-hoc?mon=" . $key['subject_slug'] . "'><img src='./public/img/" . $key['subject_img'] . "' class=' img-fluid'></img></a>

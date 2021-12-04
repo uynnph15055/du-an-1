@@ -152,12 +152,9 @@
                                         @if(isset($kq) && $kq ==$value['question_id'].$_SESSION['user_info'][0]['student_id'])
                                         <a style="background: #00bcca;" href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <i class="fab fa-angellist"></i>
-                                            <? $biendem++ ?>
+                                            <? $biendem++; ?>
                                         </a>
-<<<<<<< HEAD
-=======
-                                        <?php $biendem++ ?>
->>>>>>> 521e9d5e7d05323e41c4edbce7ad7c2092135a87
+
                                         @else
                                         <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>
