@@ -32,5 +32,24 @@ class introCourse extends baseController
             'menu' => $this->menu,
             'dataBill' => $dataBill,
         ]);
+
+
+        if (!isset($_SESSION['user_info'])) {
+            $this->render("customer.courseDetail", [
+                'subject' => $subject[0],
+                'lesson' => $lesson,
+                'menu' => $this->menu,
+                'dataBill' => $dataBill,
+            ]);
+        } else {
+            $this->render("customer.courseDetail", [
+                'subject' => $subject[0],
+                'lesson' => $lesson,
+                'user' => $_SESSION['user_info'][0],
+                'menu' => $this->menu,
+                'dataBill' => $dataBill,
+            ]);
+        }
+
     }
 }

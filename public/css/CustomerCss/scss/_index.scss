@@ -1,382 +1,386 @@
 .banner .row {
-    margin: 80px $margin-popular;
+  margin: 80px $margin-popular;
+}
+.banner-text {
+  display: flex;
+  align-items: center;
+
+  .slogan {
+    font-size: $larger;
   }
-  .banner-text {
-    display: flex;
-    align-items: center;
-  
-    .slogan {
-      font-size: $larger;
-    }
-    .slogan-sub {
-      font-size: 20px;
-      margin: 30px 0;
-    }
-    button {
-      font-size: 24px;
-      text-transform: uppercase;
-      padding-left: 25px;
-      padding-right: 25px;
-      box-shadow: 0 10px 15px 0px var(--color-secondary);
-    }
+  .slogan-sub {
+    font-size: 20px;
+    margin: 30px 0;
   }
-  
-  
-  .significant {
+  button {
+    font-size: 24px;
+    text-transform: uppercase;
+    padding-left: 25px;
+    padding-right: 25px;
+    box-shadow: 0 4px 15px 0px var(--color-secondary);
+    transition: $trans-second;
+  }
+  button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 30px 0px var(--color-secondary);
+  }
+}
+
+.significant {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 60px;
+  background: var(--white);
+  margin: 10px $margin-popular;
+
+  &-item {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 60px;
-    background: var(--white);
-    margin: 10px $margin-popular;
-  
-    &-item {
-      display: grid;
-      grid-template-columns: 30px 1fr;
-      grid-gap: 20px;
-  
-      padding: 20px 40px;
-      box-shadow: 0 0 20px var(--gray);
-      border-radius: $radius-2;
-      transition: $trans-second;
-      
-      &__icon {
-        display: flex;
-        margin: auto;
-        color: var(--color-secondary);
-        font-size: 28px;
-      }
-      &__text {
-        margin: auto;
-  
-        span {
-          font-weight: bold;
-          margin-bottom: 10px;
-        }
-        .significant-item__detail{
-          // font-size: $small;
-          line-height: 1.4 !important;
-          margin-top: 5px;
-        }
-      }
-    }
-    &-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 25px var(--gray);
-    }
-  }
-  
-  .course-new {
-    margin: 50px calc(1280px / 12 + 30px);
-    background: var(--white);
-  
-    h2 {
-      font-size: $large;
-      text-align: center;
-      transform: uppercase;
-    }
-  
-    .swiper-slide {
-      text-align: center;
-      max-width: 100%;
-      width: 10px;
-      /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
+    grid-template-columns: 30px 1fr;
+    grid-gap: 20px;
+
+    padding: 20px 40px;
+    box-shadow: 0 0 20px var(--gray);
+    border-radius: $radius-2;
+    transition: $trans-second;
+
+    &__icon {
       display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-    }
-  
-    @media (max-width: 760px) {
-      .swiper-button-next {
-        right: 20px;
-        transform: rotate(90deg);
-      }
-  
-      .swiper-button-prev {
-        left: 20px;
-        transform: rotate(90deg);
-      }
-    }
-  
-    .swiper-slide .course-item {
-      margin: 50px 15px;
-    }
-    .swiper-button {
-      background: white;
-      color: black;
-      font-size: 18px;
-      padding: 25px;
-      border-radius: 50%;
-    }
-  }
-  
-  .value {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 30px;
-  
-    background: var(--white);
-    margin: 50px margin-custom();
-  
-    .value-text__title {
-      font-size: $large;
-      font-weight: bold;
-    }
-  
-    .value-text-list {
-      margin: 30px 0;
-  
-      .value-text-item {
-        padding: 15px 30px;
-        margin: 20px 0;
-        border-radius: $radius-2;
-        box-shadow: 0 5px 5px var(--gray);
-        font-size: 18px;
-        transition: $trans-second;
-      }
-      .value-text-item:hover {
-        box-shadow: 0 0 10px var(--color-secondary);
-      }
-    }
-  }
-  
-  // .container{
-  //   position: relative;
-  
-  //   .bgr{
-  //     width: 100%;
-  //     position: fixed;
-  //     z-index: -1;
-  //   }
-  // }
-  .count-member{
-    position: relative;
-    margin: 100px 0;
-    height: 400px;
-    overflow: hidden;
-
-    img{
-      width: 100%;
-    }
-    .count-member-text{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 10;
-      color: #fff;
-      font-weight: bold;
-  
-      .text-numb{
-        display: block;
-        font-size: 100px;
-      }
-      .text-numb-sub{
-        font-size: $large;
-      }
-    }
-  }
-  
-  .your-gift {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 30px;
-  
-    margin: 50px margin-custom();
-  
-    .your-gift-text__title {
-      font-size: 25px;
-      font-weight: bold;
-    }
-  
-    .your-gift-text-list {
-      margin: 30px 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 30px;
-  
-      .your-gift-text-item {
-        text-align: center;
-        padding: 10px;
-        border: 1px solid var(--color-primary);
-        border-radius: $radius-2;
-        max-height: 130px;
-        max-height: 130px;
-  
-        .your-gift__text {
-          font-weight: bold;
-          margin-bottom: 10px;
-          display: block;
-        }
-
-        .your-gift__text-sub{
-          line-height: 1.4;
-        }
-      }
-
-      .your-gift__img{
-        margin-top: 40px;
-        margin-left: 40px;
-      }
-    }
-  }
-  
-  .rating {
-    background: var(--color-white-2);
-    padding: 30px;
-  
-    .mySlides {
-      display: none;
-      background: white;
-      padding: 40px 60px;
-    }
-    .rating-feedback{
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-      grid-gap: 30px;
-  
-      .img-acc{
-        width: 200px;
-
-        img{
-          width: 200px;
-          height: 200px;object-fit: cover;
-          border-radius: $radius-2;
-        }
-        
-      }
-      .name-acc{
-        text-align: center;
-        font-weight: bold;
-        margin: 20px 0 0;
-      }
-  
-      .feedback-text{
-        display: flex;
-        .fb-m{
-          margin:  30px auto;
-        }
-        .stars{
-          color: var(--color-star);
-          margin-bottom: 30px;
-        }
-      }
-    }
-  
-    /* Slideshow container */
-    .slideshow-container {
-      width: 1000px;
-      max-height: 400px;
-      overflow: hidden;
-      position: relative;
       margin: auto;
-      padding: 50px 0;
+      color: var(--color-secondary);
+      font-size: 28px;
     }
-  
-    /* Next & previous buttons */
-    .prev,
-    .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -22px;
-      color: gray;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.6s ease;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-    }
-  
-    /* Position the "next button" to the right */
-    .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
-    }
-  
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-      background-color: rgba(128, 128, 128, 0.571);
-    }
-  
-    /* Caption text */
-    .text {
-      color: #f2f2f2;
-      font-size: 15px;
-      padding: 8px 12px;
-      position: absolute;
-      bottom: 8px;
-      width: 100%;
-      text-align: center;
-    }
-  
-    /* The dots/bullets/indicators */
-    .dot {
-      cursor: pointer;
-      height: 15px;
-      width: 15px;
-      margin: 0 2px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.6s ease;
-    }
-  
-    .active,
-    .dot:hover {
-      background-color: var(--color-primary);
-    }
-  
-    /* Fading animation */
-    .fade {
-      -webkit-animation-name: fade;
-      -webkit-animation-duration: 1.5s;
-      animation-name: fade;
-      animation-duration: 1.5s;
-    }
-  
-    @-webkit-keyframes fade {
-      from {
-        opacity: 0.4;
+    &__text {
+      margin: auto;
+
+      span {
+        font-weight: bold;
+        margin-bottom: 10px;
       }
-      to {
-        opacity: 1;
-      }
-    }
-  
-    @keyframes fade {
-      from {
-        opacity: 0.4;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  
-    /* On smaller screens, decrease text size */
-    @media only screen and (max-width: 300px) {
-      .prev,
-      .next,
-      .text {
-        font-size: 11px;
+      .significant-item__detail {
+        // font-size: $small;
+        line-height: 1.4 !important;
+        margin-top: 5px;
       }
     }
   }
-  
-  .action-call {
+  &-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px var(--gray);
+  }
+}
+
+.course-new {
+  margin: 50px calc(1280px / 12 + 30px);
+  background: var(--white);
+
+  h2 {
+    font-size: $large;
     text-align: center;
-    margin: 50px;
+    transform: uppercase;
   }
-  
+
+  .swiper-slide {
+    text-align: center;
+    max-width: 100%;
+    width: 10px;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  @media (max-width: 760px) {
+    .swiper-button-next {
+      right: 20px;
+      transform: rotate(90deg);
+    }
+
+    .swiper-button-prev {
+      left: 20px;
+      transform: rotate(90deg);
+    }
+  }
+
+  .swiper-slide .course-item {
+    margin: 50px 15px;
+  }
+  .swiper-button {
+    background: white;
+    color: black;
+    font-size: 18px;
+    padding: 25px;
+    border-radius: 50%;
+  }
+}
+
+.value {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+
+  background: var(--white);
+  margin: 50px margin-custom();
+
+  .value-text__title {
+    font-size: $large;
+    font-weight: bold;
+  }
+
+  .value-text-list {
+    margin: 30px 0;
+
+    .value-text-item {
+      padding: 15px 30px;
+      margin: 20px 0;
+      border-radius: $radius-2;
+      box-shadow: 0 5px 5px var(--gray);
+      font-size: 18px;
+      transition: $trans-second;
+    }
+    .value-text-item:hover {
+      box-shadow: 0 0 10px var(--color-secondary);
+    }
+  }
+}
+
+// .container{
+//   position: relative;
+
+//   .bgr{
+//     width: 100%;
+//     position: fixed;
+//     z-index: -1;
+//   }
+// }
+.count-member {
+  position: relative;
+  margin: 100px 0;
+  height: 400px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+  .count-member-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: #fff;
+    font-weight: bold;
+
+    .text-numb {
+      display: block;
+      font-size: 100px;
+    }
+    .text-numb-sub {
+      font-size: $large;
+    }
+  }
+}
+
+.your-gift {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+
+  margin: 50px margin-custom();
+
+  .your-gift-text__title {
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .your-gift-text-list {
+    margin: 30px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+
+    .your-gift-text-item {
+      text-align: center;
+      padding: 10px;
+      border: 2px solid #eef;
+      border-radius: $radius-2;
+      max-height: 130px;
+      max-height: 130px;
+
+      .your-gift__text {
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .your-gift__text-sub {
+        line-height: 1.4;
+        font-size: $small;
+      }
+    }
+
+    .your-gift__img {
+      margin-top: 40px;
+      margin-left: 40px;
+    }
+  }
+}
+
+.rating {
+  background: var(--color-white-2);
+  padding: 30px;
+
+  .mySlides {
+    display: none;
+    background: white;
+    padding: 40px 60px;
+  }
+  .rating-feedback {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 30px;
+
+    .img-acc {
+      width: 200px;
+
+      img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: $radius-2;
+      }
+    }
+    .name-acc {
+      text-align: center;
+      font-weight: bold;
+      margin: 20px 0 0;
+    }
+
+    .feedback-text {
+      display: flex;
+      .fb-m {
+        margin: 30px auto;
+      }
+      .stars {
+        color: var(--color-star);
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  /* Slideshow container */
+  .slideshow-container {
+    width: 1000px;
+    max-height: 400px;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    padding: 50px 0;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: gray;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(128, 128, 128, 0.571);
+  }
+
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active,
+  .dot:hover {
+    background-color: var(--color-primary);
+  }
+
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev,
+    .next,
+    .text {
+      font-size: 11px;
+    }
+  }
+}
+
+.action-call {
+  text-align: center;
+  margin: 50px;
+}

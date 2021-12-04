@@ -31,7 +31,7 @@
         }
     }
 
-<<<<<<< HEAD
+
 $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
 ?>
 <!--Begin display -->
@@ -72,7 +72,7 @@ $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
                 if ($secureHash == $vnp_SecureHash) {
                     if ($_GET['vnp_ResponseCode'] == '00') {
                         echo "<span style='color:blue'>Thanh toán Thành công</span>";
-=======
+                    }}
     $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
     ?>
     <!--Begin display -->
@@ -117,7 +117,7 @@ $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
                         } else {
                             echo "<span style='color:red'>Thanh toán không Thành công</span>";
                         }
->>>>>>> 30fdb0012ad95e22aa73ae1e11b427521a8ec066
+
                     } else {
                         echo "<span style='color:red'>Chu ky khong hop le</span>";
                     }

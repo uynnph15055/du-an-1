@@ -7,11 +7,15 @@
         <form class="log__form" id="form-sign-up" action="dang-ky" method="POST">
             <h3 class="form__title">Đăng ký</h3>
             <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <abbr title="Sắp ra mắt">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                </abbr>
                 <?php if(isset($authUrl)): ?>
                 <a href="<?php echo e($authUrl); ?>" class="social"><i class="fab fa-google-plus-g"></i></a>
                 <?php endif; ?>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                <abbr title="Sắp ra mắt">
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </abbr>
             </div>
             <span>- hoặc sử dụng email để đăng ký</span>
             <!--  -->
@@ -34,11 +38,15 @@
         <form class="log__form" id="form-sign-in" method="POST" action="dang-nhap">
             <h3 class="form__title">Đăng nhập</h3>
             <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <abbr title="Sắp ra mắt">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                </abbr>
                 <?php if(isset($authUrl)): ?>
                 <a href="<?php echo e($authUrl); ?>" class="social"><i class="fab fa-google-plus-g"></i></a>
                 <?php endif; ?>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                <abbr title="Sắp ra mắt">
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </abbr>
             </div>
             <span>- hoặc sử dụng tài khoản</span>
 

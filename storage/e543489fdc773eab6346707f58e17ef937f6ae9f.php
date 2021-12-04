@@ -53,8 +53,6 @@
                     <?php if(isset($subject)): ?>
                     <?php $__currentLoopData = $subject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="course-item">
-
-
                         <?php $__currentLoopData = $dataBill; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valueBill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id']): ?>
                         <?php $bill_vnpay = $valueBill['code_vnpay'] ?>
@@ -71,7 +69,7 @@
                         </div>
                         <?php else: ?>
                         <div class="course-poster">
-                            <a href="thanh-toan-vnpay?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
+                            <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>"><img src="./public/img/<?php echo e($key['subject_img']); ?>" class=" img-fluid"></img></a>
                         </div>
                         <?php endif; ?>
                         <div class="course-text">
@@ -83,7 +81,7 @@
                             </h3>
                             <span class="course__members">
                                 <i class="fas fa-users"></i>
-                                123
+                                3
                             </span>
                             <?php $__currentLoopData = $dataBill; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valueBill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id']): ?>
@@ -122,7 +120,7 @@
                             </h3>
                             <span class="course__members">
                                 <i class="fas fa-users"></i>
-                                123
+                                3
                             </span>
                             <?php if($key['type_id'] == 0): ?>
                             <span class="course__price course__price--free">Miễn phí</span>

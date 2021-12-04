@@ -28,8 +28,8 @@
             <div class="card bg-warning text-white mb-4">
                 <div class="card-body">Hóa đơn</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small  stretched-link" href="">View hóa đơn</a>
-                    <h3 class="count">8</h3>
+                    <a class="small  stretched-link" href="thong-tin-hoa-don">View hóa đơn</a>
+                    <h3 class="count"><?php echo e($bill); ?></h3>
                     <i class="fas fa-receipt icon-count"></i>
                 </div>
             </div>
@@ -46,10 +46,10 @@
         </div>
         <div class="col-xl-3 col-md-6">
             <div class="card bg-danger text-white mb-4">
-                <div class="card-body">Đang chờ xử lý</div>
+                <div class="card-body">Khóa học</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small stretched-link" href="">View kích hoạt</a>
-                    <h3 class="count">8</h3>
+                    <a class="small stretched-link" href="danh-sach-mon?trang=1">View khóa học</a>
+                    <h3 class="count"><?php echo e($subject); ?></h3>
                     <i class="fas fa-brush icon-count"></i>
                 </div>
             </div>
