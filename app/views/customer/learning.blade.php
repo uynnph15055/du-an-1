@@ -57,7 +57,7 @@
                                     </div>
                                     @if($userInfo['student_id'] == $key['student_id'])
                                     <div class="action-ctrl">
-                                        <button class="item-ctrl-btn"><a class="delete_cmtt" data-id="{{$key['cmtt_id']}}" href=""><i class="fas fa-trash"></i></a></button>
+                                        <button class="item-ctrl-btn"><a class="delete_cmtt" onclick="return confirm('Bạn có muốn xóa bình luận này ?')" data-id="{{$key['cmtt_id']}}" href=""><i class="fas fa-trash"></i></a></button>
                                         <button class="item-ctrl-btn"><a href=""><i class="fas fa-pen"></i></a></button>
                                     </div>
                                     @endif
@@ -155,6 +155,7 @@
                                             <i style="color: white" class="fas fa-check"></i>
                                             <? $biendem++ ?>
                                         </a>
+
                                         @else
                                         <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>

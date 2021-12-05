@@ -10,6 +10,7 @@ use App\Models\modelSubject;
 use App\Models\modelMenu;
 use App\Models\modelNote;
 use App\Models\modelQuestionStatus;
+
 class Lesson extends baseController
 {
     private $menu;
@@ -76,7 +77,7 @@ class Lesson extends baseController
         // $this->dd($dataHistoryCheck);
         if (!empty($dataHistoryCheck)) {
             $this->render("customer.learning", [
-                'dataQuestionStatus'=> $dataQuestionStatus,
+                'dataQuestionStatus' => $dataQuestionStatus,
                 'dataLesson' => $dataLesson,
                 'subjectName' => $subjectName,
                 'subject_slug' => $subject_slug,
@@ -135,7 +136,7 @@ class Lesson extends baseController
             };
             echo " <div class='comment-item'>
             <div class='comment-img comment-img--acc '>
-                <img width='50px' src='./public/img/" . $key['student_avatar'] . "' alt=' class='img-fluid'>
+                <img width='50px' src='" . $key['student_avatar'] . "' alt=' class='img-fluid'>
             </div>
             <div class='comment-text'>
                 <span class='comment-item__name'>

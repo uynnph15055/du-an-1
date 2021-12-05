@@ -1,7 +1,6 @@
 
 <?php $__env->startSection('title', 'Đăng nhập'); ?>
 <?php $__env->startSection('main_content'); ?>
-
 <div class="form-log-container form-log-width" id="form-log-container">
     <div class="form-container-item sign-up-container">
         <form class="log__form" id="form-sign-up" action="dang-ky" method="POST">
