@@ -173,6 +173,8 @@ class Courses extends baseController
                     'menu' => $this->menu,
                 ]);
             }
+        } else {
+            header('Location: khoa-hoc');
         }
     }
 
