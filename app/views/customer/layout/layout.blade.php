@@ -56,12 +56,12 @@
                             @if(isset($user_info))
                             <div class="navbar-action-content">
                                 <button class="action-item">
-                                    <abbr title="Đánh giá">
+                                    <abbr title="Sắp ra mắt">
                                         <i class="fas fa-grin-stars"></i>
                                     </abbr>
                                 </button>
                                 <button class="action-item">
-                                    <abbr title="Thông báo">
+                                    <abbr title="Sắp ra mắt">
                                         <i class="fas fa-bell"></i>
                                     </abbr>
                                 </button>

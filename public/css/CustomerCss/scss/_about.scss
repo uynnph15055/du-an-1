@@ -59,7 +59,8 @@
         box-shadow: 0px 2px 10px var(--gray);
         padding: 40px;
         border-radius: $radius-2;
-        transition: all $trans-second linear;
+        // transition: all $trans-second linear;
+        transition: 0.6s;
 
         .team-item-img {
           margin: 10px auto;
@@ -125,6 +126,7 @@
       .about-team-item:hover {
         box-shadow: 0 4px 25px var(--color-thirty-30);
         transform: translateY(-10px);
+        transition: $trans-second;
       }
     }
   }

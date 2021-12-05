@@ -224,8 +224,8 @@
 </div>
 
 <!-- modal img -->
-<div class="container-ctrl-img">
-    <div class="modal hide">
+<div class="container-ctrl-img" >
+    <div class="modal hide" style=" margin-top: 65px;">
         <div class="modal__inner">
             <div class="modal__header">
                 <span></span>

@@ -3,6 +3,7 @@ var filterEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})
 
 var formSignUp = document.querySelector("#form-sign-up");
 var formSignIn = document.querySelector("#form-sign-in");
+var formForgotPass = document.querySelector("#form-forgot-pass");
 
 function showError(className, message, color) {
   var getClassName = document.querySelector(className);
@@ -15,7 +16,7 @@ function showError(className, message, color) {
 // check Tên đăng ký
 function checkName() {
   var checkNameReg = document.querySelector("#check-name-reg");
-  console.log(checkNameReg.value);
+
   if (checkNameReg.value.trim() == "") {
     showError(".check-name-reg", "Vui lòng nhập nhập thông tin!", "red");
     return false;
@@ -94,11 +95,31 @@ function checkPassLogin() {
     return true;
   }
 }
+var formCheckCode = document.querySelector("#form-check-code");
 
+function checkCode() {
+  var checkCodeInput = document.querySelector("#check-code");
+
+  if (checkCodeInput.value.trim() == "") {
+    showError(".check-code", "Vui lòng nhập nhập mã xác nhận!", "red");
+    return false;
+  } else {
+    showError(".check-code", "", "");
+    return true;
+  }
+}
+formCheckCode.addEventListener("submit", function(event){
+  checkCode();
+  
+  if(checkCode()){
+    console.log("Ok");
+  } else{
+    event.preventDefault();
+  }
+})
 //check email phần quên mật khẩu
-function checkEmailForgot() {
+function checkEmailForgotPass() {
   var checkEmailForgot = document.querySelector("#check-mail-forgot");
-
   if (checkEmailForgot.value.trim() == "") {
     showError(".check-mail-forgot", "Vui lòng nhập nhập email!", "red");
     return false;
@@ -135,3 +156,14 @@ formSignIn.addEventListener("submit", function (event) {
     event.preventDefault();
   }
 });
+
+// formForgotPass.addEventListener("submit", function (event) {
+//   checkEmailForgotPass();
+//   console.log("helllllllloooooooooooooooooooooo");
+
+//   if (checkEmailForgotPass()) {
+//     console.log("Ok");
+//   } else {
+//     console.log("Hello");
+//   }
+// });

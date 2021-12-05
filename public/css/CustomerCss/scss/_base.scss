@@ -7,7 +7,8 @@
   --white: white;
   --black: #232930;
   --color-white-1: #f8f9fc;
-  --color-white-2: #f6f8ff;
+  // --color-white-2: #f6f8ff;
+  --color-white-2: #f8f9fc;
   --color-primary: #0098d2;
   --color-secondary: #00bcca;
   --color-purple: #7d7fdc;
@@ -247,7 +248,7 @@ abbr{
     .test_index--success {
       display: inline-block;
       min-width: 35px;
-      padding: 10px 10px;
+      padding: 9.5px 10px;
       background: var(--gray-more);
       border-radius: 50%;
       margin: 0 10px 0 0;

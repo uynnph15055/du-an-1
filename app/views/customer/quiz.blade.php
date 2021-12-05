@@ -50,7 +50,7 @@
                     @if(isset($kq) && $kq ==$key['question_id'].$_SESSION['user_info'][0]['student_id'])
 
              
-                    <a style="background: #00bcca; color: #fff;" href="quzi?question_id={{$key['question_id']}}" class="index__quiz"><i class="fas fa-check"></i></a>
+                    <a style="background: #00bcca; color: #fff;" href="quzi?question_id={{$key['question_id']}}" class="index__quiz--success"><i class="fas fa-check"></i></a>
 
                     <?php $index++ ?>
                     @else
@@ -112,7 +112,6 @@
                             </div>
                         </div>
                         @else
-
                         <div class="list-answer" style="background-color: #ffff;">
                             <div class="inputGroup">
                                 <input type="hidden" name="question_id" value="{{$dataQuestion['question_id']}}">
