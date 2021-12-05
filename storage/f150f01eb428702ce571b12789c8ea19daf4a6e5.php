@@ -12,11 +12,11 @@
                     <div class="icon">
                         <i class="fas fa-lock"></i>
                     </div>
-                    <form class="log__form" action="gui-mail" method="POST">
-                        <input type="text" id="check-mail-forgot" name="email_check" onblur="checkEmailForgot()" oninput="checkEmailForgot()" placeholder="Email">
+                    <form class="log__form" id="form-forgot-pass" action="gui-mail" method="POST">
+                        <input type="text" id="check-mail-forgot" name="email_check" onblur="checkEmailForgotPass()" oninput="checkEmailForgotPass()" placeholder="Email">
                         <span class="alert-mess check-mail-forgot mess-margin"></span>
                         <div class="btn-base-log-section">
-                            <button class="base-logn__btn btn-primary" type="reset"><a style="color: #ffff;" href="">Nhập lại</a></button>
+                            <button class="base-logn__btn btn-primary" type="reset">Nhập lại</button>
                             <button class="base-logn__btn btn-primary" type="submit">Gửi</button>
                         </div>
                     </form>
@@ -30,6 +30,6 @@
         </div>
     </div>
 </div>
-<script src="./js/validateFormLog.js"></script>
+<script src="./public/js/customerJs/validateFormLog.js"></script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('customer.layout.layout_login', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\project_one\app\views/customer/forgot_pass.blade.php ENDPATH**/ ?>
