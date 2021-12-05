@@ -35,20 +35,20 @@
             <tr>
 
                 <td><?= $index++ ?></td>
-                <td><img style="width:100px;height:100px" src="./public/img/<?php echo e($key['subject_img']); ?>" alt=""></td>
+                <td><img style="width:100px;" src="./public/img/<?php echo e($key['subject_img']); ?>" alt=""></td>
                 <td><?php echo e($key['subject_name']); ?></td>
                 <td><?php echo e($key['so_luong']); ?></td>
                 <td><?php echo date('H:i d-m-Y', strtotime($key['cu_nhat'])) ?></td>
                 <td><?php echo date('H:i d-m-Y', strtotime($key['moi_nhat'])) ?></td>
                 <td><?php echo e(number_format($key['tong_tien'])); ?> đ</td>
-                <th><a class="btn btn-info" href="chi-tiet-hoa-don?subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-align-justify"></i></a></th>
+                <th><a class="btn btn-info" href="chi-tiet-hoa-don-admin?subject_id=<?php echo e($key['subject_id']); ?>"><i class="fas fa-align-justify"></i></a></th>
                 <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa bình luận  này ?')" href=""><i class="fas fa-trash"></i></a></td>
 
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
     </table>
- 
+
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 

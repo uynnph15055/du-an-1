@@ -49,13 +49,10 @@
                     <?php endif; ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <?php if(isset($kq) && $kq ==$key['question_id'].$_SESSION['user_info'][0]['student_id']): ?>
-<<<<<<< HEAD
 
-                    <a style="background: #00bcca;" href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><i class="fab fa-angellist"></i></a>
-=======
              
                     <a style="background: #00bcca; color: #fff;" href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><i class="fas fa-check"></i></a>
->>>>>>> 359d8330e56ee9c90d2d23834183e9cbb9e9f975
+
                     <?php $index++ ?>
                     <?php else: ?>
                     <a href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><?= $index++ ?></a>
