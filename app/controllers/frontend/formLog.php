@@ -96,6 +96,7 @@ class formLog extends baseController
                     header('Location: ./quan-tri');
                 } else {
                     $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
+                    die();
                 }
             }
         }

@@ -49,7 +49,6 @@ class Courses extends baseController
         if (isset($_SESSION['user_info'])) {
             $user = $_SESSION['user_info'][0];
         } else {
-
             header('location: dang-nhap-dang-ky');
         }
         $cate_id = $_GET['cate_id'];
@@ -130,11 +129,22 @@ class Courses extends baseController
             }
             $cateSubject = modelCateSubject::all();
             // $this->dd($this->menu);
-            $this->render("customer.courses", [
-                'cateSubject' => $cateSubject,
-                'subject' => $dataSubject,
-                'menu' => $this->menu,
-            ]);
+            $dataBill = modelBill::all();
+            if (isset($_SESSION['user_info'])) {
+                $this->render("customer.courses", [
+                    'cateSubject' => $cateSubject,
+                    'subject' => $dataSubject,
+                    'menu' => $this->menu,
+                    'dataBill' => $dataBill,
+                    'user' => $_SESSION['user_info'][0],
+                ]);
+            } else {
+                $this->render("customer.courses", [
+                    'cateSubject' => $cateSubject,
+                    'subject' => $dataSubject,
+                    'menu' => $this->menu,
+                ]);
+            }
         }
     }
 
@@ -218,8 +228,8 @@ class Courses extends baseController
                 $type = '';
                 $sale = '';
                 $class = '';
-             
-               if (isset($bill_vnpay) && $bill_vnpay == $user['student_id'] . $key['subject_id']) {
+
+                if (isset($bill_vnpay) && $bill_vnpay == $user['student_id'] . $key['subject_id']) {
                     $type = "Đã Mở";
                     $class = 'course__price--free';
                 } else {
@@ -227,7 +237,7 @@ class Courses extends baseController
                     $type = number_format($key['subject_price']);
                     $sale = number_format($key['subject_sale']) . 'đ';
                 }
-           
+
                 echo "
                 <div class='course-item'>
                 <div class='course-poster'>

@@ -89,45 +89,53 @@
                     <?php endif; ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <?php if($subject['type_id'] == 0): ?>
-                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 30px 0px;" class="btn-primary">
+                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 10px 0;" class="btn-primary">
                         Học ngay
                     </a>
+                    <span style="display: block;color: #04d200;font-size: 20px;padding: 0 0 10px">Miễn phí</span>
+
                     <?php elseif(isset($bill_vnpay) && $bill_vnpay==$user['student_id'].$subject['subject_id']): ?>
 
-                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 30px 0px;" class="btn-primary">
+                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 10px 0;" class="btn-primary">
                         Học ngay
                     </a>
                     <?php else: ?>
-                    <a href="thanh-toan-vnpay?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 30px 0px;" class="btn-primary">
+                    <a href="thanh-toan-vnpay?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 10px 0;" class="btn-primary">
                         Mua khóa học
                     </a>
-
+                    <div class="course-detail-price">
+                        <span class="course-detail-price--new">100.000 đ</span>
+                        <span class="course-detail-price--old">300.000 đ</span>
+                    </div>
                     <?php endif; ?>
                     <?php if(!empty($lesson)): ?>
                     <span class="sub-des">Hiện có <?php echo count($lesson) ?> bài</span>
                     <?php else: ?>
-                    <h6 style="margin: 10px 0px;">Chưa có bài nào</h6>
+                    <span class="sub-des">Chưa có bài nào </span>
                     <?php endif; ?>
-                    <span class="sub-des" style="font-style: italic;font-size:16px">Học mọi lúc, mọi nơi</span>
                 </div>
                 <?php else: ?>
                 <div class="course-detail-video">
                     <img src="./public/img/<?php echo e($subject['subject_img']); ?>" alt="" class="img-fluid course__img">
                     <?php if($subject['type_id'] == 0): ?>
-                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 30px 0px;" class="btn-primary">
+                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 10px 0;" class="btn-primary">
                         Học ngay
                     </a>
+                    <span style="display: block;color: #04d200;font-size: 20px;padding: 0 0 10px">Miễn phí</span>
                     <?php else: ?>
-                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 30px 0px;" class="btn-primary">
+                    <a href="bai-hoc?mon=<?php echo e($subject['subject_slug']); ?>" style="margin: 10px 0;" class="btn-primary">
                         Mua khóa học
                     </a>
+                    <div class="course-detail-price">
+                        <span class="course-detail-price--new">100.000 đ</span>
+                        <span class="course-detail-price--old">300.000 đ</span>
+                    </div>
                     <?php endif; ?>
                     <?php if(!empty($lesson)): ?>
                     <span class="sub-des">Hiện có <?php echo count($lesson) ?> bài</span>
                     <?php else: ?>
-                    <h6 style="margin: 10px 0px;">Chưa có bài nào</h6>
+                    <span  class="sub-des">Chưa có bài nào</span>
                     <?php endif; ?>
-                    <span class="sub-des" style="font-style: italic;font-size:16px">Học mọi lúc, mọi nơi</span>
                 </div>
                 <?php endif; ?>
             </div>

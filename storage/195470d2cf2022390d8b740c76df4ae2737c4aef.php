@@ -88,7 +88,7 @@
                             <div class="status-head head-grid">
                                 <span class="head-status__icon"><i class="fas fa-book-reader"></i></span>
                                 <span class="head-status__name">Khóa đang học</span>
-                                <span class="head-status__sub"><?php echo count($dataCourseLeaning) - 1 ?></span>
+                                <span class="head-status__sub"><?php echo count($dataCourseLeaning) ?></span>
                             </div>
                             <div class="status-content">
                                 <?php
@@ -108,7 +108,7 @@
                                         </div>
                                         <div class="status-course-text">
                                             <h3 class="status-course__name"><a href=""><?php echo e($key['subject_name']); ?></a></h3>
-                                            <p style="line-height: 1.6;">Ngày bắt đầu : <?php echo e($key['date_start']); ?></p>
+                                            <p style="line-height: 1.4; font-size: 14px;">Ngày bắt đầu : <?php echo e($key['date_start']); ?></p>
                                             <span class="status-course__count-lesson"><?php echo e($key['sum_lesson']); ?> / <?php echo count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?></span>
                                         </div>
                                 </div>
@@ -121,7 +121,7 @@
                         <div class="status-head head-grid">
                             <span class="head-status__icon"><i class="fas fa-medal"></i></span>
                             <span class="head-status__name">Khóa đã hoàn thành</span>
-                            <span class="head-status__sub"><?php echo count($dataCourseLeaning) - 1 ?></span>
+                            <span class="head-status__sub"><?php echo count($dataCourseLeaning) ?></span>
                         </div>
                         <div class="status-content">
                             <div class="status-course-list">
@@ -136,7 +136,7 @@
                                     </div>
                                     <div class="status-course-text">
                                         <h3 class="status-course__name"><a href=""><?php echo e($key['subject_name']); ?></a></h3>
-                                        <p style="line-height: 1.6;">Ngày bắt đầu : <?php echo e($key['date_start']); ?></p>
+                                        <p style="line-height: 1.4; font-size: 14px;">Ngày bắt đầu: <?php echo e($key['date_start']); ?></p>
                                         <span class="status-course__count-lesson"><?php echo e($key['sum_lesson']); ?> / <?php echo count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?></span>
                                     </div>
                                 </div>
@@ -151,7 +151,7 @@
                         <div class="head-section head-flex">
                             <span class="head-section__name">Đơn mua</span>
                             <span class="head-section__line"></span>
-                            <span class="head-section__sub">1</span>
+                            <span class="head-section__sub"><?php echo count($dataBillJoinSubject) ?></span>
                         </div>
                         <div class="bill-list">
                             <?php $__currentLoopData = $dataBillJoinSubject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keyBillJoinSubject): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -189,14 +189,16 @@
                         <div>
 
                         </div>
+                        <?php if(!empty($dataBillJoinSubject)): ?>
                         <a href="chi-tiet-hoa-don" style="display:block;text-align:center;margin-top:15px ;background:linear-gradient(to right, #0098d2, #00bcca) ; padding:10px;width:100px;border-radius: 5px;   text-align: center;
   transform:translateX(150px);color:#ffff">Xem tất cả</a>
+                        <?php endif; ?>
                     </div>
                     <div class="section-box course-function-item note">
                         <div class="head-section head-flex">
                             <span class="head-section__name">Ghi chú</span>
                             <span class="head-section__line"></span>
-                            <span class="head-section__sub">1</span>
+                            <span class="head-section__sub"><?php echo count($dataNote) ?></span>
                         </div>
                         <div class="note-list">
                             <?php $__currentLoopData = $dataNote; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -229,8 +231,8 @@
 </div>
 
 <!-- modal img -->
-<div class="container-ctrl-img">
-    <div class="modal hide">
+<div class="container-ctrl-img" >
+    <div class="modal hide" style=" margin-top: 65px;">
         <div class="modal__inner">
             <div class="modal__header">
                 <span></span>
@@ -291,13 +293,13 @@
                     </div>
                     <div class="form-item">
                         <label for="">Số điện thoại</label>
-                        <input type="text" name="student_phone" value="" id="" />
+                        <input type="text" name="student_phone" value="<?php echo e($dataInfo[0]['student_phone']); ?>" id="" />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-item">
                         <label for="">Tiểu sử</label>
-                        <textarea name="student_story" id="" cols="30" rows="10"></textarea>
+                        <textarea name="student_story" id="" cols="30" rows="10"><?php echo e($dataInfo[0]['student_story']); ?></textarea>
                     </div>
                 </div>
                 <div class="form__btn">

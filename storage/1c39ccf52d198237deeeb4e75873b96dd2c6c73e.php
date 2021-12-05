@@ -105,7 +105,7 @@
         <?php echo $__env->yieldContent('main_content'); ?>;
     </div>
     <script src="./public/js/customerJs/toggle.js"></script>
-<script src="./public/js/customerJs/form-log.js"></script>
+    <script src="./public/js/customerJs/form-log.js"></script>
 
     <script src="./public/js/customerJs/darkMode.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -142,6 +142,7 @@
         });
     </script>
     <?php echo $__env->yieldContent('javascript'); ?>
+    
 </body>
 
 </html><?php /**PATH D:\Xampp\htdocs\project_one\app\views/customer/layout/layout.blade.php ENDPATH**/ ?>

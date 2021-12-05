@@ -60,7 +60,7 @@
                                     </div>
                                     <?php if($userInfo['student_id'] == $key['student_id']): ?>
                                     <div class="action-ctrl">
-                                        <button class="item-ctrl-btn"><a class="delete_cmtt" data-id="<?php echo e($key['cmtt_id']); ?>" href=""><i class="fas fa-trash"></i></a></button>
+                                        <button class="item-ctrl-btn"><a class="delete_cmtt" onclick="return confirm('Bạn có muốn xóa bình luận này ?')" data-id="<?php echo e($key['cmtt_id']); ?>" href=""><i class="fas fa-trash"></i></a></button>
                                         <button class="item-ctrl-btn"><a href=""><i class="fas fa-pen"></i></a></button>
                                     </div>
                                     <?php endif; ?>
@@ -156,9 +156,10 @@
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                         <?php if(isset($kq) && $kq ==$value['question_id'].$_SESSION['user_info'][0]['student_id']): ?>
-                                        <a style="background: #00bcca;" href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
-                                            <i class="fab fa-angellist"></i>
-                                            <? $biendem++; ?>
+
+                                        <a style="background: #04d200;" href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index--success">
+                                            <i style="color: white" class="fas fa-check"></i>
+                                            <? $biendem++ ?>
                                         </a>
 
                                         <?php else: ?>
