@@ -63,7 +63,15 @@
         margin: 5px;
         transition: $trans-second;
       }
-
+      .index__quiz--success{
+        display: inline-block;
+        border: 1.5px solid var(--color-thirty-30);
+        border-radius: $radius;
+        padding: 6px 6px;
+        min-width: 32px;
+        margin: 5px;
+        transition: $trans-second;
+      }
       .index__quiz:hover {
         background: var(--color-thirty-30);
       }

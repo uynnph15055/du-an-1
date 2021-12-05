@@ -1,10 +1,10 @@
 
 <?php $__env->startSection('title', 'Khóa học'); ?>
 <?php $__env->startSection('main_content'); ?>
-<main class="bgr-light" style="margin-top: 80px;">
-    <div class="learning-section">
+<main class="bgr-light">
+    <div class="learning-section" style="padding-top: 90px">
         <div class="container-fluid">
-            <div class="learning-fluid">
+            <div class="learning-fluid" >
                 <div class="learning-space">
                     <div class="learning__video">
                         <?php if(isset($lessonFist)): ?>
@@ -160,6 +160,7 @@
                                         <i style="color: white" class="fas fa-check"></i>
                                             <? $biendem++ ?>
                                         </a>
+
                                         <?php else: ?>
                                         <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
                                             <?= $biendem++ ?>

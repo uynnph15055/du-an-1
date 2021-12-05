@@ -1,10 +1,10 @@
 @extends('customer.layout.layout')
 @section('title', 'Khóa học')
 @section('main_content')
-<main class="bgr-light" style="margin-top: 80px;">
-    <div class="learning-section">
+<main class="bgr-light">
+    <div class="learning-section" style="padding-top: 90px">
         <div class="container-fluid">
-            <div class="learning-fluid">
+            <div class="learning-fluid" >
                 <div class="learning-space">
                     <div class="learning__video">
                         @if(isset($lessonFist))

@@ -63,6 +63,9 @@ header {
           .action-btn {
             transition: 0.5s;
           }
+          .action-btn.btn-secondary{
+            margin-right: 8px;
+          }
           .action-btn:hover {
             opacity: 0.7;
           }
