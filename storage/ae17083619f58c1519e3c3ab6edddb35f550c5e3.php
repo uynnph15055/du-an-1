@@ -32,7 +32,7 @@
     }
 </style>
 
-<div class="container" style="margin-top:40px">
+<div class="container">
     <main class="bgr-light">
         <div class="container-fluid">
             <div class="course-detail">
