@@ -1,9 +1,11 @@
 // filter email
-var filterEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+var filterEmail =
+  /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
 var formSignUp = document.querySelector("#form-sign-up");
 var formSignIn = document.querySelector("#form-sign-in");
 var formForgotPass = document.querySelector("#form-forgot-pass");
+var formCheckCode = document.querySelector("#form-check-code");
 
 function showError(className, message, color) {
   var getClassName = document.querySelector(className);
@@ -69,7 +71,6 @@ function checkPass() {
 
 // check email login
 var checkEmailLogIn = document.querySelector("#email-sign-in");
-
 function checkEmailLogin() {
   if (checkEmailLogIn.value.trim() == "") {
     showError(".check-email-logIn", "Vui lòng nhập nhập email!", "red");
@@ -95,7 +96,6 @@ function checkPassLogin() {
     return true;
   }
 }
-var formCheckCode = document.querySelector("#form-check-code");
 
 function checkCode() {
   var checkCodeInput = document.querySelector("#check-code");
@@ -108,15 +108,7 @@ function checkCode() {
     return true;
   }
 }
-formCheckCode.addEventListener("submit", function(event){
-  checkCode();
-  
-  if(checkCode()){
-    console.log("Ok");
-  } else{
-    event.preventDefault();
-  }
-})
+
 //check email phần quên mật khẩu
 function checkEmailForgotPass() {
   var checkEmailForgot = document.querySelector("#check-mail-forgot");
@@ -132,38 +124,42 @@ function checkEmailForgotPass() {
   }
 }
 
-formSignUp.addEventListener("submit", function (event) {
-  checkName();
-  checkEmail();
-  checkPass();
+if (formCheckCode != null) {
+  formCheckCode.addEventListener("submit", function (event) {
+    checkCode();
+    if (!checkCode()) {
+      event.preventDefault();
+    }
+  });
+}
+if (formSignUp != null) {
+  formSignUp.addEventListener("submit", function (event) {
+    checkName();
+    checkEmail();
+    checkPass();
 
-  if (checkName() && checkEmail() && checkPass()) {
-    console.log("Ok");
-  } else {
-    console.log("Hello");
-    event.preventDefault();
-  }
-});
+    if (!checkName() && !checkEmail() && !checkPass()) {
+      event.preventDefault();
+    }
+  });
+}
 
-formSignIn.addEventListener("submit", function (event) {
-  checkEmailLogin();
-  checkPassLogin();
+if (formSignIn != null) {
+  formSignIn.addEventListener("submit", function (event) {
+    checkEmailLogin();
+    checkPassLogin();
 
-  if (checkEmailLogin() && checkPassLogin()) {
-    console.log("Ok");
-  } else {
-    console.log("Hello");
-    event.preventDefault();
-  }
-});
+    if (!checkEmailLogin() && !checkPassLogin()) {
+      event.preventDefault();
+    }
+  });
+}
 
-// formForgotPass.addEventListener("submit", function (event) {
-//   checkEmailForgotPass();
-//   console.log("helllllllloooooooooooooooooooooo");
-
-//   if (checkEmailForgotPass()) {
-//     console.log("Ok");
-//   } else {
-//     console.log("Hello");
-//   }
-// });
+if (formForgotPass != null) {
+  formForgotPass.addEventListener("submit", function (event) {
+    checkEmailForgotPass();
+    if (!checkEmailForgotPass()) {
+      event.preventDefault();
+    }
+  });
+}
