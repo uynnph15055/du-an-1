@@ -108,7 +108,7 @@
                                         </div>
                                         <div class="status-course-text">
                                             <h3 class="status-course__name"><a href=""><?php echo e($key['subject_name']); ?></a></h3>
-                                            <p style="line-height: 1.6;">Ngày bắt đầu : <?php echo e($key['date_start']); ?></p>
+                                            <p style="line-height: 1.4; font-size: 14px;">Ngày bắt đầu : <?php echo e($key['date_start']); ?></p>
                                             <span class="status-course__count-lesson"><?php echo e($key['sum_lesson']); ?> / <?php echo count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?></span>
                                         </div>
                                 </div>
@@ -231,8 +231,8 @@
 </div>
 
 <!-- modal img -->
-<div class="container-ctrl-img">
-    <div class="modal hide">
+<div class="container-ctrl-img" >
+    <div class="modal hide" style=" margin-top: 65px;">
         <div class="modal__inner">
             <div class="modal__header">
                 <span></span>

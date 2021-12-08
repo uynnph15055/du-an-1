@@ -310,6 +310,10 @@ switch ($url) {
         $ctr = new Lesson();
         echo $ctr->deleteNote();
         break;
+    case 'sua-ghi-chu';
+        $ctr = new Lesson();
+        echo $ctr->editNote();
+        break;
     case 'binh-luan-bai-hoc';
         $ctr = new Lesson();
         echo $ctr->comment();

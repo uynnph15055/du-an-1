@@ -209,7 +209,6 @@
 
                                     </a>
                                 </h3>
-                                <br>
                                 <div class="note-course-content-list">
                                     <div class="note-course-content-item">
                                         <span class="detail-content">

@@ -28,8 +28,27 @@
 }
 
 [data-theme="dark"] {
-  --white: black;
-  --black: white;
+  --white: #03485D;
+  --black: #E7E9ED;
+  --color-white-1: #00232E;
+  // --color-white-2: #f6f8ff;
+  --color-white-2: #00232E;
+  // --color-primary: #0098d2;
+  // --color-secondary: #00bcca;
+  // --color-purple: #7d7fdc;
+  // --color-purple-30: rgba(125, 127, 220, 0.3);
+  // --color-purple-light: #e1bbe5;
+  // --color-thirty-30: rgba(70, 191, 208, 0.3);
+  // --color-star: #ffe600;
+  // --gray: #ccc;
+  // --gray-more: #c4c4c4;
+  // --grey: #f2f2f2;
+  // --success: #04d200;
+  // --warning: #ffa600;
+  // --danger: #ff0000;
+  // --hightlight: #00bcca;
+  // --hightlight-color: white;
+  // --color-dark: #03485d;
 }
 
 html {

@@ -190,6 +190,24 @@ class Lesson extends baseController
         header('location: ' . $_SERVER['HTTP_REFERER']);
     }
 
+    public function editNote()
+    {
+        $note_id = $_GET['note_id'];
+        // echo $note_id;
+        // die();
+        $dataNote = modelNote::where("note_id", "=", $note_id)->get();
+        echo "<div id='note-lesson' class='tab-content'><form class='form__note' action='sua-ghi-chu-luu?note_id = " . $dataNote[0]['note_id'] . "' method='POST'>
+        <label class='form__note__title' for='>Tạo ghi chú mới</label>
+        <div class='note-section-content'>
+            <input class='input__time-note' type='text' placeholder='Thời gian'>
+            <textarea class='input__content-note' placeholder='Nội dung ghi chú' name='content_note' cols='30' rows='6'></textarea>
+            <button type='submit' class='btn btn-note'>
+                <i class='fas fa-save'></i>
+            </button>
+        </div>
+    </form></div>";
+    }
+
 
 
     // Comment bài học.

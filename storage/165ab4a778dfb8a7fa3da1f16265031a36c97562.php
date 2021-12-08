@@ -1,6 +1,6 @@
-@extends('customer.layout.layout')
-@section('title', 'Đánh giá')
-@section('main_content')
+
+<?php $__env->startSection('title', 'Đánh giá'); ?>
+<?php $__env->startSection('main_content'); ?>
 <style>
     /* star */
     .star-bg {
@@ -107,7 +107,7 @@
         <div class="stars">
             <form action="luu-danh-gia" method="POST">
                 <div class="star-bg">
-                    <input type="text" hidden name="subject_id" value="{{$subject_id}}">
+                    <input type="text" hidden name="subject_id" value="<?php echo e($subject_id); ?>">
                     <input class="star star-5" value="1" id="star-5" type="radio" name="star[]" />
                     <label class="star star-5" for="star-5"></label>
                     <input class="star star-4" value="2" id="star-4" type="radio" name="star[]" />
@@ -176,4 +176,5 @@
         </svg>
     </footer>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\project_one\app\views/customer/assess.blade.php ENDPATH**/ ?>

@@ -60,9 +60,7 @@
         $('.assess_status').click(function(e) {
             e.preventDefault();
             var assess_id = $(this).data('id');
-            $.get("trang-thai-danh-gia", {
-                assess_id: assess_id
-            }, function($data) {
+            $.get("trang-thai-danh-gia", {assess_id: assess_id}, function($data) {
                 $('.modal-body').html($data);
             })
         })
