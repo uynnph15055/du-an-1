@@ -4,7 +4,7 @@
 <main class="bgr-light">
     <div class="learning-section" style="padding-top: 90px">
         <div class="container-fluid">
-            <div class="learning-fluid" >
+            <div class="learning-fluid">
                 <div class="learning-space">
                     <div class="learning__video">
                         <?php if(isset($lessonFist)): ?>
@@ -68,7 +68,8 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </div>
-
+                        <!-- <div class="tab-content-note">
+                        </div> -->
                         <div id="note-lesson" class="tab-content">
                             <?php if(empty($dataNote)): ?>
                             <form class="form__note" action="ghi-chu-bai-hoc?student_id=<?php echo e($userInfo['student_id']); ?>&bai=<?php echo e($lesson_id); ?>" method="POST">
@@ -96,7 +97,7 @@
                                     </div>
                                     <div class="action-ctrl note-item-ctrl">
                                         <button class="item-ctrl-btn">
-                                            <a href=""><i class="fas fa-pencil-alt"></i></a>
+                                            <a class="editNote" data-id="<?php echo e($key['note_id']); ?>" href=""><i class="fas fa-pencil-alt"></i></a>
                                         </button>
                                         <button class="item-ctrl-btn">
                                             <a href="xoa-ghi-chu?note_id=<?php echo e($key['note_id']); ?>"><i class="fas fa-trash"></i></a>
@@ -147,6 +148,7 @@
                                     <?php foreach ($dataQuestion as $value) {
 
                                     ?>
+                                        <?php if(isset($dataQuestionStatus)): ?>
                                         <?php $__currentLoopData = $dataQuestionStatus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keyQuestionStatus): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <?php if($value['question_id'].$_SESSION['user_info'][0]['student_id']==$keyQuestionStatus['question_id'].$keyQuestionStatus['student_id'] ): ?>
                                         <?php $kq = $keyQuestionStatus['question_id'] . $keyQuestionStatus['student_id'];
@@ -168,7 +170,11 @@
                                         </a>
                                         <?php endif; ?>
 
-
+                                        <?php else: ?>
+                                        <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
+                                            <?= $biendem++ ?>
+                                        </a>
+                                        <?php endif; ?>
                                     <?php   } ?>
 
 
@@ -196,6 +202,18 @@
             })
         })
     })
+    // $(document).ready(function() {
+    //     $('.editNote').click(function(e) {
+    //         e.preventDefault();
+    //         $('#note-lesson').css("display", "none");
+    //         var note_id = $(this).data('id');
+    //         $.get("sua-ghi-chu", {
+    //             note_id: note_id
+    //         }, function($data) {
+    //             $('.tab-content-note').html($data);
+    //         })
+    //     })
+    // })
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('customer.layout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\project_one\app\views/customer/learning.blade.php ENDPATH**/ ?>

@@ -225,6 +225,9 @@ class formLog extends baseController
                     header('location: ' . $_SERVER['HTTP_REFERER']);
                     die();
                 }
+            } else {
+                header('location: ' . $_SERVER['HTTP_REFERER']);
+                die();
             }
         }
     }
@@ -305,6 +308,9 @@ class formLog extends baseController
                 } else {
                     $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
                 }
+            } else {
+                header('location: ' . $_SERVER['HTTP_REFERER']);
+                die();
             }
         }
     }

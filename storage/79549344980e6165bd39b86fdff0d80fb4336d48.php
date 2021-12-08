@@ -51,7 +51,7 @@
                     <?php if(isset($kq) && $kq ==$key['question_id'].$_SESSION['user_info'][0]['student_id']): ?>
 
              
-                    <a style="background: #00bcca; color: #fff;" href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz"><i class="fas fa-check"></i></a>
+                    <a style="background: #00bcca; color: #fff;" href="quzi?question_id=<?php echo e($key['question_id']); ?>" class="index__quiz--success"><i class="fas fa-check"></i></a>
 
                     <?php $index++ ?>
                     <?php else: ?>
@@ -67,7 +67,7 @@
                         <div class="list-answer" style="background-color: #ffff;">
                             <div class="inputGroup">
                                 <input type="hidden" name="question_id" value="<?php echo e($dataQuestion['question_id']); ?>">
-                                <input id="option1" name="anwer_one" value="1" type="checkbox" />
+                                <input id="option1" name="anwer[]" value="1" type="checkbox" />
                                 <label class="" for="option1">
                                     <div class="grid">
                                         <span class="index-option">A</span>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="inputGroup">
 
-                                <input id="option2" name="anwer_two" value="2" type="checkbox" />
+                                <input id="option2" name="anwer[]" value="2" type="checkbox" />
                                 <label class="" for="option2">
                                     <div class="grid">
                                         <span class="index-option">B</span>
@@ -92,7 +92,7 @@
                                 </label>
                             </div>
                             <div class="inputGroup">
-                                <input id="option3" name="anwer_three" value="3" type="checkbox" />
+                                <input id="option3" name="anwer[]" value="3" type="checkbox" />
                                 <label class="" for="option3">
                                     <div class="grid">
                                         <span class="index-option">C</span>
@@ -104,7 +104,7 @@
                                 </label>
                             </div>
                             <div class="inputGroup">
-                                <input id="option4" name="anwer_four" value="4" type="checkbox" />
+                                <input id="option4" name="anwer[]" value="4" type="checkbox" />
                                 <label class="" for="option4">
                                     <div class="grid">
                                         <span class="index-option">D</span>
@@ -117,11 +117,10 @@
                             </div>
                         </div>
                         <?php else: ?>
-
                         <div class="list-answer" style="background-color: #ffff;">
                             <div class="inputGroup">
                                 <input type="hidden" name="question_id" value="<?php echo e($dataQuestion['question_id']); ?>">
-                                <input id="option1" name="anwer_one" value="1" type="radio" />
+                                <input id="option1" name="anwer[]" value="1" type="radio" />
                                 <label class="" for="option1">
                                     <div class="grid">
                                         <span class="index-option">A</span>
@@ -133,7 +132,7 @@
                                 </label>
                             </div>
                             <div class="inputGroup">
-                                <input id="option2" name="anwer_two" value="2" type="radio" />
+                                <input id="option2" name="anwer[]" value="2" type="radio" />
                                 <label class="" for="option2">
                                     <div class="grid">
                                         <span class="index-option">B</span>
@@ -145,7 +144,7 @@
                                 </label>
                             </div>
                             <div class="inputGroup">
-                                <input id="option3" name="anwer_three" value="3" type="radio" />
+                                <input id="option3" name="anwer[]" value="3" type="radio" />
                                 <label class="" for="option3">
                                     <div class="grid">
                                         <span class="index-option">C</span>
@@ -157,7 +156,7 @@
                                 </label>
                             </div>
                             <div class="inputGroup">
-                                <input id="option4" name="anwer_four" value="4" type="radio" />
+                                <input id="option4" name="anwer[]" value="4" type="radio" />
                                 <label class="" for="option4">
                                     <div class="grid">
                                         <span class="index-option">D</span>

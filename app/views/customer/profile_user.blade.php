@@ -59,7 +59,7 @@
                                         {{$dataInfo[0]['student_email']}}
                                     </span>
                                 </div>
-                                @if(isset($dataInfo[0]['student_phone']))
+                                @if(!empty($dataInfo[0]['student_phone']))
                                 <div class="info-item">
                                     <span class="info-item__title">
                                         Số điện thoại :
