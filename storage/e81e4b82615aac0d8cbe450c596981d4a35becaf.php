@@ -62,7 +62,7 @@
 
                                     </span>
                                 </div>
-                                <?php if(isset($dataInfo[0]['student_phone'])): ?>
+                                <?php if(!empty($dataInfo[0]['student_phone'])): ?>
                                 <div class="info-item">
                                     <span class="info-item__title">
                                         Số điện thoại :
@@ -209,7 +209,6 @@
 
                                     </a>
                                 </h3>
-                                <br>
                                 <div class="note-course-content-list">
                                     <div class="note-course-content-item">
                                         <span class="detail-content">
@@ -231,7 +230,7 @@
 </div>
 
 <!-- modal img -->
-<div class="container-ctrl-img" >
+<div class="container-ctrl-img">
     <div class="modal hide" style=" margin-top: 65px;">
         <div class="modal__inner">
             <div class="modal__header">

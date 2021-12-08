@@ -67,7 +67,7 @@ class Question extends baseController
         // $this->dd($_POST);
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             extract($_POST);
-       
+
             if (!empty($anwer[0]) || !empty($anwer[1]) || !empty($anwer[2]) || !empty($anwer[3])) {
                 $answers = [];
                 isset($anwer[0]) ? $answers[0] = $anwer[0] : [];
@@ -112,7 +112,7 @@ class Question extends baseController
                     // $this->dd($dataStatusQuestion);
                     $questionStatus = $dataStatusQuestion[0]['question_status'];
                     if ($questionStatus == 1) {
-                        $_SESSION['error'] = 'Đáp án này bạn đã lời đúng trước đó !!!';
+                        $_SESSION['success'] = 'Đáp án đúng !!!';
                         header('location: ' . $_SERVER['HTTP_REFERER']);
                         die();
                     }

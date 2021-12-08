@@ -96,13 +96,13 @@ class proFile extends baseController
             if (!empty($student_name)) {
                 $dataStudentOld = modelStudent::where("student_id", "=", $this->student_id)->get();
 
-                if (empty($student_phone)) {
-                    $student_phone = $dataStudentOld[0]['student_phone'];
-                }
+                // if (empty($student_phone)) {
+                    // $student_phone = null;
+                // }
 
-                if (empty($student_story)) {
-                    $student_story = $dataStudentOld[0]['student_story'];
-                }
+                // if (empty($student_story)) {
+                    // $student_story = null;
+                // }
 
 
                 $data = [
