@@ -35,7 +35,7 @@
 <div class="container">
     <main class="bgr-light">
         <div class="container-fluid">
-            <div class="course-detail">
+            <div class="course-detail" style="padding-top: 95px;">
                 <div class="course-detail-text">
                     <div class="detail-name">
                         <h1 class="course__name">

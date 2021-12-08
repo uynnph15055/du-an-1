@@ -21,13 +21,12 @@ class Question extends baseController
         $this->menu = modelMenu::sortMenu();
         if (isset($_SESSION['user_info'])) {
             $dataInfo = $_SESSION['user_info'];
-        }
-        else {
+        } else {
             header('location: dang-nhap-dang-ky');
         }
 
 
-        $this->student_id =isset( $dataInfo)?$dataInfo[0]['student_id']:null;
+        $this->student_id = isset($dataInfo) ? $dataInfo[0]['student_id'] : null;
     }
 
     function index()
@@ -51,7 +50,7 @@ class Question extends baseController
 
 
         $this->render("customer.quiz", [
-            'dataQuestionStatus'=> $dataQuestionStatus,
+            'dataQuestionStatus' => $dataQuestionStatus,
             'dataQuestion' => $dataQuestion[0],
             'dataLessonJoinQuestion' => $dataLessonJoinQuestion[0],
             'menu' => $this->menu,
@@ -68,15 +67,15 @@ class Question extends baseController
         // $this->dd($_POST);
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             extract($_POST);
-            //  $this->dd($_POST);
-            if (!empty($anwer_one) || !empty($anwer_two) || !empty($anwer_three) || !empty($anwer_four)) {
-                $answer = [];
-                isset($anwer_one) ? $answer[0] = $anwer_one : [];
-                isset($anwer_two) ? $answer[1] = $anwer_two : [];
-                isset($anwer_three) ? $answer[2] = $anwer_three : [];
-                isset($anwer_four) ? $answer[3] = $anwer_four : [];
+       
+            if (!empty($anwer[0]) || !empty($anwer[1]) || !empty($anwer[2]) || !empty($anwer[3])) {
+                $answers = [];
+                isset($anwer[0]) ? $answers[0] = $anwer[0] : [];
+                isset($anwer[1]) ? $answers[1] = $anwer[1] : [];
+                isset($anwer[2]) ? $answers[2] = $anwer[2] : [];
+                isset($anwer[3]) ? $answers[3] = $anwer[3] : [];
 
-                $answer_check =  implode("/", array_values($answer));
+                $answer_check =  implode("/", array_values($answers));
 
                 $id = $question_id;
                 // $this->dd($id);

@@ -22,7 +22,7 @@
                     </form>
                     <a href="dang-nhap-dang-ky" class="form-link">Quay lại</a>
                     <p style="margin-top:30px;font-size:15px;text-align:center;color:#8E0007;">Mã xác nhận đã được chuyển vào email !</p>
-                    <!-- <?php unset($_SESSION['notifi']); ?> -->
+                    <?php unset($_SESSION['notifi']); ?>
                 </div>
             </div>
         </div>
