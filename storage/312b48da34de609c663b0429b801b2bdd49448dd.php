@@ -4,7 +4,7 @@
 <main class="bgr-light">
     <div class="learning-section" style="padding-top: 90px">
         <div class="container-fluid">
-            <div class="learning-fluid" >
+            <div class="learning-fluid">
                 <div class="learning-space">
                     <div class="learning__video">
                         <?php if(isset($lessonFist)): ?>
@@ -147,6 +147,7 @@
                                     <?php foreach ($dataQuestion as $value) {
 
                                     ?>
+                                        <?php if(isset($dataQuestionStatus)): ?>
                                         <?php $__currentLoopData = $dataQuestionStatus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $keyQuestionStatus): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <?php if($value['question_id'].$_SESSION['user_info'][0]['student_id']==$keyQuestionStatus['question_id'].$keyQuestionStatus['student_id'] ): ?>
                                         <?php $kq = $keyQuestionStatus['question_id'] . $keyQuestionStatus['student_id'];
@@ -168,7 +169,11 @@
                                         </a>
                                         <?php endif; ?>
 
-
+                                        <?php else: ?>
+                                        <a href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index">
+                                            <?= $biendem++ ?>
+                                        </a>
+                                        <?php endif; ?>
                                     <?php   } ?>
 
 

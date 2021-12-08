@@ -79,24 +79,36 @@
 
 
                 <div class="profile-course">
+                    <?php
+
+                    use App\Models\modelLesson;
+
+                    ?>
                     <div class="profile-course-item">
                         <div class="section-box course-status course-status--studying">
                             <div class="status-head head-grid">
                                 <span class="head-status__icon"><i class="fas fa-book-reader"></i></span>
                                 <span class="head-status__name">Khóa đang học</span>
-                                <span class="head-status__sub"><?php echo count($dataCourseLeaning) ?></span>
+                                <?php $i = 0 ?>
+                                @foreach($dataCourseLeaning as $key)
+                                <?php $count_lesson = count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?>
+
+                                @if($key['sum_lesson'] < $count_lesson)
+
+                                <?php $i += 1 ?>
+                                @endif
+
+                                @endforeach
+                                <span class="head-status__sub"> <?php echo $i ?></span>
                             </div>
                             <div class="status-content">
-                                <?php
 
-                                use App\Models\modelLesson;
-
-                                ?>
                                 <div class="status-course-list">
                                     @foreach($dataCourseLeaning as $key)
                                     <?php $count_lesson = count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?>
 
-                                    @if($key['sum_lesson'] < $count_lesson) <div class="status-course-item">
+                                    @if($key['sum_lesson'] < $count_lesson) 
+                                    <div class="status-course-item">
                                         <div class="status-course-img">
                                             <a href="bai-hoc?mon={{$key['subject_slug']}}">
                                                 <img src="./public/img/{{$key['subject_img']}}" alt="" class="img-fluid">
@@ -116,8 +128,19 @@
                     <div class="section-box course-status course-status--done">
                         <div class="status-head head-grid">
                             <span class="head-status__icon"><i class="fas fa-medal"></i></span>
+
                             <span class="head-status__name">Khóa đã hoàn thành</span>
-                            <span class="head-status__sub"><?php echo count($dataCourseLeaning) ?></span>
+                            <?php $index = 0 ?>
+                            @foreach($dataCourseLeaning as $key)
+                            <?php $count_lesson = count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?>
+
+                            @if($key['sum_lesson'] == $count_lesson)
+
+                            <?php $index += 1 ?>
+                            @endif
+
+                            @endforeach
+                            <span class="head-status__sub"> <?php echo $index ?></span>
                         </div>
                         <div class="status-content">
                             <div class="status-course-list">
@@ -224,7 +247,7 @@
 </div>
 
 <!-- modal img -->
-<div class="container-ctrl-img" >
+<div class="container-ctrl-img">
     <div class="modal hide" style=" margin-top: 65px;">
         <div class="modal__inner">
             <div class="modal__header">
