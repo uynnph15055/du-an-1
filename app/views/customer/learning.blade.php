@@ -191,17 +191,17 @@
             })
         })
     })
-    $(document).ready(function() {
-        $('.editNote').click(function(e) {
-            e.preventDefault();
-            $('#note-lesson').css("display", "none");
-            var note_id = $(this).data('id');
-            $.get("sua-ghi-chu", {
-                note_id: note_id
-            }, function($data) {
-                $('.tab-content-note').html($data);
-            })
-        })
-    })
+    // $(document).ready(function() {
+    //     $('.editNote').click(function(e) {
+    //         e.preventDefault();
+    //         $('#note-lesson').css("display", "none");
+    //         var note_id = $(this).data('id');
+    //         $.get("sua-ghi-chu", {
+    //             note_id: note_id
+    //         }, function($data) {
+    //             $('.tab-content-note').html($data);
+    //         })
+    //     })
+    // })
 </script>
 @endsection

@@ -21,6 +21,8 @@ class AdminBill extends baseController
             'sumAll' => $tong,
         ]);
     }
+
+
     public function deltalBill()
     {
         $subject_id = isset($_GET['subject_id']) ? $_GET['subject_id'] : null;
