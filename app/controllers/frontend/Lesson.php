@@ -73,9 +73,10 @@ class Lesson extends baseController
             'date_start' => $date_start,
         ];
         $dataQuestionStatus = modelQuestionStatus::all();
+        // $this->dd($dataQuestionStatus);
         $dataHistoryCheck = modelHistory::checkStatus($student_id, $subject_id);
         // $this->dd($dataHistoryCheck);
-        if (!empty($dataHistoryCheck)) {
+        if (!empty($dataHistoryCheck) ) {
             $this->render("customer.learning", [
                 'dataQuestionStatus' => $dataQuestionStatus,
                 'dataLesson' => $dataLesson,
@@ -89,7 +90,7 @@ class Lesson extends baseController
                 'lesson_id' => $lesson_id,
             ]);
             die();
-        }
+        }else
 
         modelHistory::insert($dataHistory);
         // die();
