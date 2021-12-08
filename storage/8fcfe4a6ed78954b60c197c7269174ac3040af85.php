@@ -1,7 +1,20 @@
 
 <?php $__env->startSection('title', 'Trang chủ'); ?>
 <?php $__env->startSection('main_content'); ?>
-
+<style>
+    .swiper-button-next, .swiper-button-prev{
+        box-shadow: 0 0 5px #eee;
+    }
+    .swiper-button-next::after, .swiper-button-prev::after{
+        content: "";
+    }
+    .swiper-button-prev{
+        margin-left: -10px;
+    }
+    .swiper-button-next{
+        margin-right: -10px;
+    }
+</style>
 <div class="container">
     <div class="banner">
         <div class="row">
@@ -156,8 +169,8 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                     <?php endif; ?>
-                    <div class="swiper-button swiper-button-next"></div>
-                    <div class="swiper-button swiper-button-prev"></div>
+                    <div class="swiper-button swiper-button-next"><i class="fas fa-chevron-right"></i></div>
+                    <div class="swiper-button swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
                 </div>
             </div>
 
