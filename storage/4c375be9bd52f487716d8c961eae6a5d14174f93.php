@@ -6,6 +6,7 @@
     .star-bg {
         display: flex;
         justify-content: center;
+        transform: scale(-1);
     }
 
     div.stars {

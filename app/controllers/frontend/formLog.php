@@ -16,6 +16,10 @@ class formLog extends baseController
 
     public function index()
     {
+        if(isset($_GET['sub'])){
+          $_SESSION['signUp'] =$_GET['sub'];
+    
+        }
         //Google Code
 
         //Insert your cient ID and secret 

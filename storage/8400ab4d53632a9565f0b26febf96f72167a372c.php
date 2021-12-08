@@ -47,8 +47,6 @@
     ?>
     <!--Begin display -->
 
-
-
     <div class="container">
     <div class="container-fluid">
             <div class="bill-success">
