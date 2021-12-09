@@ -29,8 +29,7 @@ class proFile extends baseController
     }
 
     public function index()
-    {
-
+{
         $dataCourseLeaning = modelHistory::getWidthSubject($this->student_id);
         $dataNote = modelNote::getNote($this->student_id);
         $countPoint = modelQuestionStatus::getWhereStudent($this->student_id);

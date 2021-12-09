@@ -73,9 +73,10 @@
                     </div>
                 </div>
             </div>
-
+            <?php use App\Models\modelHistory; ?>
             <div class="course-new">
                 <h2>CÁC KHÓA HỌC MỚI NHẤT</h2>
+            
                 <div class="swiper">
                     <?php if (isset($_SESSION['user_info'])) {
                         $user_info = $_SESSION['user_info'];
@@ -101,12 +102,16 @@
                                     @endif
 
                                 </div>
+           
                                 <div class="course-text">
                                     <a href="mo-ta-mon-hoc?mon={{$key['subject_slug']}}">
                                         <h3 class="course__title">{{$key['subject_name']}}</h3>
+                                       
                                         <span class="course__members">
                                             <i class="fas fa-users"></i>
-                                            123
+                                          <?php $countStudent=count(modelHistory::countStudent($key['subject_id']));
+                                       echo $countStudent;
+                                          ?>
                                         </span>
                                         @foreach($dataBill as $valueBill)
                                         @if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id'])
