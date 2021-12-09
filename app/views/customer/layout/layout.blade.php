@@ -92,7 +92,7 @@
                                 <a href="dang-nhap-dang-ky" class="action-btn btn-secondary">
                                     Đăng nhập
                                 </a>
-                                <a href="dang-nhap-dang-ky" onclick="openSignUp()" class="action-btn btn-primary">
+                                <a href="dang-nhap-dang-ky?sub=signUp"  class="action-btn btn-primary">
                                     Đăng ký
                                 </a>
                             </div>
