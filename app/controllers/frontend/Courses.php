@@ -7,6 +7,7 @@ use App\Models\modelCateSubject;
 use App\Models\modelMenu;
 use App\Models\modelSubject;
 use App\Models\modelBill;
+use App\Models\modelHistory;
 
 class Courses extends baseController
 {
@@ -55,8 +56,12 @@ class Courses extends baseController
                 $course = modelSubject::all();
             } else {
                 $course = modelSubject::where('cate_id', "=", $cate_id)->get();
+
                 foreach ($course as $key) {
+                    $countStudent = count(modelHistory::countStudent($key['subject_id']));
+                
                     foreach ($dataBill as $valueBill) {
+
                         if ($valueBill['code_vnpay'] == $user['student_id'] . $key['subject_id']) {
                             $bill_vnpay = $valueBill['code_vnpay'];
                         }
@@ -84,7 +89,7 @@ class Courses extends baseController
                     <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
                     <span class='course__members'>
                         <i class='fas fa-users'></i>
-                        123
+                        ".$countStudent."
                     </span>
                     <span class='course__price course__price--cost'>" . $sale . "</span>
                     <span class='course__price " . $class . "'>" . $type . "</span>
@@ -95,6 +100,7 @@ class Courses extends baseController
         } else {
             $course = modelSubject::where('cate_id', "=", $cate_id)->get();
             foreach ($course as $key) {
+                $countStudent = count(modelHistory::countStudent($key['subject_id']));
                 $type = '';
                 $sale = '';
                 $class = '';
@@ -115,7 +121,7 @@ class Courses extends baseController
                     <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
                     <span class='course__members'>
                         <i class='fas fa-users'></i>
-                        123
+                        ".$countStudent."
                     </span>
                     <span class='course__price course__price--cost'>" . $sale . "</span>
                     <span class='course__price " . $class . "'>" . $type . "</span>
@@ -188,6 +194,7 @@ class Courses extends baseController
             if ($select_id == 0) {
                 $dataSubject = modelSubject::all();
                 foreach ($dataSubject as $key) {
+                    $countStudent = count(modelHistory::countStudent($key['subject_id']));
                     foreach ($dataBill as $valueBill) {
                         if ($valueBill['code_vnpay'] == $user['student_id'] . $key['subject_id']) {
                             $bill_vnpay = $valueBill['code_vnpay'];
@@ -216,7 +223,7 @@ class Courses extends baseController
                         <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
                         <span class='course__members'>
                             <i class='fas fa-users'></i>
-                            123
+                            ".$countStudent."
                         </span>
                         <span class='course__price course__price--cost'>" . $sale . "</span>
                         <span class='course__price " . $class . "'>" . $type . "</span>
@@ -226,7 +233,7 @@ class Courses extends baseController
             } elseif ($select_id == 1) {
                 $dataSubject = modelSubject::where("type_id", "=", 0)->get();
                 foreach ($dataSubject as $key) {
-
+                    $countStudent = count(modelHistory::countStudent($key['subject_id']));
                     echo "
                 <div class='course-item'>
                     <div class='course-poster'>
@@ -236,7 +243,7 @@ class Courses extends baseController
                         <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
                         <span class='course__members'>
                             <i class='fas fa-users'></i>
-                            123
+                            ".$countStudent."
                         </span>
                         <span class='course__price--free'>Miễn phí</span>
                     </div>
@@ -246,6 +253,7 @@ class Courses extends baseController
 
                 $dataSubject = modelSubject::where("type_id", "=", 1)->get();
                 foreach ($dataSubject as $key) {
+                    $countStudent = count(modelHistory::countStudent($key['subject_id']));
                     foreach ($dataBill as $valueBill) {
                         if ($valueBill['code_vnpay'] == $user['student_id'] . $key['subject_id']) {
                             $bill_vnpay = $valueBill['code_vnpay'];
@@ -273,7 +281,7 @@ class Courses extends baseController
                         <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
                         <span class='course__members'>
                             <i class='fas fa-users'></i>
-                            123
+                            ".$countStudent."
                         </span>
                         <span class='course__price course__price--cost'>" . $sale . "</span>
                         <span class='course__price " . $class . "'>" . $type . "</span>
@@ -288,6 +296,7 @@ class Courses extends baseController
             if ($select_id == 0) {
                 $dataSubject = modelSubject::all();
                 foreach ($dataSubject as $key) {
+                    $countStudent = count(modelHistory::countStudent($key['subject_id']));
                     $type = '';
                     $sale = '';
                     $class = '';
@@ -308,7 +317,7 @@ class Courses extends baseController
                         <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
                         <span class='course__members'>
                             <i class='fas fa-users'></i>
-                            123
+                            ".$countStudent."
                         </span>
                         <span class='course__price course__price--cost'>" . $sale . "</span>
                         <span class='course__price " . $class . "'>" . $type . "</span>
@@ -318,6 +327,7 @@ class Courses extends baseController
             } elseif ($select_id == 1) {
                 $dataSubject = modelSubject::where("type_id", "=", 0)->get();
                 foreach ($dataSubject as $key) {
+                    $countStudent = count(modelHistory::countStudent($key['subject_id']));
 
                     echo "
                 <div class='course-item'>
@@ -328,7 +338,7 @@ class Courses extends baseController
                         <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
                         <span class='course__members'>
                             <i class='fas fa-users'></i>
-                            123
+                            ".$countStudent."
                         </span>
                         <span class='course__price--free'>Miễn phí</span>
                     </div>
@@ -338,6 +348,7 @@ class Courses extends baseController
 
                 $dataSubject = modelSubject::where("type_id", "=", 1)->get();
                 foreach ($dataSubject as $key) {
+                    $countStudent = count(modelHistory::countStudent($key['subject_id']));
                     $type = '';
                     $sale = '';
                     $class = '';
@@ -357,7 +368,7 @@ class Courses extends baseController
                         <h3 class='course__title' style='font-size: 15px;'>" . $key['subject_name'] . "</h3>
                         <span class='course__members'>
                             <i class='fas fa-users'></i>
-                            123
+                            ".$countStudent."
                         </span>
                         <span class='course__price course__price--cost'>" . $sale . "</span>
                         <span class='course__price " . $class . "'>" . $type . "</span>

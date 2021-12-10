@@ -45,6 +45,7 @@
                         @endforeach
                     </ul>
                 </aside>
+                <?php use App\Models\modelHistory; ?>
                 <?php if (isset($_SESSION['user_info'])) {
                     $user_info = $_SESSION['user_info'];
                 } ?>
@@ -80,7 +81,9 @@
                             </h3>
                             <span class="course__members">
                                 <i class="fas fa-users"></i>
-                                3
+                                <?php $countStudent=count(modelHistory::countStudent($key['subject_id']));
+                                       echo $countStudent;
+                                          ?>
                             </span>
                             @foreach($dataBill as $valueBill)
                             @if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id'])
