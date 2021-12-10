@@ -2,16 +2,21 @@
 <?php $__env->startSection('title', 'Trang chủ'); ?>
 <?php $__env->startSection('main_content'); ?>
 <style>
-    .swiper-button-next, .swiper-button-prev{
+    .swiper-button-next,
+    .swiper-button-prev {
         box-shadow: 0 0 5px #eee;
     }
-    .swiper-button-next::after, .swiper-button-prev::after{
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
         content: "";
     }
-    .swiper-button-prev{
+
+    .swiper-button-prev {
         margin-left: -10px;
     }
-    .swiper-button-next{
+
+    .swiper-button-next {
         margin-right: -10px;
     }
 </style>
@@ -335,10 +340,10 @@
                     </a>
                 </div>
                 <ul class="footer-links">
-                    <li><a class="link-item" href="">Các khóa học</a></li>
-                    <li><a class="link-item" href="">Liên hệ</a></li>
-                    <li><a class="link-item" href="">Giới thiệu</a></li>
-                    <li><a class="link-item" href="">Trợ giúp</a></li>
+                    <li><a class="link-item" href="khoa-hoc">Các khóa học</a></li>
+                    <li><a class="link-item" href="lien-he">Liên hệ</a></li>
+                    <li><a class="link-item" href="gioi-thieu">Giới thiệu</a></li>
+                    <li><a class="link-item" href="trang-chu">Trợ giúp</a></li>
                 </ul>
                 <div class="footer-copyright">
                     <span>Copyright © 2021 - Course IFT</span>

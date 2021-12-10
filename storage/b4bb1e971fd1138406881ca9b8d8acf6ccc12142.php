@@ -7,6 +7,18 @@
 <script src="./vnpay_php/assets/jquery-1.11.3.min.js"></script>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('main_content'); ?>
+<style>
+    .bill-success{
+        width: 800px;
+        margin: 100px auto;
+    }
+   .bill-success-detail {
+       font-weight: bold;
+   }
+   .bill-success-detail > div{
+       margin: 10px 0;
+   }
+</style>
 <div style="margin-top:70px">
     <?php require_once('./vnpay_php/config.php') ?>
     <?php
@@ -34,51 +46,47 @@
     $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
     ?>
     <!--Begin display -->
-    <div class="container">
-        <div class="header clearfix">
-            <h3 class="text-muted">VNPAY RESPONSE</h3>
-        </div>
-        <div class="table-responsive">
-            <div class="form-group">
-                <label>Mã đơn hàng:</label>
 
-                <label>CourseIFT-<?php echo $_GET['vnp_TxnRef'] ?></label>
-            </div>
-            <div class="form-group">
-                <label>Số tiền:</label>
-                <label><?php echo number_format($_GET['vnp_Amount'] / 100) ?>đ</label>
-            </div>
-            <div class="form-group">
-                <label>Nội dung thanh toán:</label>
-                <label><?php echo $_GET['vnp_OrderInfo'] ?></label>
-            </div>
-            <div class="form-group">
-                <label>Mã phản hồi (vnp_ResponseCode):</label>
-                <label><?php echo $_GET['vnp_ResponseCode'] ?></label>
-            </div>
-            <div class="form-group">
-                <label>Mã Ngân hàng:</label>
-                <label><?php echo $_GET['vnp_BankCode'] ?></label>
-            </div>
-            <div class="form-group">
-                <label>Thời gian thanh toán:</label>
-                <label><?php echo date("Y-m-d H:i:s") ?></label>
-            </div>
-            <div class="form-group">
-                <label>Kết quả:</label>
-                <label>
-                    <?php
+    <div class="container">
+    <div class="container-fluid">
+            <div class="bill-success">
+                <h3 style="font-size: 30px; margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 10px; color: green" class="bill-success__title">
+                    Mua khóa học thành công
+                </h3>
+                <div class="bill-success-detail">
+                    <div class="">
+                        Mã đơn hàng: CourseIFT-<?php echo $_GET['vnp_TxnRef'] ?>
+                    </div>
+                    <div class="">
+                        Số tiền: <?php echo number_format($_GET['vnp_Amount'] / 100) ?>đ
+                    </div>
+                    <div class="">
+                        Nội dung thanh toán:<?php echo $_GET['vnp_OrderInfo'] ?>
+                    </div>
+                    <div class="">
+                        Mã phản hồi: <?php echo $_GET['vnp_ResponseCode'] ?>
+                    </div>
+                    <div class="">
+                        Mã ngân hàng: <?php echo $_GET['vnp_BankCode'] ?>
+                    </div>
+                    <div class="">
+                        Thời gian thanh toán:<?php echo date("Y-m-d H:i:s") ?>
+                    </div>
+                    <div class="">
+                        Kết quả: <span style="color:green">   <?php
                     if ($secureHash == $vnp_SecureHash) {
                         if ($_GET['vnp_ResponseCode'] == '00') {
                             echo "<span style='color:blue'>Thanh toán Thành công</span>";
                             $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
                         }
                     }
-                    ?>
-                    <!--Begin display -->
+                    ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
             </div>
-
             <footer>
                 <div class="footer-content">
                     <div class="content">

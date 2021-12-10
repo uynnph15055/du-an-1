@@ -168,8 +168,8 @@
     </form>
     @endif
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
     $(document).ready(function() {
         $('#type_id').on('change', function() {

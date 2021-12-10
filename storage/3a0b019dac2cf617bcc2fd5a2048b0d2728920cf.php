@@ -56,6 +56,46 @@
         </div>
     </div>
     <div id="piechart" style="width: 1050px; height: 500px;background-color: #ccc;"></div>
+    <div class="table-bill">
+        <br>
+        <div class="" style="display: flex;justify-content: space-between;">
+            <h4>Danh thu năm : 2021</h4>
+            <select class="form-select" style="width:200px;" id="filter-time" aria-label="Default select example">
+                <option selected>Lọc theo thời gian</option>
+                <option value="1">7 ngày</option>
+                <option value="2">1 tháng</option>
+                <option value="3">3 tháng</option>
+            </select>
+        </div>
+        <table class="table table-bordered" style="margin-top:30px">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Ngày mua</th>
+                    <th>Môn</th>
+                    <th>Số tiền</th>
+                    <th width="120px">Xem chi tiết</th>
+                </tr>
+            </thead>
+            <tbody id="body">
+                <?php
+                $total = 0;
+                $index = 1;
+                ?>
+                <?php $__currentLoopData = $dataBill; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $total += $key['monney']; ?>
+                <tr>
+                    <td><?= $index++ ?></td>
+                    <td><?php echo e($key['transfer_time']); ?></td>
+                    <td><?php echo e($key['subject_name']); ?></td>
+                    <td><?php echo e($key['monney']); ?></td>
+                    <td><a href="chi-tiet-hoa-don-admin?subject_id=<?php echo e($key['subject_id']); ?>" class="btn btn-success">Chi tiết</a></td>
+                </tr>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <h4>Tổng tiền : <?= number_format($total) ?>VNĐ</h4>
+            </tbody>
+        </table>
+    </div>
 </div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -81,6 +121,19 @@
 
         chart.draw(data, options);
     }
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#filter-time').on('change', function() {
+            var filter_id = $(this).val();
+            $.get("doanh-thu-select", {
+                filter_id: filter_id
+            }, function($data) {
+                $('#body').html($data);
+            })
+        });
+    });
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/admin/adminMain/main.blade.php ENDPATH**/ ?>
