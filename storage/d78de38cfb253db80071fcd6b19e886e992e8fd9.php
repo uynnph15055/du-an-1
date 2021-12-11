@@ -1,7 +1,25 @@
 
 <?php $__env->startSection('title', 'Trang chủ'); ?>
 <?php $__env->startSection('main_content'); ?>
+<style>
+    .swiper-button-next,
+    .swiper-button-prev {
+        box-shadow: 0 0 5px #eee;
+    }
 
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        content: "";
+    }
+
+    .swiper-button-prev {
+        margin-left: -10px;
+    }
+
+    .swiper-button-next {
+        margin-right: -10px;
+    }
+</style>
 <div class="container">
     <div class="banner">
         <div class="row">
@@ -62,9 +80,10 @@
                     </div>
                 </div>
             </div>
-
+            <?php use App\Models\modelHistory; ?>
             <div class="course-new">
                 <h2>CÁC KHÓA HỌC MỚI NHẤT</h2>
+            
                 <div class="swiper">
                     <?php if (isset($_SESSION['user_info'])) {
                         $user_info = $_SESSION['user_info'];
@@ -90,12 +109,16 @@
                                     <?php endif; ?>
 
                                 </div>
+           
                                 <div class="course-text">
                                     <a href="mo-ta-mon-hoc?mon=<?php echo e($key['subject_slug']); ?>">
                                         <h3 class="course__title"><?php echo e($key['subject_name']); ?></h3>
+                                       
                                         <span class="course__members">
                                             <i class="fas fa-users"></i>
-                                            123
+                                          <?php $countStudent=count(modelHistory::countStudent($key['subject_id']));
+                                       echo $countStudent;
+                                          ?>
                                         </span>
                                         <?php $__currentLoopData = $dataBill; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valueBill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <?php if($valueBill['code_vnpay']==$user['student_id'].$key['subject_id']): ?>
@@ -156,8 +179,8 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                     <?php endif; ?>
-                    <div class="swiper-button swiper-button-next"></div>
-                    <div class="swiper-button swiper-button-prev"></div>
+                    <div class="swiper-button swiper-button-next"><i class="fas fa-chevron-right"></i></div>
+                    <div class="swiper-button swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
                 </div>
             </div>
 
@@ -322,10 +345,10 @@
                     </a>
                 </div>
                 <ul class="footer-links">
-                    <li><a class="link-item" href="">Các khóa học</a></li>
-                    <li><a class="link-item" href="">Liên hệ</a></li>
-                    <li><a class="link-item" href="">Giới thiệu</a></li>
-                    <li><a class="link-item" href="">Trợ giúp</a></li>
+                    <li><a class="link-item" href="khoa-hoc">Các khóa học</a></li>
+                    <li><a class="link-item" href="lien-he">Liên hệ</a></li>
+                    <li><a class="link-item" href="gioi-thieu">Giới thiệu</a></li>
+                    <li><a class="link-item" href="trang-chu">Trợ giúp</a></li>
                 </ul>
                 <div class="footer-copyright">
                     <span>Copyright © 2021 - Course IFT</span>

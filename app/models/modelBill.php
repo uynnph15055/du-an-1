@@ -51,16 +51,17 @@ class modelBill extends DB
         return $stmt->fetchAll();
     }
 
-    public static function selectBillDetailAdmin($id){
-     
+    public static function selectBillDetailAdmin($id)
+    {
+
         $model = new static;
         $conn = $model->getConnect();
         $queryBuilder = "SELECT * FROM bill INNER JOIN subject ON bill.subject_id=subject.subject_id INNER JOIN student ON bill.student_id=student.student_id WHERE bill.subject_id=:id ORDER BY bill.bill_id DESC";
         $stmt = $conn->prepare($queryBuilder);
-        $stmt->execute(['id'=>$id]);
+        $stmt->execute(['id' => $id]);
         return $stmt->fetchAll();
     }
-    
+
 
     //select tất cả bill trong admin theo môn học
     public static function selectBillSubject($subject_id)
@@ -74,4 +75,29 @@ class modelBill extends DB
         return $stmt->fetchAll();
     }
 
+    // Lấy tất cả doanh thu theo năm 2021
+    public static function selectBillYear($year)
+    {
+
+        $model = new static;
+        $conn = $model->getConnect();
+        $queryBuilder = " SELECT * FROM bill INNER JOIN subject ON bill.subject_id=subject.subject_id WHERE YEAR(bill.transfer_time)= YEAR(:year)";
+        $stmt = $conn->prepare($queryBuilder);
+        $stmt->execute(['year' => $year]);
+        return $stmt->fetchAll();
+    }
+
+    public static function selectBillDay($date, $dateNow)
+    {
+
+        $model = new static;
+        $conn = $model->getConnect();
+        $queryBuilder = " SELECT * FROM bill INNER JOIN subject ON bill.subject_id=subject.subject_id WHERE bill.transfer_time BETWEEN :date AND :dateNow";
+        $stmt = $conn->prepare($queryBuilder);
+        $stmt->execute([
+            'date' => $date,
+            'dateNow' => $dateNow
+        ]);
+        return $stmt->fetchAll();
+    }
 }

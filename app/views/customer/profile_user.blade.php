@@ -93,13 +93,7 @@
                                 @foreach($dataCourseLeaning as $key)
                                 <?php $count_lesson = count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?>
 
-                                @if($key['sum_lesson'] < $count_lesson)
-
-                                <?php $i += 1 ?>
-                                @endif
-
-                                @endforeach
-                                <span class="head-status__sub"> <?php echo $i ?></span>
+                                @if($key['sum_lesson'] < $count_lesson) <?php $i += 1 ?> @endif @endforeach <span class="head-status__sub"> <?php echo $i ?></span>
                             </div>
                             <div class="status-content">
 
@@ -107,8 +101,7 @@
                                     @foreach($dataCourseLeaning as $key)
                                     <?php $count_lesson = count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?>
 
-                                    @if($key['sum_lesson'] < $count_lesson) 
-                                    <div class="status-course-item">
+                                    @if($key['sum_lesson'] < $count_lesson) <div class="status-course-item">
                                         <div class="status-course-img">
                                             <a href="bai-hoc?mon={{$key['subject_slug']}}">
                                                 <img src="./public/img/{{$key['subject_img']}}" alt="" class="img-fluid">

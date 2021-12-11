@@ -73,8 +73,8 @@
                                 @endforeach
                             </div>
                         </div>
-                        <!-- <div class="tab-content-note">
-                        </div> -->
+                        <div class="tab-content-note">
+                        </div>
                         <div id="note-lesson" class="tab-content">
                             @if(empty($dataNote))
                             <form class="form__note" action="ghi-chu-bai-hoc?student_id={{$userInfo['student_id']}}&bai={{$lesson_id}}" method="POST">
@@ -101,7 +101,7 @@
                                     </div>
                                     <div class="action-ctrl note-item-ctrl">
                                         <button class="item-ctrl-btn">
-                                            <a class="editNote" data-id="{{$key['note_id']}}" href=""><i class="fas fa-pencil-alt"></i></a>
+                                            <a class="editNote" data-id="{{$key['note_id']}}"><i class="fas fa-pencil-alt"></i></a>
                                         </button>
                                         <button class="item-ctrl-btn">
                                             <a onclick="return confirm('Bạn có muốn xóa ghi chú?')" href="xoa-ghi-chu?note_id={{$key['note_id']}}"><i class="fas fa-trash"></i></a>
@@ -163,7 +163,7 @@
 
                                         <a style="background: #04d200;" href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index--success">
                                             <i style="color: white" class="fas fa-check"></i>
-                                            <? $biendem++ ?>
+                                            <?php $biendem++ ?>
                                         </a>
 
                                         @else
@@ -204,17 +204,17 @@
             })
         })
     })
-    // $(document).ready(function() {
-    //     $('.editNote').click(function(e) {
-    //         e.preventDefault();
-    //         $('#note-lesson').css("display", "none");
-    //         var note_id = $(this).data('id');
-    //         $.get("sua-ghi-chu", {
-    //             note_id: note_id
-    //         }, function($data) {
-    //             $('.tab-content-note').html($data);
-    //         })
-    //     })
-    // })
+    $(document).ready(function() {
+        $('.editNote').click(function(e) {
+            e.preventDefault();
+            $('.note-lesson-list').css("display", "none");
+            var note_id = $(this).data('id');
+            $.get("sua-ghi-chu", {
+                note_id: note_id
+            }, function($data) {
+                $('.tab-content-note').html($data);
+            })
+        })
+    })
 </script>
 @endsection

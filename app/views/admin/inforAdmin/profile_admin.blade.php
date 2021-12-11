@@ -13,7 +13,7 @@
                                 <div class="account-settings">
                                     <div class="user-profile">
                                         <div class="user-avatar">
-                                            <img style="width: 175px; height: 175px; object-fit: cover; border-radius: 50%" class="img-fluid" src="./public/img/{{$admin['img']}}" alt="Maxwell Admin">
+                                            <img style="width: 175px; height: 175px; border-radius: 50%;margin-left:12px" class="img-fluid" src="./public/img/{{$admin['img']}}" alt="Maxwell Admin">
                                         </div>
                                     </div>
                                     <div class="text-center">

@@ -259,6 +259,11 @@ switch ($url) {
         $ctr = new AdminBill;
         echo $ctr->index();
         break;
+    case 'doanh-thu-select';
+        $ctr = new adminMain;
+        echo $ctr->moneySelect();
+        break;
+
     case 'chi-tiet-hoa-don-admin';
         $ctr = new AdminBill;
         echo $ctr->deltalBill();

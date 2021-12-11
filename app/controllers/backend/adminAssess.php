@@ -39,13 +39,13 @@ class adminAssess extends baseController
         if ($_SERVER['REQUEST_METHOD'] ==  "POST") {
             extract($_POST);
 
-            $dataAssess = modelAssess::where("assess_status", "=", 1)->get();
+            // $dataAssess = modelAssess::where("assess_status", "=", 1)->get();
             // $this->dd(count($dataAssess));
-            if (count($dataAssess) > 3 || count($dataAssess) == 3) {
-                $_SESSION['error'] = "Số lượng hiển thị là 3 !";
-                header('location: ' . $_SERVER['HTTP_REFERER']);
-                die();
-            }
+            // if (count($dataAssess) > 3 || count($dataAssess) == 3) {
+            //     $_SESSION['error'] = "Số lượng hiển thị là 3 !";
+            //     header('location: ' . $_SERVER['HTTP_REFERER']);
+            //     die();
+            // }
 
             $data = [
                 'assess_id' => $assess_id,

@@ -91,6 +91,15 @@
 <script src="./public/js/customerJs/form-log.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
+    <?php if (isset($_SESSION['signUp'])) { ?>
+        $(document).ready(function() {
+            const formLogContainer = document.getElementById('form-log-container');
+            formLogContainer.classList.add("right-panel-active");
+        });
+    <?php unset($_SESSION['signUp']);
+    } ?>
+</script>
+<script>
     $(document).ready(function() {
         $('#email-sign-up').blur(function() {
             var emailVal = $(this).val();

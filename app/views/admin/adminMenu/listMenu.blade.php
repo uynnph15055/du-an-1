@@ -69,7 +69,7 @@
                             <td>{{$key['menu_name']}}</td>
                             <td>{{$key['menu_slug']}}</td>
                             <td>
-                                <input name="menu_index[]" value="{{$key['menu_index']}}" style="width:60px" type="number">
+                                {{$key['menu_index']}}
                             </td>
                             <td><a class="btn btn-warning" href="trang-sua-menu?id={{$key['menu_id']}}"><i class="fas fa-edit"></i></a></td>
                             <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa menu này ?')" href="xoa-menu?id={{$key['menu_id']}}"><i class="fas fa-trash"></i></a></td>
@@ -77,7 +77,6 @@
                         @endforeach
                     </tbody>
                 </table>
-                <button type="submit" class="btn btn-success">Cập nhật</button>
             </form>
         </div>
     </div>

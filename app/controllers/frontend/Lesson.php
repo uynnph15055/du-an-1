@@ -223,6 +223,8 @@ class Lesson extends baseController
             if (!empty($comment_content) || trim($comment_content)) {
                 $date_cmtt = date('Y-m-d');
 
+                
+
                 $data = [
                     'student_id' => $student_id,
                     'lesson_id' => $lesson_id,

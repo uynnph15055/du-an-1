@@ -69,7 +69,8 @@
                             <td><?php echo e($key['menu_name']); ?></td>
                             <td><?php echo e($key['menu_slug']); ?></td>
                             <td>
-                                <input name="menu_index[]" value="<?php echo e($key['menu_index']); ?>" style="width:60px" type="number">
+                                <?php echo e($key['menu_index']); ?>
+
                             </td>
                             <td><a class="btn btn-warning" href="trang-sua-menu?id=<?php echo e($key['menu_id']); ?>"><i class="fas fa-edit"></i></a></td>
                             <td><a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa menu này ?')" href="xoa-menu?id=<?php echo e($key['menu_id']); ?>"><i class="fas fa-trash"></i></a></td>
@@ -77,7 +78,6 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
-                <button type="submit" class="btn btn-success">Cập nhật</button>
             </form>
         </div>
     </div>
