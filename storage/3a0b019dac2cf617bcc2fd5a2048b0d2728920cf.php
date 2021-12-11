@@ -92,7 +92,7 @@
                     <td><a href="chi-tiet-hoa-don-admin?subject_id=<?php echo e($key['subject_id']); ?>" class="btn btn-success">Chi tiết</a></td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                <h4>Tổng tiền : <?= number_format($total) ?>VNĐ</h4>
+                <h4 id="sumMoney">Tổng tiền : <?= number_format($total) ?>VNĐ</h4>
             </tbody>
         </table>
     </div>
@@ -129,8 +129,9 @@
             var filter_id = $(this).val();
             $.get("doanh-thu-select", {
                 filter_id: filter_id
-            }, function($data) {
+            }, function($data, $h) {
                 $('#body').html($data);
+                $('#sumMoney').html($h);
             })
         });
     });

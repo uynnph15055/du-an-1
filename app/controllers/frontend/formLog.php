@@ -16,9 +16,8 @@ class formLog extends baseController
 
     public function index()
     {
-        if(isset($_GET['sub'])){
-          $_SESSION['signUp'] =$_GET['sub'];
-    
+        if (isset($_GET['sub'])) {
+            $_SESSION['signUp'] = $_GET['sub'];
         }
         //Google Code
 
@@ -98,9 +97,6 @@ class formLog extends baseController
 
                     $_SESSION['admin_info'] = $dataAdmin;
                     header('Location: ./quan-tri');
-                } else {
-                    $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
-                    die();
                 }
             }
         }
@@ -293,8 +289,8 @@ class formLog extends baseController
                         header('Location: dang-nhap-dang-ky');
                     }
                 } else {
-                    $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
                     header('Location: dang-nhap-dang-ky');
+                    die();
                 }
 
                 $dataAdmin = modelAdministrators::where("email", "=", $student_email)->get();
@@ -302,11 +298,11 @@ class formLog extends baseController
                     if (password_verify($student_password, $dataAdmin[0]['password'])) {
                         $_SESSION['admin_info'] = $dataAdmin;
                         header('Location: ./quan-tri');
-                    } else {
-                        $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
                     }
                 } else {
                     $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
+                    header('Location: dang-nhap-dang-ky');
+                    die();
                 }
             } else {
                 header('location: ' . $_SERVER['HTTP_REFERER']);
