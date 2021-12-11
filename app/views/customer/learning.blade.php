@@ -155,7 +155,7 @@
 
                                         <a style="background: #04d200;" href="quzi?question_id=<?= $value['question_id'] ?>" class="test_index--success">
                                             <i style="color: white" class="fas fa-check"></i>
-                                            <? $biendem++ ?>
+                                            <?php $biendem++ ?>
                                         </a>
 
                                         @else

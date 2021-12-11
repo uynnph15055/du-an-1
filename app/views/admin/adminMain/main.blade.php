@@ -92,7 +92,7 @@
                     <td><a href="chi-tiet-hoa-don-admin?subject_id={{$key['subject_id']}}" class="btn btn-success">Chi tiết</a></td>
                 </tr>
                 @endforeach
-                <h4>Tổng tiền : <?= number_format($total) ?>VNĐ</h4>
+                <h4  >Tổng tiền : <?= number_format($total) ?>VNĐ</h4>
             </tbody>
         </table>
     </div>
@@ -135,4 +135,5 @@
         });
     });
 </script>
+
 @endsection

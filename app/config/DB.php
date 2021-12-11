@@ -9,7 +9,7 @@ class DB
     // Hàm kết nốt
     function getConnect()
     {
-        $conn = new PDO("mysql:host=127.0.0.1;dbname=data;charset=utf8", 'root', '');
+        $conn = new PDO("mysql:host=127.0.0.1;dbname=data_project_one;charset=utf8", 'root', '');
         return $conn;
         
     }

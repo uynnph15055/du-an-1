@@ -60,15 +60,20 @@ class adminMain extends baseController
         $dataBill = modelBill::selectBillDay($resultDate, $date);
         $index = 1;
         $total = 0;
+
         foreach ($dataBill as $key) {
             $total += $key['monney'];
-            echo "<tr>
+
+            echo "<tr> 
             <td>" . $index++ . "</td>
             <td>" . $key['transfer_time'] . "</td>
             <td>" . $key['subject_name'] . "</td>
             <td>" . $key['monney'] . "</td>
             <td><a href='chi-tiet-hoa-don-admin?subject_id=" . $key['subject_id'] . "' class='btn btn-success'>Chi tiết</a></td>
-        </tr>";
+        </tr> 
+        ";
         }
+
+        echo "  <td>Tổng tiền : " . number_format($total) . "VNĐ</td>";
     }
 }
