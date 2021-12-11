@@ -2,18 +2,26 @@
   margin: 0 $margin-popular;
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-gap: 10px;
+  grid-gap: 30px;
   
   .learning__video{
     margin-bottom: 20px;
   }
   .learning-tabs {
+    input{
+      color: var(--dm-black);
+    }
+    textarea{
+      color: var(--dm-black);
+    }
     .btn-tab {
-      border-bottom: 1px solid var(--gray);
+      border-bottom: 1px solid var(--dm-gray);
+      border-top: 1px solid var(--dm-gray);
       text-align: center;
 
       .tablinks {
         font-size: 18px;
+        color: var(--dm-black);
         padding: 10px 0;
         margin: 0 20px;
         background: none;
@@ -23,29 +31,40 @@
       }
 
       .tablinks.active {
-        border-bottom: 3px solid var(--color-primary);
+        // border-bottom: 3px solid var(--dm-color-primary);
+        color: var(--dm-color-primary);
+        font-weight: bold;
       }
     }
     #comment-lesson {
       .count-comment {
         font-weight: bold;
-        padding: 10px 0;
+        padding: 15px 0 10px;
+        span{
+          color: var(--dm-gray-more);
+        }
       }
 
+      .comment-img {
+        img {
+          width: 45px;
+          height: 45px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+      .comment-img--acc{
+        img{
+          width: 42px;
+          height: 42px;
+        }
+      }
       .form-comment-input {
         display: grid;
         grid-template-columns: 50px 1fr;
         grid-gap: 30px;
         margin: 20px 0 30px;
 
-        .comment-img {
-          img {
-            width: 45px;
-            height: 46px;
-            object-fit: cover;
-            border-radius: 50%;
-          }
-        }
         form {
           display: grid;
           grid-template-columns: 1fr 30px;
@@ -60,13 +79,20 @@
 
           input {
             width: 100%;
-            border-bottom: 1px solid var(--white);
+            border-bottom: 1px solid var(--dm-gray);
             font-size: $normal;
           }
           button {
             font-size: 22px;
             cursor: pointer;
           }
+        }
+        .btn-comment{
+          color: var(--dm-gray);
+          transition: $trans-second;
+        }
+        .btn-comment:hover{
+          color: var(--dm-black);
         }
       }
 
@@ -79,22 +105,28 @@
           grid-gap: 30px;
 
           .comment-text {
-            background: var(--white);
+            background: var(--dm-white);
             padding: 15px;
             border-radius: $radius-2;
           }
           .comment-item__name {
             font-weight: bold;
+            color: var(--dm-black);
           }
           .comment-item__date {
-            color: var(--gray);
+            color: var(--dm-gray);
             text-align: right;
             padding-left: 15px;
-          }
-          .comment-item__content {
-            padding: 10px 0;
             font-size: $small;
           }
+          .comment-item__content {
+            padding: 10px 0 0;
+            font-size: $small;
+            color: var(--dm-black);
+          }
+        }
+        .comment-item + .comment-item{
+          margin-top: 10px;
         }
       }
     }
@@ -108,10 +140,11 @@
           display: inline-block;
           margin: 10px 0;
           font-weight: bold;
+          color: var(--dm-gray-more);
         }
         input,
         textarea {
-          background: var(--white);
+          background: var(--dm-white);
           border: none;
           padding: 10px;
           outline: none;
@@ -209,8 +242,11 @@
         }
       }
       .item-ctrl-btn:hover a {
-        color: var(--black);
+        color: var(--dm-black);
       }
     }
   }
+}
+.learning__lesson-name{
+  color: var(--dm-black);
 }

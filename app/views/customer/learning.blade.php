@@ -1,16 +1,16 @@
 @extends('customer.layout.layout')
 @section('title', 'Khóa học')
 @section('main_content')
-<main class="bgr-light">
+<main class="bgr-light-dm">
     <div class="learning-section" style="padding-top: 90px">
         <div class="container-fluid">
             <div class="learning-fluid">
                 <div class="learning-space">
                     <div class="learning__video">
                         @if(isset($lessonFist))
-                        <iframe width="98%" height="520" src="https://www.youtube.com/embed/{{$lessonFist['lesson_link']}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        <iframe width="100%" height="520" src="https://www.youtube.com/embed/{{$lessonFist['lesson_link']}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
-                        <h2 style="font-size: 20px;text-align:center;margin-top:15px">{{$lessonFist['lesson_name']}}</h2>
+                        <h2 class="learning__lesson-name" style="font-size: 20px;text-align:center;margin-top:15px">{{$lessonFist['lesson_name']}}</h2>
                         @endif
                         <!-- </video> -->
                     </div>
@@ -22,9 +22,9 @@
                         <div id="comment-lesson" class="tab-content">
                             <div class="count-comment">
                                 @if(!empty($dataComment))
-                                <span style="color: #444;">Hiện có <?php echo count($dataComment) ?> bình luận</span>
+                                <span>Hiện có <?php echo count($dataComment) ?> bình luận</span>
                                 @else
-                                <span style="color: #444;">Chưa có bình luận nào!</span>
+                                <span>Chưa có bình luận nào!</span>
                                 @endif
                             </div>
                             <div class="form-comment-input ">
@@ -57,8 +57,16 @@
                                     </div>
                                     @if($userInfo['student_id'] == $key['student_id'])
                                     <div class="action-ctrl">
-                                        <button class="item-ctrl-btn"><a class="delete_cmtt" onclick="return confirm('Bạn có muốn xóa bình luận này ?')" data-id="{{$key['cmtt_id']}}" href=""><i class="fas fa-trash"></i></a></button>
-                                        <button class="item-ctrl-btn"><a href=""><i class="fas fa-pen"></i></a></button>
+                                        <button class="item-ctrl-btn">
+                                            <abbr title="Xóa bình luận">
+                                                <a class="delete_cmtt" onclick="return confirm('Bạn có muốn xóa bình luận này ?')" data-id="{{$key['cmtt_id']}}" href=""><i class="fas fa-trash"></i></a>
+                                            </abbr>
+                                        </button>
+                                        <button class="item-ctrl-btn">
+                                            <abbr title="Sắp ra mắt">
+                                                <a href="#"><i class="fas fa-pen"></i></a>
+                                            </abbr>
+                                        </button>
                                     </div>
                                     @endif
                                 </div>
@@ -72,7 +80,7 @@
                             <form class="form__note" action="ghi-chu-bai-hoc?student_id={{$userInfo['student_id']}}&bai={{$lesson_id}}" method="POST">
                                 <label class="form__note__title" for="">Tạo ghi chú mới</label>
                                 <div class="note-section-content">
-                                    <input class="input__time-note" type="text" placeholder="Thời gian">
+                                    <!-- <input class="input__time-note" type="text" placeholder="Thời gian"> -->
                                     <textarea class="input__content-note" placeholder="Nội dung ghi chú" name="content_note" cols="30" rows="6"></textarea>
                                     <button type="submit" class="btn btn-note">
                                         <i class="fas fa-save"></i>
@@ -96,7 +104,7 @@
                                             <a class="editNote" data-id="{{$key['note_id']}}" href=""><i class="fas fa-pencil-alt"></i></a>
                                         </button>
                                         <button class="item-ctrl-btn">
-                                            <a href="xoa-ghi-chu?note_id={{$key['note_id']}}"><i class="fas fa-trash"></i></a>
+                                            <a onclick="return confirm('Bạn có muốn xóa ghi chú?')" href="xoa-ghi-chu?note_id={{$key['note_id']}}"><i class="fas fa-trash"></i></a>
                                         </button>
                                     </div>
                                 </div>

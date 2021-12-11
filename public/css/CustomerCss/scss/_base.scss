@@ -25,30 +25,31 @@
   --hightlight: #00bcca;
   --hightlight-color: white;
   --color-dark: #03485d;
+
+  // phần learning
+  --dm-white: white;
+  --dm-black: #232930;
+  --dm-white-1: #f8f9fc;
+  --dm-white-2: #f8f9fc;
+  --dm-color-primary: #0098d2;
+  --dm-color-primary: #0098d2;
+  --dm-color-secondary: #00bcca;
+  --dm-gray: #ccc;
+  --dm-gray-more: #a0a0a0;
+  --dm-grey: #f2f2f2;
 }
 
 [data-theme="dark"] {
-  --white: #03485D;
-  --black: #E7E9ED;
-  --color-white-1: #00232E;
+  --dm-white: #03485D;
+  --dm-black: #dddddd;
+  --dm-white-1: #00232E;
+  --dm-color-primary: #0098d2;
   // --color-white-2: #f6f8ff;
-  --color-white-2: #00232E;
-  // --color-primary: #0098d2;
-  // --color-secondary: #00bcca;
-  // --color-purple: #7d7fdc;
-  // --color-purple-30: rgba(125, 127, 220, 0.3);
-  // --color-purple-light: #e1bbe5;
-  // --color-thirty-30: rgba(70, 191, 208, 0.3);
-  // --color-star: #ffe600;
-  // --gray: #ccc;
-  // --gray-more: #c4c4c4;
-  // --grey: #f2f2f2;
-  // --success: #04d200;
-  // --warning: #ffa600;
-  // --danger: #ff0000;
-  // --hightlight: #00bcca;
-  // --hightlight-color: white;
-  // --color-dark: #03485d;
+  --dm-white-2: #00232E;
+  --dm-gray-more: #c4c4c4;
+  --dm-grey: #e0e0e0;
+
+
 }
 
 html {
@@ -185,6 +186,9 @@ abbr{
 .bgr-light {
   background: var(--color-white-2);
 }
+.bgr-light-dm {
+  background: var(--dm-white-2);
+}
 
 .btn-primary {
   @include button-key;
@@ -233,11 +237,12 @@ abbr{
 
 .play-list {
   padding: 20px 10px;
-  background: var(--white);
+  background: var(--dm-white);
   border-radius: $radius;
 
 
   .course__title {
+    color: var(--dm-black);
     font-weight: bold;
     font-size: 22px;
     margin-top:-10px;
@@ -253,6 +258,9 @@ abbr{
   //   width: 0 !important;
   //   display: none;
   // }
+  .lesson-item__title{
+    color: var(--dm-black);
+  }
   .lesson-item-test {
     padding: 0 40px;
 
@@ -260,7 +268,7 @@ abbr{
       display: inline-block;
       min-width: 35px;
       padding: 10px 13px;
-      background: var(--grey);
+      background: var(--dm-grey);
       border-radius: 50%;
       margin: 0 10px 0 0;
     }

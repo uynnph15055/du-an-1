@@ -9,24 +9,25 @@
   grid-gap: 20px;
 
   .aside__question {
-    // background: var(--color-white-1);
+    background: var(--dm-white);
     padding: 30px;
 
     .course__name {
-      font-size: 18px;
-      color: var(--color-primary);
+      a{
+        color: var(--dm-color-primary);
+      }
     }
 
     .lesson__title {
       font-size: 18px;
+      color: var(--dm-black);
       font-weight: bold;
       margin: 20px 0 0;
     }
 
     .quiz__question {
       margin: 10px 0;
-
-
+      color: var(--dm-black);
     }
 
     .quiz__img {
@@ -43,7 +44,10 @@
       font-weight: bold;
       display: block;
       margin: 10px 0;
-
+      color: var(--dm-black);
+    }
+    .quiz-hint__content{
+      color: var(--dm-black);
     }
 
   }
@@ -62,6 +66,7 @@
         min-width: 32px;
         margin: 5px;
         transition: $trans-second;
+        color: var(--dm-black);
       }
       .index__quiz--success{
         display: inline-block;
@@ -87,7 +92,7 @@
 
       .quiz-answer {
         .list-answer {
-          // background: var(--color-white-1);
+          background: var(--dm-white);
           border-radius: $radius-2;
           margin: 20px;
           padding: 50px;
@@ -108,7 +113,7 @@
             margin: 10px 0;
             position: relative;
             border-radius: 10px;
-            background: var(--grey);
+            background: var(--dm-grey);
 
             label {
               padding: 12px 10px;

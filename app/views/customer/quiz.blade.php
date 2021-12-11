@@ -6,14 +6,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500&family=Montserrat:ital,wght@0,200;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
 @endsection
 @section('main_content')
-<div style="margin-top:40px" class="container bgr-white">
+<div style="margin-top:40px" class="container bgr-light-dm">
     <div class="container-fluid ">
         <div class="quiz-lesson-container">
-            <aside class="aside__question" style="background-color: #ffff;">
+            <aside class="aside__question">
                 <h3 class="course__name" style="margin-top: 20px;font-size:30px">
-                    {{ $dataLessonJoinQuestion['subject_name']}}
+                    <a href="bai-hoc?mon={{ $dataLessonJoinQuestion['subject_slug']}}">
+                        {{ $dataLessonJoinQuestion['subject_name']}}
+                    </a>
                 </h3>
-                <h4 style="color: #333;" class="lesson__title">Bài học: {{ $dataLessonJoinQuestion['lesson_name']}} </h4>
+                <h4 class="lesson__title">
+                    Bài: {{ $dataLessonJoinQuestion['lesson_name']}}
+                </h4>
                 <h5 class="quiz__question">
                     <span class="subtitle">Bài tập</span>
                     <?= $dataQuestion['question'] ?>
@@ -24,7 +28,7 @@
                 </div>
                 <div class="quiz-hint">
                     <h5 class="subtitle quiz-hint__title">Gợi ý</h5>
-                    Chọn {{$countAnswers}} đáp án
+                    <span class="quiz-hint__content">Chọn {{$countAnswers}} đáp án</span>
                 </div>
             </aside>
             <div class="quiz-container">
@@ -49,7 +53,7 @@
                     @endforeach
                     @if(isset($kq) && $kq ==$key['question_id'].$_SESSION['user_info'][0]['student_id'])
 
-             
+
                     <a style="background: #00bcca; color: #fff;" href="quzi?question_id={{$key['question_id']}}" class="index__quiz--success"><i class="fas fa-check"></i></a>
 
                     <?php $index++ ?>
@@ -63,7 +67,7 @@
                     <form action="quzi-answer" method="POST" class="quiz-answer">
                         <input type="hidden" name="lesson_id" value="{{$lesson_id}}">
                         @if($countAnswers>1)
-                        <div class="list-answer" style="background-color: #ffff;">
+                        <div class="list-answer">
                             <div class="inputGroup">
                                 <input type="hidden" name="question_id" value="{{$dataQuestion['question_id']}}">
                                 <input id="option1" name="anwer[]" value="1" type="checkbox" />
@@ -112,7 +116,7 @@
                             </div>
                         </div>
                         @else
-                        <div class="list-answer" style="background-color: #ffff;">
+                        <div class="list-answer">
                             <div class="inputGroup">
                                 <input type="hidden" name="question_id" value="{{$dataQuestion['question_id']}}">
                                 <input id="option1" name="anwer[]" value="1" type="radio" />

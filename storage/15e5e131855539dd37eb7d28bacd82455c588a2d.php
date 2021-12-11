@@ -66,7 +66,7 @@
                                     </abbr>
                                 </button>
                                 <div class="account-section action-item">
-                                    <button style="padding: 0; border-radius: 50%; cursor: pointer; overflow: hidden; width: 30px; height: 30px" onclick="toggleShowHide()" id="btn-acc">
+                                    <button style="padding: 0; border-radius: 50%; cursor: pointer; overflow: hidden; width: 30px; height: 30px" id="btn-acc">
                                         <img style="object-fit: cover; width: 30px; height: 30px" src="<?= $user_info[0]['student_avatar'] ?>" alt="">
                                     </button>
                                     <div id="account-list" class="content-container-acc">
@@ -92,7 +92,7 @@
                                 <a href="dang-nhap-dang-ky" class="action-btn btn-secondary">
                                     Đăng nhập
                                 </a>
-                                <a href="dang-nhap-dang-ky" onclick="openSignUp()" class="action-btn btn-primary">
+                                <a href="dang-nhap-dang-ky?sub=signUp"  class="action-btn btn-primary">
                                     Đăng ký
                                 </a>
                             </div>
