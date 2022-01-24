@@ -46,10 +46,10 @@
         transform: rotate(-15deg) scale(1.3);
     }
 
-    label.star:before {
+    /* label.star:before {
         content: '\f006';
         font-family: FontAwesome;
-    }
+    } */
 
 
     /* --------------------------------- */

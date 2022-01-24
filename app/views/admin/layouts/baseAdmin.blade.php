@@ -26,7 +26,7 @@
     <!--  -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    @yield('link css banner')
+
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <style>
         th {
@@ -34,6 +34,7 @@
             font-weight: 500;
         }
     </style>
+     @yield('link css banner')
 </head>
 
 <body id="page-top">
@@ -78,7 +79,7 @@
                 <div id="collapseTwo" class="collapse" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="./danh-sach-loai-mon-hoc">Danh mục khóa học</a>
-                        <a class="collapse-item" href="./danh-sach-mon?trang=1 ">Danh sách các khóa</a>
+                        <a class="collapse-item" href="./danh-sach-mon?trang=1 ">Danh sách các khóa học</a>
                     </div>
                 </div>
             </li>
@@ -114,7 +115,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Khác    
+                Khác
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->

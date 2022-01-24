@@ -2,7 +2,7 @@
 @section('title', 'Khóa học')
 @section('main_content')
 <main class="bgr-light-dm">
-    <div class="learning-section" style="padding-top: 90px">
+    <div class="learning-section" style="padding-top: 70px">
         <div class="container-fluid">
             <div class="learning-fluid">
                 <div class="learning-space">

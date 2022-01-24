@@ -60,13 +60,9 @@ class adminMain extends baseController
         $dataBill = modelBill::selectBillDay($resultDate, $date);
         $index = 1;
         $total = 0;
-<<<<<<< HEAD
-
-=======
-        // foreach ($dataBill as $key) {
-        //     $total += $key['monney'];
-        // }
->>>>>>> f2b82a3235b3340d2717627a25d7d955aa3082af
+        foreach ($dataBill as $key) {
+            $total += $key['monney'];
+        }
         foreach ($dataBill as $key) {
             $total += $key['monney'];
 
@@ -79,11 +75,6 @@ class adminMain extends baseController
         </tr> 
         ";
         }
-<<<<<<< HEAD
-
-        echo "  <td>Tổng tiền : " . number_format($total) . "VNĐ</td>";
-=======
-        $total;
->>>>>>> f2b82a3235b3340d2717627a25d7d955aa3082af
+        echo "  <td style='color:red;font-weight:600'>Tổng tiền : " . number_format($total) . "VNĐ</td>";
     }
 }

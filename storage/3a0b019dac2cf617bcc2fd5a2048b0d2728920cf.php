@@ -92,7 +92,9 @@
                     <td><a href="chi-tiet-hoa-don-admin?subject_id=<?php echo e($key['subject_id']); ?>" class="btn btn-success">Chi tiết</a></td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                <h4 id="sumMoney">Tổng tiền : <?= number_format($total) ?>VNĐ</h4>
+                <td style="color:red;font-weight:600">
+                    Tổng tiền : <?= number_format($total) ?>VNĐ
+                </td>
             </tbody>
         </table>
     </div>
@@ -129,12 +131,12 @@
             var filter_id = $(this).val();
             $.get("doanh-thu-select", {
                 filter_id: filter_id
-            }, function($data, $h) {
+            }, function($data) {
                 $('#body').html($data);
-                $('#sumMoney').html($h);
             })
         });
     });
 </script>
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.layouts.baseAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Xampp\htdocs\project_one\app\views/admin/adminMain/main.blade.php ENDPATH**/ ?>

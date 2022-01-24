@@ -92,11 +92,9 @@
                     <td><a href="chi-tiet-hoa-don-admin?subject_id={{$key['subject_id']}}" class="btn btn-success">Chi tiết</a></td>
                 </tr>
                 @endforeach
-<<<<<<< HEAD
-                <h4  >Tổng tiền : <?= number_format($total) ?>VNĐ</h4>
-=======
-                <h4 id="sumMoney">Tổng tiền : <?= number_format($total) ?>VNĐ</h4>
->>>>>>> f2b82a3235b3340d2717627a25d7d955aa3082af
+                <td style="color:red;font-weight:600">
+                    Tổng tiền : <?= number_format($total) ?>VNĐ
+                </td>
             </tbody>
         </table>
     </div>
@@ -133,9 +131,8 @@
             var filter_id = $(this).val();
             $.get("doanh-thu-select", {
                 filter_id: filter_id
-            }, function($data, $h) {
+            }, function($data) {
                 $('#body').html($data);
-                $('#sumMoney').html($h);
             })
         });
     });

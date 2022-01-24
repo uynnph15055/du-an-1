@@ -5,7 +5,6 @@ session_start();
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 require_once "./vendor/autoload.php";
 
-
 use App\Controllers\Backend\adminAssess;
 use App\Controllers\Backend\adminCateSubject;
 use App\Controllers\Backend\adminLesson;

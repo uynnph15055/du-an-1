@@ -24,8 +24,8 @@ class adminAssess extends baseController
         echo "<form method='POST' action='sua-trang-thai-danh-gia'>
         <input hidden value='" . $assess_id . "' name='assess_id' type='text'>
         <div class='mb-3'>
-            <label for='exampleInputEmail1' class='form-label'>Trạng thái</label>
-            <select class='form-select' name='assess_status' aria-label='Default select example'>
+            <label for='exampleInputEmail1' class='form-label'>Trạng thái</label>_status' aria-label='Default select example'>
+            <select class='form-select' name='assess
                 <option value='0'>Ẩn đi</option>
                 <option value='1'>Hiển thị</option>
             </select>

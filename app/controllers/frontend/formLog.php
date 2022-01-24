@@ -279,25 +279,28 @@ class formLog extends baseController
                 extract($_POST);
 
                 $dataStudent = modelStudent::where('student_email', "=", $student_email)->get();
+                // $this->dd($dataStudent);
                 if (!empty($dataStudent)) {
                     if (password_verify($student_password, $dataStudent[0]['student_password'])) {
+                        // $this->dd($dataStudent);
                         $_SESSION['user_info'] = $dataStudent;
                         header('Location: ./');
+                        die();
                         // header('location: ' . $_SERVER['HTTP_REFERER']);
                     } else {
                         $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
                         header('Location: dang-nhap-dang-ky');
+                        die();
                     }
-                } else {
-                    header('Location: dang-nhap-dang-ky');
-                    die();
                 }
 
                 $dataAdmin = modelAdministrators::where("email", "=", $student_email)->get();
                 if (!empty($dataAdmin)) {
                     if (password_verify($student_password, $dataAdmin[0]['password'])) {
                         $_SESSION['admin_info'] = $dataAdmin;
+                        // $this->dd($dataAdmin);
                         header('Location: ./quan-tri');
+                        die();
                     }
                 } else {
                     $_SESSION['error-form'] = "Kiểm tra lại thông tin!";
@@ -436,3 +439,5 @@ class formLog extends baseController
         $this->render("customer.forgot_pass", []);
     }
 }
+
+// Cảm ơn ae đã xem video nhé :)))

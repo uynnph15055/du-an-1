@@ -78,7 +78,7 @@
                 <div id="collapseTwo" class="collapse" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="./danh-sach-loai-mon-hoc">Danh mục khóa học</a>
-                        <a class="collapse-item" href="./danh-sach-mon?trang=1 ">Danh sách các khóa</a>
+                        <a class="collapse-item" href="./danh-sach-mon?trang=1 ">Danh sách các khóa học</a>
                     </div>
                 </div>
             </li>
@@ -114,7 +114,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Khác    
+                Khác
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->

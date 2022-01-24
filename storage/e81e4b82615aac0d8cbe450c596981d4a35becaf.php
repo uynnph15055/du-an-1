@@ -97,13 +97,7 @@
                                 <?php $__currentLoopData = $dataCourseLeaning; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <?php $count_lesson = count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?>
 
-                                <?php if($key['sum_lesson'] < $count_lesson): ?>
-
-                                <?php $i += 1 ?>
-                                <?php endif; ?>
-
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <span class="head-status__sub"> <?php echo $i ?></span>
+                                <?php if($key['sum_lesson'] < $count_lesson): ?> <?php $i += 1 ?> <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <span class="head-status__sub"> <?php echo $i ?></span>
                             </div>
                             <div class="status-content">
 
@@ -111,8 +105,7 @@
                                     <?php $__currentLoopData = $dataCourseLeaning; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php $count_lesson = count(modelLesson::where("subject_id", "=", $key['subject_id'])->get()); ?>
 
-                                    <?php if($key['sum_lesson'] < $count_lesson): ?> 
-                                    <div class="status-course-item">
+                                    <?php if($key['sum_lesson'] < $count_lesson): ?> <div class="status-course-item">
                                         <div class="status-course-img">
                                             <a href="bai-hoc?mon=<?php echo e($key['subject_slug']); ?>">
                                                 <img src="./public/img/<?php echo e($key['subject_img']); ?>" alt="" class="img-fluid">

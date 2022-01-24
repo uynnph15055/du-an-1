@@ -98,8 +98,6 @@ class ComposerStaticInitafd19c01632693bc6c99c7f920f68181
         ),
         'C' => 
         array (
-            'Controllers\\' => 12,
-            'Commons\\' => 8,
             'Carbon\\' => 7,
         ),
         'A' => 
@@ -266,14 +264,6 @@ class ComposerStaticInitafd19c01632693bc6c99c7f920f68181
         'Doctrine\\Inflector\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
-        ),
-        'Controllers\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/controllers',
-        ),
-        'Commons\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/common',
         ),
         'Carbon\\' => 
         array (

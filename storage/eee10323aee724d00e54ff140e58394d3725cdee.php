@@ -11,7 +11,7 @@
         <h2 style="text-align: center; font-size: 30px; font-weight:bold; margin-bottom: 30px;">GIỚI THIỆU</h2>
         <div class="about-intro">
             <div style="text-align: right" class="intro-img">
-                <img style="height: 350px;" src="./public/img/cf947b46283c10c47e3d5d945afb7053.gif" alt="" class="img-fluid">
+                <img style="height: 350px;border-radius: 20px;" src="./public/img/cf947b46283c10c47e3d5d945afb7053.gif" alt="" class="img-fluid">
             </div>
             <div class="intro-content">
                 <p style="font-weight: bold; font-size: 20px">COURSE IFT</p>
@@ -28,14 +28,15 @@
                 <div class="about-team-list">
                     <div class="about-team-item">
                         <div class="team-item-img">
-                            <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t1.6435-9/53184570_2289900747998046_8670164284736536576_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=GwVvjG2uHuQAX--Nrd2&_nc_ht=scontent.fhan2-3.fna&oh=b0b1f3a02c4e4e379b1807c7bcb8980d&oe=61C3CA5A" alt="" class="img-fluid">
+                            <img src="./public/img/IMG_7709.JPG" alt="" class="img-fluid">
                         </div>
                         <h5 class="team-item__name">
-                            Nguyễn Ngọc Uy
+                            Nguyễn Ngọc Anh
                         </h5>
                         <div class="team-item__quotes">
-                            
-                            BACKEND (WEB)
+
+                            FRONTEND (WEB)
+
                         </div>
                         <div class="team-item-social">
                             <a href="">
@@ -51,15 +52,14 @@
                     </div>
                     <div class="about-team-item">
                         <div class="team-item-img">
-                            <img src="./public/img/IMG_7709.JPG" alt="" class="img-fluid">
+                            <img src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.6435-9/119663231_2762102794111170_5855417844200472202_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=U2o4VvYb2xoAX8YRWc_&_nc_ht=scontent.fhan14-1.fna&oh=00_AT97crGIfoHRXJpXHL3j6yZQl9Gn06EAY9wxPhfWTavzoQ&oe=6202DA55" alt="" class="img-fluid">
                         </div>
                         <h5 class="team-item__name">
-                            Nguyễn Ngọc Anh
+                            Nguyễn Ngọc Uy
                         </h5>
                         <div class="team-item__quotes">
-                            
-                            FRONTEND (WEB)
 
+                            BACKEND (WEB)
                         </div>
                         <div class="team-item-social">
                             <a href="">
@@ -81,7 +81,7 @@
                             Nguyễn Đức Bình
                         </h5>
                         <div class="team-item__quotes">
-                             
+
                             BACKEND (WEB)
 
                         </div>

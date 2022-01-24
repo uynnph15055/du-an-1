@@ -66,7 +66,7 @@
                                     </abbr>
                                 </button>
                                 <div class="account-section action-item">
-                                    <button style="padding: 0; border-radius: 50%; cursor: pointer; overflow: hidden; width: 30px; height: 30px" onclick="toggleShowHide()" id="btn-acc">
+                                    <button style="padding: 0; border-radius: 50%; cursor: pointer; overflow: hidden; width: 30px; height: 30px" id="btn-acc">
                                         <img style="object-fit: cover; width: 30px; height: 30px" src="<?= $user_info[0]['student_avatar'] ?>" alt="">
                                     </button>
                                     <div id="account-list" class="content-container-acc">

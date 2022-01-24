@@ -56,7 +56,7 @@
                         </div>
                         <div class="form-group">
                             <label for="order_desc">Nội dung thanh toán</label>
-                            <textarea class="form-control" cols="20" id="order_desc" name="order_desc" rows="2">thanh toan khoa hoc <?php echo e($subject['subject_name']); ?></textarea>
+                            <textarea class="form-control" cols="20" id="order_desc" name="order_desc" rows="2">Thanh toán khoa hoc <?php echo e($subject['subject_name']); ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="bank_code">Ngân hàng</label>
@@ -205,6 +205,7 @@
                             <input class="form-control" id="txt_inv_mobile" name="txt_inv_mobile" type="text" value="02437764668" />
                         </div>
                     </div>
+                    <br>
                     <button style="background:linear-gradient(to right, #0098d2, #00bcca) " type="submit" name="redirect" id="redirect" class="btn btn-primary">Thanh toán </button>
 
                 </form>
